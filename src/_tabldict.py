@@ -189,6 +189,7 @@ def AnumberDict(
 
     trait_dict: Dict[str, int] = {}
     for trid, tr in AllTraits.items():
+        # if info: print(trid)
         # the key of the dictionary is the table name + trait name.
         name = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
         # generate the trait data for the query
@@ -198,7 +199,6 @@ def AnumberDict(
 
     if addtoglobal:
         GlobalDict[T.id] = trait_dict
-
     return trait_dict
 
 
@@ -338,10 +338,12 @@ def AddTable(
     dict: Dict[str, int] = {}
 ) -> Dict[str, int]:
     """
-    Adds a table to a dictionary, i.e. it reads a JSON dictionary, updates it with the provided table, and converts the dictionary to HTML.
+    Adds a table to a dictionary, i.e. it reads a JSON dictionary, 
+    updates it with the provided table, and converts the dictionary to HTML.
     Args:
         T (Table): The table to be added.
-        dict (Dict[str, int], optional): A dictionary to be updated. Defaults to an empty dictionary.
+        dict (Dict[str, int], optional): A dictionary to be updated. 
+        Defaults to an empty dictionary.
     Returns:
         Dict[str, int]: The updated dictionary.
     """
@@ -415,10 +417,10 @@ if __name__ == "__main__":
 
     from Abel import Abel                  # type: ignore
     from MotzkinInv import MotzkinInv      # type: ignore
-    from DistLattices import DistLattices  # type: ignore
+    from DoublePochhammer import DoublePochhammer  # type: ignore
 
-    # InspectTable(DyckPathsInv)
-    #AddTable(DistLattices) # type: ignore
+    # InspectTable(CentralFactorial)
+    AddTable(DoublePochhammer) # type: ignore
 
     # RefreshHtml(True)
     
@@ -432,7 +434,7 @@ if __name__ == "__main__":
     #for k, v in GlobalDict.items():
     #    print(k, len(v.values()))
 
-    #AddAnumsToSrcfile("DistLattices")
+    # AddAnumsToSrcfile("DoublePochhammer")
 
     #for k, v in dict.items():
     #    print(k, v)

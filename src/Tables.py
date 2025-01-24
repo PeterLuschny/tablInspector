@@ -430,7 +430,7 @@ def AltTable(T: Table) -> Table:
     return Table(altgen, T.id + ":Alt")
 
 
-def SubTriangle(T: Table, N: int, K: int) -> Table:
+def SubTable(T: Table, N: int, K: int) -> Table:
     """
     Generates a sub-triangle of a given size from a given triangle.
     Args:
@@ -669,14 +669,18 @@ def QueryOEIS(
         modulo a couple of first terms and the signs.
     Raises:
         Exception: If the OEIS server cannot be reached after multiple attempts.
-        Currently, the function will return -999999 if the OEIS server cannot be reached.
+        Currently, the function will return -999999 if the OEIS server cannot be reached or if the sequence has only zeros.
     """
     if len(seqlist) < minlen:
         print(f"Sequence is too short! We require at least {minlen} terms.")
         print("You provided:", seqlist)
         return 0
-    # Warning. These 'magical' constants are very sensible!
-    seqstr = SeqToString(seqlist, 180, 50, ",", 3, True)
+    if 0 == sum(seqlist[0:36]):
+        return -999999  # XXXXX dont search for the all zeros sequence
+    off = (
+        0 if 0 == sum(seqlist[3:36]) else 3
+    )  # XXXXX dont skip leading terms if the rest is zero
+    seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
     for repeat in range(3):
         time.sleep(0.5)  # give the OEIS server some time to relax
@@ -688,7 +692,7 @@ def QueryOEIS(
             if jdata == None:
                 if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]):
                     seqlist = [k for k in seqlist if k != 0]
-                    seqstr = SeqToString(seqlist, 180, 50, ",", 3, True)
+                    seqstr = SeqToString(seqlist, 160, 36, ",", 3, True)
                     if info:
                         print("Searching without zeros:", seqstr)
                     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
@@ -703,7 +707,7 @@ def QueryOEIS(
                 anumber = f"A{(6 - len(str(number))) * '0' + str(number)}"
                 name = seq["name"]
                 data = seq["data"].replace("-", "")  # type: ignore
-                seqstr = SeqToString(seqlist, 600, 25, ",", 0, True)
+                seqstr = SeqToString(seqlist, 160, 25, ",", 0, True)
                 start, length = lcsubstr(data, seqstr)  # type: ignore
                 ol = data.count(",")  # type: ignore
                 sl = data.count(",", 0, start)  # type: ignore
@@ -1335,6 +1339,7 @@ def AnumberDict(
     print(f"*** Table {T.id} under construction ***")
     trait_dict: Dict[str, int] = {}
     for trid, tr in AllTraits.items():
+        # if info: print(trid)
         # the key of the dictionary is the table name + trait name.
         name = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
         # generate the trait data for the query
@@ -1472,10 +1477,12 @@ def RefreshDatabase() -> None:
 
 def AddTable(T: Table, dict: Dict[str, int] = {}) -> Dict[str, int]:
     """
-    Adds a table to a dictionary, i.e. it reads a JSON dictionary, updates it with the provided table, and converts the dictionary to HTML.
+    Adds a table to a dictionary, i.e. it reads a JSON dictionary,
+    updates it with the provided table, and converts the dictionary to HTML.
     Args:
         T (Table): The table to be added.
-        dict (Dict[str, int], optional): A dictionary to be updated. Defaults to an empty dictionary.
+        dict (Dict[str, int], optional): A dictionary to be updated.
+        Defaults to an empty dictionary.
     Returns:
         Dict[str, int]: The updated dictionary.
     """
@@ -1559,14 +1566,19 @@ def Ranking() -> Dict[int, Rank]:
         a = len(v)
         d = len(set(v))
         m = len([k for k in v if k == 0])
-        anum = "A" + str(v[0]).rjust(6, "0")
+        w = v[0] if v[0] != 0 else v[3]  # if not (0,0) then (1,1)
+        anum = "A" + str(w).rjust(6, "0")
         ranks.append(Rank(anum, name, d, a - m, m))
     sorted_ranks = sorted(ranks, key=itemgetter(2), reverse=True)
     Rankings = {n: r for n, r in enumerate(sorted_ranks)}
+    # IO = "https://peterluschny.github.io/tabl"
     print("\nRanking of triangles with regard to their impact:\n")
+    print()
+    print("|   | Name             |  OEIS |Distinct| Hits | Traits | Links |")
+    print("| :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |")
     for n, r in Rankings.items():
         print(
-            f"[{n:2}] {r.name:17} [{r.anum}]  Distinct: {r.distinct:2}, Hits: {r.hits:2}, Misses: {r.misses:2}."
+            f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [T](https://peterluschny.github.io/tabl/{r.name}.html)   | [L](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |"
         )
     return Rankings
 
@@ -2010,6 +2022,25 @@ CentralCycle = Table(
     ["A269940", "A111999", "A259456"],
     "",  # not ivertible
     r"\sum_{m=0}^k (-1)^{m+k} \binom{n+k}{n+m}\, {n + m \brack m}",
+)
+
+
+@cache
+def centralfactorial(n: int) -> list[int]:
+    if n == 0:
+        return [1]
+    row = [1] * (n + 1)
+    for k in range(0, n):
+        row[k + 1] = row[k] * (n * n - k * k)
+    return row
+
+
+CentralFactorial = Table(
+    centralfactorial,  # the generating function
+    "CentralFactorial",  # name of the table
+    ["A370707"],  # similar sequences in OEIS
+    "",  # no integer inverse triangle
+    r"(-1)^k \prod_{j=0}^{k-1}\, (j - n)(j + n)",  # TeX of defining formula
 )
 
 
@@ -4033,6 +4064,7 @@ TablesList: list[Table] = [
     CatalanInv,
     CatalanPaths,
     CentralCycle,
+    CentralFactorial,
     CentralSet,
     CentralSetInv,
     Chains,

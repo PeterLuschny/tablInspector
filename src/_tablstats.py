@@ -46,15 +46,20 @@ def Ranking() -> Dict[int, Rank]:
         a = len(v)
         d = len(set(v))
         m = len([k for k in v if k == 0])
-        anum = 'A' + str(v[0]).rjust(6, "0")
+        w = v[0] if v[0] != 0 else v[3] # if not (0,0) then (1,1)
+        anum = 'A' + str(w).rjust(6, "0")
         ranks.append(Rank(anum, name, d, a - m, m))
 
     sorted_ranks = sorted(ranks, key=itemgetter(2), reverse=True)
     Rankings = {n: r for n, r in enumerate(sorted_ranks)}
 
+    # IO = "https://peterluschny.github.io/tabl" 
     print("\nRanking of triangles with regard to their impact:\n")
-    for n, r in Rankings.items(): 
-        print(f"[{n:2}] {r.name:17} [{r.anum}]  Distinct: {r.distinct:2}, Hits: {r.hits:2}, Misses: {r.misses:2}.")
+    print()
+    print("|   | Name             |  OEIS |Distinct| Hits | Traits | Links |")
+    print("| :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |")
+    for n, r in Rankings.items():
+        print(f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [T](https://peterluschny.github.io/tabl/{r.name}.html)   | [L](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |")
 
     return Rankings
 

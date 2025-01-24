@@ -529,7 +529,7 @@ def AltTable(T: Table) -> Table:
     return Table(altgen, T.id + ":Alt")
 
 
-def SubTriangle(T: Table, N: int, K: int) -> Table:
+def SubTable(T: Table, N: int, K: int) -> Table:
     """
     Generates a sub-triangle of a given size from a given triangle.
 

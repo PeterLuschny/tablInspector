@@ -222,15 +222,16 @@ def QueryOEIS(
 
     Raises:
         Exception: If the OEIS server cannot be reached after multiple attempts.
-        Currently, the function will return -999999 if the OEIS server cannot be reached.
+        Currently, the function will return -999999 if the OEIS server cannot be reached or if the sequence has only zeros.
     """
     if len(seqlist) < minlen:
       print(f"Sequence is too short! We require at least {minlen} terms.")
       print("You provided:", seqlist)
       return 0
 
-    # Warning. These 'magical' constants are very sensible!
-    seqstr = SeqToString(seqlist, 180, 50, ",", 3, True)
+    if 0 == sum(seqlist[0:36]): return -999999  # XXXXX dont search for the all zeros sequence
+    off = 0 if 0 == sum(seqlist[3:36]) else 3   # XXXXX dont skip leading terms if the rest is zero
+    seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
 
     for repeat in range(3):
@@ -242,7 +243,7 @@ def QueryOEIS(
             if jdata == None:
                 if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]): 
                     seqlist = [k for k in seqlist if k != 0]
-                    seqstr = SeqToString(seqlist, 180, 50, ",", 3, True)
+                    seqstr = SeqToString(seqlist, 160, 36, ",", 3, True)
                     if info:
                         print("Searching without zeros:", seqstr)
                     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
@@ -258,7 +259,7 @@ def QueryOEIS(
                 anumber = f"A{(6 - len(str(number))) * '0' + str(number)}"
                 name = seq["name"]
                 data = seq["data"].replace('-', '')         # type: ignore
-                seqstr = SeqToString(seqlist, 600, 25, ",", 0, True)
+                seqstr = SeqToString(seqlist, 160, 25, ",", 0, True)
                 start, length = lcsubstr(data, seqstr)      # type: ignore
                 ol = data.count(",")                        # type: ignore
                 sl = data.count(",", 0, start)              # type: ignore

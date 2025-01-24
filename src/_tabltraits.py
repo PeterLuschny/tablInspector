@@ -5,7 +5,7 @@ It includes functions to compute different traits of tables, such as dot product
 
 from Binomial import Binomial, InvBinomial
 from _tabltypes import Table, RevTable, rgen, trait
-from _tablutils import SeqToString # FNVhash
+from _tablutils import SeqToString
 from typing import Tuple, TypeAlias
 from itertools import accumulate
 from more_itertools import flatten
