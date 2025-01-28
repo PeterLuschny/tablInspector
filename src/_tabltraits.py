@@ -1,17 +1,16 @@
 """
-This module provides various functions to manipulate and analyze integer triangles (Table objects).
+This module provides various functions to analyze and transform integer triangles (Table objects).
 It includes functions to compute different traits of tables, such as dot products, polynomials, table columns, diagonals, rows, and various transformations and convolutions of tables. Additionally, it provides functions to compute LCM, GCD, sums, and other properties of table rows and columns.
 """
 
 from Binomial import Binomial, InvBinomial
-from _tabltypes import Table, RevTable, rgen, trait
+from _tabltypes import Table, RevTable, rowgen, trait
 from _tablutils import SeqToString
 from typing import Tuple, TypeAlias
 from itertools import accumulate
 from more_itertools import flatten
 from functools import reduce
 from math import lcm, gcd
-from fractions import Fraction
 import operator
 
 
@@ -78,67 +77,67 @@ def Tantidiag(T: Table, size: int = 9) -> list[int]:
 
 
 def TablCol(T: Table, col: int, size: int = 28) -> list[int]:
-    return [T.gen(col + n)[col] for n in range(size)]
+    return [T(col + n, col) for n in range(size)]
 
 
 def TablCol0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablDiag0(T, size)
     else:
-        return [T.gen(n)[0] for n in range(size)]
+        return [T(n, 0) for n in range(size)]
 
 
 def TablCol1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablDiag1(T, size)
     else:
-        return [T.gen(1 + n)[1] for n in range(size)]
+        return [T(1 + n, 1) for n in range(size)]
 
 
 def TablCol2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablDiag2(T, size)
     else:
-        return [T.gen(2 + n)[2] for n in range(size)]
+        return [T(2 + n, 2) for n in range(size)]
 
 
 def TablCol3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablDiag3(T, size)
     else:
-        return [T.gen(3 + n)[3] for n in range(size)]
+        return [T(3 + n, 3) for n in range(size)]
 
 
 def TablDiag(T: Table, diag: int, size: int = 28) -> list[int]:
-    return [T.gen(diag + k)[k] for k in range(size)]
+    return [T(diag + k, k) for k in range(size)]
 
 
 def TablDiag0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablCol0(T, size)
     else:
-        return [T.gen(k)[k] for k in range(size)]
+        return [T(k, k) for k in range(size)]
 
 
 def TablDiag1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablCol1(T, size)
     else:
-        return [T.gen(1 + k)[k] for k in range(size)]
+        return [T(1 + k, k) for k in range(size)]
 
 
 def TablDiag2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablCol2(T, size)
     else:
-        return [T.gen(2 + k)[k] for k in range(size)]
+        return [T(2 + k, k) for k in range(size)]
 
 
 def TablDiag3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     if rev:
         return TablCol3(T, size)
     else:
-        return [T.gen(3 + k)[k] for k in range(size)]
+        return [T(3 + k, k) for k in range(size)]
 
 
 def PolyRow(T: Table, row: int, size: int = 28) -> list[int]:
@@ -178,7 +177,7 @@ def PolyDiag(T: Table, size: int = 28) -> list[int]:
 
 
 # Note our convention to exclude 0 and 1.
-def RowLcmGcd(g: rgen, row: int, lg: bool) -> int:
+def RowLcmGcd(g: rowgen, row: int, lg: bool) -> int:
     Z = [v for v in g(row) if v not in [-1, 0, 1]]
     if Z == []:
         return 1
@@ -186,16 +185,16 @@ def RowLcmGcd(g: rgen, row: int, lg: bool) -> int:
 
 
 def TablLcm(T: Table, size: int = 28) -> list[int]:
-    return [RowLcmGcd(T.gen, row, True) for row in range(size)]
+    return [RowLcmGcd(T.row, n, True) for n in range(size)]
 
 
 def TablGcd(T: Table, size: int = 28) -> list[int]:
-    return [RowLcmGcd(T.gen, row, False) for row in range(size)]
+    return [RowLcmGcd(T.row, n, False) for n in range(size)]
 
 
 # Note our convention to use the abs value.
 def TablMax(T: Table, size: int = 28) -> list[int]:
-    return [reduce(max, (abs(t) for t in T.gen(row))) for row in range(size)]
+    return [reduce(max, (abs(t) for t in T.row(n))) for n in range(size)]
 
 
 def TablSum(T: Table, size: int = 28) -> list[int]:
@@ -203,19 +202,19 @@ def TablSum(T: Table, size: int = 28) -> list[int]:
 
 
 def EvenSum(T: Table, size: int = 28) -> list[int]:
-    return [sum(T.gen(n)[::2]) for n in range(size)]
+    return [sum(T.row(n)[::2]) for n in range(size)]
 
 
 def OddSum(T: Table, size: int = 28) -> list[int]:
-    return [sum(T.gen(n)[1::2]) for n in range(size)]
+    return [sum(T.row(n)[1::2]) for n in range(size)]
 
 
 def AltSum(T: Table, size: int = 28) -> list[int]:
-    return [sum(T.gen(n)[::2]) - sum(T.gen(n)[1::2]) for n in range(size)]
+    return [sum(T.row(n)[::2]) - sum(T.row(n)[1::2]) for n in range(size)]
 
 
 def AbsSum(T: Table, size: int = 28) -> list[int]:
-    return [sum(abs(t) for t in T.gen(n)) for n in range(size)]
+    return [sum(abs(t) for t in T.row(n)) for n in range(size)]
 
 
 def AccSum(T: Table, size: int = 28) -> list[int]:
@@ -231,37 +230,36 @@ def AntiDSum(T: Table, size: int = 28) -> list[int]:
 
 
 def ColMiddle(T: Table, size: int = 28) -> list[int]:
-    return [T.gen(n)[n // 2] for n in range(size)]
+    return [T(n, n // 2) for n in range(size)]
 
 
 def CentralE(T: Table, size: int = 28) -> list[int]:
-    return [T.gen(2 * n)[n] for n in range(size)]
+    return [T(2 * n, n) for n in range(size)]
 
 
 def CentralO(T: Table, size: int = 28) -> list[int]:
-    return [T.gen(2 * n + 1)[n] for n in range(size)]
+    return [T(2 * n + 1, n) for n in range(size)]
 
 
 def ColLeft(T: Table, size: int = 28) -> list[int]:
-    return [T.gen(n)[0] for n in range(size)]
+    return [T(n, 0) for n in range(size)]
 
 
 def ColRight(T: Table, size: int = 28) -> list[int]:
-    return [T.gen(n)[-1] for n in range(size)]
+    return [T(n, n) for n in range(size)]
 
 
-def PolyFrac(T: Table, n: int, x: Fraction) -> Fraction | int:
-    return sum(c * (x**k) for (k, c) in enumerate(T.gen(n)))
+def PolyFrac(row: list[int], x: int) -> int:
+    n = len(row) - 1
+    return sum(c * x**(n - k) for (k, c) in enumerate(row))
 
 
 def PosHalf(T: Table, size: int = 28) -> list[int]:
-    return [((2**n) * PolyFrac(T, n, Fraction(1, 2))).numerator 
-            for n in range(size)]
+    return [PolyFrac(T.row(n), 2) for n in range(size)]
 
 
 def NegHalf(T: Table, size: int = 28) -> list[int]:
-    return [(((-2) ** n) * PolyFrac(T, n, Fraction(-1, 2))).numerator 
-            for n in range(size)]
+    return [PolyFrac(T.row(n), -2) for n in range(size)]
 
 
 def TransNat0(T: Table, size: int = 28) -> list[int]:
@@ -277,11 +275,11 @@ def TransSqrs(T: Table, size: int = 28) -> list[int]:
 
 
 def BinConv(T: Table, size: int = 28) -> list[int]:
-    return [dotproduct(Binomial.gen(n), T.gen(n)) for n in range(size)]
+    return [dotproduct(Binomial.row(n), T.row(n)) for n in range(size)]
 
 
 def InvBinConv(T: Table, size: int = 28) -> list[int]:
-    return [dotproduct(InvBinomial.gen(n), T.gen(n)) for n in range(size)]
+    return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
 
 #------
 
@@ -350,12 +348,12 @@ def Rev_PolyDiag(t: Table, size: int = 28) -> list[int]:
 
 def Rev_EvenSum(t: Table, size: int = 28) -> list[int]:
     T = RevTable(t)
-    return [sum(T.gen(n)[::2]) for n in range(size)]
+    return [sum(T.row(n)[::2]) for n in range(size)]
 
 
 def Rev_OddSum(t: Table, size: int = 28) -> list[int]:
     T = RevTable(t)
-    return [sum(T.gen(n)[1::2]) for n in range(size)]
+    return [sum(T.row(n)[1::2]) for n in range(size)]
 
 
 def Rev_AccRevSum(t: Table, size: int = 28) -> list[int]:
@@ -370,18 +368,20 @@ def Rev_AntiDSum(t: Table, size: int = 28) -> list[int]:
 
 def Rev_ColMiddle(t: Table, size: int = 28) -> list[int]:
     T = RevTable(t)
-    return [T.gen(n)[n // 2] for n in range(size)]
+    return [T(n, n // 2) for n in range(size)]
 
 
 def Rev_CentralO(t: Table, size: int = 28) -> list[int]:
     T = RevTable(t)
-    return [T.gen(2 * n + 1)[n] for n in range(size)]
+    return [T(2 * n + 1, n) for n in range(size)]
+
+
+def Rev_PosHalf(t: Table, size: int = 28) -> list[int]:
+    return [PolyFrac(t.rev(n),  2) for n in range(size)]
 
 
 def Rev_NegHalf(t: Table, size: int = 28) -> list[int]:
-    T = RevTable(t)
-    return [(((-2) ** n) * PolyFrac(T, n, Fraction(-1, 2))).numerator 
-            for n in range(size)]
+    return [PolyFrac(t.rev(n), -2) for n in range(size)]
 
 
 def Rev_TransNat0(t: Table, size: int = 28) -> list[int]:
@@ -475,6 +475,7 @@ AllTraits: dict[str, TraitInfo] = {
     "RevAntiDSum  ": (Rev_AntiDSum,  28, r"\(\sum_{k=0}^{n/2}T_{n-k,n-k}\)"),
     "RevColMiddle ": (Rev_ColMiddle, 28, r"\(T_{n,n/2}\)"),
     "RevCentralO  ": (Rev_CentralO,  28, r"\(T_{2n+1,n}\)"),
+    "RevPosHalf   ": (Rev_PosHalf,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 2^{n-k} \)"),
     "RevNegHalf   ": (Rev_NegHalf,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (-2)^{n-k} \)"),
     "RevTransNat0 ": (Rev_TransNat0, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ k\)"),
     "RevTransNat1 ": (Rev_TransNat1, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (k + 1)\)"),
@@ -538,3 +539,6 @@ if __name__ == "__main__":
     
     #test(Abel, 10)
     TableTraits(Abel)
+
+    #def is_sage_running() -> bool: return 2^3 != 1
+    #print(is_sage_running())

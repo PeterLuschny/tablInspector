@@ -104,10 +104,10 @@ if __name__ == "__main__":
 
     dim = 8
     print(InvertMatrix(Abel.tab(dim)))
-    print(InvertTriangle(Abel.gen, dim))
+    print(InvertTriangle(Abel.row, dim))
     print()
     print(InvertMatrix(StirlingSet.tab(dim)))
-    print(InvertTriangle(StirlingSet.gen, dim))
+    print(InvertTriangle(StirlingSet.row, dim))
     print()
     print(InvertMatrix(Bell.tab(dim)))
-    print(InvertTriangle(Bell.gen, dim))
+    print(InvertTriangle(Bell.row, dim))

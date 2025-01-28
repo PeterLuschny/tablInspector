@@ -73,24 +73,24 @@ Currently, 116 triangles are included in this library implementing the class `Ta
 ```
     __call__(self, n: int, k: int) -> int | T(n, k)
     val (n:int, k:int)   -> int  | T(n, k)
-    row (n: int)         -> trow | n-th row of table
+    row (n: int)         -> tblrow | n-th row of table
     itr (size: int)      -> Iterator[list[int]] | traverse the first 'size' rows
     flat (size: int)     -> list[int] | flattened form of the first size rows
     diag(n, size: int)   -> list[int] | diagonal starting at the left side
     col (k, size: int)   -> list[int] | k-th column starting at the main diagonal
     sum (size: int)      -> list[int] | sums of the first size rows
     antidiag (size: int) -> list[int] | upward anti-diagonals
-    rev (size: int)      -> trow | reversed rows
-    acc (size: int)      -> trow | accumulated row 
-    alt (size: int)      -> trow | alternating signs 
-    diff (size: int)     -> trow | first difference of row
-    der (size: int)      -> trow | derivative of row
+    rev (size: int)      -> tblrow | reversed rows
+    acc (size: int)      -> tblrow | accumulated row 
+    alt (size: int)      -> tblrow | alternating signs 
+    diff (size: int)     -> tblrow | first difference of row
+    der (size: int)      -> tblrow | derivative of row
     tab (size: int)      -> tabl | table with size rows
     mat (size: int)      -> tabl | matrix form of lower triangular array
     inv (size: int)      -> tabl | inverse table
     revinv (size: int)   -> tabl | row reversed inverse
     invrev (size: int)   -> tabl | inverse of row reversed
-    off (N: int, K: int) -> rgen | new offset (N, K)
+    off (N: int, K: int) -> rowgen | new offset (N, K)
     revinv11 (size: int) -> tabl | revinv from offset (1, 1)
     invrev11 (size: int) -> tabl | invrev from offset (1, 1)
     poly(n: int, x: int) -> int  | sum(T(n, k) * x^j for j=0..n)

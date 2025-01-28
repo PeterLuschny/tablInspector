@@ -191,7 +191,7 @@ def AnumberDict(
     for trid, tr in AllTraits.items():
         # if info: print(trid)
         # the key of the dictionary is the table name + trait name.
-        name = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+        name = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
         # generate the trait data for the query
         seq: list[int] = tr[0](T, tr[1])
         if seq != []:
@@ -238,10 +238,11 @@ def DictToHtml(
                 if info: 
                     print(f"    {fullname} -> {anum}") # prints sorted dict 
 
-                traitfun, size, tex = AllTraits[fullname.split("_")[1]]
+                traitfun, size, tex = AllTraits[fullname.split('_')[1]]
                 seq = SeqToString(traitfun(T, size), 40, 20)
                 if anum == 0:
-                    miss.write(f"<br>{tex} &nbsp;&#x27A4;&nbsp; {fullname.split("_")[1]} &nbsp;&#x27A4;&nbsp; " + seq)
+                    t = f"<br>{tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
+                    miss.write(t + seq)
                     misses += 1
                 else:
                     if anum in anumlist: 
@@ -252,7 +253,8 @@ def DictToHtml(
                     else:
                         url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
                     oldanum = anum 
-                    oeis.write(f"<br>{url} {tex} &nbsp;&#x27A4;&nbsp; {fullname.split("_")[1]} &nbsp;&#x27A4;&nbsp; " + seq)
+                    t = f"<br>{url} {tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
+                    oeis.write(t + seq)
                     hits += 1
                     anumlist.add(anum)
 
@@ -375,7 +377,7 @@ def TraitOccurences() -> Dict[str, set[int]]:
     for T in TablesList:
         for trid in AllTraits.keys():
             # the key of the dictionary is the table name + trait name.
-            key = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+            key = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
             trdict[trid].add(GlobalDict[T.id].get(key, 1))
     return trdict
 
