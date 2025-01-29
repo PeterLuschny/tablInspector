@@ -539,6 +539,3 @@ if __name__ == "__main__":
     
     #test(Abel, 10)
     TableTraits(Abel)
-
-    #def is_sage_running() -> bool: return 2^3 != 1
-    #print(is_sage_running())

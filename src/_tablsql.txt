@@ -2,7 +2,7 @@ import sqlite3
 from pathlib import Path
 import traceback
 #from _tablpaths import GetDataPath, strippedpath, oeisnamespath
-from _tabltypes import tgen, trait, InvTable, RevTable, AltTable
+from _tabltypes import tblgen, trait, InvTable, RevTable, AltTable
 #from _tabltraits import RegisterTraits, is_tabletrait
 from _tabloeis import QueryOEIS
 from _tablutils import SeqToString, FNVhash
@@ -154,7 +154,7 @@ def FilterTraits(anum: str, anumsonly: bool=False) -> bool:
 
 # from typing import Callable
 
-def SaveTraits(fun: tgen, 
+def SaveTraits(fun: tblgen, 
     size: int, 
     traits_cur: sqlite3.Cursor, 
     oeis_cur: sqlite3.Cursor, 
@@ -171,7 +171,7 @@ def SaveTraits(fun: tgen,
     to store the traits data. The `TRAITS` dictionary contains the traits to be saved.
 
     Args:
-        fun (tgen): The generator used to generate the traits data.
+        fun (tblgen): The generator used to generate the traits data.
         size (int): The size of the traits data.
         traits_cur (sqlite3.Cursor): The cursor object for the traits table.
         oeis_cur (sqlite3.Cursor): The cursor object for the OEIS table.
@@ -234,7 +234,7 @@ def SaveTraits(fun: tgen,
 
 
 def SaveExtendedTraitsToDB(
-    fun: tgen, 
+    fun: tblgen, 
     size: int, 
     traits_cur: sqlite3.Cursor, 
     oeis_cur: sqlite3.Cursor, 
@@ -244,7 +244,7 @@ def SaveExtendedTraitsToDB(
     Saves the extended traits of a triangle to a SQLite database.
 
     Args:
-        fun (tgen): The triangle whose extended traits are to be saved.
+        fun (tblgen): The triangle whose extended traits are to be saved.
         size (int): The size of the triangle.
         traits_cur (sqlite3.Cursor): The cursor for the traits database.
         oeis_cur (sqlite3.Cursor): The cursor for the OEIS database.
@@ -293,12 +293,12 @@ def SaveExtendedTraitsToDB(
             SaveTraits(ri, size, traits_cur, oeis_cur, table, TRAITS)
 
 
-def SaveTraitsToDB(fun: tgen) -> None:
+def SaveTraitsToDB(fun: tblgen) -> None:
     """
     Saves the traits of a triangle to a SQLite database.
 
     Args:
-        fun (tgen): The triangle whose traits are to be saved.
+        fun (tblgen): The triangle whose traits are to be saved.
 
     Raises:
         Exception: If there is an error while saving the traits to the database.
@@ -320,12 +320,12 @@ def SaveTraitsToDB(fun: tgen) -> None:
     print(f"Info: Created database {name}.db in data/db.")
 
 
-def MergeAllDBs(tablfun: list[tgen]):
+def MergeAllDBs(tablfun: list[tblgen]):
     """
     Merge all SQLite databases into a single database.
 
     Args:
-        tablfun (list[tgen]): List of triangles.
+        tablfun (list[tblgen]): List of triangles.
 
     Raises:
         Exception: If there is an error during the merging process.

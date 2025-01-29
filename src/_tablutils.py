@@ -195,7 +195,7 @@ def SimilarsList() -> list[str]:
     """
     bag: list[str] = []
     for tab in TablesList:
-        for anum in tab.sim:
+        for anum in tab.oeis:
             bag.append(anum)
     return sorted(bag)
 
@@ -220,7 +220,7 @@ def TablesListPreview(prompt: bool = False) -> None:
         after displaying each table. Default is False.
     """
     for T in TablesList:
-        print(T.id, T.sim)
+        print(T.id, T.oeis)
         T.show(6)
         if prompt:
             input("Hit Return/Enter > ")

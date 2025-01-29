@@ -301,7 +301,7 @@ if __name__ == "__main__":
 
     def testQuerySum() -> None:
         for tabl in TablesList[:5]:
-            print(f"Searching row sums of {tabl.id} {tabl.sim}.")
+            print(f"Searching row sums of {tabl.id} {tabl.oeis}.")
             sumlist = [tabl.sum(n) for n in range(30)]
             anum = QueryOEIS(sumlist)
             print('A' + str(anum).rjust(6, "0"))

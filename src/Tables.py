@@ -78,9 +78,9 @@ class Table:
 
     def __init__(
         self,
-        row: rowgen,
+        gen: rowgen,
         id: str,
-        sim: list[str] = [""],
+        oeis: list[str] = [""],
         invid: str = "",
         tex: str = "",
     ) -> None:
@@ -89,65 +89,122 @@ class Table:
         Args:
             gen:  Function gen(n:int) -> list[int], defined for all n >= 0.
             id:   The name of the triangle.
-            sim:  A list of A-numbers of closely related OEIS triangles.
+            oeis:  A list of A-numbers of closely related OEIS triangles.
             invid: The identifier for the inverse of the triangle.
             tex: Defining formula as a TeX-string.
         """
-        self.row = row
+        self.gen = gen
         self.id = id
-        self.sim = sim
+        self.oeis = oeis
         self.invid = invid
         self.tex = tex
         self.invQ = invid != ""
 
-    def __getitem__(self, n: int) -> list[int]:
+    def __getitem__(self, n: int) -> trow:
         """
         Returns the n-th row of the triangle.
         Args:
-            n (int): The index of the row.
+            n: The index of the row.
         Returns:
             list[int]: The generated row.
+        Raises:
+            IndexError: if n < 0.
         """
-        return self.row(n)
+        if n < 0:
+            raise IndexError("0 <= n expected")
+        return self.gen(n)
 
-    def val(self, n: int, k: int) -> int:
-        """Return term of table with index (n, k).
+    def row(self, n: int) -> trow:
+        """
+        Return the n-th row of generated table
         Args:
             n, row index
-            k, column index
         Returns:
-            term of the table
+            trow: The n-th row of the table.
+        Raises:
+            IndexError: if n < 0.
         """
-        return self.row(n)[k]
+        if n < 0:
+            raise IndexError("0 <= n expected")
+        return self.gen(n)
 
     def __call__(self, n: int, k: int) -> int:
-        """Return term of table with index (n, k).
+        """
+        Return term of table with index (n, k).
         Args:
             n, row index
             k, column index
         Returns:
             term of the table
+
+        Raises:
+            IndexError: if k > n, k < 0, or n < 0.
         """
+        if k > n or k < 0 or n < 0:
+            raise IndexError("0<=k<=n expected")
+        return self.row(n)[k]
+
+    def val(self, n: int, k: int) -> int:
+        """
+        Return the term of the table with index (n, k).
+        Args:
+            n, row index
+            k, column index
+        Returns:
+            term of the table
+        Raises:
+            IndexError: if k > n, k < 0, or n < 0.
+        """
+        if k > n or k < 0 or n < 0:
+            raise IndexError("0<=k<=n expected")
         return self.row(n)[k]
 
     def itr(self, size: int) -> Iterator[list[int]]:
+        """
+        Generate an iterator that yields a specified number of elements from the table.
+        Args:
+            size (int): The number of elements to yield.
+        Returns:
+            Iterator[list[int]]: An iterator that yields lists of integers.
+
+        Example:
+            >>> for r in Abel.itr(5): print(r, sum(r))
+            [1] 1
+            [0, 1] 1
+            [0, 2, 1] 3
+            [0, 9, 6, 1] 16
+            [0, 64, 48, 12, 1] 125
+        """
         return islice(iter(self.tab(size)), size)
 
     def tab(self, size: int) -> tabl:
         """
+        Generates a table with the specified number of rows.
         Args:
             size, number of rows of the table to be generated
         Returns:
-            table generated
+            A table generated with the specified number of rows.
+        Example:
+            >>> Abel.tab(5)
+            [[1], [0, 1], [0, 2, 1], [0, 9, 6, 1], [0, 64, 48, 12, 1]]
         """
         return [list(self.row(n)) for n in range(size)]
 
-    def mat(self, size: int) -> tabl:
+    def mat(self, size: int) -> list[list[int]]:
         """
+        Generates a size x size matrix with the table as the lower triangle.
         Args:
             size, number of rows and columns
         Returns:
-            matrix with generated table as lower triangle
+            size x size matrix with the table as the lower triangle.
+
+        Example:
+            >>> Abel.mat(5)
+            [[1,  0, 0,  0, 0],
+            [0,  1,  0,  0, 0],
+            [0,  2,  1,  0, 0],
+            [0,  9,  6,  1, 0],
+            [0, 64, 48, 12, 1]]
         """
         return [
             [self.row(n)[k] if k <= n else 0 for k in range(size)] for n in range(size)
@@ -155,10 +212,15 @@ class Table:
 
     def rev(self, n: int) -> trow:
         """
+        Reverses the elements of a specified row.
         Args:
             n index of the row to be reversed
         Returns:
             reversed row
+
+        Example:
+            >>> Abel.rev(4)
+            [1, 12, 48, 64, 0]
         """
         return list(reversed(self.row(n)))
 
@@ -168,6 +230,9 @@ class Table:
             start index of the antidiagonal
         Returns:
             n-th antidiagonal
+        Example:
+            >>> [Abel.antidiag(n) for n in range(5)]
+            [[1], [0], [0, 1], [0, 2], [0, 9, 1]]
         """
         return [self.row(n - k)[k] for k in range((n + 2) // 2)]
 
@@ -175,10 +240,14 @@ class Table:
         """
         Generate an alternating sequence of terms.
         Args:
-            n: index of the row with signes to be alternated.
+            n (int): The index of the row to be generated.
         Returns:
-            trow: A list of terms where each term is multiplied
-                  by (-1) raised to its index.
+            trow: A list of terms with each term multiplied
+                  by (-1) raised to its row index.
+
+        Example:
+            >>> Abel.alt(4)
+            [0, -64, 48, -12, 1]
         """
         return [(-1) ** k * term for k, term in enumerate(self.row(n))]
 
@@ -188,6 +257,10 @@ class Table:
             index of row to be accumulated.
         Returns:
             accumulated row
+
+        Example:
+            >>> Abel.acc(4)
+            [0, 64, 112, 124, 125]
         """
         return list(accumulate(self.row(n)))
 
@@ -197,6 +270,12 @@ class Table:
             index of row the first differences is looked for
         Returns:
             first differences of row
+
+        Example:
+            >>> Abel.diff(4)
+            [0, 64, -16, -36, -11]
+            >>> list(accumulate(Abel.diff(5))) == Abel.row(5)
+            True
         """
         return list(difference(self.row(n)))
 
@@ -206,8 +285,14 @@ class Table:
             index of row-polynomial the derivative is looked for
         Returns:
             derivative of row-polynomial
+
+        Example:
+            >>> Abel.der(4)
+            [64, 96, 36, 4]
         """
-        powers = range(n + 3)
+        if n == 0:
+            return [0]
+        powers = range(n + 1)
         coeffs = self.row(n + 1)
         return list(map(operator.mul, coeffs, powers))[1:]
 
@@ -218,6 +303,10 @@ class Table:
             size, length of diagonal
         Returns:
             n-th diagonal starting at the left side
+
+        Example:
+            >>> Abel.diag(1, 5)
+            [0, 2, 6, 12, 20]
         """
         return [self.row(n + k)[k] for k in range(size)]
 
@@ -228,24 +317,36 @@ class Table:
             size, length of column
         Returns:
             k-th column starting at the main diagonal
+
+        Example:
+            >>> Abel.col(1, 5)
+            [1, 2, 9, 64, 625]
         """
         return [self.row(k + n)[k] for n in range(size)]
 
     def sum(self, n: int) -> int:
         """
+        Sums up the elements of a specified row.
         Args:
-            n index of the row to be summed up
+            n index (0-based) of the row to be summed up
         Returns:
-            row sum
+            Sum of the elements in the specified row.
+        Example:
+            >>> Abel.sum(4)
+            125
         """
         return sum(self.row(n))
 
     def flat(self, size: int) -> list[int]:
         """
+        Flattens the table by reading the first size rows.
         Args:
             size, number of rows to be flattened
         Returns:
             generated table read by rows, flattened
+        Example:
+            >>> Abel.flat(5)
+            [1, 0, 1, 0, 2, 1, 0, 9, 6, 1, 0, 64, 48, 12, 1]
         """
         return [self.row(n)[k] for n in range(size) for k in range(n + 1)]
 
@@ -254,7 +355,10 @@ class Table:
         Args:
             size, number of rows of the table to be inverted
         Returns:
-            inverse table
+            inverse table if it exists, otherwise the empty table
+        Example:
+            >>> Abel.inv(4)
+            [[1], [0, 1], [0, -2, 1], [0, 3, -6, 1]]
         """
         if not self.invQ:
             return []
@@ -270,7 +374,11 @@ class Table:
         Args:
             size, number of reversed rows of the inverted table
         Returns:
-            table with reversed rows of the inverse table
+            table with reversed rows of the inverse table if it exists, otherwise the empty table
+
+        Example:
+            >>> Abel.revinv(4)
+            [[1], [1, 0], [1, -2, 0], [1, -6, 3, 0]]
         """
         V = self.inv(size)
         if V == []:
@@ -282,7 +390,11 @@ class Table:
         Args:
             size, number of rows of the inverse table of reversed rows
         Returns:
-            inverse table of reversed rows
+            inverse table of reversed rows if it exists, otherwise the empty table
+
+        Example:
+            >>> Abel.invrev(4)
+            []
         """
         M = [list(reversed(self.row(n))) for n in range(size)]
         return InvertMatrix(M)
@@ -295,6 +407,10 @@ class Table:
             K, shifts column-offset by K
         Returns:
             row generator of shifted table
+
+        Example:
+            >>> [Abel.off(1, 1)(n) for n in range(4)]
+            [[1], [2, 1], [9, 6, 1], [64, 48, 12, 1]]
         """
 
         def subgen(n: int) -> trow:
@@ -308,6 +424,10 @@ class Table:
             size, number of rows
         Returns:
             sub-table with offset (1,1) and reversed rows
+
+        Example:
+            >>> [Abel.rev11(n) for n in range(4)]
+            [[1], [1, 2], [1, 6, 9], [1, 12, 48, 64]]
         """
         return list(reversed(self.off(1, 1)(n)))
 
@@ -316,7 +436,11 @@ class Table:
         Args:
             size, number of rows
         Returns:
-            inverse of the sub-table with offset (1,1)
+            inverse of the sub-table with offset (1,1) if it exists, otherwise the empty table
+
+        Example:
+            >>> Abel.inv11(4)
+            [[1], [-2, 1], [3, -6, 1], [-4, 24, -12, 1]]
         """
         M = [list(self.off(1, 1)(n)) for n in range(size)]
         return InvertMatrix(M)
@@ -327,6 +451,10 @@ class Table:
             size, number of rows
         Returns:
             reversed rows of the inverse sub-table with offset (1,1)
+
+        Example:
+            >>> Abel.revinv11(4)
+            [[1], [1, -2], [1, -6, 3], [1, -12, 24, -4]]
         """
         M = self.inv11(size)
         return [list(reversed(row)) for row in M]
@@ -336,7 +464,10 @@ class Table:
         Args:
             size, number of rows
         Returns:
-            sub-table with offset (1,1), reversed rows and inverted
+            sub-table with offset (1,1), reversed rows and inverted if it exists, otherwise the empty table
+        Example:
+            >>> Abel.invrev11(4)
+            []
         """
         M = [list(reversed(self.off(1, 1)(n))) for n in range(size)]
         return InvertMatrix(M)
@@ -349,45 +480,69 @@ class Table:
             x, argument of the polynomial
         Returns:
             sum(T(n, k) * x^j for j=0..n)
+
+        Example:
+            >>> Abel.poly(4, 2)
+            432
         """
         return sum(c * (x**j) for (j, c) in enumerate(self.row(n)))
 
-    # Also called sumprod.
     def trans(self, s: seq, size: int) -> list[int]:
-        """[sum(T(n, k) * s(k) for 0 <= k <= n) for 0 <= n < size]
-           For example, if T is the binomial then this is the
-           'binomial transform'.
+        """
+        Also called sumprod:
+        [sum(T(n, k) * s(k) for 0 <= k <= n) for 0 <= n < size]
+        For example, if T is the binomial then this is the
+        'binomial transform'.
         Args:
             s, sequence. Recommended to be a cached function.
             size, length of the returned list
         Returns:
             Initial segment of length size of s transformed.
+        Example:
+            >>> Abel.trans(lambda n: n, 6)
+            [0, 1, 4, 24, 200, 2160]
         """
         return [sum(self.row(n)[k] * s(k) for k in range(n + 1)) for n in range(size)]
 
     def invtrans(self, s: seq, size: int) -> list[int]:
-        """[sum((-1)^(n-k) * T(n, k) * s(k) for 0 <= k <= n)
-            for 0 <= n < size]
-            For example, if T is the binomial then this is the
-            'inverse binomial transform'.
+        """
+        Also called inverse sumprod:
+        [sum((-1)^(n-k) * T(n, k) * s(k) for 0 <= k <= n) for 0 <= n < size]
+        For example, if T is the binomial then this is the
+        'inverse binomial transform'.
         Args:
             s, sequence. Recommended to be cached function.
             size, length of the returned list
         Returns:
             Initial segment of length size of s transformed.
+        Example:
+            >>> Abel.invtrans(lambda n*n: n, 6)
+            [0, 1, 2, -6, 36, -320]
         """
         return [
             sum((-1) ** (n - k) * self.row(n)[k] * s(k) for k in range(n + 1))
             for n in range(size)
         ]
 
-    def show(self, size: int) -> None:
-        """Prints the first 'size' rows with the row-index in front.
+    def show(self, size: int, total: bool = False) -> None:
+        """
+        Prints the first 'size' rows with the row-index in front and,
+        optionally, the row sum at the end.
         Args:
-            size, number of rows
+            size: number of rows to print.
+            total (optional): If True, print also the row sum. Defaults to False.
+
+        Example:
+            >>> Abel.show(5, True)
+            [0] [1] [1]
+            [1] [0, 1] [1]
+            [2] [0, 2, 1] [3]
+            [3] [0, 9, 6, 1] [16]
+            [4] [0, 64, 48, 12, 1] [125]
         """
         for n in range(size):
-            print([n], self.row(n))
+            r = self.row(n)
+            print([n], r, [sum(r)] if total else "")
 
 
 def RevTable(T: Table) -> Table:
@@ -590,7 +745,7 @@ def SimilarsList() -> list[str]:
     """
     bag: list[str] = []
     for tab in TablesList:
-        for anum in tab.sim:
+        for anum in tab.oeis:
             bag.append(anum)
     return sorted(bag)
 
@@ -613,7 +768,7 @@ def TablesListPreview(prompt: bool = False) -> None:
         after displaying each table. Default is False.
     """
     for T in TablesList:
-        print(T.id, T.sim)
+        print(T.id, T.oeis)
         T.show(6)
         if prompt:
             input("Hit Return/Enter > ")
@@ -1358,7 +1513,7 @@ def DictToHtml(
     into two html files: TNameTraits.html and TNameMissing.html.
     A trait is 'missing' if the anum in the dictionary is 0.
     """
-    SRC = f"https://oeis.org/{T.sim[0]}"
+    SRC = f"https://oeis.org/{T.oeis[0]}"
     TID = (T.id).capitalize()
     SH = f'src={SRC}></iframe><p><span style="white-space: pre">     {TID}</span><br>'
     hitpath = GetRoot(f"docs/{T.id}Traits.html")
@@ -1366,10 +1521,10 @@ def DictToHtml(
     head = header.replace("Traits", T.id)
     TeX = r"\(\bbox[yellow, 5px]{\color{DarkGreen} T_{n, k} \ = \ TTEX } \)"
     TEX = TeX.replace("TTEX", T.tex)
-    url = f"<a href='https://oeis.org/{T.sim[0]}' target='OEISframe'>{T.sim[0]}</a> "
+    url = f"<a href='https://oeis.org/{T.oeis[0]}' target='OEISframe'>{T.oeis[0]}</a> "
     hits = misses = doubles = 0
     anumlist: set[int] = set()
-    oldanum = T.sim[0]
+    oldanum = T.oeis[0]
     with open(hitpath, "w+", encoding="utf-8") as oeis:
         with open(mispath, "w+", encoding="utf-8") as miss:
             oeis.write(head)
@@ -1529,7 +1684,7 @@ def InspectTable(T: Table, oeis: bool = False) -> None:
     print()
     print("NAME       ", T.id)
     print("Formula    ", T.tex)
-    print("Similars   ", T.sim)
+    print("Similars   ", T.oeis)
     print("Inverse    ", T.invid if T.invQ else "None")
     print("Timing 100 rows:", end="")
     TableGenerationTime(T)

@@ -215,7 +215,7 @@ def DictToHtml(
         A trait is 'missing' if the anum in the dictionary is 0.
     """
 
-    SRC = f'https://oeis.org/{T.sim[0]}'
+    SRC = f'https://oeis.org/{T.oeis[0]}'
     TID = (T.id).capitalize()
     SH = f'src={SRC}></iframe><p><span style="white-space: pre">     {TID}</span><br>'
     hitpath = GetRoot(f"docs/{T.id}Traits.html")
@@ -223,10 +223,10 @@ def DictToHtml(
     head = header.replace("Traits", T.id)
     TeX = r"\(\bbox[yellow, 5px]{\color{DarkGreen} T_{n, k} \ = \ TTEX } \)" 
     TEX = TeX.replace("TTEX", T.tex)
-    url = f"<a href='https://oeis.org/{T.sim[0]}' target='OEISframe'>{T.sim[0]}</a> "
+    url = f"<a href='https://oeis.org/{T.oeis[0]}' target='OEISframe'>{T.oeis[0]}</a> "
     hits = misses = doubles = 0
     anumlist: set[int] = set()
-    oldanum = T.sim[0] 
+    oldanum = T.oeis[0] 
 
     with open(hitpath, "w+", encoding="utf-8") as oeis:
         with open(mispath, "w+", encoding="utf-8") as miss:
@@ -403,7 +403,7 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
     print()
     print("NAME       ", T.id)
     print("Formula    ", T.tex)
-    print("Similars   ", T.sim)
+    print("Similars   ", T.oeis)
     print("Inverse    ", T.invid if T.invQ else "None")
     print("Timing 100 rows:", end=''); TableGenerationTime(T)
     print()
