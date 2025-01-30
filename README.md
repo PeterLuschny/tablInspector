@@ -66,6 +66,10 @@ Use the Table as an iterable:
         print(row, 'sum:', sum(row))
 ```
 
+### ... or add your own table:
+
+Go to the file "Template.py". It describes how you can add your own Table class to the library in three simple steps.
+
 # The methods
 
 Currently, 116 triangles are included in this library implementing the class `Table` that provides the following methods:
