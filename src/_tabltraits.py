@@ -43,28 +43,38 @@ def dotproduct(vec: list[int], tor: list[int]) -> int:
 
 def Triangle(T: Table, size: int = 7) -> list[int]:
     """
-    Generates a list of integers representing a triangle pattern from the given table.
+    Generates a list of integers representing a triangle from the given table.
 
     Args:
-        T (Table): The table from which to generate the triangle pattern.
-        size (int, optional): The size of the triangle. Defaults to 7.
+        T (Table): The table from which to generate the triangle.
+        size (int, optional): The number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A list of integers representing the triangle pattern.
+        list[int]: The rows flattened to a list of integers.
+    
+    Example:
+        >>> Triangle(Abel, 4)
+        [1, 0, 1, 0, 2, 1, 0, 9, 6, 1]
+        A137452
     """
     return T.flat(size)
 
 
 def Trev(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a list of reversed elements from a Table object.
+    Generate a list of integers from the reversed rows of the Table object.
 
     Args:
         T (Table): The Table object containing elements to be reversed.
-        size (int, optional): The number of elements to reverse. Defaults to 7.
+        size (int, optional): The number of rows to reverse. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of reversed elements from the Table.
+        list[int]: A flattened list of reversed rows from the Table.
+    
+    Example:
+        >>> Trev(StirlingSet, 4)
+        [1, 1, 0, 1, 1, 0, 1, 3, 1, 0]
+        A106800
     """
     return list(flatten([T.rev(n) for n in range(size)]))
 
@@ -75,10 +85,15 @@ def Tinv(T: Table, size: int = 7) -> list[int]:
 
     Args:
         T (Table): The table to be inverted.
-        size (int, optional): The size parameter for the inversion. Defaults to 7.
+        size (int, optional): The size parameter of the table. Defaults to 7.
 
     Returns:
         list[int]: A flattened list of integers representing the inverted table.
+    
+    Example:
+        >>> Tinv(Abel, 4)
+        [1, 0, 1, 0, -2, 1, 0, 3, -6, 1]
+        A059297
     """
     return list(flatten(T.inv(size)))
 
@@ -89,25 +104,48 @@ def Tinvrev(T: Table, size: int = 7) -> list[int]:
 
     Args:
         T (Table): The table to be inverted and reversed.
-        size (int, optional): The size parameter for the inversion and reversal. Defaults to 7.
+        size (int, optional): The size parameter of the table. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of integers after inverting and reversing the table.
+        list[int]: A flattened list of integers after reversing and inverting the table.
+    
+    Example:
+        >>> Tinvrev(FallingFactorial, 4)
+        [1, -1, 1, 0, -2, 1, 0, 0, -3, 1]
+        A132013
     """
     return list(flatten(T.invrev(size)))
+
+def Trevinv(T: Table, size: int = 7) -> list[int]:
+    """
+    Invert the table and then revert the rows.
+
+    Args:
+        T (Table): The table to be inverted and reversed.
+        size (int, optional): The size parameter of the table. Defaults to 7.
+
+    Returns:
+        list[int]: A flattened table after inverting and reversing the table.
+    
+    Example:
+        >>> Trevinv(DyckPaths, 4)
+        [1, 1, -1, 1, -3, 1, 1, -5, 6, -1]
+        A054142
+    """
+    return list(flatten(T.revinv(size)))
 
 
 def Toff11(T: Table, size: int = 7) -> list[int]:
     """
     Creates a new Table object offset by 1 row and 1 column from the original table,
-    and returns a flattened list of the new table's elements.
+    and returns a flattened list of rows of the new table.
 
     Args:
         T (Table): The original table object.
-        size (int, optional): The size parameter for the flat method. Defaults to 7.
+        size (int, optional): The size parameter for the table. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of integers from the new table.
+        list[int]: A flattened list of rows from the new table.
     """
     T11 = Table(T.off(1, 1), T.id + "off11")
     return T11.flat(size)
@@ -115,28 +153,35 @@ def Toff11(T: Table, size: int = 7) -> list[int]:
 
 def Trev11(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a flattened list of reversed elements from a Table object.
+    Generate a flattened list of reversed rows from a Table object with
+    offset by 1 row and 1 column.
 
     Args:
         T (Table): The Table object containing the data.
-        size (int, optional): The number of elements to reverse. Defaults to 7.
+        size (int, optional): The number of rows to reverse. Defaults to 7.
 
     Returns:
         list[int]: A flattened list of reversed elements from the Table.
+    
+    Example:
+        >>> Trev11(Eulerian, 4)
+        [1, 1, 1, 1, 4, 1, 1, 11, 11, 1]
+        A008292
     """
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
 def Tinv11(T: Table, size: int = 7) -> list[int]:
     """
-    Compute the inverse of the table T using the inv11 method and flatten the result.
+    Compute the inverse of the table with offset 1 row and 1 column 
+    and flatten the rows of the result.
 
     Args:
         T (Table): The table object which has the inv11 method.
-        size (int, optional): The size parameter to be passed to the inv11 method. Defaults to 7.
+        size (int, optional): The size parameter of the shifted table. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of integers representing the inverse of the table.
+        list[int]: A flattened list of integers representing the rows of the table.
     """
     InvT11 = T.inv11(size)
     return list(flatten(InvT11))
@@ -152,6 +197,11 @@ def Tinvrev11(T: Table, size: int = 7) -> list[int]:
 
     Returns:
         list[int]: A flattened list of integers resulting from the inverse revision of the table.
+    
+    Example:
+        >>> Tinvrev11(Eulerian, 4)
+        [1, -1, 1, 3, -4, 1, -23, 33, -11, 1]
+        A055325
     """
     InvrevT11 = T.invrev11(size)
     return list(flatten(InvrevT11))
@@ -171,6 +221,11 @@ def Talt(T: Table, size: int = 7) -> list[int]:
 
     Returns:
         list[int]: A flattened list of alternative values from the Table object.
+        
+    Example:
+        >>> Talt(Binomial, 4)
+        [1, 1, -1, 1, -2, 1, 1, -3, 3, -1]
+        A130595
     """
     return list(flatten([T.alt(n) for n in range(size)]))
 
@@ -188,6 +243,11 @@ def Tacc(T: Table, size: int = 7) -> list[int]:
 
     Returns:
         list[int]: A flattened list of accumulated values.
+    
+    Example:
+        >>> Tacc(Binomial, 4)
+        [1, 1, 2, 1, 3, 4, 1, 4, 7, 8]
+        A008949
     """
     return list(flatten([T.acc(n) for n in range(size)]))
 
@@ -202,28 +262,37 @@ def Tder(T: Table, size: int = 7) -> list[int]:
 
     Returns:
         list[int]: A flattened list of derivatives.
+    
+    Example:
+        >>> Tder(Abel, 5)
+        [0, 1, 2, 2, 9, 12, 3, 64, 96, 36, 4]
+        A225465
     """
     return list(flatten([T.der(n) for n in range(size)]))
 
 
-# Needs 9 rows
 def Tantidiag(T: Table, size: int = 9) -> list[int]:
     """
-    Generate a list of elements from the antidiagonals of a table.
+    Generate the flattened table of the antidiagonals of the given table.
 
     Args:
-        T (Table): The table from which to extract antidiagonals.
-        size (int, optional): The number of antidiagonals to extract. Defaults to 9.
+        T (Table): The table from which to generate the antidiagonals.
+        size (int, optional): The number of antidiagonals. Defaults to 9.
 
     Returns:
-        list[int]: A flattened list of elements from the antidiagonals of the table.
+        list[int]: A flattened list of the first `size` antidiagonals of the table.
+        
+    Example:
+        >>> Tantidiag(Motzkin, 6)
+        [1, 1, 2, 1, 4, 2, 9, 5, 1, 21, 12, 3]
+        A106489
     """
     return list(flatten([T.antidiag(n) for n in range(size)]))
 
 
 def TablCol(T: Table, col: int, size: int = 28) -> list[int]:
     """
-    Extracts a column from a table and returns it as a list of integers.
+    Extract a column from a table and return it as a list of integers.
 
     Args:
         T (Table): The table from which to extract the column.
@@ -238,7 +307,7 @@ def TablCol(T: Table, col: int, size: int = 28) -> list[int]:
 
 def TablCol0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Retrieve the first column of a table.
+    Retrieve column 0 of a table.
 
     Args:
         T (Table): The table from which to retrieve the column.
@@ -256,10 +325,10 @@ def TablCol0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablCol1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generate a list of integers representing a column in a table.
+    Retrieve column 1 of a table.
 
     Args:
-        T (Table): The table object from which to extract the column.
+        T (Table): The table from which to extract the column.
         size (int, optional): The number of elements in the column. Defaults to 28.
         rev (bool, optional): If True, return the diagonal elements instead of the column. Defaults to False.
 
@@ -274,15 +343,16 @@ def TablCol1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablCol2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generates a list of integers based on the provided Table object.
+    Retrieve column 2 of a table.
 
     Args:
-        T (Table): The Table object to generate the list from.
+        T (Table): The table from which to extract the column.
         size (int, optional): The size of the list to generate. Defaults to 28.
         rev (bool, optional): If True, generates the list using the TablDiag2 function. Defaults to False.
 
     Returns:
-        list[int]: A list of integers generated from the Table object.
+        list[int]: A list of integers representing column 2 
+        or diagonal 2 of the given table.
     """
     if rev:
         return TablDiag2(T, size)
@@ -292,10 +362,10 @@ def TablCol2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablCol3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generate a list of integers based on the given Table object.
+    Retrieve column 3 of a table.
 
     Args:
-        T (Table): The Table object to generate the list from.
+        T (Table): The table object from which to extract the column.
         size (int, optional): The number of elements to generate. Defaults to 28.
         rev (bool, optional): If True, use the TablDiag3 function to generate the list. Defaults to False.
 
@@ -602,21 +672,26 @@ def TablMax(T: Table, size: int = 28) -> list[int]:
 
 def TablSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of elements in a table for a given range.
+    Calculate the sum of the elements of the first `size` rows.
 
     Args:
         T (Table): The table object containing the data.
-        size (int, optional): The number of elements to sum. Defaults to 28.
+        size (int, optional): The number of rows to sum. Defaults to 28.
 
     Returns:
         list[int]: A list of sums for each element in the specified range.
+    
+    Example:
+        >>> TablSum(Binomial, 6)
+        [1, 2, 4, 8, 16, 32]
+        A000079
     """
     return [T.sum(n) for n in range(size)]
 
 
 def EvenSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of even-indexed elements in each row of a table.
+    Calculate the sum of the even-indexed elements of the first `size` rows.
 
     Args:
         T (Table): The table object containing rows of data.
@@ -624,13 +699,18 @@ def EvenSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of sums of even-indexed elements for each row.
+    
+    Example:
+        >>> EvenSum(Binomial, 6)
+        [1, 1, 2, 4, 8, 16]
+        A011782
     """
     return [sum(T.row(n)[::2]) for n in range(size)]
 
 
 def OddSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of elements at odd indices for each row in a table.
+    Calculate the sum of the odd-indexed elements of the first `size` rows.
 
     Args:
         T (Table): The table object containing rows of data.
@@ -638,6 +718,11 @@ def OddSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of sums of elements at odd indices for each row.
+    
+    Example:
+        >>> OddSum(Binomial, 6)
+        [0, 1, 2, 4, 8, 16]
+        A131577
     """
     return [sum(T.row(n)[1::2]) for n in range(size)]
 
@@ -655,6 +740,11 @@ def AltSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of alternating sums for each row.
+    
+    Example:
+        >>> AltSum(Binomial, 6)
+        [1, 0, 0, 0, 0, 0]
+        A000007
     """
     return [sum(T.row(n)[::2]) - sum(T.row(n)[1::2]) for n in range(size)]
 
@@ -669,6 +759,11 @@ def AbsSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of absolute sums for each row.
+    
+    Example:
+        >>> AbsSum(EulerTan, 6)
+        [0, 1, 2, 5, 12, 41, 142]
+        A009739
     """
     return [sum(abs(t) for t in T.row(n)) for n in range(size)]
 
@@ -683,27 +778,37 @@ def AccSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of accumulated sums for each index from 0 to size-1.
+    
+    Example:
+        >>> AccSum(Binomial, 6)
+        [1, 3, 8, 20, 48, 112]
+        A001792
     """
     return [sum(T.acc(n)) for n in range(size)]
 
 
 def AccRevSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the accumulated revenue sums for a given table.
+    Return the accumulated sums of the reversed rows for the given table.
 
     Args:
         T (Table): The table object containing revenue data.
         size (int, optional): The number of periods to calculate the accumulated sums for. Defaults to 28.
 
     Returns:
-        list[int]: A list of accumulated revenue sums for each period.
+        list[int]: A list of accumulated sums of the reversed rows
+    
+    Example:
+        >>> AccRevSum(StirlingCycle, 6)
+        [1, 2, 5, 17, 74, 394]
+        A000774
     """
     return [sum(accumulate(T.rev(n))) for n in range(size)]
 
 
 def AntiDSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of the antidiagonals of a table.
+    Return the sum of the antidiagonals of a table.
 
     Args:
         T (Table): The table from which to calculate the antidiagonal sums.
@@ -711,56 +816,68 @@ def AntiDSum(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of sums of the antidiagonals.
+    
+    Example:
+        >>> AntiDSum(Binomial, 6)
+        [1, 1, 2, 3, 5, 8]
+        A000045
     """
     return [sum(T.antidiag(n)) for n in range(size)]
 
 
 def ColMiddle(T: Table, size: int = 28) -> list[int]:
     """
-    Generate a list of values from the Table object.
-
-    This function creates a list of values by calling the Table object `T` with 
-    two arguments: the current index `n` and half of the current index `n // 2`. 
-    The list is generated for indices ranging from 0 to `size - 1`.
+    Return the middle column of a table.
 
     Args:
-        T (Table): A callable object that takes two integer arguments and returns an integer.
+        T (Table): The table object from which to extract the column.
         size (int, optional): The number of elements to generate in the list. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers generated by the Table object `T`.
+        list[int]: A list of the middle terms of the given table.
+    
+    Example:
+        >>> ColMiddle(Binomial, 6)
+        [1, 1, 2, 3, 6, 10]
+        A001405
     """
     return [T(n, n // 2) for n in range(size)]
 
 
 def CentralE(T: Table, size: int = 28) -> list[int]:
     """
-    Generate a list of integers using a given table function.
-
-    This function takes a table function `T` and an optional size parameter `size`.
-    It returns a list of integers generated by applying the table function `T` to
-    pairs of integers (2 * n, n) for n in the range from 0 to `size` - 1.
+    Return the central column (terms of the form T(2n, n)) of a table.
 
     Args:
-        T (Table): A table function that takes two integers and returns an integer.
+        T (Table): The table object from which to extract the column.
         size (int, optional): The number of elements to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers generated by the table function `T`.
+        list[int]: A list of the central terms of the given table.
+        
+    Example:
+        >>> CentralE(Binomial, 6)
+        [1, 2, 6, 20, 70, 252]
+        A000984
     """
     return [T(2 * n, n) for n in range(size)]
 
 
 def CentralO(T: Table, size: int = 28) -> list[int]:
     """
-    Generates a list of integers by applying the function T to pairs of values.
+    Return the central column (terms of the form T(2n + 1, n)) of a table.
 
     Args:
-        T (Table): A function or callable that takes two integer arguments and returns an integer.
-        size (int, optional): The number of elements to generate in the list. Defaults to 28.
+        T (Table): The table object from which to extract the column.
+        size (int, optional): The number of elements to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers generated by applying T to pairs of values (2*n + 1, n) for n in range(size).
+        list[int]: A list of the central terms of the given table.
+        
+    Example:
+        >>> CentralO(Binomial, 6)
+        [1, 3, 10, 35, 126, 462]
+        A001700
     """
     return [T(2 * n + 1, n) for n in range(size)]
 
@@ -775,6 +892,11 @@ def ColLeft(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list containing the values from the leftmost column of the table.
+    
+    Example:
+        >>> ColLeft(Nicomachus, 6)
+        [1, 2, 4, 8, 16, 32]
+        A000079
     """
     return [T(n, 0) for n in range(size)]
 
@@ -789,6 +911,11 @@ def ColRight(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers generated by applying T to each integer in the specified range.
+    
+    Example:
+        >>> ColRight(Nicomachus, 6)
+        [1, 3, 9, 27, 81, 243]
+        A000244
     """
     return [T(n, n) for n in range(size)]
 
@@ -822,6 +949,11 @@ def PosHalf(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial fractions for the specified rows.
+    
+    Example:
+        >>> PosHalf(FallingFactorial, 6)
+        [1, 3, 10, 38, 168, 872]
+        A010842
     """
     return [PolyFrac(T.row(n), 2) for n in range(size)]
 
@@ -836,48 +968,68 @@ def NegHalf(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial fractions with a -2 exponent.
+        
+        Example:
+        >>> NegHalf(FallingFactorial, 7)
+        [1, -1, 2, -2, 8, 8, 112]
+        A000023
     """
     return [PolyFrac(T.row(n), -2) for n in range(size)]
 
 
 def TransNat0(T: Table, size: int = 28) -> list[int]:
     """
-    Transforms the given table using a natural transformation.
+    Transforms the nonnegative numbers by the linear transformation represented by the table.
 
     Args:
         T (Table): The table to be transformed.
         size (int, optional): The size parameter for the transformation. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers resulting from the transformation.
+        list[int]: A list of the transformed nonnegative integers.
+    
+    Example:
+        >>> TransNat0(Binomial, 6)
+        [0, 1, 4, 12, 32, 80]
+        A001787
     """
     return T.trans(lambda k: k, size)
 
 
 def TransNat1(T: Table, size: int = 28) -> list[int]:
     """
-    Transforms the given table by incrementing each element by 1.
+    Transforms the positive numbers by the linear transformation represented by the table.
 
     Args:
         T (Table): The table to be transformed.
         size (int, optional): The size parameter for the transformation. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers resulting from the transformation.
+        list[int]: A list of the transformed positive integers.
+    
+    Example:
+        >>> TransNat1(Binomial, 6)
+        [1, 3, 8, 20, 48, 112]
+        A001792
     """
     return T.trans(lambda k: k + 1, size)
 
 
 def TransSqrs(T: Table, size: int = 28) -> list[int]:
     """
-    Transforms each element in the table by squaring it.
+    Transforms the squares by the linear transformation represented by the table.
 
     Args:
-        T (Table): The table containing elements to be transformed.
+        T (Table): The table considered as a linear transformation.
         size (int, optional): The size parameter for the transformation. Defaults to 28.
 
     Returns:
-        list[int]: A list of squared elements from the table.
+        list[int]: The list of the transformed squares.
+    
+    Example:
+        >>> TransSqrs(Lah, 6)
+        [0, 1, 6, 39, 292, 2505]
+        A103194
     """
     return T.trans(lambda k: k * k, size)
 
@@ -892,6 +1044,11 @@ def BinConv(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers representing the dot product of each row with its binomial representation.
+    
+    Example:
+        >>> BinConv(FallingFactorial, 6)
+        [1, 2, 7, 34, 209, 1546]
+        A002720
     """
     return [dotproduct(Binomial.row(n), T.row(n)) for n in range(size)]
 
@@ -906,6 +1063,11 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers representing the result of the inverse binomial convolution for each row.
+    
+    Example:
+        >>> InvBinConv(FallingFactorial, 6)
+        [1, 0, -1, -4, -15, -56]
+        A009940
     """
     return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
 
@@ -1015,6 +1177,11 @@ def Rev_Tantidiag(t: Table, size: int = 9) -> list[int]:
 
     Returns:
         list[int]: A flattened list of integers from the reversed table's antidiagonals.
+    
+    Example:
+        >>> Rev_Tantidiag(Leibniz, 5)
+        [1, 2, 3, 2, 4, 6, 5, 12, 3]
+        A128502
     """
     T = RevTable(t)
     return list(flatten([T.antidiag(n) for n in range(size)]))
@@ -1096,6 +1263,11 @@ def Rev_PolyDiag(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial diagonal values.
+    
+    Example:
+        >>> Rev_PolyDiag(Narayana, 6)
+        [1, 1, 3, 19, 185, 2426]
+        A242369
     """
     T = RevTable(t)
     return [T.poly(n, n) for n in range(size)]
@@ -1103,7 +1275,7 @@ def Rev_PolyDiag(t: Table, size: int = 28) -> list[int]:
 
 def Rev_EvenSum(t: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of even-indexed elements in each row of a reversed table.
+    Calculate the sum of even-indexed elements in each row of the reversed table.
 
     Args:
         t (Table): The input table to be reversed.
@@ -1118,7 +1290,7 @@ def Rev_EvenSum(t: Table, size: int = 28) -> list[int]:
 
 def Rev_OddSum(t: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of odd-indexed elements in each row of a reversed table.
+    Calculate the sum of odd-indexed elements in each row of the reversed table.
 
     Args:
         t (Table): The input table to be reversed.
@@ -1133,14 +1305,14 @@ def Rev_OddSum(t: Table, size: int = 28) -> list[int]:
 
 def Rev_AccRevSum(t: Table, size: int = 28) -> list[int]:
     """
-    Calculate the accumulated sum of reversed table values.
+    Calculate the accumulated row sums of the reversed table.
 
     Args:
         t (Table): The input table.
-        size (int, optional): The number of elements to process. Defaults to 28.
+        size (int, optional): The number of rows to process. Defaults to 28.
 
     Returns:
-        list[int]: A list of accumulated sums for each element in the reversed table.
+        list[int]: A list of accumulated sums for each row in the reversed table.
     """
     T = RevTable(t)
     return [sum(accumulate(T.rev(n))) for n in range(size)]
@@ -1148,14 +1320,19 @@ def Rev_AccRevSum(t: Table, size: int = 28) -> list[int]:
 
 def Rev_AntiDSum(t: Table, size: int = 28) -> list[int]:
     """
-    Calculate the sum of the antidiagonals of a reversed table.
+    Calculate the sums of the antidiagonals of the reversed table.
 
     Args:
-        t (Table): The input table to be reversed.
+        t (Table): The input table.
         size (int, optional): The number of antidiagonals to sum. Defaults to 28.
 
     Returns:
-        list[int]: A list of sums of the antidiagonals.
+        list[int]: A list of sums of the antidiagonals of the reversed table.
+    
+    Example:
+        >>> Rev_AntiDSum(Narayana, 6)
+        [1, 1, 1, 2, 4, 8]
+        A004148
     """
     T = RevTable(t)
     return [sum(T.antidiag(n)) for n in range(size)]
@@ -1178,17 +1355,14 @@ def Rev_ColMiddle(t: Table, size: int = 28) -> list[int]:
 
 def Rev_CentralO(t: Table, size: int = 28) -> list[int]:
     """
-    Generate a list of integers based on the reversed table.
-
-    This function takes a table `t` and an optional size parameter `size`. It reverses the table
-    and then generates a list of integers by applying a specific formula to the reversed table.
+    Generate the central elements T(2n + 1, n) of the reversed table.
 
     Args:
-        t (Table): The input table to be reversed.
+        t (Table): The input table.
         size (int, optional): The number of elements to generate in the list. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers generated from the reversed table.
+        list[int]: The list of the central elements of the reversed table.
     """
     T = RevTable(t)
     return [T(2 * n + 1, n) for n in range(size)]
@@ -1204,6 +1378,11 @@ def Rev_PosHalf(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial fractions for the reversed elements.
+    
+    Example:
+        >>> Rev_PosHalf(Narayana, 6)
+        [1, 2, 6, 22, 90, 394]
+        A152681
     """
     return [PolyFrac(t.rev(n),  2) for n in range(size)]
 
@@ -1221,6 +1400,11 @@ def Rev_NegHalf(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial fractions with a negative half exponent.
+        
+    Example:
+        Rev_NegHalf(Narayana, 6)
+        [1, -2, 2, 2, -10, 6]
+        A152681
     """
     return [PolyFrac(t.rev(n), -2) for n in range(size)]
 
@@ -1240,6 +1424,11 @@ def Rev_TransNat0(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers resulting from the transformation.
+    
+    Example:
+        >>> Rev_TransNat0(StirlingCycle, 6)
+        [0, 0, 1, 7, 46, 326]
+        A067318
     """
     T = RevTable(t)
     return T.trans(lambda k: k, size)
@@ -1255,6 +1444,11 @@ def Rev_TransNat1(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers resulting from the transformation.
+    
+    Example:
+        >>> Rev_TransNat1(StirlingCycle, 6)
+        [1, 1, 3, 13, 70, 446]
+        A121586
     """
     T = RevTable(t)
     return T.trans(lambda k: k + 1, size)
@@ -1270,6 +1464,11 @@ def Rev_TransSqrs(t: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of integers resulting from the transformation.
+    
+    Example:
+        >>> Rev_TransSqrs(Binomial, 6)
+        [0, 1, 6, 24, 80, 240]
+        A001788
     """
     T = RevTable(t)
     return T.trans(lambda k: k * k, size)
@@ -1295,6 +1494,7 @@ AllTraits: dict[str, TraitInfo] = {
     "Tinv         ": (Tinv,      7, r"\(T^{-1}_{n,k}\)"),
     "Trev         ": (Trev,      7, r"\(T_{n,n-k}\)"),
     "Tinvrev      ": (Tinvrev,   7, r"\((T_{n,n-k})^{-1}\)"),
+    "Trevinv      ": (Trevinv,   7, r"\((T_{n,n-k})^{-1}\)"),
     "Toff11       ": (Toff11,    7, r"\(T_{n+1,k+1} \)"),
     "Trev11       ": (Trev11,    7, r"\(T_{n+1,n-k+1} \)"),
     "Tinv11       ": (Tinv11,    7, r"\(T^{-1}_{n+1,k+1}\)"),
@@ -1302,7 +1502,7 @@ AllTraits: dict[str, TraitInfo] = {
     "Tantidiag    ": (Tantidiag, 9, r"\(T_{n-k,k}\ \ (k \le n/2)\)"),
     "Tacc         ": (Tacc,      7, r"\(\sum_{j=0}^{k} T_{n,j}\)"),
     "Talt         ": (Talt,      7, r"\(T_{n,k}\ (-1)^{k}\)"),
-    "Tder         ": (Tder,      7, r"\(T_{n+1,k+1}\ (k+1) \)"),
+    "Tder         ": (Tder,      7, r"\(T_{n,k+1}\ (k+1) \)"),
     "TablCol0     ": (TablCol0,  28, r"\(T_{n  ,0}\)"),
     "TablCol1     ": (TablCol1,  28, r"\(T_{n+1,1}\)"),
     "TablCol2     ": (TablCol2,  28, r"\(T_{n+2,2}\)"),
@@ -1311,14 +1511,14 @@ AllTraits: dict[str, TraitInfo] = {
     "TablDiag1    ": (TablDiag1, 28, r"\(T_{n+1,n}\)"),
     "TablDiag2    ": (TablDiag2, 28, r"\(T_{n+2,n}\)"),
     "TablDiag3    ": (TablDiag3, 28, r"\(T_{n+3,n}\)"),
-    "TablLcm      ": (TablLcm,   28, r"\(\text{lcm}_{k=0}^{n}\ |T_{n,k}|\ (T_{n,k}>1)\)"),
-    "TablGcd      ": (TablGcd,   28, r"\(\text{gcd}_{k=0}^{n}\ |T_{n,k}|\ (T_{n,k}>1)\)"),
-    "TablMax      ": (TablMax,   28, r"\(\text{max}_{k=0}^{n}\ |T_{n,k}|\)"),
+#    "TablLcm      ": (TablLcm,   28, r"\(\text{lcm} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
+#    "TablGcd      ": (TablGcd,   28, r"\(\text{gcd} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
+    "TablMax      ": (TablMax,   28, r"\(\text{max} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
     "TablSum      ": (TablSum,   28, r"\(\sum_{k=0}^{n} T_{n,k}\)"),
-    "EvenSum      ": (EvenSum,   28, r"\(\sum_{k=0}^{n} T_{n,k}\ [2|k]\)"),
-    "OddSum       ": (OddSum,    28, r"\(\sum_{k=0}^{n} T_{n,k}\ (1-[2|k])\)"),
+    "EvenSum      ": (EvenSum,   28, r"\(\sum_{k=0}^{n} T_{n,k}\ ( 2 \mid k) \)"),
+    "OddSum       ": (OddSum,    28, r"\(\sum_{k=0}^{n} T_{n,k}\ (1 - (2 \mid k)) \)"),
     "AltSum       ": (AltSum,    28, r"\(\sum_{k=0}^{n} T_{n,k}\ (-1)^{k}\)"),
-    "AbsSum       ": (AbsSum,    28, r"\(\sum_{k=0}^{n} | T_{n,k} |\)"),
+    "AbsSum       ": (AbsSum,    28, r"\(\sum_{k=0}^{n} \| T_{n,k} \| \)"),
     "AccSum       ": (AccSum,    28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k} T_{n,j}\)"),
     "AccRevSum    ": (AccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k} T_{n,n-j}\)"),
     "AntiDSum     ": (AntiDSum,  28, r"\(\sum_{k=0}^{n/2} T_{n-k, k}\)"),
@@ -1345,11 +1545,11 @@ AllTraits: dict[str, TraitInfo] = {
     "RevTacc      ": (Rev_Tacc,      7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),
     "RevTalt      ": (Rev_Talt,      7, r"\(T_{n,n-k}\ (-1)^{n-k}\)"),
     "RevTder      ": (Rev_Tder,      7, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
-    "RevEvenSum   ": (Rev_EvenSum,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ [2|k]\)"),
-    "RevOddSum    ": (Rev_OddSum,    28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1-[2|k])\)"),
+    "RevEvenSum   ": (Rev_EvenSum,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (2 \mid k) \)"),
+    "RevOddSum    ": (Rev_OddSum,    28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1- (2 \mid k)) \)"),
     "RevAccRevSum ": (Rev_AccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k}T_{n,n-j}\)"),
     "RevAntiDSum  ": (Rev_AntiDSum,  28, r"\(\sum_{k=0}^{n/2}T_{n-k,n-k}\)"),
-    "RevColMiddle ": (Rev_ColMiddle, 28, r"\(T_{n,n/2}\)"),
+    "RevColMiddle ": (Rev_ColMiddle, 28, r"\(T_{n, n/2}\)"),
     "RevCentralO  ": (Rev_CentralO,  28, r"\(T_{2n+1,n}\)"),
     "RevPosHalf   ": (Rev_PosHalf,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 2^{n-k} \)"),
     "RevNegHalf   ": (Rev_NegHalf,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (-2)^{n-k} \)"),

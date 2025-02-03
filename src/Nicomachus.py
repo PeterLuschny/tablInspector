@@ -19,7 +19,8 @@ def nicomachus(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    row = nicomachus(n - 1) + [3 * nicomachus(n - 1)[n - 1]]
+    prev_row = nicomachus(n - 1)
+    row = prev_row + [3 * prev_row[-1]]
     for k in range(0, n):
         row[k] *= 2
     return row

@@ -302,8 +302,9 @@ class Table:
             n-th antidiagonal
 
         Example:
-            >>> [Abel.antidiag(n) for n in range(5)]
-            [[1], [0], [0, 1], [0, 2], [0, 9, 1]]
+            >>> [Motzkin.antidiag(n) for n in range(5)]
+            [[1], [1], [2, 1], [4, 2], [9, 5, 1]]
+            A106489
         """
         return [self.row(n - k)[k] for k in range((n + 2) // 2)]
 
@@ -372,8 +373,8 @@ class Table:
         """
         if n == 0: return [0]
         powers = range(n + 1)
-        coeffs = self.row(n + 1)
-        return list(map(operator.mul, coeffs, powers))[1:]
+        coeffs = self.row(n)
+        return list(map(operator.mul, coeffs, powers))[1:n+1]
 
 
     def diag(self, n: int, size: int) -> list[int]:
