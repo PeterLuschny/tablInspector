@@ -17,9 +17,10 @@ from _tabltypes import Table
 def _distlattices(n: int, k: int) -> int:
     if k == 0 or n == 0: return 1
 
-    return (_distlattices(n, k - 1)
-            + sum(_distlattices(2 * j, k - 1) * _distlattices(n - 1 - 2 * j, k) 
-                  for j in range(1 + (n - 1) // 2)))
+    s = [_distlattices(2 * j, k - 1) * _distlattices(n - 1 - 2 * j, k) 
+            for j in range(1 + (n - 1) // 2)]
+    return sum(s) + _distlattices(n, k - 1)
+
 
 # TODO Give a row based recurrence for this.
 @cache

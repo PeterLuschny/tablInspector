@@ -597,7 +597,7 @@ def SubTable(T: Table, N: int, K: int) -> Table:
 
 
 """Type: trait"""
-trait: TypeAlias = Callable[[Table, int], list[int]]
+Trait: TypeAlias = Callable[[Table, int], list[int]]
 
 
 def fnv(data: bytes) -> int:
@@ -775,6 +775,14 @@ def TablesListPreview(prompt: bool = False) -> None:
             input("Hit Return/Enter > ")
 
 
+def MeasureTableGenerationTime(BenchLength: int = 100) -> None:
+    t = StopWatch("Full Benchmark")
+    t.start()
+    for tabl in TablesList:
+        TableGenerationTime(tabl, BenchLength)  # type: ignore
+    t.stop()
+
+
 def lcsubstr(s: str, t: str) -> tuple[int, int]:
     """
     With CC BY-SA 4.0 from: https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Longest_common_substring
@@ -837,7 +845,7 @@ def QueryOEIS(
     for repeat in range(3):
         time.sleep(0.5)  # give the OEIS server some time to relax
         if info:
-            print(f"[{repeat}]")
+            print(f"connecting: [{repeat}]")
         try:
             # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=20).json()
             jdata = get(url, timeout=20).json()
@@ -869,8 +877,10 @@ def QueryOEIS(
                 if info or dl < 12:
                     print("You searched:", seqstr)
                     print("OEIS-data is:", data)  # type: ignore
-                    # print(f"Starting at index {sl} the next {dl} consecutive terms match. The matched substring starts at {start} and has length {length}.")
-                    print("***Found:", anumber, name)
+                    print(
+                        f"Info: Starting at index {sl} the next {dl} consecutive terms match.\nThe matched substring starts at byte {start} and has length {length}."
+                    )
+                    print("*** Found:", anumber, name)
                 if dl > 12:
                     break
             return int(number)
@@ -881,6 +891,33 @@ def QueryOEIS(
     # raise Exception(f"Could not open {url}.")
     print(f"Exception! Could not open {url}.")
     return -999999
+
+
+def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
+    """
+    Look up the A-number in the OEIS database based on a trait of a table.
+    Args:
+        t (Table): The table to be analyzed.
+        tr (Trait): A function that extracts a trait from the table.
+        info (bool, optional): If True, information about the matching will be displayed. Defaults to True.
+    Returns:
+        int: The A-number of the sequence if found, otherwise 0.
+
+    Raises:
+        Exception: If the OEIS server cannot be reached after multiple attempts.
+        Currently, the function will return -999999 if the OEIS server cannot be reached.
+
+    Example:
+        >>> LookUp(Fubini, PolyDiag)
+        connecting: [0]
+        You searched: 1,1,10,219,8676,...
+        OEIS-data is: 1,1,10,219,8676,...
+        Info: Starting at index 0 the next 13 consecutive terms match.
+        The matched substring starts at 0 and has length 135.
+        *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
+        Returns the int 94420.
+    """
+    return QueryOEIS(tr(t, 24), 1, info)
 
 
 def dotproduct(vec: list[int], tor: list[int]) -> int:
@@ -1393,6 +1430,11 @@ def PolyDiag(T: Table, size: int = 28) -> list[int]:
         size (int, optional): The number of diagonal values to generate. Defaults to 28.
     Returns:
         list[int]: A list of polynomial diagonal values.
+
+    Example:
+        >>> PolyDiag(Abel, 6)
+        [1, 1, 8, 108, 2048, 50000]
+        A193678
     """
     return [T.poly(n, n) for n in range(size)]
 
@@ -1437,6 +1479,11 @@ def TablGcd(T: Table, size: int = 28) -> list[int]:
         size (int, optional): The number of rows to process. Defaults to 28.
     Returns:
         list[int]: A list of GCD values for each row in the table.
+
+    Example:
+        >>> TablGcd(Fubini, 6)
+        [1, 1, 2, 6, 2, 30]
+        A141056, A027760
     """
     return [RowLcmGcd(T.row, n, False) for n in range(size)]
 
@@ -1450,6 +1497,11 @@ def TablMax(T: Table, size: int = 28) -> list[int]:
         size (int, optional): The number of rows to process. Defaults to 28.
     Returns:
         list[int]: A list of maximum absolute values for each row.
+
+    Example:
+        >>> TablMax(BinaryPell, 6)
+        [1, 2, 4, 12, 32, 80]
+        A109388
     """
     return [reduce(max, (abs(t) for t in T.row(n))) for n in range(size)]
 
@@ -2166,7 +2218,7 @@ def Rev_TransSqrs(t: Table, size: int = 28) -> list[int]:
 """The basic construction is a map
     (Table:Class, Trait:Function) -> (Anum:Url, TreatInfo:TeXString)
 """
-TraitInfo: TypeAlias = Tuple[trait, int, str]
+TraitInfo: TypeAlias = Tuple[Trait, int, str]
 """The dictionary of all traits with their respective functions and TeX strings.
    The size of the table is set to 7, 9 or 28 rows for the default case.
    It is mandatory that this dictionary starts with the key 'Triangle'!
@@ -2193,6 +2245,8 @@ AllTraits: dict[str, TraitInfo] = {
     "TablDiag1    ": (TablDiag1, 28, r"\(T_{n+1,n}\)"),
     "TablDiag2    ": (TablDiag2, 28, r"\(T_{n+2,n}\)"),
     "TablDiag3    ": (TablDiag3, 28, r"\(T_{n+3,n}\)"),
+    "TablLcm      ": (TablLcm, 28, r"\(\text{lcm} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
+    "TablGcd      ": (TablGcd, 28, r"\(\text{gcd} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
     "TablMax      ": (TablMax, 28, r"\(\text{max} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
     "TablSum      ": (TablSum, 28, r"\(\sum_{k=0}^{n} T_{n,k}\)"),
     "EvenSum      ": (EvenSum, 28, r"\(\sum_{k=0}^{n} T_{n,k}\ ( 2 \mid k) \)"),
@@ -3381,10 +3435,11 @@ DelannoyInv = Table(
 def _distlattices(n: int, k: int) -> int:
     if k == 0 or n == 0:
         return 1
-    return _distlattices(n, k - 1) + sum(
+    s = [
         _distlattices(2 * j, k - 1) * _distlattices(n - 1 - 2 * j, k)
         for j in range(1 + (n - 1) // 2)
-    )
+    ]
+    return sum(s) + _distlattices(n, k - 1)
 
 
 @cache
@@ -4521,9 +4576,8 @@ def _partdistsize(n: int, k: int, r: int) -> int:
         return 0
     if k > n // 2 + 1:
         return 0
-    return sum(
-        _partdistsize(n - r * j, k - 1, r - 1) for j in range(1, n // r + 1)
-    ) + _partdistsize(n, k, r - 1)
+    s = [_partdistsize(n - r * j, k - 1, r - 1) for j in range(1, n // r + 1)]
+    return sum(s) + _partdistsize(n, k, r - 1)
 
 
 @cache

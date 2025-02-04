@@ -16,6 +16,7 @@ from _tabltypes import Table
 [8] [1, 46, 334, 623, 334, 46, 1, 0, 0]
 """
 
+#TODO: Get rid of the _distlattices function 
 @cache
 def eulerianzigzag(n: int) -> list[int]:
 

@@ -120,7 +120,7 @@ recognized as such and then often lead to unnecessarily complicated formulas.
 In the table below, the two columns on the right are examples of hundreds of similar identities that can be generated with the module.
 Note: References to OEIS-Ids are approximate. They often differ in signs and offset, sometimes also in the first few values. 
 
-| Name         |  Formula | Triangle | Trait  |
+| Name         |  Formula | Triangle   | Trait  |
 | :---         | :---     | :---       | :---   |
 | Triangle     | $ T_{n,k} $ | Abel  |  A137452 |
 | Tinv         | $ (T^{-1})_{n,k} $ | Abel  | A059297  |
@@ -144,6 +144,7 @@ Note: References to OEIS-Ids are approximate. They often differ in signs and off
 | TablDiag1    | $ T_{n+1,n} $ | WardSet | A000457 |
 | TablDiag2    | $ T_{n+2,n} $ | WardSet | A000497 |
 | TablDiag3    | $ T_{n+3,n} $ | WardSet | A000504 |
+| TablLcm      | $ \text{lcm} \{ \ \| T_{n,k} \| : k=0..n \} $ | Binomial | A002944 |
 | TablGcd      | $ \text{gcd} \{ \ \| T_{n,k} \| : k=0..n \} $ | Fubini | A141056 |
 | TablMax      | $ \text{max} \{ \ \| T_{n,k} \| : k=0..n \} $ | BinaryPell  | A109388  |
 | TablSum      | $ \sum_{k=0}^{n} T_{n,k} $ | Binomial | A000079  |
@@ -170,6 +171,38 @@ Note: References to OEIS-Ids are approximate. They often differ in signs and off
 | PolyCol2     | $ \sum_{k=0}^{n}T_{n,k}\ 2^k $ | Abel | A007334 |
 | PolyCol3     | $ \sum_{k=0}^{n}T_{n,k}\ 3^k $ | Abel | A362354 |
 | PolyDiag     | $ \sum_{k=0}^{n}T_{n,k}\ n^k $ | Abel | A193678 |
+
+
+# Looking up the traits in the OEIS
+
+The module provides a central function that extracts the traits from tables and simultaneously searches for further information in the OEIS database. In particular, the function returns the A-number of the sequence, provided it is in the database.
+
+    def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
+        """
+        Look up the A-number in the OEIS database based on a trait of a table.
+
+        Args:
+            t (Table): The table to be analyzed.
+            tr (Trait): A function that extracts a trait from the table.
+            info (bool, optional): If True, information about the matching will be displayed. Defaults to True.
+
+        Returns:
+            int: The A-number of the sequence if found, otherwise 0.
+    
+        Raises:
+            Exception: If the OEIS server cannot be reached after multiple attempts.
+            Currently, the function will return -999999 if the OEIS server cannot be reached.
+    
+        Example:
+            >>> LookUp(Fubini, PolyDiag)
+            connecting: [0]
+            You searched: 1,1,10,219,8676,...
+            OEIS-data is: 1,1,10,219,8676,...
+            Info: Starting at index 0 the next 13 consecutive terms match.
+            The matched substring starts at 0 and has length 135.
+            *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
+            Returns the int 94420.
+        """
 
 
 # Ranking of triangles.

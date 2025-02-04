@@ -27,10 +27,10 @@ def _partdistsize(n: int, k: int, r: int) -> int:
         return 1 if k == 0 else 0
     if k == 0 or r == 0:
         return 0
-    if k > n // 2 + 1: return 0
-    return (sum(_partdistsize(n - r * j, k - 1, r - 1) 
-            for j in range(1, n // r + 1))
-           + _partdistsize(n, k, r - 1))
+    if k > n // 2 + 1:
+        return 0
+    s = [_partdistsize(n - r * j, k - 1, r - 1) for j in range(1, n // r + 1)]
+    return sum(s) + _partdistsize(n, k, r - 1)
 
 
 @cache

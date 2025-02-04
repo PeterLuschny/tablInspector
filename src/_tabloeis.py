@@ -19,6 +19,7 @@ import time
 from typing import TypeAlias
 import requests
 from requests import get
+from _tabltypes import Table, Trait
 from _tablutils import SeqToString
 
 
@@ -236,7 +237,7 @@ def QueryOEIS(
 
     for repeat in range(3):
         time.sleep(0.5)  # give the OEIS server some time to relax
-        if info: print(f"[{repeat}]")
+        if info: print(f"connecting: [{repeat}]")
         try:
             # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=20).json()
             jdata = get(url, timeout=20).json()
@@ -269,8 +270,8 @@ def QueryOEIS(
                 if info or dl < 12:
                     print("You searched:", seqstr)
                     print("OEIS-data is:", data)          # type: ignore
-                    # print(f"Starting at index {sl} the next {dl} consecutive terms match. The matched substring starts at {start} and has length {length}.")
-                    print("***Found:", anumber, name)
+                    print(f"Info: Starting at index {sl} the next {dl} consecutive terms match.\nThe matched substring starts at byte {start} and has length {length}.")
+                    print("*** Found:", anumber, name)
                 if dl > 12:
                     break
 
@@ -286,8 +287,37 @@ def QueryOEIS(
     return -999999
 
 
+def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
+    """
+    Look up the A-number in the OEIS database based on a trait of a table.
+
+    Args:
+        t (Table): The table to be analyzed.
+        tr (Trait): A function that extracts a trait from the table.
+        info (bool, optional): If True, information about the matching will be displayed. Defaults to True.
+
+    Returns:
+        int: The A-number of the sequence if found, otherwise 0.
+    
+    Raises:
+        Exception: If the OEIS server cannot be reached after multiple attempts.
+        Currently, the function will return -999999 if the OEIS server cannot be reached.
+    
+    Example:
+        >>> LookUp(Fubini, PolyDiag)
+        connecting: [0]
+        You searched: 1,1,10,219,8676,...
+        OEIS-data is: 1,1,10,219,8676,...
+        Info: Starting at index 0 the next 13 consecutive terms match.
+        The matched substring starts at 0 and has length 135.
+        *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
+        Returns the int 94420.
+    """
+    return QueryOEIS(tr(t, 24), 1, info)
+
+
 if __name__ == "__main__":
-    from Tables import TablesList
+    from Tables import Fubini, PolyDiag, TablesList
 
     data1 = [1, 4, 1, 9, 9, 2, 16, 36]
     data2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,17,19,20,21,22,23,24,25,26,27]
@@ -306,5 +336,6 @@ if __name__ == "__main__":
             anum = QueryOEIS(sumlist)
             print('A' + str(anum).rjust(6, "0"))
 
-    test()
-    testQuerySum()
+    #test()
+    #testQuerySum()
+    LookUp(Fubini, PolyDiag)  # type: ignore

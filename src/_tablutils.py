@@ -224,21 +224,23 @@ def TablesListPreview(prompt: bool = False) -> None:
         T.show(6)
         if prompt:
             input("Hit Return/Enter > ")
+            
+def MeasureTableGenerationTime(BenchLength: int = 100) -> None:
+    t = StopWatch("Full Benchmark")
+    t.start()
+    for tabl in TablesList:
+        TableGenerationTime(tabl, BenchLength)  # type: ignore
+    t.stop()
 
 
 if __name__ == "__main__":
     from Tables import TablesList
-    #from Abel import Abel
-
-    def QuickBench() -> None:
-        for tabl in TablesList:
-            TableGenerationTime(tabl)  # type: ignore
 
     def OrderBench() -> None:
         for tabl in TablesList:
             print(TimeIncrease(tabl))  # type: ignore
 
-    QuickBench()
+    MeasureTableGenerationTime(100)
 
     # print(IsSimilarTriangleInLib('A021009'))
     # print(f"\n{len(Tables)} tables tested!\n")

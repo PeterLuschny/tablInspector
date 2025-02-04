@@ -722,7 +722,7 @@ def SubTable(T: Table, N: int, K: int) -> Table:
 
 
 """Type: trait"""
-trait: TypeAlias = Callable[[Table, int], list[int]]
+Trait: TypeAlias = Callable[[Table, int], list[int]]
 
 
 if __name__ == "__main__":

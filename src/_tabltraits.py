@@ -4,7 +4,7 @@ It includes functions to compute different traits of tables, such as dot product
 """
 
 from Binomial import Binomial, InvBinomial
-from _tabltypes import Table, RevTable, rowgen, trait
+from _tabltypes import Table, RevTable, rowgen, Trait
 from _tablutils import SeqToString
 from typing import Tuple, TypeAlias
 from itertools import accumulate
@@ -601,6 +601,11 @@ def PolyDiag(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of polynomial diagonal values.
+    
+    Example:
+        >>> PolyDiag(Abel, 6)
+        [1, 1, 8, 108, 2048, 50000]
+        A193678
     """
     return [T.poly(n, n) for n in range(size)]
 
@@ -651,6 +656,11 @@ def TablGcd(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of GCD values for each row in the table.
+        
+    Example:
+        >>> TablGcd(Fubini, 6)
+        [1, 1, 2, 6, 2, 30]
+        A141056, A027760
     """
     return [RowLcmGcd(T.row, n, False) for n in range(size)]
 
@@ -666,6 +676,11 @@ def TablMax(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of maximum absolute values for each row.
+    
+    Example:
+        >>> TablMax(BinaryPell, 6)
+        [1, 2, 4, 12, 32, 80]
+        A109388
     """
     return [reduce(max, (abs(t) for t in T.row(n))) for n in range(size)]
 
@@ -1483,7 +1498,7 @@ def Rev_TransSqrs(t: Table, size: int = 28) -> list[int]:
 
 # Useful for the LaTeX titels: https://latexeditor.lagrida.com/
 
-TraitInfo: TypeAlias = Tuple[trait, int, str]
+TraitInfo: TypeAlias = Tuple[Trait, int, str]
 
 '''The dictionary of all traits with their respective functions and TeX strings.
    The size of the table is set to 7, 9 or 28 rows for the default case.
@@ -1511,8 +1526,8 @@ AllTraits: dict[str, TraitInfo] = {
     "TablDiag1    ": (TablDiag1, 28, r"\(T_{n+1,n}\)"),
     "TablDiag2    ": (TablDiag2, 28, r"\(T_{n+2,n}\)"),
     "TablDiag3    ": (TablDiag3, 28, r"\(T_{n+3,n}\)"),
-#    "TablLcm      ": (TablLcm,   28, r"\(\text{lcm} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
-#    "TablGcd      ": (TablGcd,   28, r"\(\text{gcd} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
+    "TablLcm      ": (TablLcm,   28, r"\(\text{lcm} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
+    "TablGcd      ": (TablGcd,   28, r"\(\text{gcd} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
     "TablMax      ": (TablMax,   28, r"\(\text{max} \{ \ \| T_{n,k} \| : k=0..n \} \)"),
     "TablSum      ": (TablSum,   28, r"\(\sum_{k=0}^{n} T_{n,k}\)"),
     "EvenSum      ": (EvenSum,   28, r"\(\sum_{k=0}^{n} T_{n,k}\ ( 2 \mid k) \)"),
