@@ -2732,11 +2732,11 @@ def abel(n: int) -> list[int]:
 
 
 Abel = Table(
-    abel,
-    "Abel",
-    ["A137452", "A061356", "A139526"],
-    "A059297",
-    r"is(k = 0)\ ? \ 0^n : \binom{n-1}{k-1} (-n)^{n - k}",
+    abel,  # the generating function
+    "Abel",  # name of the table
+    ["A137452", "A061356", "A139526"],  # similar sequences in OEIS
+    "A059297",  # OEIS-id of the inverse sequence
+    r"is(k = 0)\ ? \ 0^n : \binom{n-1}{k-1} (-n)^{n - k}",  # TeX of the defining formula
 )
 
 

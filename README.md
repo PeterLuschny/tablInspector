@@ -172,6 +172,7 @@ Note: References to OEIS-Ids are approximate. They often differ in signs and off
 | PolyCol3     | $ \sum_{k=0}^{n}T_{n,k}\ 3^k $ | Abel | A362354 |
 | PolyDiag     | $ \sum_{k=0}^{n}T_{n,k}\ n^k $ | Abel | A193678 |
 
+In Visual Studio Code, the TeX formulas are displayed correctly in the preview.
 
 # Looking up the traits in the OEIS
 
@@ -195,14 +196,16 @@ The module provides a central function that extracts the traits from tables and 
     
         Example:
             >>> LookUp(Fubini, PolyDiag)
-            connecting: [0]
+            If info = False then the function returns 94420.
+            Otherwise it additionally displays information about the matching:
             You searched: 1,1,10,219,8676,...
             OEIS-data is: 1,1,10,219,8676,...
             Info: Starting at index 0 the next 13 consecutive terms match.
             The matched substring starts at 0 and has length 135.
             *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
-            Returns the int 94420.
         """
+
+With currently 70 implemented traits and 100 triangles, right out of the box 7000 queries can be made in this way. This not only systematically links the triangles with sequences to a network, but often reveals previously unnoticed connections.
 
 
 # Ranking of triangles.
@@ -212,8 +215,7 @@ on average, 35 distinct related sequences registered in the OEIS. Thus, a high r
 means the triangle is a significant structural component in the OEIS database and binds
 seemingly unrelated sequences into a semantically meaningful cluster. 
 
-Currently, 116 triangles are included in this ranking. The top 50 triangles are listed below.
-(Note that some links are not yet implemented.)
+Currently, 116 triangles are included in this ranking. The top 50 triangles are listed below. (Note that some links are not yet implemented.)
 
 |   | Name             |  OEIS |Distinct| Hits | Traits | Links |
 | :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |
