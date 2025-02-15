@@ -7,7 +7,8 @@ Functions:
     abel(n: int) -> list[int]:
         Computes the coefficients of the n-th Abel polynomial.
 
-    The Abel object can be used to access the coefficients of the Abel polynomials directly:
+    The Abel object can be used to access the coefficients of the Abel polynomials directly.
+    However, it is often more efficient to fetch an entire row using the lowercase version.
  
     Abel(n: int, k: int) -> int:
         Returns the k-th coefficient of the n-th Abel polynomial.
@@ -19,7 +20,7 @@ Example:
     6
 
 References:
-    Variants of the triangle are https://oeis.org/A137452 , A061356, and  A139526.
+    Variants of the triangle are https://oeis.org/A137452 , A061356, and A139526.
     The triangle is invertible and the inverse is A059297, the triangle of idempotent numbers.
     An overview is given in https://peterluschny.github.io/tabl/Abel.html
 """

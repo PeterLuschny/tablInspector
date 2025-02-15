@@ -1,6 +1,6 @@
 """
 This module provides various functions to analyze and transform integer triangles (Table objects).
-It includes functions to compute different traits of tables, such as dot products, polynomials, table columns, diagonals, rows, and various transformations and convolutions of tables. Additionally, it provides functions to compute LCM, GCD, sums, and other properties of table rows and columns.
+It includes functions to compute different traits of tables, such as dot products, polynomials, table columns, diagonals, rows, and various transformations and convolutions of tables. Additionally, it provides functions to compute lcm, gcd, sums, and other properties of table rows and columns. 
 """
 
 from Binomial import Binomial, InvBinomial
@@ -43,11 +43,11 @@ def dotproduct(vec: list[int], tor: list[int]) -> int:
 
 def Triangle(T: Table, size: int = 7) -> list[int]:
     """
-    Generates a list of integers representing a triangle from the given table.
+    Generates an integer triangle (a regular lower triangular table) as a list of rows.
 
     Args:
-        T (Table): The table from which to generate the triangle.
-        size (int, optional): The number of rows. Defaults to 7.
+        T (Table): The table referencing the generating function.
+        size (int, optional): The number of rows requested. Defaults to 7.
 
     Returns:
         list[int]: The rows flattened to a list of integers.
@@ -62,14 +62,14 @@ def Triangle(T: Table, size: int = 7) -> list[int]:
 
 def Trev(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a list of integers from the reversed rows of the Table object.
+    Generates an integer triangle by reversing the rows of the given table.
 
     Args:
-        T (Table): The Table object containing elements to be reversed.
+        T (Table): The table with the generating function of the original object.
         size (int, optional): The number of rows to reverse. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of reversed rows from the Table.
+        list[int]: A flattened list of the reversed rows.
     
     Example:
         >>> Trev(StirlingSet, 4)
@@ -81,11 +81,11 @@ def Trev(T: Table, size: int = 7) -> list[int]:
 
 def Tinv(T: Table, size: int = 7) -> list[int]:
     """
-    Inverts the given table and flattens the result.
+    Inverts the given table (matrix inversion) and flattens the resulting table.
 
     Args:
         T (Table): The table to be inverted.
-        size (int, optional): The size parameter of the table. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
         list[int]: A flattened list of integers representing the inverted table.
@@ -100,11 +100,11 @@ def Tinv(T: Table, size: int = 7) -> list[int]:
 
 def Tinvrev(T: Table, size: int = 7) -> list[int]:
     """
-    Inverts and reverses the given table and returns the result as a flattened list.
+    First reverse the table and then invert the reversed table.
 
     Args:
         T (Table): The table to be inverted and reversed.
-        size (int, optional): The size parameter of the table. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
         list[int]: A flattened list of integers after reversing and inverting the table.
@@ -116,13 +116,14 @@ def Tinvrev(T: Table, size: int = 7) -> list[int]:
     """
     return list(flatten(T.invrev(size)))
 
+
 def Trevinv(T: Table, size: int = 7) -> list[int]:
     """
-    Invert the table and then revert the rows.
+    First invert the table and then revert the rows of the inverted table.
 
     Args:
         T (Table): The table to be inverted and reversed.
-        size (int, optional): The size parameter of the table. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
         list[int]: A flattened table after inverting and reversing the table.
@@ -142,10 +143,54 @@ def Toff11(T: Table, size: int = 7) -> list[int]:
 
     Args:
         T (Table): The original table object.
-        size (int, optional): The size parameter for the table. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of rows from the new table.
+        list[int]: A flattened list of rows from the shifted table.
+    
+    Example:
+        >>> T = Abel
+        >>> T11 = Table(T.off(1, 1), T.id + "off11")
+
+        >>> print(T.id); T.show(4); 
+        >>> print(T11.id); T11.show(4)
+        
+        >>> print("Inverse of T:"); print(T.inv(4))
+        >>> print("Inverse of T11:"); print(T11.inv(4))
+
+        >>> print(f"PolyRows of {T.id}:")
+        >>> for n in range(4): print(PolyRow(T, n, 5))
+        >>> print(f"PolyRows of {T11.id}:")
+        >>> for n in range(4): print(PolyRow(T11, n, 5))
+
+        Abel
+        [0] [1] 
+        [1] [0, 1] 
+        [2] [0, 2, 1] 
+        [3] [0, 9, 6, 1] 
+
+        Abeloff11
+        [0] [1] 
+        [1] [2, 1] 
+        [2] [9, 6, 1] 
+        [3] [64, 48, 12, 1] 
+
+        Inverse of T:
+        [[1], [0, 1], [0, -2, 1], [0, 3, -6, 1]]
+        Inverse of T11:
+        []
+
+        PolyRows of Abel:
+        [1, 1, 1, 1, 1]
+        [0, 1, 2, 3, 4]
+        [0, 3, 8, 15, 24]
+        [0, 16, 50, 108, 196]
+        
+        PolyRows of Abeloff11:
+        [1, 1, 1, 1, 1]
+        [2, 3, 4, 5, 6]
+        [9, 16, 25, 36, 49]
+        [64, 125, 216, 343, 512]
     """
     T11 = Table(T.off(1, 1), T.id + "off11")
     return T11.flat(size)
@@ -161,12 +206,16 @@ def Trev11(T: Table, size: int = 7) -> list[int]:
         size (int, optional): The number of rows to reverse. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of reversed elements from the Table.
+        list[int]: A flattened list of reversed elements of the shifted table.
     
     Example:
         >>> Trev11(Eulerian, 4)
         [1, 1, 1, 1, 4, 1, 1, 11, 11, 1]
         A008292
+        
+        >>> Trev(Eulerian, 4)
+        [1, 1, 0, 1, 1, 0, 1, 4, 1, 0]
+        A173018
     """
     return list(flatten([T.rev11(n) for n in range(size)]))
 
@@ -178,10 +227,10 @@ def Tinv11(T: Table, size: int = 7) -> list[int]:
 
     Args:
         T (Table): The table object which has the inv11 method.
-        size (int, optional): The size parameter of the shifted table. Defaults to 7.
+        size (int, optional): The desired number of rows of the shifted table. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of integers representing the rows of the table.
+        list[int]: A flattened list of integers representing the rows of the shifted table.
     """
     InvT11 = T.inv11(size)
     return list(flatten(InvT11))
@@ -189,14 +238,14 @@ def Tinv11(T: Table, size: int = 7) -> list[int]:
 
 def Tinvrev11(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a flattened list from the inverse revision of a table.
+    First fix the new offset, next reverse and then invert the reversed table.
 
     Args:
         T (Table): The table object that contains the `invrev11` method.
-        size (int, optional): The size parameter to be passed to the `invrev11` method. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of integers resulting from the inverse revision of the table.
+        list[int]: A flattened list of the rows of the generated table.
     
     Example:
         >>> Tinvrev11(Eulerian, 4)
@@ -207,20 +256,35 @@ def Tinvrev11(T: Table, size: int = 7) -> list[int]:
     return list(flatten(InvrevT11))
 
 
-def Talt(T: Table, size: int = 7) -> list[int]:
+def Trevinv11(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a list of alternative values from a Table object.
-
-    This function calls the `alt` method of the provided Table object `T` for
-    each integer in the range from 0 to `size - 1`, flattens the resulting lists,
-    and returns the flattened list.
+    First fix the new offset, next inverse and then reverse the rows.
 
     Args:
-        T (Table): The Table object from which to generate alternative values.
-        size (int, optional): The number of alternative values to generate. Defaults to 7.
+        T (Table): The table object to be processed.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of alternative values from the Table object.
+        list[int]: A flattened list of the rows of the generated table.
+    
+    Example:
+        >>> Trevinv11(Eulerian, 4)
+        [1, 1, -1, 1, -4, 3, 1, -11, 33, -23]
+    """
+    RevinvT11 = T.revinv11(size)
+    return list(flatten(RevinvT11))
+
+
+def Talt(T: Table, size: int = 7) -> list[int]:
+    """
+    Generate a list of alternative values of the rows of the given table.
+
+    Args:
+        T (Table): The Table object from which to generate alternating rows.
+        size (int, optional): The desired number of rows. Defaults to 7.
+
+    Returns:
+        list[int]: A flattened list of the rows of the generated table.
         
     Example:
         >>> Talt(Binomial, 4)
@@ -232,17 +296,14 @@ def Talt(T: Table, size: int = 7) -> list[int]:
 
 def Tacc(T: Table, size: int = 7) -> list[int]:
     """
-    Accumulate values from a Table object.
-
-    This function flattens the accumulated values from the Table object `T`
-    for a given range specified by `size`.
+    Accumulate values of the values of the rows of the given table.
 
     Args:
-        T (Table): The Table object from which to accumulate values.
-        size (int, optional): The range of values to accumulate. Defaults to 7.
+        T (Table): The table from which to accumulate the row values.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of accumulated values.
+        list[int]: A flattened list of the rows of the generated table.
     
     Example:
         >>> Tacc(Binomial, 4)
@@ -254,14 +315,14 @@ def Tacc(T: Table, size: int = 7) -> list[int]:
 
 def Tder(T: Table, size: int = 7) -> list[int]:
     """
-    Generate a list of derivatives from a Table object.
+    Generate a list of rows representing the derivatives of the polynomials interpreting the row values as the coefficients of the polynomials.
 
     Args:
-        T (Table): The Table object from which to derive values.
-        size (int, optional): The number of derivatives to compute. Defaults to 7.
+        T (Table): The Table object to process.
+        size (int, optional): The desired number of rows. Defaults to 7.
 
     Returns:
-        list[int]: A flattened list of derivatives.
+        list[int]: A flattened list of the rows of the generated table.
     
     Example:
         >>> Tder(Abel, 5)
@@ -292,7 +353,7 @@ def Tantidiag(T: Table, size: int = 9) -> list[int]:
 
 def TablCol(T: Table, col: int, size: int = 28) -> list[int]:
     """
-    Extract a column from a table and return it as a list of integers.
+    Extract a column from the given table and return it as a list of integers.
 
     Args:
         T (Table): The table from which to extract the column.
@@ -366,7 +427,7 @@ def TablCol3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
     Args:
         T (Table): The table object from which to extract the column.
-        size (int, optional): The number of elements to generate. Defaults to 28.
+        size (int, optional): The number of elements to retrieve. Defaults to 28.
         rev (bool, optional): If True, use the TablDiag3 function to generate the list. Defaults to False.
 
     Returns:
@@ -384,8 +445,8 @@ def TablDiag(T: Table, diag: int, size: int = 28) -> list[int]:
 
     Args:
         T (Table): The table from which to extract the diagonal.
-        diag (int): The starting index of the diagonal.
-        size (int, optional): The number of elements to extract from the diagonal. Defaults to 28.
+        diag (int): The row index where the diagonal starts.
+        size (int, optional): The number of terms of the diagonal. Defaults to 28.
 
     Returns:
         list[int]: A list of integers representing the diagonal elements.
@@ -399,11 +460,11 @@ def TablDiag0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
     Args:
         T (Table): The table from which to extract diagonal elements.
-        size (int, optional): The number of elements to extract. Defaults to 28.
+        size (int, optional): The number of terms of the diagonal. Defaults to 28.
         rev (bool, optional): If True, extract elements from the first column instead of the diagonal. Defaults to False.
 
     Returns:
-        list[int]: A list of integers representing the diagonal elements or the first column elements.
+        list[int]: A list of integers representing the diagonal or the first column.
     """
     if rev:
         return TablCol0(T, size)
@@ -413,19 +474,15 @@ def TablDiag0(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablDiag1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generates a list of integers based on the provided table function `T`.
-
-    If `rev` is True, the function returns the result of `TablCol1(T, size)`.
-    Otherwise, it returns a list of integers generated by calling `T(1 + k, k)` 
-    for each `k` in the range from 0 to `size - 1`.
+    Generates the subdiagonal or column 1 of the provided table depending on `rev`.
 
     Args:
         T (Table): A table function that takes two integer arguments.
-        size (int, optional): The size of the list to generate. Defaults to 28.
+        size (int, optional): The number of terms of the diagonal. Defaults to 28.
         rev (bool, optional): A flag to determine which list generation method to use. Defaults to False.
 
     Returns:
-        list[int]: A list of integers generated based on the provided table function `T`.
+        list[int]: A list of integers representing the subdiagonal or the second column.
     """
     if rev:
         return TablCol1(T, size)
@@ -435,7 +492,7 @@ def TablDiag1(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablDiag2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generate a list of integers based on the provided Table function.
+    Generates the diagonal or the column starting at row 2 of the provided table depending on `rev`.
 
     If `rev` is True, the function returns the result of `TablCol2(T, size)`.
     Otherwise, it returns a list of integers generated by calling the Table
@@ -443,11 +500,11 @@ def TablDiag2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
     Args:
         T (Table): A function that takes two integers and returns an integer.
-        size (int, optional): The number of elements to generate. Defaults to 28.
+        size (int, optional): The number of terms of the diagonal. Defaults to 28.
         rev (bool, optional): A flag to determine which list generation method to use. Defaults to False.
 
     Returns:
-        list[int]: A list of integers generated based on the provided Table function.
+        list[int]: A list of integers representing the third diagonal or the third column.
     """
     if rev:
         return TablCol2(T, size)
@@ -457,7 +514,7 @@ def TablDiag2(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
 def TablDiag3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
     """
-    Generate a list of integers based on the provided Table function.
+    Generates the diagonal or the column starting at row 3 of the provided table depending on `rev`.
 
     If `rev` is True, the function returns the result of `TablCol3(T, size)`.
     Otherwise, it returns a list of integers generated by calling the Table function `T`
@@ -465,11 +522,11 @@ def TablDiag3(T: Table, size: int = 28, rev: bool = False) -> list[int]:
 
     Args:
         T (Table): A function that takes two integer arguments and returns an integer.
-        size (int, optional): The number of elements to generate. Defaults to 28.
+        size (int, optional): The number of terms of the diagonal. Defaults to 28.
         rev (bool, optional): A flag to determine which list to return. Defaults to False.
 
     Returns:
-        list[int]: A list of integers generated based on the provided Table function.
+        list[int]: A list of integers representing the fourth diagonal or the fourth column.
     """
     if rev:
         return TablCol3(T, size)
@@ -482,12 +539,16 @@ def PolyRow(T: Table, row: int, size: int = 28) -> list[int]:
     Generate a list of polynomial values for a given row in a table.
 
     Args:
-        T (Table): The table object containing polynomial data.
+        T (Table): The table object containing the polynomial coefficients.
         row (int): The row index for which to generate polynomial values.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
         list[int]: A list of polynomial values for the specified row.
+
+    Example:
+        >>> print(PolyRow(Abel, 3, 7))
+        [0, 16, 50, 108, 196, 320, 486]
     """
     return [T.poly(row, x) for x in range(size)]
 
@@ -497,54 +558,60 @@ def PolyRow1(T: Table, size: int = 28) -> list[int]:
     Generate a list of polynomial values for the first row of a table.
 
     Args:
-        T (Table): An instance of the Table class.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values for the first row.
+        list[int]: A list of polynomial values for row 1.
     """
     return [T.poly(1, x) for x in range(size)]
 
 
 def PolyRow2(T: Table, size: int = 28) -> list[int]:
     """
-    Generates a list of polynomial values of degree 2 for a given table.
+    Generates a list of polynomial values of row 2 for a given table.
 
     Args:
-        T (Table): The table object that has a method `poly` to compute polynomial values.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values of degree 2.
+        list[int]: A list of polynomial values for row 2.
     """
     return [T.poly(2, x) for x in range(size)]
 
 
 def PolyRow3(T: Table, size: int = 28) -> list[int]:
     """
-    Generate a list of polynomial values of degree 3 for a given table.
+    Generate a list of polynomial values of row 3 for a given table.
 
     Args:
-        T (Table): The table object that provides the polynomial function.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values of degree 3.
+        list[int]: A list of polynomial values for row 3.
     """
     return [T.poly(3, x) for x in range(size)]
 
 
 def PolyCol(T: Table, col: int, size: int = 28) -> list[int]:
     """
-    Generates a list of polynomial values for a specified column in a table.
+    Generates a list of polynomial values for a specified column in the table generated 
+    by the polynomials with coefficients from the rows of the given table.
 
     Args:
-        T (Table): The table object containing the data.
+        T (Table): The table object containing the polynomial coefficients.
         col (int): The column index for which polynomial values are to be generated.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
         list[int]: A list of polynomial values for the specified column.
+
+    Example:
+        >>> print(PolyCol(Abel, 3, 7))
+        [1, 3, 15, 108, 1029, 12288, 177147]
+        A362354
     """
     return [T.poly(x, col) for x in range(size)]
 
@@ -554,11 +621,11 @@ def PolyCol1(T: Table, size: int = 28) -> list[int]:
     Generate a list of polynomial values of degree 1 for a given table.
 
     Args:
-        T (Table): The table object that contains the polynomial method.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values of degree 1.
+        list[int]: A list of polynomial values in column 1.
     """
     return [T.poly(x, 1) for x in range(size)]
 
@@ -568,11 +635,16 @@ def PolyCol2(T: Table, size: int = 28) -> list[int]:
     Generate a list of polynomial values of degree 2 for a given table.
 
     Args:
-        T (Table): An instance of the Table class with a method `poly` that computes polynomial values.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values of degree 2.
+        list[int]: A list of polynomial values in column 2.
+
+    Example:
+        >>> PolyCol2(Abel, 7)
+        [1, 2, 8, 50, 432, 4802, 65536]
+        A007334
     """
     return [T.poly(x, 2) for x in range(size)]
 
@@ -582,11 +654,11 @@ def PolyCol3(T: Table, size: int = 28) -> list[int]:
     Generate a list of polynomial values of degree 3 for a given table.
 
     Args:
-        T (Table): The table object that contains the method `poly`.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
-        list[int]: A list of polynomial values of degree 3.
+        list[int]: A list of polynomial values in column 3.
     """
     return [T.poly(x, 3) for x in range(size)]
 
@@ -596,7 +668,7 @@ def PolyDiag(T: Table, size: int = 28) -> list[int]:
     Generates a list of polynomial diagonal values from a given Table object.
 
     Args:
-        T (Table): The Table object containing the polynomial data.
+        T (Table): The table object containing the polynomial coefficients.
         size (int, optional): The number of diagonal values to generate. Defaults to 28.
 
     Returns:
@@ -614,7 +686,7 @@ def RowLcmGcd(g: rowgen, row: int, lg: bool) -> int:
     """
     Calculate the least common multiple (LCM) or greatest common divisor (GCD) of 
     non-trivial elements in a row generated by a given row generator function.
-    Note our convention to exclude 0 and 1.
+    Note our convention to exclude 0 and 1 from the terms.
 
     Args:
         g (rowgen): A row generator function that takes an integer row index and 
@@ -635,6 +707,7 @@ def RowLcmGcd(g: rowgen, row: int, lg: bool) -> int:
 def TablLcm(T: Table, size: int = 28) -> list[int]:
     """
     Calculate the least common multiple (LCM) for each row in a table.
+    Note our convention to exclude 0 and 1 from the terms.
 
     Args:
         T (Table): The table containing rows for which the LCM is to be calculated.
@@ -642,6 +715,11 @@ def TablLcm(T: Table, size: int = 28) -> list[int]:
 
     Returns:
         list[int]: A list of LCM values for each row in the table.
+    
+    Example:
+        >>> TablLcm(Leibniz, 8)
+        [1, 2, 6, 12, 60, 60, 420, 840]
+        A003418
     """
     return [RowLcmGcd(T.row, n, True) for n in range(size)]
 
@@ -649,6 +727,7 @@ def TablLcm(T: Table, size: int = 28) -> list[int]:
 def TablGcd(T: Table, size: int = 28) -> list[int]:
     """
     Calculate the greatest common divisor (GCD) for each row in a table.
+    Note our convention to exclude 0 and 1 from the terms.
 
     Args:
         T (Table): The table containing rows to process.
@@ -746,15 +825,12 @@ def AltSum(T: Table, size: int = 28) -> list[int]:
     """
     Calculate the alternating sum of elements in each row of a table.
 
-    This function computes the alternating sum of elements in each row of the given table `T`.
-    The alternating sum is defined as the sum of elements at even indices minus the sum of elements at odd indices.
-
     Args:
         T (Table): The table from which rows are taken.
         size (int, optional): The number of rows to process. Defaults to 28.
 
     Returns:
-        list[int]: A list of alternating sums for each row.
+        list[int]: A list of the alternating sums of the rows.
     
     Example:
         >>> AltSum(Binomial, 6)
@@ -773,7 +849,7 @@ def AbsSum(T: Table, size: int = 28) -> list[int]:
         size (int, optional): The number of rows to process. Defaults to 28.
 
     Returns:
-        list[int]: A list of absolute sums for each row.
+        list[int]: A list of absolute sums of the rows.
     
     Example:
         >>> AbsSum(EulerTan, 6)
@@ -785,11 +861,11 @@ def AbsSum(T: Table, size: int = 28) -> list[int]:
 
 def AccSum(T: Table, size: int = 28) -> list[int]:
     """
-    Calculate the accumulated sum for each index up to a given size.
+    Calculate the accumulated sum for the first 'size' rows of the table.
 
     Args:
-        T (Table): An instance of the Table class with an 'acc' method.
-        size (int, optional): The number of indices to calculate the accumulated sum for. Defaults to 28.
+        T (Table): The table the accumulated sums should be calculated.
+        size (int, optional): The number of rows to calculate the accumulated sums. Defaults to 28.
 
     Returns:
         list[int]: A list of accumulated sums for each index from 0 to size-1.
@@ -937,7 +1013,7 @@ def ColRight(T: Table, size: int = 28) -> list[int]:
 
 def PolyFrac(row: list[int], x: int) -> int:
     """
-    Evaluate a polynomial at a given point x.
+    Evaluate a polynomial with integer coefficients at a given point x.
 
     This function takes a list of coefficients representing a polynomial
     and evaluates the polynomial at the given value of x. The coefficients
@@ -1017,7 +1093,7 @@ def TransNat1(T: Table, size: int = 28) -> list[int]:
 
     Args:
         T (Table): The table to be transformed.
-        size (int, optional): The size parameter for the transformation. Defaults to 28.
+        size (int, optional): The length of the returned list. Defaults to 28.
 
     Returns:
         list[int]: A list of the transformed positive integers.
@@ -1036,7 +1112,7 @@ def TransSqrs(T: Table, size: int = 28) -> list[int]:
 
     Args:
         T (Table): The table considered as a linear transformation.
-        size (int, optional): The size parameter for the transformation. Defaults to 28.
+        size (int, optional): The length of the returned list. Defaults to 28.
 
     Returns:
         list[int]: The list of the transformed squares.
@@ -1051,14 +1127,14 @@ def TransSqrs(T: Table, size: int = 28) -> list[int]:
 
 def BinConv(T: Table, size: int = 28) -> list[int]:
     """
-    Converts each row of the given table to a binomial representation and computes the dot product.
+    Transforms the table by computing the dot product of the n-th row of T with the n-th row of the binomial triangle.
 
     Args:
-        T (Table): The input table with rows to be converted.
-        size (int, optional): The number of rows to process. Defaults to 28.
+        T (Table): The input table with the rows to be transformed.
+        size (int, optional): The number of rows th be processed. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers representing the dot product of each row with its binomial representation.
+        list[int]: A list of integers representing the binomial convolution of the given table.
     
     Example:
         >>> BinConv(FallingFactorial, 6)
@@ -1070,14 +1146,14 @@ def BinConv(T: Table, size: int = 28) -> list[int]:
 
 def InvBinConv(T: Table, size: int = 28) -> list[int]:
     """
-    Computes the inverse binomial convolution of the rows of a given table.
+    Transforms the table by computing the dot product of the n-th row of T with the n-th row of the inverse binomial triangle.
 
     Args:
-        T (Table): The input table whose rows will be used in the convolution.
-        size (int, optional): The number of rows to process. Defaults to 28.
+        T (Table): The input table with the rows to be transformed.
+        size (int, optional): The number of rows th be processed. Defaults to 28.
 
     Returns:
-        list[int]: A list of integers representing the result of the inverse binomial convolution for each row.
+        list[int]: A list of integers representing the inverse binomial convolution of the given table.
     
     Example:
         >>> InvBinConv(FallingFactorial, 6)
@@ -1243,8 +1319,7 @@ def Rev_PolyRow3(t: Table, size: int = 28) -> list[int]:
 
     Args:
         t (Table): The input table to be reversed and processed.
-        size (int, optional): The number of polynomial values to generate. 
-                              Defaults to 28.
+        size (int, optional): The number of polynomial values to generate. Defaults to 28.
 
     Returns:
         list[int]: A list of polynomial values of degree 3.
@@ -1514,6 +1589,7 @@ AllTraits: dict[str, TraitInfo] = {
     "Trev11       ": (Trev11,    7, r"\(T_{n+1,n-k+1} \)"),
     "Tinv11       ": (Tinv11,    7, r"\(T^{-1}_{n+1,k+1}\)"),
     "Tinvrev11    ": (Tinvrev11, 7, r"\((T_{n+1,n-k+1})^{-1}\)"),
+    "Trevinv11    ": (Trevinv11, 7, r"\((T^{-1}_{n+1,n-k+1})\)"),
     "Tantidiag    ": (Tantidiag, 9, r"\(T_{n-k,k}\ \ (k \le n/2)\)"),
     "Tacc         ": (Tacc,      7, r"\(\sum_{j=0}^{k} T_{n,j}\)"),
     "Talt         ": (Talt,      7, r"\(T_{n,k}\ (-1)^{k}\)"),
