@@ -2607,7 +2607,7 @@ def RefreshHtml(filter: bool = False) -> None:
         index.flush()
 
 
-indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{font-family:Calabri,Arial,sans-serif;font-size:20px;background-color: yellow; color: #0f0f0f}</style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>The Triangle Inspector</th></tr></thead><tbody><tr>"
+indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{ font-family: Calabri, Arial, sans-serif; font-size: 16px; background-color: yellow; color: #0f0f0f} a{ text-decoration: none;} tbody td:hover{ background-color: greenyellow;} table, td,th{ border: 2px solid black; border-collapse: collapse; margin-left: 16px; padding-left: 10px; padding-top: 4px;} </style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>Triangle Inspector</th></tr></thead><tbody><tr>"
 
 
 def RefreshDatabase() -> None:
