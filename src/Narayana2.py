@@ -42,12 +42,18 @@ if __name__ == "__main__":
     InspectTable(Narayana2)
 
 
+
+
 ''' OEIS
+    Narayana2_Talt          -> https://oeis.org/A-999999
+    Narayana2_AltSum        -> https://oeis.org/A-999999
     Narayana2_Tinv          -> 0 
+    Narayana2_Trevinv       -> 0 
     Narayana2_Toff11        -> 0 
     Narayana2_Trev11        -> 0 
     Narayana2_Tinv11        -> 0 
     Narayana2_Tinvrev11     -> 0 
+    Narayana2_Trevinv11     -> 0 
     Narayana2_Tantidiag     -> 0 
     Narayana2_Tacc          -> 0 
     Narayana2_Tder          -> 0 
@@ -72,14 +78,15 @@ if __name__ == "__main__":
     Narayana2_RevTrev11     -> 0 
     Narayana2_RevTantidiag  -> 0 
     Narayana2_RevTacc       -> 0 
+    Narayana2_RevTalt       -> 0 
     Narayana2_RevTder       -> 0 
     Narayana2_RevAntiDSum   -> 0 
     Narayana2_RevColMiddle  -> 0 
+    Narayana2_RevPosHalf    -> 0 
     Narayana2_RevTransSqrs  -> 0 
     Narayana2_RevPolyCol3   -> 0 
     Narayana2_RevPolyDiag   -> 0 
     Narayana2_TablCol0      -> https://oeis.org/A7
-    Narayana2_AltSum        -> https://oeis.org/A7
     Narayana2_TablCol1      -> https://oeis.org/A12
     Narayana2_TablDiag0     -> https://oeis.org/A12
     Narayana2_RevPolyRow1   -> https://oeis.org/A12
@@ -108,8 +115,6 @@ if __name__ == "__main__":
     Narayana2_PosHalf       -> https://oeis.org/A238113
     Narayana2_Triangle      -> https://oeis.org/A352687
     Narayana2_Trev          -> https://oeis.org/A352687
-    Narayana2_Talt          -> https://oeis.org/A352687
-    Narayana2_RevTalt       -> https://oeis.org/A352687
 
-    Narayana2: Distinct: 18, Hits: 32, Misses: 35
+    Narayana2: Distinct: 19, Hits: 31, Misses: 39
 '''

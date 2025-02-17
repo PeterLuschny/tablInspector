@@ -30,6 +30,8 @@ if __name__ == "__main__":
     InspectTable(Naturals)  # type: ignore
 
 
+
+
 ''' OEIS
     Naturals_Trev11        -> 0 
     Naturals_Tacc          -> 0 
@@ -53,6 +55,7 @@ if __name__ == "__main__":
     Naturals_RevOddSum     -> 0 
     Naturals_RevAccRevSum  -> 0 
     Naturals_RevAntiDSum   -> 0 
+    Naturals_RevPosHalf    -> 0 
     Naturals_RevNegHalf    -> 0 
     Naturals_RevTransNat1  -> 0 
     Naturals_RevTransSqrs  -> 0 
@@ -60,7 +63,6 @@ if __name__ == "__main__":
     Naturals_RevPolyRow3   -> 0 
     Naturals_RevPolyCol3   -> 0 
     Naturals_RevPolyDiag   -> 0 
-    Naturals_InvBinConv    -> https://oeis.org/A7
     Naturals_TablGcd       -> https://oeis.org/A12
     Naturals_Triangle      -> https://oeis.org/A27
     Naturals_Talt          -> https://oeis.org/A27
@@ -76,6 +78,7 @@ if __name__ == "__main__":
     Naturals_AbsSum        -> https://oeis.org/A6003
     Naturals_RevTrev11     -> https://oeis.org/A14132
     Naturals_PolyRow1      -> https://oeis.org/A16789
+    Naturals_InvBinConv    -> https://oeis.org/A19590
     Naturals_TablDiag2     -> https://oeis.org/A34856
     Naturals_Trev          -> https://oeis.org/A38722
     Naturals_RevTalt       -> https://oeis.org/A38722
@@ -96,5 +99,5 @@ if __name__ == "__main__":
     Naturals_TablCol2      -> https://oeis.org/A152950
     Naturals_RevTransNat0  -> https://oeis.org/A176060
 
-    Naturals: Distinct: 31, Hits: 35, Misses: 29
+    Naturals: Distinct: 31, Hits: 35, Misses: 30
 '''

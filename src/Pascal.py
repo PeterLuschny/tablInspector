@@ -52,12 +52,14 @@ if __name__ == "__main__":
     InspectTable(Pascal)
 
 
+
+
 ''' OEIS
+    Pascal_NegHalf       -> https://oeis.org/A-999999
+    Pascal_RevNegHalf    -> https://oeis.org/A-999999
     Pascal_AltSum        -> https://oeis.org/A7
     Pascal_TablCol0      -> https://oeis.org/A12
     Pascal_TablDiag0     -> https://oeis.org/A12
-    Pascal_NegHalf       -> https://oeis.org/A12
-    Pascal_RevNegHalf    -> https://oeis.org/A12
     Pascal_TablCol1      -> https://oeis.org/A27
     Pascal_TablDiag1     -> https://oeis.org/A27
     Pascal_PolyRow1      -> https://oeis.org/A27
@@ -76,6 +78,7 @@ if __name__ == "__main__":
     Pascal_TablDiag2     -> https://oeis.org/A217
     Pascal_PosHalf       -> https://oeis.org/A244
     Pascal_PolyCol2      -> https://oeis.org/A244
+    Pascal_RevPosHalf    -> https://oeis.org/A244
     Pascal_PolyRow2      -> https://oeis.org/A290
     Pascal_RevPolyRow2   -> https://oeis.org/A290
     Pascal_TablCol3      -> https://oeis.org/A292
@@ -107,6 +110,7 @@ if __name__ == "__main__":
     Pascal_Tinv          -> https://oeis.org/A7318
     Pascal_Trev          -> https://oeis.org/A7318
     Pascal_Tinvrev       -> https://oeis.org/A7318
+    Pascal_Trevinv       -> https://oeis.org/A7318
     Pascal_Talt          -> https://oeis.org/A7318
     Pascal_RevTalt       -> https://oeis.org/A7318
     Pascal_Tacc          -> https://oeis.org/A8949
@@ -117,10 +121,11 @@ if __name__ == "__main__":
     Pascal_Toff11        -> https://oeis.org/A74909
     Pascal_Trev11        -> https://oeis.org/A74909
     Pascal_Tinv11        -> https://oeis.org/A74909
+    Pascal_Trevinv11     -> https://oeis.org/A74909
     Pascal_RevToff11     -> https://oeis.org/A74909
     Pascal_RevTrev11     -> https://oeis.org/A74909
     Pascal_RevTinv11     -> https://oeis.org/A74909
     Pascal_InvBinConv    -> https://oeis.org/A126869
 
-    Pascal: Distinct: 26, Hits: 68, Misses: 0
+    Pascal: Distinct: 27, Hits: 71, Misses: 0
 '''

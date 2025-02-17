@@ -48,6 +48,8 @@ if __name__ == "__main__":
     for n in range(8): print(ezz(n))
 
 
+
+
 ''' OEIS
     EulerianZigZag_Triangle      -> 0 
     EulerianZigZag_Trev          -> 0 
@@ -108,6 +110,7 @@ if __name__ == "__main__":
     EulerianZigZag_TablCol2      -> https://oeis.org/A205492
     EulerianZigZag_TablCol3      -> https://oeis.org/A205493
     EulerianZigZag_PolyCol2      -> https://oeis.org/A350354
+    EulerianZigZag_RevPosHalf    -> https://oeis.org/A350354
     EulerianZigZag_AltSum        -> https://oeis.org/A373388
     EulerianZigZag_RevNegHalf    -> https://oeis.org/A373389
     EulerianZigZag_EvenSum       -> https://oeis.org/A373752
@@ -116,5 +119,5 @@ if __name__ == "__main__":
     EulerianZigZag_RevOddSum     -> https://oeis.org/A373753
     EulerianZigZag_TablMax       -> https://oeis.org/A373755
 
-    EulerianZigZag: Distinct: 17, Hits: 25, Misses: 41
+    EulerianZigZag: Distinct: 17, Hits: 26, Misses: 41
 '''

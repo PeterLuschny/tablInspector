@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(Bessel)
 
 
+
+
 ''' OEIS
     Bessel_Tantidiag     -> 0 
     Bessel_Tacc          -> 0 
@@ -102,14 +104,17 @@ if __name__ == "__main__":
     Bessel_RevTalt       -> https://oeis.org/A104548
     Bessel_TransNat0     -> https://oeis.org/A107103
     Bessel_PolyCol2      -> https://oeis.org/A107104
+    Bessel_RevPosHalf    -> https://oeis.org/A107104
+    Bessel_Trevinv11     -> https://oeis.org/A111924
     Bessel_Tinv          -> https://oeis.org/A122848
     Bessel_Triangle      -> https://oeis.org/A132062
     Bessel_Talt          -> https://oeis.org/A132062
+    Bessel_Trevinv       -> https://oeis.org/A144299
     Bessel_TablDiag3     -> https://oeis.org/A240440
     Bessel_RevCentralO   -> https://oeis.org/A245066
     Bessel_AltSum        -> https://oeis.org/A278990
     Bessel_PolyCol3      -> https://oeis.org/A369746
     Bessel_CentralE      -> https://oeis.org/A376872
 
-    Bessel: Distinct: 33, Hits: 39, Misses: 27
+    Bessel: Distinct: 35, Hits: 42, Misses: 27
 '''

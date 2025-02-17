@@ -37,7 +37,10 @@ if __name__ == "__main__":
     InspectTable(NimSum)
 
 
+
+
 ''' OEIS
+    NimSum_CentralE      -> https://oeis.org/A-999999
     NimSum_Toff11        -> 0 
     NimSum_Trev11        -> 0 
     NimSum_Tantidiag     -> 0 
@@ -71,6 +74,7 @@ if __name__ == "__main__":
     NimSum_RevOddSum     -> 0 
     NimSum_RevAccRevSum  -> 0 
     NimSum_RevAntiDSum   -> 0 
+    NimSum_RevPosHalf    -> 0 
     NimSum_RevNegHalf    -> 0 
     NimSum_RevTransNat0  -> 0 
     NimSum_RevTransNat1  -> 0 
@@ -78,7 +82,6 @@ if __name__ == "__main__":
     NimSum_RevPolyRow3   -> 0 
     NimSum_RevPolyCol3   -> 0 
     NimSum_RevPolyDiag   -> 0 
-    NimSum_CentralE      -> https://oeis.org/A7
     NimSum_TablCol0      -> https://oeis.org/A27
     NimSum_TablDiag0     -> https://oeis.org/A27
     NimSum_TablMax       -> https://oeis.org/A27
@@ -103,5 +106,5 @@ if __name__ == "__main__":
     NimSum_TablSum       -> https://oeis.org/A375551
     NimSum_AbsSum        -> https://oeis.org/A375551
 
-    NimSum: Distinct: 11, Hits: 24, Misses: 40
+    NimSum: Distinct: 11, Hits: 24, Misses: 41
 '''

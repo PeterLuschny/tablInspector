@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(Bell)
 
 
+
+
 ''' OEIS
     Bell_Trev11        -> 0 
     Bell_Tantidiag     -> 0 
@@ -52,7 +54,6 @@ if __name__ == "__main__":
     Bell_EvenSum       -> 0 
     Bell_OddSum        -> 0 
     Bell_AntiDSum      -> 0 
-    Bell_TransNat0     -> 0 
     Bell_TransSqrs     -> 0 
     Bell_PolyRow2      -> 0 
     Bell_PolyRow3      -> 0 
@@ -94,6 +95,7 @@ if __name__ == "__main__":
     Bell_RevTransNat0  -> https://oeis.org/A92923
     Bell_CentralE      -> https://oeis.org/A94577
     Bell_PolyCol2      -> https://oeis.org/A95676
+    Bell_RevPosHalf    -> https://oeis.org/A95676
     Bell_Trev          -> https://oeis.org/A123346
     Bell_RevTalt       -> https://oeis.org/A123346
     Bell_AccSum        -> https://oeis.org/A124325
@@ -108,6 +110,7 @@ if __name__ == "__main__":
     Bell_AltSum        -> https://oeis.org/A367775
     Bell_PosHalf       -> https://oeis.org/A367808
     Bell_NegHalf       -> https://oeis.org/A367809
+    Bell_TransNat0     -> https://oeis.org/A380116
 
-    Bell: Distinct: 27, Hits: 37, Misses: 27
+    Bell: Distinct: 28, Hits: 39, Misses: 26
 '''

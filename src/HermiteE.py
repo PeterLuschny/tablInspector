@@ -38,10 +38,16 @@ if __name__ == "__main__":
     InspectTable(HermiteE)
 
 
+
+
 ''' OEIS
+    HermiteE_TablDiag1     -> https://oeis.org/A-999999
+    HermiteE_TablDiag3     -> https://oeis.org/A-999999
+    HermiteE_RevOddSum     -> https://oeis.org/A-999999
     HermiteE_Toff11        -> 0 
     HermiteE_Trev11        -> 0 
     HermiteE_Tinv11        -> 0 
+    HermiteE_Trevinv11     -> 0 
     HermiteE_Tantidiag     -> 0 
     HermiteE_Tacc          -> 0 
     HermiteE_Tder          -> 0 
@@ -65,9 +71,6 @@ if __name__ == "__main__":
     HermiteE_RevTransNat1  -> 0 
     HermiteE_RevTransSqrs  -> 0 
     HermiteE_RevPolyCol3   -> 0 
-    HermiteE_TablDiag1     -> https://oeis.org/A7
-    HermiteE_TablDiag3     -> https://oeis.org/A7
-    HermiteE_RevOddSum     -> https://oeis.org/A7
     HermiteE_TablDiag0     -> https://oeis.org/A12
     HermiteE_RevPolyRow1   -> https://oeis.org/A12
     HermiteE_PolyRow1      -> https://oeis.org/A27
@@ -84,6 +87,7 @@ if __name__ == "__main__":
     HermiteE_PolyRow2      -> https://oeis.org/A2522
     HermiteE_RevPolyRow2   -> https://oeis.org/A2522
     HermiteE_PolyCol2      -> https://oeis.org/A5425
+    HermiteE_RevPosHalf    -> https://oeis.org/A5425
     HermiteE_RevNegHalf    -> https://oeis.org/A5425
     HermiteE_TransNat0     -> https://oeis.org/A13989
     HermiteE_RevPolyRow3   -> https://oeis.org/A56107
@@ -103,8 +107,9 @@ if __name__ == "__main__":
     HermiteE_InvBinConv    -> https://oeis.org/A344501
     HermiteE_RevPolyDiag   -> https://oeis.org/A359739
     HermiteE_Trev          -> https://oeis.org/A359760
+    HermiteE_Trevinv       -> https://oeis.org/A359760
     HermiteE_RevTalt       -> https://oeis.org/A359760
     HermiteE_CentralE      -> https://oeis.org/A359761
 
-    HermiteE: Distinct: 25, Hits: 40, Misses: 26
+    HermiteE: Distinct: 25, Hits: 42, Misses: 27
 '''

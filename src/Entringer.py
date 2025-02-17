@@ -42,7 +42,10 @@ if __name__ == "__main__":
     InspectTable(Entringer)
 
 
+
+
 ''' OEIS
+    Entringer_InvBinConv    -> https://oeis.org/A-999999
     Entringer_Trev          -> 0 
     Entringer_Tantidiag     -> 0 
     Entringer_Tacc          -> 0 
@@ -69,12 +72,12 @@ if __name__ == "__main__":
     Entringer_RevOddSum     -> 0 
     Entringer_RevAntiDSum   -> 0 
     Entringer_RevCentralO   -> 0 
+    Entringer_RevPosHalf    -> 0 
     Entringer_RevNegHalf    -> 0 
     Entringer_RevTransSqrs  -> 0 
     Entringer_RevPolyCol3   -> 0 
     Entringer_RevPolyDiag   -> 0 
     Entringer_TablCol0      -> https://oeis.org/A7
-    Entringer_InvBinConv    -> https://oeis.org/A12
     Entringer_RevPolyRow1   -> https://oeis.org/A12
     Entringer_PolyRow1      -> https://oeis.org/A27
     Entringer_RevPolyRow2   -> https://oeis.org/A27
@@ -108,5 +111,5 @@ if __name__ == "__main__":
     Entringer_CentralO      -> https://oeis.org/A240561
     Entringer_RevTransNat0  -> https://oeis.org/A278678
 
-    Entringer: Distinct: 22, Hits: 34, Misses: 30
+    Entringer: Distinct: 23, Hits: 34, Misses: 31
 '''

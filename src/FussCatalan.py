@@ -41,6 +41,8 @@ if __name__ == "__main__":
     InspectTable(FussCatalan)
 
 
+
+
 ''' OEIS
     FussCatalan_Trev          -> 0 
     FussCatalan_Tinvrev11     -> 0 
@@ -69,6 +71,7 @@ if __name__ == "__main__":
     FussCatalan_RevTder       -> 0 
     FussCatalan_RevAntiDSum   -> 0 
     FussCatalan_RevColMiddle  -> 0 
+    FussCatalan_RevPosHalf    -> 0 
     FussCatalan_RevNegHalf    -> 0 
     FussCatalan_RevTransSqrs  -> 0 
     FussCatalan_RevPolyCol3   -> 0 
@@ -108,5 +111,5 @@ if __name__ == "__main__":
     FussCatalan_Triangle      -> https://oeis.org/A355173
     FussCatalan_Talt          -> https://oeis.org/A355173
 
-    FussCatalan: Distinct: 23, Hits: 34, Misses: 31
+    FussCatalan: Distinct: 23, Hits: 34, Misses: 32
 '''

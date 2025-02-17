@@ -45,8 +45,16 @@ if __name__ == "__main__":
     InspectTable(ChebyshevS)
 
 
+
+
 ''' OEIS
+    ChebyshevS_TablCol0      -> https://oeis.org/A-999999
+    ChebyshevS_TablDiag1     -> https://oeis.org/A-999999
+    ChebyshevS_TablDiag3     -> https://oeis.org/A-999999
+    ChebyshevS_OddSum        -> https://oeis.org/A-999999
+    ChebyshevS_RevOddSum     -> https://oeis.org/A-999999
     ChebyshevS_Trev11        -> 0 
+    ChebyshevS_Trevinv11     -> 0 
     ChebyshevS_Tantidiag     -> 0 
     ChebyshevS_Tacc          -> 0 
     ChebyshevS_TablGcd       -> 0 
@@ -65,17 +73,14 @@ if __name__ == "__main__":
     ChebyshevS_RevTransNat1  -> 0 
     ChebyshevS_RevTransSqrs  -> 0 
     ChebyshevS_RevPolyDiag   -> 0 
-    ChebyshevS_TablDiag1     -> https://oeis.org/A7
-    ChebyshevS_TablDiag3     -> https://oeis.org/A7
     ChebyshevS_AntiDSum      -> https://oeis.org/A7
-    ChebyshevS_RevOddSum     -> https://oeis.org/A7
     ChebyshevS_TablDiag0     -> https://oeis.org/A12
     ChebyshevS_RevPolyRow1   -> https://oeis.org/A12
     ChebyshevS_TablDiag2     -> https://oeis.org/A27
     ChebyshevS_PolyRow1      -> https://oeis.org/A27
     ChebyshevS_PolyCol2      -> https://oeis.org/A27
+    ChebyshevS_RevPosHalf    -> https://oeis.org/A27
     ChebyshevS_RevNegHalf    -> https://oeis.org/A27
-    ChebyshevS_TablCol0      -> https://oeis.org/A35
     ChebyshevS_AbsSum        -> https://oeis.org/A45
     ChebyshevS_TablCol2      -> https://oeis.org/A217
     ChebyshevS_TablCol3      -> https://oeis.org/A292
@@ -88,6 +93,7 @@ if __name__ == "__main__":
     ChebyshevS_RevEvenSum    -> https://oeis.org/A11655
     ChebyshevS_TablLcm       -> https://oeis.org/A25560
     ChebyshevS_RevCentralO   -> https://oeis.org/A45721
+    ChebyshevS_Trevinv       -> https://oeis.org/A52173
     ChebyshevS_Tinv          -> https://oeis.org/A53121
     ChebyshevS_RevPolyRow3   -> https://oeis.org/A56220
     ChebyshevS_TablMax       -> https://oeis.org/A73028
@@ -108,10 +114,9 @@ if __name__ == "__main__":
     ChebyshevS_TransNat0     -> https://oeis.org/A186731
     ChebyshevS_PolyRow3      -> https://oeis.org/A242135
     ChebyshevS_EvenSum       -> https://oeis.org/A257000
-    ChebyshevS_OddSum        -> https://oeis.org/A257000
     ChebyshevS_BinConv       -> https://oeis.org/A278415
     ChebyshevS_InvBinConv    -> https://oeis.org/A278415
     ChebyshevS_Tder          -> https://oeis.org/A294519
 
-    ChebyshevS: Distinct: 33, Hits: 47, Misses: 19
+    ChebyshevS: Distinct: 34, Hits: 49, Misses: 20
 '''

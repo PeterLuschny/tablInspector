@@ -52,6 +52,8 @@ if __name__ == "__main__":
     InspectTable(CompoDist)
 
 
+
+
 ''' OEIS
     CompositionDist_Triangle      -> 0 
     CompositionDist_Trev          -> 0 
@@ -88,10 +90,6 @@ if __name__ == "__main__":
     CompositionDist_RevPolyCol3   -> 0 
     CompositionDist_RevPolyDiag   -> 0 
     CompositionDist_TablCol0      -> https://oeis.org/A7
-    CompositionDist_TablDiag0     -> https://oeis.org/A7
-    CompositionDist_TablDiag1     -> https://oeis.org/A7
-    CompositionDist_TablDiag2     -> https://oeis.org/A7
-    CompositionDist_RevCentralO   -> https://oeis.org/A7
     CompositionDist_TablCol1      -> https://oeis.org/A12
     CompositionDist_RevPolyRow1   -> https://oeis.org/A12
     CompositionDist_PolyRow1      -> https://oeis.org/A27
@@ -99,7 +97,9 @@ if __name__ == "__main__":
     CompositionDist_RevPolyRow2   -> https://oeis.org/A27
     CompositionDist_RevPolyRow3   -> https://oeis.org/A5563
     CompositionDist_PolyRow3      -> https://oeis.org/A14105
+    CompositionDist_TablDiag0     -> https://oeis.org/A19590
     CompositionDist_PolyCol2      -> https://oeis.org/A32005
+    CompositionDist_RevPosHalf    -> https://oeis.org/A32005
     CompositionDist_TablSum       -> https://oeis.org/A32020
     CompositionDist_AbsSum        -> https://oeis.org/A32020
     CompositionDist_RevAntiDSum   -> https://oeis.org/A32021
@@ -111,13 +111,16 @@ if __name__ == "__main__":
     CompositionDist_TransNat1     -> https://oeis.org/A72576
     CompositionDist_TransNat0     -> https://oeis.org/A97910
     CompositionDist_BinConv       -> https://oeis.org/A97965
+    CompositionDist_RevCentralO   -> https://oeis.org/A130706
     CompositionDist_TablDiag3     -> https://oeis.org/A186685
     CompositionDist_CentralE      -> https://oeis.org/A186685
     CompositionDist_CentralO      -> https://oeis.org/A186685
+    CompositionDist_TablDiag1     -> https://oeis.org/A245196
+    CompositionDist_TablDiag2     -> https://oeis.org/A245196
     CompositionDist_OddSum        -> https://oeis.org/A332304
     CompositionDist_EvenSum       -> https://oeis.org/A332305
     CompositionDist_PosHalf       -> https://oeis.org/A336127
     CompositionDist_AltSum        -> https://oeis.org/A339435
 
-    CompositionDist: Distinct: 20, Hits: 31, Misses: 34
+    CompositionDist: Distinct: 23, Hits: 32, Misses: 34
 '''

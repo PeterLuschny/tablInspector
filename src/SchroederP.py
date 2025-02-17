@@ -44,16 +44,18 @@ if __name__ == "__main__":
     InspectTable(SchroederP)
 
 
+
+
 ''' OEIS
     SchroederP_Tinv          -> 0 
+    SchroederP_Trevinv       -> 0 
     SchroederP_Toff11        -> 0 
     SchroederP_Trev11        -> 0 
     SchroederP_Tinv11        -> 0 
+    SchroederP_Trevinv11     -> 0 
     SchroederP_Tantidiag     -> 0 
     SchroederP_Tacc          -> 0 
     SchroederP_Tder          -> 0 
-    SchroederP_TablCol3      -> 0 
-    SchroederP_TablDiag3     -> 0 
     SchroederP_TablLcm       -> 0 
     SchroederP_TablGcd       -> 0 
     SchroederP_TablMax       -> 0 
@@ -93,16 +95,19 @@ if __name__ == "__main__":
     SchroederP_RevPolyRow1   -> https://oeis.org/A5408
     SchroederP_PosHalf       -> https://oeis.org/A6442
     SchroederP_CentralE      -> https://oeis.org/A6480
+    SchroederP_TablCol3      -> https://oeis.org/A7744
     SchroederP_PolyRow2      -> https://oeis.org/A28872
     SchroederP_TablDiag2     -> https://oeis.org/A33487
     SchroederP_OddSum        -> https://oeis.org/A47665
     SchroederP_Trev          -> https://oeis.org/A63007
     SchroederP_RevTalt       -> https://oeis.org/A63007
     SchroederP_PolyCol2      -> https://oeis.org/A69835
+    SchroederP_RevPosHalf    -> https://oeis.org/A69835
     SchroederP_RevPolyCol3   -> https://oeis.org/A84768
     SchroederP_PolyCol3      -> https://oeis.org/A84771
     SchroederP_Triangle      -> https://oeis.org/A104684
     SchroederP_Talt          -> https://oeis.org/A104684
+    SchroederP_TablDiag3     -> https://oeis.org/A105939
     SchroederP_TransNat0     -> https://oeis.org/A108666
     SchroederP_RevNegHalf    -> https://oeis.org/A126869
     SchroederP_RevPolyRow3   -> https://oeis.org/A160674
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     SchroederP_PolyDiag      -> https://oeis.org/A335309
     SchroederP_AntiDSum      -> https://oeis.org/A349713
 
-    SchroederP: Distinct: 30, Hits: 34, Misses: 32
+    SchroederP: Distinct: 32, Hits: 37, Misses: 32
 '''

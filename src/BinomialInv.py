@@ -37,23 +37,21 @@ if __name__ == "__main__":
     InspectTable(BinomialInv)
 
 
+
+
 ''' OEIS
+    BinomialInv_Tacc          -> https://oeis.org/A-999999
+    BinomialInv_TablCol0      -> https://oeis.org/A-999999
+    BinomialInv_AccSum        -> https://oeis.org/A-999999
+    BinomialInv_PosHalf       -> https://oeis.org/A-999999
+    BinomialInv_RevAccRevSum  -> https://oeis.org/A-999999
+    BinomialInv_RevTransNat1  -> https://oeis.org/A-999999
     BinomialInv_Tinvrev       -> 0 
     BinomialInv_RevTinv11     -> 0 
     BinomialInv_TablSum       -> https://oeis.org/A7
-    BinomialInv_AccSum        -> https://oeis.org/A7
-    BinomialInv_AccRevSum     -> https://oeis.org/A7
-    BinomialInv_TransNat0     -> https://oeis.org/A7
-    BinomialInv_TransNat1     -> https://oeis.org/A7
-    BinomialInv_TransSqrs     -> https://oeis.org/A7
-    BinomialInv_RevAccRevSum  -> https://oeis.org/A7
-    BinomialInv_RevTransNat0  -> https://oeis.org/A7
-    BinomialInv_RevTransNat1  -> https://oeis.org/A7
-    BinomialInv_RevTransSqrs  -> https://oeis.org/A7
-    BinomialInv_TablCol0      -> https://oeis.org/A12
     BinomialInv_TablDiag0     -> https://oeis.org/A12
-    BinomialInv_PosHalf       -> https://oeis.org/A12
     BinomialInv_PolyCol2      -> https://oeis.org/A12
+    BinomialInv_RevPosHalf    -> https://oeis.org/A12
     BinomialInv_TablCol1      -> https://oeis.org/A27
     BinomialInv_TablDiag1     -> https://oeis.org/A27
     BinomialInv_PolyRow1      -> https://oeis.org/A27
@@ -90,6 +88,7 @@ if __name__ == "__main__":
     BinomialInv_Triangle      -> https://oeis.org/A7318
     BinomialInv_Tinv          -> https://oeis.org/A7318
     BinomialInv_Trev          -> https://oeis.org/A7318
+    BinomialInv_Trevinv       -> https://oeis.org/A7318
     BinomialInv_Talt          -> https://oeis.org/A7318
     BinomialInv_RevTalt       -> https://oeis.org/A7318
     BinomialInv_PolyDiag      -> https://oeis.org/A7778
@@ -98,14 +97,20 @@ if __name__ == "__main__":
     BinomialInv_Tantidiag     -> https://oeis.org/A11973
     BinomialInv_RevTantidiag  -> https://oeis.org/A11973
     BinomialInv_TablGcd       -> https://oeis.org/A14963
+    BinomialInv_AccRevSum     -> https://oeis.org/A19590
+    BinomialInv_TransNat1     -> https://oeis.org/A19590
+    BinomialInv_RevTacc       -> https://oeis.org/A71919
     BinomialInv_Toff11        -> https://oeis.org/A74909
     BinomialInv_Trev11        -> https://oeis.org/A74909
     BinomialInv_Tinv11        -> https://oeis.org/A74909
+    BinomialInv_Trevinv11     -> https://oeis.org/A74909
     BinomialInv_RevToff11     -> https://oeis.org/A74909
     BinomialInv_RevTrev11     -> https://oeis.org/A74909
-    BinomialInv_Tacc          -> https://oeis.org/A97805
-    BinomialInv_RevTacc       -> https://oeis.org/A97805
     BinomialInv_BinConv       -> https://oeis.org/A126869
+    BinomialInv_TransNat0     -> https://oeis.org/A209229
+    BinomialInv_RevTransNat0  -> https://oeis.org/A209229
+    BinomialInv_TransSqrs     -> https://oeis.org/A245196
+    BinomialInv_RevTransSqrs  -> https://oeis.org/A245196
 
-    BinomialInv: Distinct: 24, Hits: 66, Misses: 2
+    BinomialInv: Distinct: 28, Hits: 69, Misses: 2
 '''

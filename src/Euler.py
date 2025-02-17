@@ -46,10 +46,13 @@ if __name__ == "__main__":
 # See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
 
 
+
+
 ''' OEIS
     Euler_Toff11        -> 0 
     Euler_Trev11        -> 0 
     Euler_Tinv11        -> 0 
+    Euler_Trevinv11     -> 0 
     Euler_Tantidiag     -> 0 
     Euler_Tacc          -> 0 
     Euler_TablCol3      -> 0 
@@ -101,6 +104,7 @@ if __name__ == "__main__":
     Euler_TablMax       -> https://oeis.org/A65619
     Euler_PolyRow3      -> https://oeis.org/A68601
     Euler_PolyCol2      -> https://oeis.org/A102590
+    Euler_RevPosHalf    -> https://oeis.org/A102590
     Euler_Triangle      -> https://oeis.org/A109449
     Euler_Tinv          -> https://oeis.org/A109449
     Euler_Talt          -> https://oeis.org/A109449
@@ -112,7 +116,8 @@ if __name__ == "__main__":
     Euler_AntiDSum      -> https://oeis.org/A343845
     Euler_CentralE      -> https://oeis.org/A343846
     Euler_Trev          -> https://oeis.org/A363394
+    Euler_Trevinv       -> https://oeis.org/A363394
     Euler_RevTalt       -> https://oeis.org/A363394
 
-    Euler: Distinct: 27, Hits: 36, Misses: 30
+    Euler: Distinct: 27, Hits: 38, Misses: 31
 '''

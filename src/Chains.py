@@ -46,6 +46,8 @@ if __name__ == "__main__":
     InspectTable(Chains)
 
 
+
+
 ''' OEIS
     Chains_Trev          -> 0 
     Chains_Toff11        -> 0 
@@ -110,7 +112,8 @@ if __name__ == "__main__":
     Chains_AccRevSum     -> https://oeis.org/A162509
     Chains_TransNat1     -> https://oeis.org/A162509
     Chains_PolyCol2      -> https://oeis.org/A368319
+    Chains_RevPosHalf    -> https://oeis.org/A368319
     Chains_PolyCol3      -> https://oeis.org/A368322
 
-    Chains: Distinct: 21, Hits: 24, Misses: 40
+    Chains: Distinct: 21, Hits: 25, Misses: 40
 '''

@@ -47,6 +47,8 @@ if __name__ == "__main__":
     InspectTable(DyckPaths)
 
 
+
+
 ''' OEIS
     DyckPaths_Trev11        -> 0 
     DyckPaths_Tantidiag     -> 0 
@@ -90,6 +92,7 @@ if __name__ == "__main__":
     DyckPaths_PolyRow2      -> https://oeis.org/A2378
     DyckPaths_TablDiag1     -> https://oeis.org/A5408
     DyckPaths_PolyCol2      -> https://oeis.org/A7854
+    DyckPaths_RevPosHalf    -> https://oeis.org/A7854
     DyckPaths_TablDiag2     -> https://oeis.org/A14107
     DyckPaths_RevPolyRow3   -> https://oeis.org/A27849
     DyckPaths_AccRevSum     -> https://oeis.org/A32443
@@ -101,6 +104,7 @@ if __name__ == "__main__":
     DyckPaths_Tacc          -> https://oeis.org/A50157
     DyckPaths_Trev          -> https://oeis.org/A50165
     DyckPaths_RevTalt       -> https://oeis.org/A50165
+    DyckPaths_Trevinv       -> https://oeis.org/A54142
     DyckPaths_PolyRow3      -> https://oeis.org/A62158
     DyckPaths_RevTacc       -> https://oeis.org/A62344
     DyckPaths_NegHalf       -> https://oeis.org/A64062
@@ -109,11 +113,12 @@ if __name__ == "__main__":
     DyckPaths_PosHalf       -> https://oeis.org/A89022
     DyckPaths_CentralE      -> https://oeis.org/A126596
     DyckPaths_BinConv       -> https://oeis.org/A174687
+    DyckPaths_Trevinv11     -> https://oeis.org/A210551
     DyckPaths_Tinv11        -> https://oeis.org/A258993
     DyckPaths_RevAntiDSum   -> https://oeis.org/A274115
     DyckPaths_AccSum        -> https://oeis.org/A296771
     DyckPaths_RevAccRevSum  -> https://oeis.org/A296771
     DyckPaths_RevTransNat1  -> https://oeis.org/A296771
 
-    DyckPaths: Distinct: 37, Hits: 48, Misses: 18
+    DyckPaths: Distinct: 39, Hits: 51, Misses: 18
 '''

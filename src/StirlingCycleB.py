@@ -44,10 +44,13 @@ if __name__ == "__main__":
     InspectTable(StirlingCycleB)
 
 
+
+
 ''' OEIS
     StirlingCycleB_Toff11        -> 0 
     StirlingCycleB_Trev11        -> 0 
     StirlingCycleB_Tinv11        -> 0 
+    StirlingCycleB_Trevinv11     -> 0 
     StirlingCycleB_Tantidiag     -> 0 
     StirlingCycleB_Tacc          -> 0 
     StirlingCycleB_Tder          -> 0 
@@ -84,6 +87,7 @@ if __name__ == "__main__":
     StirlingCycleB_RevPolyRow2   -> https://oeis.org/A567
     StirlingCycleB_TablCol0      -> https://oeis.org/A1147
     StirlingCycleB_PolyCol2      -> https://oeis.org/A1147
+    StirlingCycleB_RevPosHalf    -> https://oeis.org/A1147
     StirlingCycleB_RevNegHalf    -> https://oeis.org/A1147
     StirlingCycleB_EvenSum       -> https://oeis.org/A2866
     StirlingCycleB_OddSum        -> https://oeis.org/A2866
@@ -102,6 +106,7 @@ if __name__ == "__main__":
     StirlingCycleB_TablCol2      -> https://oeis.org/A28339
     StirlingCycleB_TablCol3      -> https://oeis.org/A28340
     StirlingCycleB_Tinv          -> https://oeis.org/A39755
+    StirlingCycleB_Trevinv       -> https://oeis.org/A39756
     StirlingCycleB_RevPolyCol3   -> https://oeis.org/A49308
     StirlingCycleB_Trev          -> https://oeis.org/A109692
     StirlingCycleB_RevTalt       -> https://oeis.org/A109692
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     StirlingCycleB_PolyRow3      -> https://oeis.org/A370912
     StirlingCycleB_PolyDiag      -> https://oeis.org/A374866
 
-    StirlingCycleB: Distinct: 27, Hits: 38, Misses: 28
+    StirlingCycleB: Distinct: 28, Hits: 40, Misses: 29
 '''

@@ -46,6 +46,8 @@ if __name__ == "__main__":
     InspectTable(LabeledGraphs)
 
 
+
+
 ''' OEIS
     LabeledGraphs_Trev          -> 0 
     LabeledGraphs_Toff11        -> 0 
@@ -87,6 +89,7 @@ if __name__ == "__main__":
     LabeledGraphs_RevAntiDSum   -> 0 
     LabeledGraphs_RevColMiddle  -> 0 
     LabeledGraphs_RevCentralO   -> 0 
+    LabeledGraphs_RevPosHalf    -> 0 
     LabeledGraphs_RevNegHalf    -> 0 
     LabeledGraphs_RevTransNat0  -> 0 
     LabeledGraphs_RevTransNat1  -> 0 
@@ -112,5 +115,5 @@ if __name__ == "__main__":
     LabeledGraphs_Talt          -> https://oeis.org/A360603
     LabeledGraphs_Tacc          -> https://oeis.org/A360860
 
-    LabeledGraphs: Distinct: 14, Hits: 18, Misses: 46
+    LabeledGraphs: Distinct: 14, Hits: 18, Misses: 47
 '''

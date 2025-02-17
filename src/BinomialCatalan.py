@@ -46,6 +46,8 @@ if __name__ == "__main__":
     InspectTable(BinomialCatalan)
 
 
+
+
 ''' OEIS
     BinomialCatalan_Tinvrev       -> 0 
     BinomialCatalan_Toff11        -> 0 
@@ -60,7 +62,6 @@ if __name__ == "__main__":
     BinomialCatalan_AccSum        -> 0 
     BinomialCatalan_ColMiddle     -> 0 
     BinomialCatalan_TransSqrs     -> 0 
-    BinomialCatalan_BinConv       -> 0 
     BinomialCatalan_InvBinConv    -> 0 
     BinomialCatalan_PolyRow3      -> 0 
     BinomialCatalan_RevToff11     -> 0 
@@ -96,6 +97,7 @@ if __name__ == "__main__":
     BinomialCatalan_TransNat1     -> https://oeis.org/A26375
     BinomialCatalan_TransNat0     -> https://oeis.org/A26376
     BinomialCatalan_PosHalf       -> https://oeis.org/A64613
+    BinomialCatalan_BinConv       -> https://oeis.org/A86618
     BinomialCatalan_AntiDSum      -> https://oeis.org/A90344
     BinomialCatalan_TablDiag2     -> https://oeis.org/A92443
     BinomialCatalan_EvenSum       -> https://oeis.org/A98465
@@ -109,10 +111,11 @@ if __name__ == "__main__":
     BinomialCatalan_RevCentralO   -> https://oeis.org/A125558
     BinomialCatalan_TablCol3      -> https://oeis.org/A134481
     BinomialCatalan_PolyCol2      -> https://oeis.org/A162326
+    BinomialCatalan_RevPosHalf    -> https://oeis.org/A162326
     BinomialCatalan_RevPolyDiag   -> https://oeis.org/A292632
     BinomialCatalan_PolyCol3      -> https://oeis.org/A337167
     BinomialCatalan_RevNegHalf    -> https://oeis.org/A337168
     BinomialCatalan_PolyDiag      -> https://oeis.org/A338979
 
-    BinomialCatalan: Distinct: 33, Hits: 38, Misses: 28
+    BinomialCatalan: Distinct: 34, Hits: 40, Misses: 27
 '''

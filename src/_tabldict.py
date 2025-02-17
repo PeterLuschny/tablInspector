@@ -38,7 +38,7 @@ from Tables import TablesList
 from _tabltypes import Table
 from _tabloeis import QueryOEIS
 from _tabltraits import AllTraits, TableTraits
-from _tablutils import SeqToString, TableGenerationTime
+from _tablutils import TableGenerationTime
 from pathlib import Path
 from typing import Dict
 import json
@@ -189,9 +189,9 @@ def AnumberDict(
 
     trait_dict: Dict[str, int] = {}
     for trid, tr in AllTraits.items():
-        # if info: print(trid)
         # the key of the dictionary is the table name + trait name.
         name = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
+        if info: print(name)
         # generate the trait data for the query
         seq: list[int] = tr[0](T, tr[1])
         if seq != []:
@@ -202,8 +202,7 @@ def AnumberDict(
     return trait_dict
 
 
-header = '<!DOCTYPE html lang="en"><head><title>Traits</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> window.MathJax = {loader: {load: ["[tex]/bbox"]}, tex: {packages: {"[+]": ["bbox"] } } }</script></head><body width="40%"><iframe name="OEISframe" scrolling="yes" width="58%" height="2200" align="left" title="Sequences"'
-
+header = r'<!DOCTYPE html lang="en"><head><title>NAMEXXX</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">window.MathJax={ loader:{ load: ["[tex]/bbox"]}, tex:{ packages:{ "[+]": ["bbox"]}}}</script><style type="text/css">table{ margin-top: 8px; display: inline-block; overflow: auto;} table.rTable{ position: fixed; top: 0px; border: 2px solid #5949b3; background-color: #EEE7DB; text-align: center; border-collapse: collapse; font-family: "Segoe UI", sans-serif; font: 1em sans-serif; overflow-y: auto; max-height: 850px;} table.rTable td, table.rTable th{ border: 1px solid #AAAAAA; padding: 8px 2px;} table.rTable tbody td{ font-size: 16px;} table.rTable tr:nth-child(even){ background: #f3f1f0;} table.rTable thead{ background: #585ada;} table.rTable thead th{ font-size: 16px; font-weight: bold; color: #FFFFFF; text-align: center; border-left: 2px solid #A40808;} </style></head><body><iframe name="OEISframe" scrolling="yes" width="70%" height="850" align="left" title="Sequences" src=https://oeis.org/AXXXXXX></iframe><table class="rTable"><thead><tr><th>OEIS</th><th>TRAIT</th><th>FORMULA</th></tr></thead><tbody><tr><td><a href="https://oeis.org/AXXXXXX" target="OEISframe">AXXXXXX</a></td><td style="color: darkgreen;font-weight:800">NAMEXXX</td><td style="color: darkgreen;font-weight:800">\(T_{n,k}\)</td></tr>'
 
 def DictToHtml(
     T: Table, 
@@ -215,60 +214,39 @@ def DictToHtml(
         A trait is 'missing' if the anum in the dictionary is 0.
     """
 
-    SRC = f'https://oeis.org/{T.oeis[0]}'
-    TID = (T.id).capitalize()
-    SH = f'src={SRC}></iframe><p><span style="white-space: pre">     {TID}</span><br>'
     hitpath = GetRoot(f"docs/{T.id}Traits.html")
-    mispath = GetRoot(f"docs/{T.id}Missing.html")
-    head = header.replace("Traits", T.id)
-    TeX = r"\(\bbox[yellow, 5px]{\color{DarkGreen} T_{n, k} \ = \ TTEX } \)" 
-    TEX = TeX.replace("TTEX", T.tex)
-    url = f"<a href='https://oeis.org/{T.oeis[0]}' target='OEISframe'>{T.oeis[0]}</a> "
+    head = header.replace("NAMEXXX", T.id).replace("AXXXXXX", f"{T.oeis[0]}")
+
     hits = misses = doubles = 0
     anumlist: set[int] = set()
-    oldanum = T.oeis[0] 
 
     with open(hitpath, "w+", encoding="utf-8") as oeis:
-        with open(mispath, "w+", encoding="utf-8") as miss:
-            oeis.write(head); oeis.write(SH); oeis.write(url + TEX)
-            miss.write(head); miss.write(SH); miss.write(url + TEX)
-            d = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
 
-            for fullname, anum in d.items():
-                if info: 
-                    print(f"    {fullname} -> {anum}") # prints sorted dict 
+        oeis.write(head)
+        d = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
 
-                traitfun, size, tex = AllTraits[fullname.split('_')[1]]
-                seq = SeqToString(traitfun(T, size), 40, 20)
-                if anum == 0:
-                    t = f"<br>{tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
-                    miss.write(t + seq)
-                    misses += 1
-                else:
-                    if anum in anumlist: 
-                        doubles += 1
-                    Anum = 'A' + str(anum).rjust(6, "0")
-                    if anum == oldanum:
-                        url = '---------- '
-                    else:
-                        url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
-                    oldanum = anum 
-                    t = f"<br>{url} {tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
-                    oeis.write(t + seq)
-                    hits += 1
-                    anumlist.add(anum)
-
-            L = "<a href='https://peterluschny.github.io/tablInspector/"
-            A = f"{L}{T.id}Traits.html'>[online]</a>"
-            B = f"{L}{T.id}Missing.html'>[missing]</a>"
-            C = f"{L}index.html'>[index]</a>"
-
-            oeis.write(f"<p style='color:blue'>{B}{C}</p></body></html>")
-            miss.write(f"<p style='color:blue'>{A}{C}</p></body></html>")
+        for fullname, anum in d.items():
+            if info: print(f"    {fullname} -> {anum}") # prints sorted dict 
+            traitfun, size, tex = AllTraits[fullname.split('_')[1]] # type: ignore
+            if anum == 0:
+                continue
+            if anum in anumlist: 
+                doubles += 1
+            Anum = 'A' + str(anum).rjust(6, "0")
+            url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
+            row = f"<tr><td>{url}</td><td>{fullname.split('_')[1]}</td><td>{tex}</td></tr>"
+            oeis.write(row)
+            hits += 1
+            anumlist.add(anum)
+            
+        row = f"<tr><td colspan='3'><a href='https://peterluschny.github.io/tablInspector/index.html'>I N D E X</a></td></tr>"
+        oeis.write(row)
+        oeis.write("</tbody></table></body></html>")
 
     distincts = len(anumlist)
     print(f"{T.id:17}, Distinct: {distincts}, Hits: {hits}, Misses: {misses}")
     return (distincts, hits, misses)
+
 
 
 def RefreshHtml(filter: bool=False) -> None:
@@ -287,20 +265,31 @@ def RefreshHtml(filter: bool=False) -> None:
     """
     global GlobalDict
     ReadJsonDict()
-    for T in TablesList:
-        try:
-            dict = GlobalDict[T.id]
-            if filter:
-                dict = FilterDict(dict)
-            DictToHtml(T, dict)    # type: ignore
-            print(T.id, "dict length:", len(dict))
-        except KeyError as e: 
-            print("KeyError:", e)
-            input()
-            pass
+    
+    indexpath = GetRoot(f"docs/index.html")
+    with open(indexpath, "w+", encoding="utf-8") as index:
+        index.write(indheader)
+
+        for T in TablesList:
+            try:
+                dict = GlobalDict[T.id]
+                if filter:
+                    dict = FilterDict(dict)
+                DictToHtml(T, dict)    # type: ignore
+                index.write(
+                    f"<tr><td align='left'><a href='{T.id}Traits.html'>{T.id}</a></td></tr>"
+                )
+                print(T.id, "dict length:", len(dict))
+            except KeyError as e: 
+                print("KeyError:", e)
+                input()
+                pass
+        
+        index.write("</tbody></table></body></html>")
+        index.flush()
 
 
-indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{font-family:Calabri,Arial,sans-serif;font-size:18px;background-color: #804040; color: #C0C0C0}</style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>Sequence</th><th align='left'>OEIS</th><th align='left'>Missing</th></tr></thead><tbody><tr>"
+indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{font-family:Calabri,Arial,sans-serif;font-size:20px;background-color: yellow; color: #0f0f0f}</style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>The Triangle Inspector</th></tr></thead><tbody><tr>"
 
 
 def RefreshDatabase() -> None:
@@ -322,7 +311,7 @@ def RefreshDatabase() -> None:
             dict = AnumberDict(T, True, True)  # type: ignore
             DictToHtml(T, dict, False)  # type: ignore
             index.write(
-                f"<tr><td align='left'>{T.id}</td><td align='left'><a href='{T.id}Traits.html'>[online]</a></td><td align='left'><a href='{T.id}Missing.html'>[missing]</a></td></tr>"
+                f"<tr><td align='left'>{T.id}</td><td align='left'><a href='{T.id}Traits.html'>[online]</a></td></tr>"
             )
             AddAnumsToSrcfile(T.id, dict)
 
@@ -417,16 +406,15 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
 
 if __name__ == "__main__":
 
+    #RefreshDatabase()
+    RefreshHtml(True)
+
     from Abel import Abel                  # type: ignore
-    from MotzkinInv import MotzkinInv      # type: ignore
-    from DoublePochhammer import DoublePochhammer  # type: ignore
+    #from MotzkinInv import MotzkinInv      # type: ignore
+    #from DoublePochhammer import DoublePochhammer  # type: ignore
 
     # InspectTable(CentralFactorial)
-    AddTable(DoublePochhammer) # type: ignore
-
-    # RefreshHtml(True)
-    
-    # RefreshDatabase()
+    # AddTable(Abel) # type: ignore
 
     #for T in TablesList:
     #    print(T.id, T.tex)

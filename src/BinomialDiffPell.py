@@ -48,12 +48,16 @@ if __name__ == "__main__":
     InspectTable(BinomialDiffPell)
 
 
+
+
 ''' OEIS
     BinomialDiffPell_Tinv          -> 0 
     BinomialDiffPell_Trev          -> 0 
+    BinomialDiffPell_Trevinv       -> 0 
     BinomialDiffPell_Toff11        -> 0 
     BinomialDiffPell_Trev11        -> 0 
     BinomialDiffPell_Tinv11        -> 0 
+    BinomialDiffPell_Trevinv11     -> 0 
     BinomialDiffPell_Tantidiag     -> 0 
     BinomialDiffPell_Tacc          -> 0 
     BinomialDiffPell_Tder          -> 0 
@@ -108,6 +112,7 @@ if __name__ == "__main__":
     BinomialDiffPell_AltSum        -> https://oeis.org/A77957
     BinomialDiffPell_NegHalf       -> https://oeis.org/A83100
     BinomialDiffPell_PolyCol2      -> https://oeis.org/A83878
+    BinomialDiffPell_RevPosHalf    -> https://oeis.org/A83878
     BinomialDiffPell_PolyCol3      -> https://oeis.org/A83879
     BinomialDiffPell_OddSum        -> https://oeis.org/A84154
     BinomialDiffPell_RevOddSum     -> https://oeis.org/A84154
@@ -116,5 +121,5 @@ if __name__ == "__main__":
     BinomialDiffPell_Triangle      -> https://oeis.org/A367564
     BinomialDiffPell_Talt          -> https://oeis.org/A367564
 
-    BinomialDiffPell: Distinct: 16, Hits: 23, Misses: 43
+    BinomialDiffPell: Distinct: 16, Hits: 24, Misses: 45
 '''

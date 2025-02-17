@@ -43,9 +43,12 @@ if __name__ == "__main__":
     InspectTable(LucasInv)
 
 
+
+
 ''' OEIS
     LucasInv_Tinvrev       -> 0 
     LucasInv_Tinv11        -> 0 
+    LucasInv_Trevinv11     -> 0 
     LucasInv_Tacc          -> 0 
     LucasInv_Tder          -> 0 
     LucasInv_TablLcm       -> 0 
@@ -86,6 +89,7 @@ if __name__ == "__main__":
     LucasInv_TablSum       -> https://oeis.org/A7051
     LucasInv_AbsSum        -> https://oeis.org/A7051
     LucasInv_PolyCol2      -> https://oeis.org/A7583
+    LucasInv_RevPosHalf    -> https://oeis.org/A7583
     LucasInv_AntiDSum      -> https://oeis.org/A24537
     LucasInv_PolyRow2      -> https://oeis.org/A28387
     LucasInv_RevPolyRow2   -> https://oeis.org/A28387
@@ -93,6 +97,7 @@ if __name__ == "__main__":
     LucasInv_TablCol3      -> https://oeis.org/A55580
     LucasInv_TablDiag2     -> https://oeis.org/A56220
     LucasInv_TransSqrs     -> https://oeis.org/A80420
+    LucasInv_Trevinv       -> https://oeis.org/A81277
     LucasInv_PolyCol3      -> https://oeis.org/A83065
     LucasInv_PolyDiag      -> https://oeis.org/A83069
     LucasInv_PolyRow3      -> https://oeis.org/A83074
@@ -113,5 +118,5 @@ if __name__ == "__main__":
     LucasInv_PosHalf       -> https://oeis.org/A247313
     LucasInv_Tantidiag     -> https://oeis.org/A257597
 
-    LucasInv: Distinct: 31, Hits: 41, Misses: 27
+    LucasInv: Distinct: 32, Hits: 43, Misses: 28
 '''

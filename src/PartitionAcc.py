@@ -38,7 +38,10 @@ if __name__ == "__main__":
     InspectTable(PartAcc)
 
 
+
+
 ''' OEIS
+    PartitionAcc_Tinvrev11     -> https://oeis.org/A-999999
     PartitionAcc_Triangle      -> 0 
     PartitionAcc_Trev          -> 0 
     PartitionAcc_Tantidiag     -> 0 
@@ -71,6 +74,7 @@ if __name__ == "__main__":
     PartitionAcc_RevOddSum     -> 0 
     PartitionAcc_RevAccRevSum  -> 0 
     PartitionAcc_RevAntiDSum   -> 0 
+    PartitionAcc_RevPosHalf    -> 0 
     PartitionAcc_RevNegHalf    -> 0 
     PartitionAcc_RevTransNat0  -> 0 
     PartitionAcc_RevTransNat1  -> 0 
@@ -103,7 +107,6 @@ if __name__ == "__main__":
     PartitionAcc_CentralE      -> https://oeis.org/A209816
     PartitionAcc_TablDiag3     -> https://oeis.org/A335323
     PartitionAcc_RevColMiddle  -> https://oeis.org/A336106
-    PartitionAcc_Tinvrev11     -> https://oeis.org/A375383
 
-    PartitionAcc: Distinct: 22, Hits: 27, Misses: 38
+    PartitionAcc: Distinct: 22, Hits: 27, Misses: 39
 '''

@@ -52,12 +52,18 @@ if __name__ == "__main__":
 # See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
 
 
+
+
 ''' OEIS
+    EulerSec_Tacc          -> https://oeis.org/A-999999
+    EulerSec_TablDiag1     -> https://oeis.org/A-999999
+    EulerSec_TablDiag3     -> https://oeis.org/A-999999
+    EulerSec_RevOddSum     -> https://oeis.org/A-999999
     EulerSec_Toff11        -> 0 
     EulerSec_Trev11        -> 0 
     EulerSec_Tinv11        -> 0 
+    EulerSec_Trevinv11     -> 0 
     EulerSec_Tantidiag     -> 0 
-    EulerSec_Tacc          -> 0 
     EulerSec_Tder          -> 0 
     EulerSec_TablCol2      -> 0 
     EulerSec_TablCol3      -> 0 
@@ -82,10 +88,7 @@ if __name__ == "__main__":
     EulerSec_RevTransNat0  -> 0 
     EulerSec_RevTransNat1  -> 0 
     EulerSec_RevTransSqrs  -> 0 
-    EulerSec_TablDiag1     -> https://oeis.org/A7
-    EulerSec_TablDiag3     -> https://oeis.org/A7
     EulerSec_EvenSum       -> https://oeis.org/A7
-    EulerSec_RevOddSum     -> https://oeis.org/A7
     EulerSec_TablDiag0     -> https://oeis.org/A12
     EulerSec_RevPolyRow1   -> https://oeis.org/A12
     EulerSec_PolyRow1      -> https://oeis.org/A27
@@ -112,13 +115,15 @@ if __name__ == "__main__":
     EulerSec_Triangle      -> https://oeis.org/A119879
     EulerSec_Talt          -> https://oeis.org/A119879
     EulerSec_PolyCol2      -> https://oeis.org/A119880
+    EulerSec_RevPosHalf    -> https://oeis.org/A119880
     EulerSec_RevNegHalf    -> https://oeis.org/A119880
     EulerSec_PolyCol3      -> https://oeis.org/A119881
     EulerSec_TablCol0      -> https://oeis.org/A122045
+    EulerSec_Trevinv       -> https://oeis.org/A141665
     EulerSec_TablGcd       -> https://oeis.org/A155457
     EulerSec_CentralE      -> https://oeis.org/A214445
     EulerSec_PolyDiag      -> https://oeis.org/A302585
     EulerSec_RevPolyDiag   -> https://oeis.org/A378063
 
-    EulerSec: Distinct: 25, Hits: 37, Misses: 29
+    EulerSec: Distinct: 27, Hits: 40, Misses: 29
 '''

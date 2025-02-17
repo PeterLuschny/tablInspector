@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(Levin)
 
 
+
+
 ''' OEIS
     Levin_Toff11        -> 0 
     Levin_Trev11        -> 0 
@@ -104,10 +106,11 @@ if __name__ == "__main__":
     Levin_RevPolyCol3   -> https://oeis.org/A98430
     Levin_PosHalf       -> https://oeis.org/A98658
     Levin_PolyCol2      -> https://oeis.org/A98658
+    Levin_RevPosHalf    -> https://oeis.org/A98658
     Levin_Triangle      -> https://oeis.org/A356546
     Levin_Trev          -> https://oeis.org/A356546
     Levin_Talt          -> https://oeis.org/A356546
     Levin_RevTalt       -> https://oeis.org/A356546
 
-    Levin: Distinct: 16, Hits: 35, Misses: 29
+    Levin: Distinct: 16, Hits: 36, Misses: 29
 '''

@@ -45,6 +45,8 @@ if __name__ == "__main__":
     InspectTable(Genocchi)
 
 
+
+
 ''' OEIS
     Genocchi_Trev          -> 0 
     Genocchi_Toff11        -> 0 
@@ -87,6 +89,7 @@ if __name__ == "__main__":
     Genocchi_RevAntiDSum   -> 0 
     Genocchi_RevColMiddle  -> 0 
     Genocchi_RevCentralO   -> 0 
+    Genocchi_RevPosHalf    -> 0 
     Genocchi_RevNegHalf    -> 0 
     Genocchi_RevTransNat0  -> 0 
     Genocchi_RevTransNat1  -> 0 
@@ -111,5 +114,5 @@ if __name__ == "__main__":
     Genocchi_Triangle      -> https://oeis.org/A297703
     Genocchi_Talt          -> https://oeis.org/A297703
 
-    Genocchi: Distinct: 9, Hits: 16, Misses: 48
+    Genocchi: Distinct: 9, Hits: 16, Misses: 49
 '''

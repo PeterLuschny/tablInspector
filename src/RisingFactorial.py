@@ -41,6 +41,8 @@ if __name__ == "__main__":
     InspectTable(RisingFactorial)
 
 
+
+
 ''' OEIS
     RisingFactorial_Trev          -> 0 
     RisingFactorial_Tinvrev       -> 0 
@@ -78,6 +80,7 @@ if __name__ == "__main__":
     RisingFactorial_RevAntiDSum   -> 0 
     RisingFactorial_RevColMiddle  -> 0 
     RisingFactorial_RevCentralO   -> 0 
+    RisingFactorial_RevPosHalf    -> 0 
     RisingFactorial_RevNegHalf    -> 0 
     RisingFactorial_RevTransNat0  -> 0 
     RisingFactorial_RevTransNat1  -> 0 
@@ -109,5 +112,5 @@ if __name__ == "__main__":
     RisingFactorial_BinConv       -> https://oeis.org/A278070
     RisingFactorial_CentralE      -> https://oeis.org/A352601
 
-    RisingFactorial: Distinct: 17, Hits: 23, Misses: 43
+    RisingFactorial: Distinct: 17, Hits: 23, Misses: 44
 '''

@@ -1023,13 +1023,13 @@ def Trevinv(T: Table, size: int = 7) -> list[int]:
     return list(flatten(T.revinv(size)))
 
 
-def Toff11(T: Table, size: int = 7) -> list[int]:
+def Toff11(T: Table, size: int = 8) -> list[int]:
     """
     Creates a new Table object offset by 1 row and 1 column from the original table,
     and returns a flattened list of rows of the new table.
     Args:
         T (Table): The original table object.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
     Returns:
         list[int]: A flattened list of rows from the shifted table.
 
@@ -1075,13 +1075,13 @@ def Toff11(T: Table, size: int = 7) -> list[int]:
     return T11.flat(size)
 
 
-def Trev11(T: Table, size: int = 7) -> list[int]:
+def Trev11(T: Table, size: int = 8) -> list[int]:
     """
     Generate a flattened list of reversed rows from a Table object with
     offset by 1 row and 1 column.
     Args:
         T (Table): The Table object containing the data.
-        size (int, optional): The number of rows to reverse. Defaults to 7.
+        size (int, optional): The number of rows to reverse. Defaults to 8.
     Returns:
         list[int]: A flattened list of reversed elements of the shifted table.
 
@@ -1097,13 +1097,13 @@ def Trev11(T: Table, size: int = 7) -> list[int]:
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
-def Tinv11(T: Table, size: int = 7) -> list[int]:
+def Tinv11(T: Table, size: int = 8) -> list[int]:
     """
     Compute the inverse of the table with offset 1 row and 1 column
     and flatten the rows of the result.
     Args:
         T (Table): The table object which has the inv11 method.
-        size (int, optional): The desired number of rows of the shifted table. Defaults to 7.
+        size (int, optional): The desired number of rows of the shifted table. Defaults to 8.
     Returns:
         list[int]: A flattened list of integers representing the rows of the shifted table.
     """
@@ -1111,12 +1111,12 @@ def Tinv11(T: Table, size: int = 7) -> list[int]:
     return list(flatten(InvT11))
 
 
-def Tinvrev11(T: Table, size: int = 7) -> list[int]:
+def Tinvrev11(T: Table, size: int = 8) -> list[int]:
     """
     First fix the new offset, next reverse and then invert the reversed table.
     Args:
         T (Table): The table object that contains the `invrev11` method.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
     Returns:
         list[int]: A flattened list of the rows of the generated table.
 
@@ -1129,12 +1129,12 @@ def Tinvrev11(T: Table, size: int = 7) -> list[int]:
     return list(flatten(InvrevT11))
 
 
-def Trevinv11(T: Table, size: int = 7) -> list[int]:
+def Trevinv11(T: Table, size: int = 8) -> list[int]:
     """
     First fix the new offset, next inverse and then reverse the rows.
     Args:
         T (Table): The table object to be processed.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
     Returns:
         list[int]: A flattened list of the rows of the generated table.
 
@@ -1180,12 +1180,12 @@ def Tacc(T: Table, size: int = 7) -> list[int]:
     return list(flatten([T.acc(n) for n in range(size)]))
 
 
-def Tder(T: Table, size: int = 7) -> list[int]:
+def Tder(T: Table, size: int = 8) -> list[int]:
     """
     Generate a list of rows representing the derivatives of the polynomials interpreting the row values as the coefficients of the polynomials.
     Args:
         T (Table): The Table object to process.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
     Returns:
         list[int]: A flattened list of the rows of the generated table.
 
@@ -1932,13 +1932,13 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
     return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
 
 
-def Rev_Toff11(t: Table, size: int = 7) -> list[int]:
+def Rev_Toff11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by reversing the given table, offsetting it by (1, 1),
     and flattening the result to the specified size.
     Args:
         t (Table): The input table to be reversed and processed.
-        size (int, optional): The size of the flattened list to be returned. Defaults to 7.
+        size (int, optional): The size of the flattened list to be returned. Defaults to 8.
     Returns:
         list[int]: A flattened list of integers from the processed table.
     """
@@ -1947,12 +1947,12 @@ def Rev_Toff11(t: Table, size: int = 7) -> list[int]:
     return T11.flat(size)
 
 
-def Rev_Trev11(t: Table, size: int = 7) -> list[int]:
+def Rev_Trev11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by applying the rev11 method of the RevTable class to a given Table object.
     Args:
         t (Table): The Table object to be processed.
-        size (int, optional): The number of times to apply the rev11 method. Defaults to 7.
+        size (int, optional): The number of times to apply the rev11 method. Defaults to 8.
     Returns:
         list[int]: A flattened list of integers resulting from the rev11 method applied to the Table object.
     """
@@ -1960,12 +1960,12 @@ def Rev_Trev11(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
-def Rev_Tinv11(t: Table, size: int = 7) -> list[int]:
+def Rev_Tinv11(t: Table, size: int = 8) -> list[int]:
     """
     Computes the inverse of the table `t` and flattens the result.
     Args:
         t (Table): The table to be inverted.
-        size (int, optional): The size parameter for the inversion. Defaults to 7.
+        size (int, optional): The size parameter for the inversion. Defaults to 8.
     Returns:
         list[int]: A flattened list of the inverted table.
     """
@@ -2000,12 +2000,12 @@ def Rev_Tacc(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.acc(n) for n in range(size)]))
 
 
-def Rev_Tder(t: Table, size: int = 7) -> list[int]:
+def Rev_Tder(t: Table, size: int = 8) -> list[int]:
     """
     Generate a list of derivatives from a reversed table.
     Args:
         t (Table): The input table to be reversed.
-        size (int, optional): The number of derivatives to compute. Defaults to 7.
+        size (int, optional): The number of derivatives to compute. Defaults to 8.
     Returns:
         list[int]: A flattened list of derivatives from the reversed table.
     """
@@ -2304,7 +2304,7 @@ AllTraits: dict[str, TraitInfo] = {
     "Tantidiag    ": (Tantidiag, 9, r"\(T_{n-k,k}\ \ (k \le n/2)\)"),
     "Tacc         ": (Tacc, 7, r"\(\sum_{j=0}^{k} T_{n,j}\)"),
     "Talt         ": (Talt, 7, r"\(T_{n,k}\ (-1)^{k}\)"),
-    "Tder         ": (Tder, 7, r"\(T_{n,k+1}\ (k+1) \)"),
+    "Tder         ": (Tder, 8, r"\(T_{n,k+1}\ (k+1) \)"),
     "TablCol0     ": (TablCol0, 28, r"\(T_{n  ,0}\)"),
     "TablCol1     ": (TablCol1, 28, r"\(T_{n+1,1}\)"),
     "TablCol2     ": (TablCol2, 28, r"\(T_{n+2,2}\)"),
@@ -2350,7 +2350,7 @@ AllTraits: dict[str, TraitInfo] = {
     "RevTantidiag ": (Rev_Tantidiag, 9, r"\(T_{n-k,n-2k}\ \ (k \le n/2)\)"),
     "RevTacc      ": (Rev_Tacc, 7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),
     "RevTalt      ": (Rev_Talt, 7, r"\(T_{n,n-k}\ (-1)^{n-k}\)"),
-    "RevTder      ": (Rev_Tder, 7, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
+    "RevTder      ": (Rev_Tder, 8, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
     "RevEvenSum   ": (Rev_EvenSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (2 \mid k) \)"),
     "RevOddSum    ": (Rev_OddSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1- (2 \mid k)) \)"),
     "RevAccRevSum ": (Rev_AccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k}T_{n,n-j}\)"),
@@ -2518,9 +2518,10 @@ def AnumberDict(
     print(f"*** Table {T.id} under construction ***")
     trait_dict: Dict[str, int] = {}
     for trid, tr in AllTraits.items():
-        # if info: print(trid)
         # the key of the dictionary is the table name + trait name.
         name = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+        if info:
+            print(name)
         # generate the trait data for the query
         seq: list[int] = tr[0](T, tr[1])
         if seq != []:
@@ -2530,7 +2531,7 @@ def AnumberDict(
     return trait_dict
 
 
-header = '<!DOCTYPE html lang="en"><head><title>Traits</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"> window.MathJax = {loader: {load: ["[tex]/bbox"]}, tex: {packages: {"[+]": ["bbox"] } } }</script></head><body width="40%"><iframe name="OEISframe" scrolling="yes" width="58%" height="2200" align="left" title="Sequences"'
+header = r'<!DOCTYPE html lang="en"><head><title>NAMEXXX</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">window.MathJax={ loader:{ load: ["[tex]/bbox"]}, tex:{ packages:{ "[+]": ["bbox"]}}}</script><style type="text/css">table{ margin-top: 8px; display: inline-block; overflow: auto;} table.rTable{ position: fixed; top: 0px; border: 2px solid #5949b3; background-color: #EEE7DB; text-align: center; border-collapse: collapse; font-family: "Segoe UI", sans-serif; font: 1em sans-serif; overflow-y: auto; max-height: 850px;} table.rTable td, table.rTable th{ border: 1px solid #AAAAAA; padding: 8px 2px;} table.rTable tbody td{ font-size: 16px;} table.rTable tr:nth-child(even){ background: #f3f1f0;} table.rTable thead{ background: #585ada;} table.rTable thead th{ font-size: 16px; font-weight: bold; color: #FFFFFF; text-align: center; border-left: 2px solid #A40808;} </style></head><body><iframe name="OEISframe" scrolling="yes" width="70%" height="850" align="left" title="Sequences" src=https://oeis.org/AXXXXXX></iframe><table class="rTable"><thead><tr><th>OEIS</th><th>TRAIT</th><th>FORMULA</th></tr></thead><tbody><tr><td><a href="https://oeis.org/AXXXXXX" target="OEISframe">AXXXXXX</a></td><td style="color: darkgreen;font-weight:800">NAMEXXX</td><td style="color: darkgreen;font-weight:800">\(T_{n,k}\)</td></tr>'
 
 
 def DictToHtml(
@@ -2540,55 +2541,31 @@ def DictToHtml(
     into two html files: TNameTraits.html and TNameMissing.html.
     A trait is 'missing' if the anum in the dictionary is 0.
     """
-    SRC = f"https://oeis.org/{T.oeis[0]}"
-    TID = (T.id).capitalize()
-    SH = f'src={SRC}></iframe><p><span style="white-space: pre">     {TID}</span><br>'
     hitpath = GetRoot(f"docs/{T.id}Traits.html")
-    mispath = GetRoot(f"docs/{T.id}Missing.html")
-    head = header.replace("Traits", T.id)
-    TeX = r"\(\bbox[yellow, 5px]{\color{DarkGreen} T_{n, k} \ = \ TTEX } \)"
-    TEX = TeX.replace("TTEX", T.tex)
-    url = f"<a href='https://oeis.org/{T.oeis[0]}' target='OEISframe'>{T.oeis[0]}</a> "
+    head = header.replace("NAMEXXX", T.id).replace("AXXXXXX", f"{T.oeis[0]}")
     hits = misses = doubles = 0
     anumlist: set[int] = set()
-    oldanum = T.oeis[0]
     with open(hitpath, "w+", encoding="utf-8") as oeis:
-        with open(mispath, "w+", encoding="utf-8") as miss:
-            oeis.write(head)
-            oeis.write(SH)
-            oeis.write(url + TEX)
-            miss.write(head)
-            miss.write(SH)
-            miss.write(url + TEX)
-            d = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
-            for fullname, anum in d.items():
-                if info:
-                    print(f"    {fullname} -> {anum}")  # prints sorted dict
-                traitfun, size, tex = AllTraits[fullname.split("_")[1]]
-                seq = SeqToString(traitfun(T, size), 40, 20)
-                if anum == 0:
-                    t = f"<br>{tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
-                    miss.write(t + seq)
-                    misses += 1
-                else:
-                    if anum in anumlist:
-                        doubles += 1
-                    Anum = "A" + str(anum).rjust(6, "0")
-                    if anum == oldanum:
-                        url = "---------- "
-                    else:
-                        url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
-                    oldanum = anum
-                    t = f"<br>{url} {tex} &nbsp;&#x27A4;&nbsp; {fullname.split('_')[1]} &nbsp;&#x27A4;&nbsp; "
-                    oeis.write(t + seq)
-                    hits += 1
-                    anumlist.add(anum)
-            L = "<a href='https://peterluschny.github.io/tablInspector/"
-            A = f"{L}{T.id}Traits.html'>[online]</a>"
-            B = f"{L}{T.id}Missing.html'>[missing]</a>"
-            C = f"{L}index.html'>[index]</a>"
-            oeis.write(f"<p style='color:blue'>{B}{C}</p></body></html>")
-            miss.write(f"<p style='color:blue'>{A}{C}</p></body></html>")
+        oeis.write(head)
+        d = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
+        for fullname, anum in d.items():
+            if info:
+                print(f"    {fullname} -> {anum}")  # prints sorted dict
+            traitfun, size, tex = AllTraits[fullname.split("_")[1]]  # type: ignore
+            if anum == 0:
+                continue
+            if anum in anumlist:
+                doubles += 1
+            Anum = "A" + str(anum).rjust(6, "0")
+            url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
+            row = f"<tr><td>{url}</td><td>{fullname.split('_')[1]}</td><td>{tex}</td></tr>"
+            oeis.write(row)
+            hits += 1
+            anumlist.add(anum)
+
+        row = f"<tr><td colspan='3'><a href='https://peterluschny.github.io/tablInspector/index.html'>I N D E X</a></td></tr>"
+        oeis.write(row)
+        oeis.write("</tbody></table></body></html>")
     distincts = len(anumlist)
     print(f"{T.id:17}, Distinct: {distincts}, Hits: {hits}, Misses: {misses}")
     return (distincts, hits, misses)
@@ -2607,20 +2584,30 @@ def RefreshHtml(filter: bool = False) -> None:
     """
     global GlobalDict
     ReadJsonDict()
-    for T in TablesList:
-        try:
-            dict = GlobalDict[T.id]
-            if filter:
-                dict = FilterDict(dict)
-            DictToHtml(T, dict)  # type: ignore
-            print(T.id, "dict length:", len(dict))
-        except KeyError as e:
-            print("KeyError:", e)
-            input()
-            pass
+
+    indexpath = GetRoot(f"docs/index.html")
+    with open(indexpath, "w+", encoding="utf-8") as index:
+        index.write(indheader)
+        for T in TablesList:
+            try:
+                dict = GlobalDict[T.id]
+                if filter:
+                    dict = FilterDict(dict)
+                DictToHtml(T, dict)  # type: ignore
+                index.write(
+                    f"<tr><td align='left'><a href='{T.id}Traits.html'>{T.id}</a></td></tr>"
+                )
+                print(T.id, "dict length:", len(dict))
+            except KeyError as e:
+                print("KeyError:", e)
+                input()
+                pass
+
+        index.write("</tbody></table></body></html>")
+        index.flush()
 
 
-indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{font-family:Calabri,Arial,sans-serif;font-size:18px;background-color: #804040; color: #C0C0C0}</style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>Sequence</th><th align='left'>OEIS</th><th align='left'>Missing</th></tr></thead><tbody><tr>"
+indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{font-family:Calabri,Arial,sans-serif;font-size:20px;background-color: yellow; color: #0f0f0f}</style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>The Triangle Inspector</th></tr></thead><tbody><tr>"
 
 
 def RefreshDatabase() -> None:
@@ -2639,7 +2626,7 @@ def RefreshDatabase() -> None:
             dict = AnumberDict(T, True, True)  # type: ignore
             DictToHtml(T, dict, False)  # type: ignore
             index.write(
-                f"<tr><td align='left'>{T.id}</td><td align='left'><a href='{T.id}Traits.html'>[online]</a></td><td align='left'><a href='{T.id}Missing.html'>[missing]</a></td></tr>"
+                f"<tr><td align='left'>{T.id}</td><td align='left'><a href='{T.id}Traits.html'>[online]</a></td></tr>"
             )
             AddAnumsToSrcfile(T.id, dict)
         index.write("</tbody></table></body></html>")
@@ -4693,30 +4680,24 @@ def divisors(n: int) -> list[int]:
 
 
 @cache
-def h(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n))
+def _h(n: int, k: int) -> int:
+    return sum(d * _T(d, k) for d in divisors(n))
 
 
 @cache
-def H(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n) if k <= d)
-
-
-@cache
-def e(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n) if k == d)
-
-
-@cache
-def T(n: int, k: int) -> int:
+def _T(n: int, k: int) -> int:
     if n == 1:
         return int(k > 0)
-    return sum(T(i, k) * h(n - i, k - 1) for i in range(1, n)) // (n - 1)
+    return sum(_T(i, k) * _h(n - i, k - 1) for i in range(1, n)) // (n - 1)
 
 
 @cache
 def polyatreeacc(n: int) -> list[int]:
-    return [T(n + 1, k + 1) for k in range(n + 1)]
+    if n > 200:
+        # raise ValueError("n is too large for this function.")
+        print(f"ValueError: n = {n} is too large for function polyatreeacc.")
+        return []
+    return [_T(n + 1, k + 1) for k in range(n + 1)]
 
 
 PolyaTreeAcc = Table(polyatreeacc, "PolyaTreeAcc", ["A375467"], "", r"%%")

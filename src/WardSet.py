@@ -45,6 +45,8 @@ if __name__ == "__main__":
     InspectTable(WardSet)
 
 
+
+
 ''' OEIS
     WardSet_Trev          -> 0 
     WardSet_Tinvrev11     -> 0 
@@ -108,9 +110,10 @@ if __name__ == "__main__":
     WardSet_Tantidiag     -> https://oeis.org/A137375
     WardSet_Trev11        -> https://oeis.org/A181996
     WardSet_PolyCol2      -> https://oeis.org/A201465
+    WardSet_RevPosHalf    -> https://oeis.org/A201465
     WardSet_PolyCol3      -> https://oeis.org/A201466
     WardSet_Triangle      -> https://oeis.org/A269939
     WardSet_Talt          -> https://oeis.org/A269939
 
-    WardSet: Distinct: 23, Hits: 26, Misses: 39
+    WardSet: Distinct: 23, Hits: 27, Misses: 39
 '''

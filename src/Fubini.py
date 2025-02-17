@@ -44,7 +44,10 @@ if __name__ == "__main__":
     InspectTable(Fubini)
 
 
+
+
 ''' OEIS
+    Fubini_AltSum        -> https://oeis.org/A-999999
     Fubini_Trev          -> 0 
     Fubini_Tinvrev11     -> 0 
     Fubini_Tacc          -> 0 
@@ -63,7 +66,6 @@ if __name__ == "__main__":
     Fubini_RevTransSqrs  -> 0 
     Fubini_TablCol0      -> https://oeis.org/A7
     Fubini_TablCol1      -> https://oeis.org/A12
-    Fubini_AltSum        -> https://oeis.org/A12
     Fubini_RevPolyRow1   -> https://oeis.org/A12
     Fubini_PolyRow1      -> https://oeis.org/A27
     Fubini_RevPolyRow2   -> https://oeis.org/A27
@@ -77,6 +79,7 @@ if __name__ == "__main__":
     Fubini_TablDiag1     -> https://oeis.org/A1286
     Fubini_TablMax       -> https://oeis.org/A2869
     Fubini_PolyCol2      -> https://oeis.org/A4123
+    Fubini_RevPosHalf    -> https://oeis.org/A4123
     Fubini_AccRevSum     -> https://oeis.org/A5649
     Fubini_TransNat1     -> https://oeis.org/A5649
     Fubini_NegHalf       -> https://oeis.org/A9006
@@ -111,5 +114,5 @@ if __name__ == "__main__":
     Fubini_ColMiddle     -> https://oeis.org/A344397
     Fubini_CentralO      -> https://oeis.org/A367392
 
-    Fubini: Distinct: 42, Hits: 49, Misses: 16
+    Fubini: Distinct: 43, Hits: 50, Misses: 16
 '''

@@ -44,7 +44,10 @@ if __name__ == "__main__":
     InspectTable(WardCycle)
 
 
+
+
 ''' OEIS
+    WardCycle_AltSum        -> https://oeis.org/A-999999
     WardCycle_Trev          -> 0 
     WardCycle_Tacc          -> 0 
     WardCycle_Tder          -> 0 
@@ -79,6 +82,7 @@ if __name__ == "__main__":
     WardCycle_RevAntiDSum   -> 0 
     WardCycle_RevColMiddle  -> 0 
     WardCycle_RevCentralO   -> 0 
+    WardCycle_RevPosHalf    -> 0 
     WardCycle_RevTransNat0  -> 0 
     WardCycle_RevTransNat1  -> 0 
     WardCycle_RevTransSqrs  -> 0 
@@ -86,7 +90,6 @@ if __name__ == "__main__":
     WardCycle_RevPolyDiag   -> 0 
     WardCycle_TablCol0      -> https://oeis.org/A7
     WardCycle_TablGcd       -> https://oeis.org/A12
-    WardCycle_AltSum        -> https://oeis.org/A12
     WardCycle_RevPolyRow1   -> https://oeis.org/A12
     WardCycle_PolyRow1      -> https://oeis.org/A27
     WardCycle_TablCol1      -> https://oeis.org/A142
@@ -110,5 +113,5 @@ if __name__ == "__main__":
     WardCycle_Triangle      -> https://oeis.org/A269940
     WardCycle_Talt          -> https://oeis.org/A269940
 
-    WardCycle: Distinct: 22, Hits: 25, Misses: 39
+    WardCycle: Distinct: 23, Hits: 25, Misses: 40
 '''

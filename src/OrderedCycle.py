@@ -44,6 +44,8 @@ if __name__ == "__main__":
     InspectTable(OrderedCycle)
 
 
+
+
 ''' OEIS
     OrderedCycle_Trev          -> 0 
     OrderedCycle_Tantidiag     -> 0 
@@ -93,6 +95,7 @@ if __name__ == "__main__":
     OrderedCycle_Trev11        -> https://oeis.org/A75181
     OrderedCycle_TablGcd       -> https://oeis.org/A75182
     OrderedCycle_PolyCol2      -> https://oeis.org/A88500
+    OrderedCycle_RevPosHalf    -> https://oeis.org/A88500
     OrderedCycle_RevNegHalf    -> https://oeis.org/A88501
     OrderedCycle_AntiDSum      -> https://oeis.org/A129841
     OrderedCycle_TransNat0     -> https://oeis.org/A215916
@@ -110,5 +113,5 @@ if __name__ == "__main__":
     OrderedCycle_PolyCol3      -> https://oeis.org/A354263
     OrderedCycle_CentralE      -> https://oeis.org/A376873
 
-    OrderedCycle: Distinct: 34, Hits: 38, Misses: 26
+    OrderedCycle: Distinct: 34, Hits: 39, Misses: 26
 '''

@@ -45,10 +45,16 @@ if __name__ == "__main__":
     InspectTable(Delannoy)
 
 
+
+
 ''' OEIS
+    Delannoy_Talt          -> https://oeis.org/A-999999
+    Delannoy_AltSum        -> https://oeis.org/A-999999
+    Delannoy_RevTalt       -> https://oeis.org/A-999999
     Delannoy_Toff11        -> 0 
     Delannoy_Trev11        -> 0 
     Delannoy_Tinv11        -> 0 
+    Delannoy_Trevinv11     -> 0 
     Delannoy_Tantidiag     -> 0 
     Delannoy_Tacc          -> 0 
     Delannoy_Tder          -> 0 
@@ -69,7 +75,6 @@ if __name__ == "__main__":
     Delannoy_TablDiag0     -> https://oeis.org/A12
     Delannoy_PolyRow1      -> https://oeis.org/A27
     Delannoy_RevPolyRow1   -> https://oeis.org/A27
-    Delannoy_AltSum        -> https://oeis.org/A35
     Delannoy_AntiDSum      -> https://oeis.org/A73
     Delannoy_RevAntiDSum   -> https://oeis.org/A73
     Delannoy_TablSum       -> https://oeis.org/A129
@@ -86,10 +91,9 @@ if __name__ == "__main__":
     Delannoy_BinConv       -> https://oeis.org/A6139
     Delannoy_PosHalf       -> https://oeis.org/A7482
     Delannoy_PolyCol2      -> https://oeis.org/A7482
+    Delannoy_RevPosHalf    -> https://oeis.org/A7482
     Delannoy_Triangle      -> https://oeis.org/A8288
     Delannoy_Trev          -> https://oeis.org/A8288
-    Delannoy_Talt          -> https://oeis.org/A8288
-    Delannoy_RevTalt       -> https://oeis.org/A8288
     Delannoy_PolyCol3      -> https://oeis.org/A15530
     Delannoy_RevPolyCol3   -> https://oeis.org/A15530
     Delannoy_TablMax       -> https://oeis.org/A26003
@@ -102,6 +106,7 @@ if __name__ == "__main__":
     Delannoy_RevTransNat1  -> https://oeis.org/A26937
     Delannoy_PolyRow2      -> https://oeis.org/A28387
     Delannoy_RevPolyRow2   -> https://oeis.org/A28387
+    Delannoy_Trevinv       -> https://oeis.org/A33878
     Delannoy_InvBinConv    -> https://oeis.org/A59304
     Delannoy_NegHalf       -> https://oeis.org/A77020
     Delannoy_RevNegHalf    -> https://oeis.org/A77020
@@ -115,5 +120,5 @@ if __name__ == "__main__":
     Delannoy_PolyDiag      -> https://oeis.org/A376871
     Delannoy_RevPolyDiag   -> https://oeis.org/A376871
 
-    Delannoy: Distinct: 25, Hits: 49, Misses: 19
+    Delannoy: Distinct: 26, Hits: 51, Misses: 20
 '''

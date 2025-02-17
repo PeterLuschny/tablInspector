@@ -43,7 +43,10 @@ if __name__ == "__main__":
     InspectTable(CentralCycle)
 
 
+
+
 ''' OEIS
+    CentralCycle_AltSum        -> https://oeis.org/A-999999
     CentralCycle_Trev          -> 0 
     CentralCycle_Tacc          -> 0 
     CentralCycle_Tder          -> 0 
@@ -78,6 +81,7 @@ if __name__ == "__main__":
     CentralCycle_RevAntiDSum   -> 0 
     CentralCycle_RevColMiddle  -> 0 
     CentralCycle_RevCentralO   -> 0 
+    CentralCycle_RevPosHalf    -> 0 
     CentralCycle_RevTransNat0  -> 0 
     CentralCycle_RevTransNat1  -> 0 
     CentralCycle_RevTransSqrs  -> 0 
@@ -85,7 +89,6 @@ if __name__ == "__main__":
     CentralCycle_RevPolyDiag   -> 0 
     CentralCycle_TablCol0      -> https://oeis.org/A7
     CentralCycle_TablGcd       -> https://oeis.org/A12
-    CentralCycle_AltSum        -> https://oeis.org/A12
     CentralCycle_RevPolyRow1   -> https://oeis.org/A12
     CentralCycle_PolyRow1      -> https://oeis.org/A27
     CentralCycle_TablCol1      -> https://oeis.org/A142
@@ -109,5 +112,5 @@ if __name__ == "__main__":
     CentralCycle_Triangle      -> https://oeis.org/A269940
     CentralCycle_Talt          -> https://oeis.org/A269940
 
-    CentralCycle: Distinct: 22, Hits: 25, Misses: 39
+    CentralCycle: Distinct: 23, Hits: 25, Misses: 40
 '''

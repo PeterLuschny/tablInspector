@@ -41,10 +41,14 @@ if __name__ == "__main__":
     InspectTable(EulerianB)
 
 
+
+
 ''' OEIS
+    EulerianB_Trevinv       -> 0 
     EulerianB_Toff11        -> 0 
     EulerianB_Trev11        -> 0 
     EulerianB_Tinv11        -> 0 
+    EulerianB_Trevinv11     -> 0 
     EulerianB_Tantidiag     -> 0 
     EulerianB_Tacc          -> 0 
     EulerianB_TablLcm       -> 0 
@@ -95,6 +99,7 @@ if __name__ == "__main__":
     EulerianB_TablDiag3     -> https://oeis.org/A60190
     EulerianB_PosHalf       -> https://oeis.org/A80253
     EulerianB_PolyCol2      -> https://oeis.org/A80253
+    EulerianB_RevPosHalf    -> https://oeis.org/A80253
     EulerianB_Tder          -> https://oeis.org/A142707
     EulerianB_RevTder       -> https://oeis.org/A142707
     EulerianB_TablMax       -> https://oeis.org/A154420
@@ -111,5 +116,5 @@ if __name__ == "__main__":
     EulerianB_RevAccRevSum  -> https://oeis.org/A187735
     EulerianB_RevTransNat1  -> https://oeis.org/A187735
 
-    EulerianB: Distinct: 18, Hits: 38, Misses: 30
+    EulerianB: Distinct: 18, Hits: 39, Misses: 32
 '''

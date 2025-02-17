@@ -47,14 +47,17 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
+    DyckPathsInv_RevNegHalf    -> https://oeis.org/A-999999
+    DyckPathsInv_Trevinv11     -> 0 
     DyckPathsInv_Tacc          -> 0 
     DyckPathsInv_Tder          -> 0 
     DyckPathsInv_TablLcm       -> 0 
     DyckPathsInv_TablMax       -> 0 
     DyckPathsInv_OddSum        -> 0 
     DyckPathsInv_ColMiddle     -> 0 
-    DyckPathsInv_CentralO      -> 0 
     DyckPathsInv_TransSqrs     -> 0 
     DyckPathsInv_InvBinConv    -> 0 
     DyckPathsInv_RevTinv11     -> 0 
@@ -67,7 +70,6 @@ if __name__ == "__main__":
     DyckPathsInv_TablCol0      -> https://oeis.org/A12
     DyckPathsInv_TablDiag0     -> https://oeis.org/A12
     DyckPathsInv_TablGcd       -> https://oeis.org/A12
-    DyckPathsInv_RevNegHalf    -> https://oeis.org/A12
     DyckPathsInv_PolyRow1      -> https://oeis.org/A27
     DyckPathsInv_RevPolyRow1   -> https://oeis.org/A27
     DyckPathsInv_AntiDSum      -> https://oeis.org/A79
@@ -79,6 +81,7 @@ if __name__ == "__main__":
     DyckPathsInv_TablSum       -> https://oeis.org/A1519
     DyckPathsInv_AbsSum        -> https://oeis.org/A1519
     DyckPathsInv_PolyCol2      -> https://oeis.org/A1835
+    DyckPathsInv_RevPosHalf    -> https://oeis.org/A1835
     DyckPathsInv_TransNat0     -> https://oeis.org/A1870
     DyckPathsInv_PolyCol3      -> https://oeis.org/A4253
     DyckPathsInv_TablDiag1     -> https://oeis.org/A5408
@@ -97,6 +100,7 @@ if __name__ == "__main__":
     DyckPathsInv_TransNat1     -> https://oeis.org/A38731
     DyckPathsInv_Tinv          -> https://oeis.org/A39599
     DyckPathsInv_Tinv11        -> https://oeis.org/A50155
+    DyckPathsInv_Trevinv       -> https://oeis.org/A50165
     DyckPathsInv_RevAntiDSum   -> https://oeis.org/A52535
     DyckPathsInv_Trev          -> https://oeis.org/A54142
     DyckPathsInv_RevTalt       -> https://oeis.org/A54142
@@ -111,11 +115,12 @@ if __name__ == "__main__":
     DyckPathsInv_RevPolyRow3   -> https://oeis.org/A106734
     DyckPathsInv_RevEvenSum    -> https://oeis.org/A108479
     DyckPathsInv_EvenSum       -> https://oeis.org/A109961
+    DyckPathsInv_CentralO      -> https://oeis.org/A117671
     DyckPathsInv_PolyRow3      -> https://oeis.org/A123972
     DyckPathsInv_Trev11        -> https://oeis.org/A210551
     DyckPathsInv_RevToff11     -> https://oeis.org/A210551
     DyckPathsInv_Toff11        -> https://oeis.org/A258993
     DyckPathsInv_RevTrev11     -> https://oeis.org/A258993
 
-    DyckPathsInv: Distinct: 40, Hits: 52, Misses: 16
+    DyckPathsInv: Distinct: 43, Hits: 55, Misses: 16
 '''

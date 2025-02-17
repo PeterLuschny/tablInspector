@@ -45,10 +45,14 @@ if __name__ == "__main__":
     InspectTable(Baxter)
 
 
+
+
 ''' OEIS
     Baxter_Tinv          -> 0 
+    Baxter_Trevinv       -> 0 
     Baxter_Tinv11        -> 0 
     Baxter_Tinvrev11     -> 0 
+    Baxter_Trevinv11     -> 0 
     Baxter_Tantidiag     -> 0 
     Baxter_Tacc          -> 0 
     Baxter_Tder          -> 0 
@@ -81,6 +85,7 @@ if __name__ == "__main__":
     Baxter_RevAntiDSum   -> 0 
     Baxter_RevColMiddle  -> 0 
     Baxter_RevCentralO   -> 0 
+    Baxter_RevPosHalf    -> 0 
     Baxter_RevNegHalf    -> 0 
     Baxter_RevTransNat0  -> 0 
     Baxter_RevTransSqrs  -> 0 
@@ -114,5 +119,5 @@ if __name__ == "__main__":
     Baxter_NegHalf       -> https://oeis.org/A368709
     Baxter_RevPolyCol3   -> https://oeis.org/A368733
 
-    Baxter: Distinct: 16, Hits: 28, Misses: 39
+    Baxter: Distinct: 16, Hits: 28, Misses: 42
 '''

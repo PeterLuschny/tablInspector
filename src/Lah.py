@@ -44,11 +44,12 @@ if __name__ == "__main__":
     InspectTable(Lah)
 
 
+
+
 ''' OEIS
-    Lah_Trev          -> https://oeis.org/A-999999
-    Lah_Toff11        -> https://oeis.org/A-999999
+    Lah_Trev          -> 0 
+    Lah_Trevinv       -> 0 
     Lah_Tder          -> 0 
-    Lah_PolyCol2      -> 0 
     Lah_RevToff11     -> 0 
     Lah_RevTrev11     -> 0 
     Lah_RevTantidiag  -> 0 
@@ -79,6 +80,8 @@ if __name__ == "__main__":
     Lah_PolyRow2      -> https://oeis.org/A5563
     Lah_PosHalf       -> https://oeis.org/A25168
     Lah_TransNat0     -> https://oeis.org/A52852
+    Lah_PolyCol2      -> https://oeis.org/A52897
+    Lah_RevPosHalf    -> https://oeis.org/A52897
     Lah_AccSum        -> https://oeis.org/A62147
     Lah_RevAccRevSum  -> https://oeis.org/A62147
     Lah_RevTransNat1  -> https://oeis.org/A62147
@@ -86,9 +89,11 @@ if __name__ == "__main__":
     Lah_EvenSum       -> https://oeis.org/A88312
     Lah_OddSum        -> https://oeis.org/A88313
     Lah_Trev11        -> https://oeis.org/A89231
+    Lah_Trevinv11     -> https://oeis.org/A89231
     Lah_RevOddSum     -> https://oeis.org/A96939
     Lah_RevEvenSum    -> https://oeis.org/A96965
     Lah_TransSqrs     -> https://oeis.org/A103194
+    Lah_Toff11        -> https://oeis.org/A105278
     Lah_Tinv11        -> https://oeis.org/A105278
     Lah_AltSum        -> https://oeis.org/A111884
     Lah_Tantidiag     -> https://oeis.org/A180047
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     Lah_TablLcm       -> https://oeis.org/A359365
     Lah_CentralO      -> https://oeis.org/A367776
 
-    Lah: Distinct: 46, Hits: 54, Misses: 12
+    Lah: Distinct: 46, Hits: 56, Misses: 13
 '''

@@ -44,7 +44,11 @@ if __name__ == "__main__":
     InspectTable(StirlingCycle)
 
 
+
+
 ''' OEIS
+    StirlingCycle_Talt          -> https://oeis.org/A-999999
+    StirlingCycle_AltSum        -> https://oeis.org/A-999999
     StirlingCycle_RevToff11     -> 0 
     StirlingCycle_RevTrev11     -> 0 
     StirlingCycle_RevTantidiag  -> 0 
@@ -52,8 +56,6 @@ if __name__ == "__main__":
     StirlingCycle_RevColMiddle  -> 0 
     StirlingCycle_RevTransSqrs  -> 0 
     StirlingCycle_TablCol0      -> https://oeis.org/A7
-    StirlingCycle_AltSum        -> https://oeis.org/A7
-    StirlingCycle_RevNegHalf    -> https://oeis.org/A7
     StirlingCycle_TablDiag0     -> https://oeis.org/A12
     StirlingCycle_TablGcd       -> https://oeis.org/A12
     StirlingCycle_RevPolyRow1   -> https://oeis.org/A12
@@ -63,6 +65,7 @@ if __name__ == "__main__":
     StirlingCycle_TablSum       -> https://oeis.org/A142
     StirlingCycle_AbsSum        -> https://oeis.org/A142
     StirlingCycle_PolyCol2      -> https://oeis.org/A142
+    StirlingCycle_RevPosHalf    -> https://oeis.org/A142
     StirlingCycle_TablDiag1     -> https://oeis.org/A217
     StirlingCycle_TablCol2      -> https://oeis.org/A254
     StirlingCycle_TransNat0     -> https://oeis.org/A254
@@ -84,7 +87,9 @@ if __name__ == "__main__":
     StirlingCycle_PolyRow3      -> https://oeis.org/A7531
     StirlingCycle_RevPolyCol3   -> https://oeis.org/A7559
     StirlingCycle_Tinv11        -> https://oeis.org/A8277
+    StirlingCycle_Trevinv11     -> https://oeis.org/A8278
     StirlingCycle_Tder          -> https://oeis.org/A28421
+    StirlingCycle_RevNegHalf    -> https://oeis.org/A39972
     StirlingCycle_Tinv          -> https://oeis.org/A48993
     StirlingCycle_Trev          -> https://oeis.org/A54654
     StirlingCycle_RevTalt       -> https://oeis.org/A54654
@@ -94,6 +99,7 @@ if __name__ == "__main__":
     StirlingCycle_RevPolyDiag   -> https://oeis.org/A92985
     StirlingCycle_Trev11        -> https://oeis.org/A94638
     StirlingCycle_RevTacc       -> https://oeis.org/A96747
+    StirlingCycle_Trevinv       -> https://oeis.org/A106800
     StirlingCycle_AccSum        -> https://oeis.org/A121586
     StirlingCycle_RevAccRevSum  -> https://oeis.org/A121586
     StirlingCycle_RevTransNat1  -> https://oeis.org/A121586
@@ -101,7 +107,6 @@ if __name__ == "__main__":
     StirlingCycle_RevCentralO   -> https://oeis.org/A129505
     StirlingCycle_Toff11        -> https://oeis.org/A130534
     StirlingCycle_Triangle      -> https://oeis.org/A132393
-    StirlingCycle_Talt          -> https://oeis.org/A132393
     StirlingCycle_TransSqrs     -> https://oeis.org/A151881
     StirlingCycle_ColMiddle     -> https://oeis.org/A154415
     StirlingCycle_CentralE      -> https://oeis.org/A187646
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     StirlingCycle_Tacc          -> https://oeis.org/A349782
     StirlingCycle_CentralO      -> https://oeis.org/A367777
 
-    StirlingCycle: Distinct: 42, Hits: 60, Misses: 6
+    StirlingCycle: Distinct: 46, Hits: 63, Misses: 6
 '''

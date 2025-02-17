@@ -45,6 +45,8 @@ if __name__ == "__main__":
 # See also http://luschny.de/math/oeis/A340556.html
 
 
+
+
 ''' OEIS
     Eulerian2_Tinvrev11     -> 0 
     Eulerian2_Tantidiag     -> 0 
@@ -102,6 +104,7 @@ if __name__ == "__main__":
     Eulerian2_Trev11        -> https://oeis.org/A112007
     Eulerian2_TablDiag3     -> https://oeis.org/A112008
     Eulerian2_PolyCol2      -> https://oeis.org/A112487
+    Eulerian2_RevPosHalf    -> https://oeis.org/A112487
     Eulerian2_Trev          -> https://oeis.org/A163936
     Eulerian2_RevTalt       -> https://oeis.org/A163936
     Eulerian2_Triangle      -> https://oeis.org/A201637
@@ -112,5 +115,5 @@ if __name__ == "__main__":
     Eulerian2_NegHalf       -> https://oeis.org/A341106
     Eulerian2_CentralE      -> https://oeis.org/A367369
 
-    Eulerian2: Distinct: 25, Hits: 31, Misses: 34
+    Eulerian2: Distinct: 25, Hits: 32, Misses: 34
 '''

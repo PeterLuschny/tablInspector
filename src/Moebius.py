@@ -53,8 +53,12 @@ if __name__ == "__main__":
     InspectTable(Moebius)
 
 
+
+
 ''' OEIS
-    Moebius_Tantidiag     -> 0 
+    Moebius_Tantidiag     -> https://oeis.org/A-999999
+    Moebius_OddSum        -> https://oeis.org/A-999999
+    Moebius_Trevinv       -> 0 
     Moebius_Tacc          -> 0 
     Moebius_BinConv       -> 0 
     Moebius_InvBinConv    -> 0 
@@ -69,16 +73,7 @@ if __name__ == "__main__":
     Moebius_RevPolyCol3   -> 0 
     Moebius_RevPolyDiag   -> 0 
     Moebius_TablCol0      -> https://oeis.org/A7
-    Moebius_TablDiag1     -> https://oeis.org/A7
-    Moebius_TablDiag2     -> https://oeis.org/A7
     Moebius_TablDiag3     -> https://oeis.org/A7
-    Moebius_TablSum       -> https://oeis.org/A7
-    Moebius_EvenSum       -> https://oeis.org/A7
-    Moebius_OddSum        -> https://oeis.org/A7
-    Moebius_AltSum        -> https://oeis.org/A7
-    Moebius_CentralO      -> https://oeis.org/A7
-    Moebius_RevEvenSum    -> https://oeis.org/A7
-    Moebius_RevOddSum     -> https://oeis.org/A7
     Moebius_RevCentralO   -> https://oeis.org/A7
     Moebius_AccSum        -> https://oeis.org/A10
     Moebius_AccRevSum     -> https://oeis.org/A10
@@ -105,21 +100,31 @@ if __name__ == "__main__":
     Moebius_TransSqrs     -> https://oeis.org/A7434
     Moebius_PolyRow3      -> https://oeis.org/A7531
     Moebius_TablCol1      -> https://oeis.org/A8966
+    Moebius_TablSum       -> https://oeis.org/A19590
     Moebius_PolyCol2      -> https://oeis.org/A27375
+    Moebius_RevPosHalf    -> https://oeis.org/A27375
     Moebius_AbsSum        -> https://oeis.org/A34444
     Moebius_Tinv11        -> https://oeis.org/A51731
     Moebius_PolyCol3      -> https://oeis.org/A54718
+    Moebius_RevEvenSum    -> https://oeis.org/A79944
     Moebius_AntiDSum      -> https://oeis.org/A98018
     Moebius_Tinv          -> https://oeis.org/A113704
+    Moebius_Trevinv11     -> https://oeis.org/A113998
     Moebius_Tder          -> https://oeis.org/A127448
     Moebius_ColMiddle     -> https://oeis.org/A128174
+    Moebius_AltSum        -> https://oeis.org/A130779
+    Moebius_EvenSum       -> https://oeis.org/A154272
     Moebius_Toff11        -> https://oeis.org/A174852
+    Moebius_TablDiag1     -> https://oeis.org/A209229
+    Moebius_CentralO      -> https://oeis.org/A209229
+    Moebius_RevOddSum     -> https://oeis.org/A209229
     Moebius_PolyDiag      -> https://oeis.org/A252764
+    Moebius_TablDiag2     -> https://oeis.org/A279329
     Moebius_Triangle      -> https://oeis.org/A363914
     Moebius_Talt          -> https://oeis.org/A363914
     Moebius_TablCol3      -> https://oeis.org/A365807
     Moebius_NegHalf       -> https://oeis.org/A367773
     Moebius_PosHalf       -> https://oeis.org/A367774
 
-    Moebius: Distinct: 25, Hits: 52, Misses: 14
+    Moebius: Distinct: 33, Hits: 55, Misses: 14
 '''

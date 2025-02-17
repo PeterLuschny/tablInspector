@@ -224,7 +224,8 @@ def TablesListPreview(prompt: bool = False) -> None:
         T.show(6)
         if prompt:
             input("Hit Return/Enter > ")
-            
+
+
 def MeasureTableGenerationTime(BenchLength: int = 100) -> None:
     t = StopWatch("Full Benchmark")
     t.start()
@@ -240,7 +241,7 @@ if __name__ == "__main__":
         for tabl in TablesList:
             print(TimeIncrease(tabl))  # type: ignore
 
-    MeasureTableGenerationTime(100)
+    MeasureTableGenerationTime(201)
 
     # print(IsSimilarTriangleInLib('A021009'))
     # print(f"\n{len(Tables)} tables tested!\n")

@@ -45,7 +45,12 @@ if __name__ == "__main__":
     InspectTable(Bessel2)
 
 
+
+
 ''' OEIS
+    Bessel2_TablCol1      -> https://oeis.org/A-999999
+    Bessel2_TablCol3      -> https://oeis.org/A-999999
+    Bessel2_OddSum        -> https://oeis.org/A-999999
     Bessel2_Toff11        -> 0 
     Bessel2_Trev11        -> 0 
     Bessel2_Tantidiag     -> 0 
@@ -71,9 +76,6 @@ if __name__ == "__main__":
     Bessel2_RevCentralO   -> 0 
     Bessel2_RevTransSqrs  -> 0 
     Bessel2_RevPolyDiag   -> 0 
-    Bessel2_TablCol1      -> https://oeis.org/A7
-    Bessel2_TablCol3      -> https://oeis.org/A7
-    Bessel2_OddSum        -> https://oeis.org/A7
     Bessel2_TablCol0      -> https://oeis.org/A12
     Bessel2_PolyRow1      -> https://oeis.org/A12
     Bessel2_RevPolyRow1   -> https://oeis.org/A27
@@ -102,6 +104,7 @@ if __name__ == "__main__":
     Bessel2_Tinvrev       -> https://oeis.org/A99174
     Bessel2_RevTalt       -> https://oeis.org/A99174
     Bessel2_PolyCol2      -> https://oeis.org/A115329
+    Bessel2_RevPosHalf    -> https://oeis.org/A115329
     Bessel2_RevNegHalf    -> https://oeis.org/A115329
     Bessel2_TablDiag0     -> https://oeis.org/A123023
     Bessel2_TablDiag1     -> https://oeis.org/A123023
@@ -113,5 +116,5 @@ if __name__ == "__main__":
     Bessel2_Talt          -> https://oeis.org/A359760
     Bessel2_CentralE      -> https://oeis.org/A359761
 
-    Bessel2: Distinct: 25, Hits: 41, Misses: 25
+    Bessel2: Distinct: 25, Hits: 42, Misses: 25
 '''

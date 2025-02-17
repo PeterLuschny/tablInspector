@@ -46,9 +46,13 @@ if __name__ == "__main__":
     InspectTable(Lehmer)
 
 
+
+
 ''' OEIS
     Lehmer_Trev          -> 0 
+    Lehmer_Trevinv       -> 0 
     Lehmer_Trev11        -> 0 
+    Lehmer_Trevinv11     -> 0 
     Lehmer_Tantidiag     -> 0 
     Lehmer_Tacc          -> 0 
     Lehmer_Tder          -> 0 
@@ -85,6 +89,7 @@ if __name__ == "__main__":
     Lehmer_RevAntiDSum   -> 0 
     Lehmer_RevColMiddle  -> 0 
     Lehmer_RevCentralO   -> 0 
+    Lehmer_RevPosHalf    -> 0 
     Lehmer_RevNegHalf    -> 0 
     Lehmer_RevTransNat0  -> 0 
     Lehmer_RevTransNat1  -> 0 
@@ -114,5 +119,5 @@ if __name__ == "__main__":
     Lehmer_Talt          -> https://oeis.org/A354794
     Lehmer_Tinv          -> https://oeis.org/A354795
 
-    Lehmer: Distinct: 17, Hits: 22, Misses: 44
+    Lehmer: Distinct: 17, Hits: 22, Misses: 47
 '''

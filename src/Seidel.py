@@ -36,7 +36,10 @@ if __name__ == "__main__":
     InspectTable(Seidel)
 
 
+
+
 ''' OEIS
+    Seidel_InvBinConv    -> https://oeis.org/A-999999
     Seidel_Toff11        -> 0 
     Seidel_Trev11        -> 0 
     Seidel_Tantidiag     -> 0 
@@ -73,13 +76,13 @@ if __name__ == "__main__":
     Seidel_RevAccRevSum  -> 0 
     Seidel_RevAntiDSum   -> 0 
     Seidel_RevCentralO   -> 0 
+    Seidel_RevPosHalf    -> 0 
     Seidel_RevNegHalf    -> 0 
     Seidel_RevTransNat0  -> 0 
     Seidel_RevTransNat1  -> 0 
     Seidel_RevTransSqrs  -> 0 
     Seidel_RevPolyCol3   -> 0 
     Seidel_RevPolyDiag   -> 0 
-    Seidel_InvBinConv    -> https://oeis.org/A12
     Seidel_RevPolyRow1   -> https://oeis.org/A12
     Seidel_PolyRow1      -> https://oeis.org/A27
     Seidel_PolyRow2      -> https://oeis.org/A27
@@ -102,5 +105,5 @@ if __name__ == "__main__":
     Seidel_CentralO      -> https://oeis.org/A240561
     Seidel_TablCol1      -> https://oeis.org/A241209
 
-    Seidel: Distinct: 17, Hits: 22, Misses: 42
+    Seidel: Distinct: 18, Hits: 22, Misses: 43
 '''

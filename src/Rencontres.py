@@ -46,10 +46,15 @@ if __name__ == "__main__":
     InspectTable(Rencontres)
 
 
+
+
 ''' OEIS
+    Rencontres_TablDiag1     -> https://oeis.org/A-999999
+    Rencontres_Trevinv       -> 0 
     Rencontres_Toff11        -> 0 
     Rencontres_Trev11        -> 0 
     Rencontres_Tinv11        -> 0 
+    Rencontres_Trevinv11     -> 0 
     Rencontres_Tantidiag     -> 0 
     Rencontres_Tacc          -> 0 
     Rencontres_TablLcm       -> 0 
@@ -71,7 +76,6 @@ if __name__ == "__main__":
     Rencontres_RevPolyRow3   -> 0 
     Rencontres_RevPolyCol3   -> 0 
     Rencontres_RevPolyDiag   -> 0 
-    Rencontres_TablDiag1     -> https://oeis.org/A7
     Rencontres_TablDiag0     -> https://oeis.org/A12
     Rencontres_TablGcd       -> https://oeis.org/A12
     Rencontres_RevPolyRow1   -> https://oeis.org/A12
@@ -87,6 +91,7 @@ if __name__ == "__main__":
     Rencontres_TablCol2      -> https://oeis.org/A387
     Rencontres_TablCol3      -> https://oeis.org/A449
     Rencontres_PolyCol2      -> https://oeis.org/A522
+    Rencontres_RevPosHalf    -> https://oeis.org/A522
     Rencontres_AccSum        -> https://oeis.org/A1563
     Rencontres_RevAccRevSum  -> https://oeis.org/A1563
     Rencontres_RevTransNat1  -> https://oeis.org/A1563
@@ -114,5 +119,5 @@ if __name__ == "__main__":
     Rencontres_RevTantidiag  -> https://oeis.org/A371995
     Rencontres_RevAntiDSum   -> https://oeis.org/A372102
 
-    Rencontres: Distinct: 32, Hits: 42, Misses: 24
+    Rencontres: Distinct: 32, Hits: 43, Misses: 26
 '''

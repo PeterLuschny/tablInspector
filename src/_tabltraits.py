@@ -136,14 +136,14 @@ def Trevinv(T: Table, size: int = 7) -> list[int]:
     return list(flatten(T.revinv(size)))
 
 
-def Toff11(T: Table, size: int = 7) -> list[int]:
+def Toff11(T: Table, size: int = 8) -> list[int]:
     """
     Creates a new Table object offset by 1 row and 1 column from the original table,
     and returns a flattened list of rows of the new table.
 
     Args:
         T (Table): The original table object.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of rows from the shifted table.
@@ -196,14 +196,14 @@ def Toff11(T: Table, size: int = 7) -> list[int]:
     return T11.flat(size)
 
 
-def Trev11(T: Table, size: int = 7) -> list[int]:
+def Trev11(T: Table, size: int = 8) -> list[int]:
     """
     Generate a flattened list of reversed rows from a Table object with
     offset by 1 row and 1 column.
 
     Args:
         T (Table): The Table object containing the data.
-        size (int, optional): The number of rows to reverse. Defaults to 7.
+        size (int, optional): The number of rows to reverse. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of reversed elements of the shifted table.
@@ -220,14 +220,14 @@ def Trev11(T: Table, size: int = 7) -> list[int]:
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
-def Tinv11(T: Table, size: int = 7) -> list[int]:
+def Tinv11(T: Table, size: int = 8) -> list[int]:
     """
     Compute the inverse of the table with offset 1 row and 1 column 
     and flatten the rows of the result.
 
     Args:
         T (Table): The table object which has the inv11 method.
-        size (int, optional): The desired number of rows of the shifted table. Defaults to 7.
+        size (int, optional): The desired number of rows of the shifted table. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of integers representing the rows of the shifted table.
@@ -236,13 +236,13 @@ def Tinv11(T: Table, size: int = 7) -> list[int]:
     return list(flatten(InvT11))
 
 
-def Tinvrev11(T: Table, size: int = 7) -> list[int]:
+def Tinvrev11(T: Table, size: int = 8) -> list[int]:
     """
     First fix the new offset, next reverse and then invert the reversed table.
 
     Args:
         T (Table): The table object that contains the `invrev11` method.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of the rows of the generated table.
@@ -256,13 +256,13 @@ def Tinvrev11(T: Table, size: int = 7) -> list[int]:
     return list(flatten(InvrevT11))
 
 
-def Trevinv11(T: Table, size: int = 7) -> list[int]:
+def Trevinv11(T: Table, size: int = 8) -> list[int]:
     """
     First fix the new offset, next inverse and then reverse the rows.
 
     Args:
         T (Table): The table object to be processed.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of the rows of the generated table.
@@ -313,13 +313,13 @@ def Tacc(T: Table, size: int = 7) -> list[int]:
     return list(flatten([T.acc(n) for n in range(size)]))
 
 
-def Tder(T: Table, size: int = 7) -> list[int]:
+def Tder(T: Table, size: int = 8) -> list[int]:
     """
     Generate a list of rows representing the derivatives of the polynomials interpreting the row values as the coefficients of the polynomials.
 
     Args:
         T (Table): The Table object to process.
-        size (int, optional): The desired number of rows. Defaults to 7.
+        size (int, optional): The desired number of rows. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of the rows of the generated table.
@@ -1164,14 +1164,14 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
 
 #------
 
-def Rev_Toff11(t: Table, size: int = 7) -> list[int]:
+def Rev_Toff11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by reversing the given table, offsetting it by (1, 1), 
     and flattening the result to the specified size.
 
     Args:
         t (Table): The input table to be reversed and processed.
-        size (int, optional): The size of the flattened list to be returned. Defaults to 7.
+        size (int, optional): The size of the flattened list to be returned. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of integers from the processed table.
@@ -1181,13 +1181,13 @@ def Rev_Toff11(t: Table, size: int = 7) -> list[int]:
     return T11.flat(size)
 
 
-def Rev_Trev11(t: Table, size: int = 7) -> list[int]:
+def Rev_Trev11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by applying the rev11 method of the RevTable class to a given Table object.
 
     Args:
         t (Table): The Table object to be processed.
-        size (int, optional): The number of times to apply the rev11 method. Defaults to 7.
+        size (int, optional): The number of times to apply the rev11 method. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of integers resulting from the rev11 method applied to the Table object.
@@ -1196,13 +1196,13 @@ def Rev_Trev11(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
-def Rev_Tinv11(t: Table, size: int = 7) -> list[int]:
+def Rev_Tinv11(t: Table, size: int = 8) -> list[int]:
     """
     Computes the inverse of the table `t` and flattens the result.
 
     Args:
         t (Table): The table to be inverted.
-        size (int, optional): The size parameter for the inversion. Defaults to 7.
+        size (int, optional): The size parameter for the inversion. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of the inverted table.
@@ -1242,13 +1242,13 @@ def Rev_Tacc(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.acc(n) for n in range(size)]))
 
 
-def Rev_Tder(t: Table, size: int = 7) -> list[int]:
+def Rev_Tder(t: Table, size: int = 8) -> list[int]:
     """
     Generate a list of derivatives from a reversed table.
 
     Args:
         t (Table): The input table to be reversed.
-        size (int, optional): The number of derivatives to compute. Defaults to 7.
+        size (int, optional): The number of derivatives to compute. Defaults to 8.
 
     Returns:
         list[int]: A flattened list of derivatives from the reversed table.
@@ -1593,7 +1593,7 @@ AllTraits: dict[str, TraitInfo] = {
     "Tantidiag    ": (Tantidiag, 9, r"\(T_{n-k,k}\ \ (k \le n/2)\)"),
     "Tacc         ": (Tacc,      7, r"\(\sum_{j=0}^{k} T_{n,j}\)"),
     "Talt         ": (Talt,      7, r"\(T_{n,k}\ (-1)^{k}\)"),
-    "Tder         ": (Tder,      7, r"\(T_{n,k+1}\ (k+1) \)"),
+    "Tder         ": (Tder,      8, r"\(T_{n,k+1}\ (k+1) \)"),
     "TablCol0     ": (TablCol0,  28, r"\(T_{n  ,0}\)"),
     "TablCol1     ": (TablCol1,  28, r"\(T_{n+1,1}\)"),
     "TablCol2     ": (TablCol2,  28, r"\(T_{n+2,2}\)"),
@@ -1635,7 +1635,7 @@ AllTraits: dict[str, TraitInfo] = {
     "RevTantidiag ": (Rev_Tantidiag, 9, r"\(T_{n-k,n-2k}\ \ (k \le n/2)\)"),
     "RevTacc      ": (Rev_Tacc,      7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),
     "RevTalt      ": (Rev_Talt,      7, r"\(T_{n,n-k}\ (-1)^{n-k}\)"),
-    "RevTder      ": (Rev_Tder,      7, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
+    "RevTder      ": (Rev_Tder,      8, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
     "RevEvenSum   ": (Rev_EvenSum,   28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (2 \mid k) \)"),
     "RevOddSum    ": (Rev_OddSum,    28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1- (2 \mid k)) \)"),
     "RevAccRevSum ": (Rev_AccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k}T_{n,n-j}\)"),

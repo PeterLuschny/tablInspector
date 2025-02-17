@@ -42,10 +42,13 @@ if __name__ == "__main__":
     InspectTable(Laguerre)
 
 
+
+
 ''' OEIS
     Laguerre_Toff11        -> 0 
     Laguerre_Trev11        -> 0 
     Laguerre_Tinv11        -> 0 
+    Laguerre_Trevinv11     -> 0 
     Laguerre_Tacc          -> 0 
     Laguerre_Tder          -> 0 
     Laguerre_TablLcm       -> 0 
@@ -90,12 +93,14 @@ if __name__ == "__main__":
     Laguerre_RevPolyRow2   -> https://oeis.org/A56220
     Laguerre_Tantidiag     -> https://oeis.org/A84950
     Laguerre_PolyCol2      -> https://oeis.org/A87912
+    Laguerre_RevPosHalf    -> https://oeis.org/A87912
     Laguerre_TablGcd       -> https://oeis.org/A102631
     Laguerre_RevPolyCol3   -> https://oeis.org/A102757
     Laguerre_TransNat0     -> https://oeis.org/A103194
     Laguerre_TransSqrs     -> https://oeis.org/A105219
     Laguerre_RevTransNat0  -> https://oeis.org/A105219
     Laguerre_Trev          -> https://oeis.org/A144084
+    Laguerre_Trevinv       -> https://oeis.org/A144084
     Laguerre_RevTalt       -> https://oeis.org/A144084
     Laguerre_TablDiag2     -> https://oeis.org/A163102
     Laguerre_TablDiag3     -> https://oeis.org/A179058
@@ -110,5 +115,5 @@ if __name__ == "__main__":
     Laguerre_ColMiddle     -> https://oeis.org/A343580
     Laguerre_InvBinConv    -> https://oeis.org/A343840
 
-    Laguerre: Distinct: 36, Hits: 42, Misses: 24
+    Laguerre: Distinct: 36, Hits: 44, Misses: 25
 '''

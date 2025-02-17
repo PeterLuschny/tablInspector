@@ -40,7 +40,12 @@ if __name__ == "__main__":
     InspectTable(HermiteH)
 
 
+
+
 ''' OEIS
+    HermiteH_TablDiag1     -> https://oeis.org/A-999999
+    HermiteH_TablDiag3     -> https://oeis.org/A-999999
+    HermiteH_RevOddSum     -> https://oeis.org/A-999999
     HermiteH_Trev          -> 0 
     HermiteH_Toff11        -> 0 
     HermiteH_Trev11        -> 0 
@@ -83,9 +88,6 @@ if __name__ == "__main__":
     HermiteH_RevPolyRow3   -> 0 
     HermiteH_RevPolyCol3   -> 0 
     HermiteH_RevPolyDiag   -> 0 
-    HermiteH_TablDiag1     -> https://oeis.org/A7
-    HermiteH_TablDiag3     -> https://oeis.org/A7
-    HermiteH_RevOddSum     -> https://oeis.org/A7
     HermiteH_TablDiag0     -> https://oeis.org/A79
     HermiteH_TablSum       -> https://oeis.org/A898
     HermiteH_AltSum        -> https://oeis.org/A898
@@ -102,9 +104,10 @@ if __name__ == "__main__":
     HermiteH_TablCol1      -> https://oeis.org/A67994
     HermiteH_PolyCol3      -> https://oeis.org/A79949
     HermiteH_PolyCol2      -> https://oeis.org/A127394
+    HermiteH_RevPosHalf    -> https://oeis.org/A127394
     HermiteH_RevNegHalf    -> https://oeis.org/A127394
     HermiteH_RevPolyRow2   -> https://oeis.org/A255843
     HermiteH_TablMax       -> https://oeis.org/A277281
 
-    HermiteH: Distinct: 15, Hits: 22, Misses: 42
+    HermiteH: Distinct: 15, Hits: 23, Misses: 42
 '''

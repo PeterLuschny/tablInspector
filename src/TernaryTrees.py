@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(TernaryTree)
 
 
+
+
 ''' OEIS
     TernaryTrees_Trev          -> 0 
     TernaryTrees_Toff11        -> 0 
@@ -81,6 +83,7 @@ if __name__ == "__main__":
     TernaryTrees_RevAntiDSum   -> 0 
     TernaryTrees_RevColMiddle  -> 0 
     TernaryTrees_RevCentralO   -> 0 
+    TernaryTrees_RevPosHalf    -> 0 
     TernaryTrees_RevNegHalf    -> 0 
     TernaryTrees_RevTransSqrs  -> 0 
     TernaryTrees_RevPolyDiag   -> 0 
@@ -110,5 +113,5 @@ if __name__ == "__main__":
     TernaryTrees_Triangle      -> https://oeis.org/A355172
     TernaryTrees_Talt          -> https://oeis.org/A355172
 
-    TernaryTrees: Distinct: 17, Hits: 25, Misses: 40
+    TernaryTrees: Distinct: 17, Hits: 25, Misses: 41
 '''

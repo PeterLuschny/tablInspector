@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(Leibniz)
 
 
+
+
 ''' OEIS
     Leibniz_Toff11        -> 0 
     Leibniz_Trev11        -> 0 
@@ -88,6 +90,7 @@ if __name__ == "__main__":
     Leibniz_RevPolyRow1   -> https://oeis.org/A5843
     Leibniz_PosHalf       -> https://oeis.org/A27471
     Leibniz_PolyCol2      -> https://oeis.org/A27471
+    Leibniz_RevPosHalf    -> https://oeis.org/A27471
     Leibniz_TablCol2      -> https://oeis.org/A27480
     Leibniz_TablDiag2     -> https://oeis.org/A27480
     Leibniz_PolyRow2      -> https://oeis.org/A33428
@@ -109,5 +112,5 @@ if __name__ == "__main__":
     Leibniz_Tder          -> https://oeis.org/A140880
     Leibniz_RevTder       -> https://oeis.org/A140880
 
-    Leibniz: Distinct: 25, Hits: 56, Misses: 8
+    Leibniz: Distinct: 25, Hits: 57, Misses: 8
 '''

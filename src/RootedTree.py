@@ -37,15 +37,19 @@ if __name__ == "__main__":
     InspectTable(RootedTree)
 
 
+
+
 ''' OEIS
+    RootedTree_Talt          -> https://oeis.org/A-999999
+    RootedTree_TablCol0      -> https://oeis.org/A-999999
     RootedTree_Triangle      -> 0 
     RootedTree_Trev          -> 0 
     RootedTree_Trev11        -> 0 
     RootedTree_Tinv11        -> 0 
     RootedTree_Tinvrev11     -> 0 
+    RootedTree_Trevinv11     -> 0 
     RootedTree_Tantidiag     -> 0 
     RootedTree_Tacc          -> 0 
-    RootedTree_Talt          -> 0 
     RootedTree_Tder          -> 0 
     RootedTree_TablLcm       -> 0 
     RootedTree_TablMax       -> 0 
@@ -75,12 +79,12 @@ if __name__ == "__main__":
     RootedTree_RevOddSum     -> 0 
     RootedTree_RevAntiDSum   -> 0 
     RootedTree_RevColMiddle  -> 0 
+    RootedTree_RevPosHalf    -> 0 
     RootedTree_RevNegHalf    -> 0 
     RootedTree_RevTransNat0  -> 0 
     RootedTree_RevTransSqrs  -> 0 
     RootedTree_RevPolyCol3   -> 0 
     RootedTree_RevPolyDiag   -> 0 
-    RootedTree_TablCol0      -> https://oeis.org/A7
     RootedTree_TablCol1      -> https://oeis.org/A12
     RootedTree_TablDiag0     -> https://oeis.org/A12
     RootedTree_RevPolyRow1   -> https://oeis.org/A12
@@ -105,5 +109,5 @@ if __name__ == "__main__":
     RootedTree_RevAccRevSum  -> https://oeis.org/A375468
     RootedTree_RevTransNat1  -> https://oeis.org/A375468
 
-    RootedTree: Distinct: 18, Hits: 24, Misses: 42
+    RootedTree: Distinct: 18, Hits: 25, Misses: 43
 '''

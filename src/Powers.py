@@ -40,10 +40,14 @@ if __name__ == "__main__":
     InspectTable(Powers)
 
 
+
+
 ''' OEIS
+    Powers_Trevinv       -> https://oeis.org/A-999999
     Powers_Tinv          -> 0 
     Powers_Tinv11        -> 0 
     Powers_Tinvrev11     -> 0 
+    Powers_Trevinv11     -> 0 
     Powers_Tantidiag     -> 0 
     Powers_Tacc          -> 0 
     Powers_TablLcm       -> 0 
@@ -104,10 +108,11 @@ if __name__ == "__main__":
     Powers_RevPolyDiag   -> https://oeis.org/A349969
     Powers_PosHalf       -> https://oeis.org/A349970
     Powers_PolyCol2      -> https://oeis.org/A351279
+    Powers_RevPosHalf    -> https://oeis.org/A351279
     Powers_PolyCol3      -> https://oeis.org/A351282
     Powers_PolyDiag      -> https://oeis.org/A351340
     Powers_RevAntiDSum   -> https://oeis.org/A352944
     Powers_RevEvenSum    -> https://oeis.org/A353016
 
-    Powers: Distinct: 39, Hits: 48, Misses: 19
+    Powers: Distinct: 40, Hits: 50, Misses: 20
 '''

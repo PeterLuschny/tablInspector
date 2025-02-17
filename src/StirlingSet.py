@@ -46,6 +46,8 @@ if __name__ == "__main__":
     InspectTable(StirlingSet)
 
 
+
+
 ''' OEIS
     StirlingSet_Tantidiag     -> 0 
     StirlingSet_RevToff11     -> 0 
@@ -71,6 +73,7 @@ if __name__ == "__main__":
     StirlingSet_TablDiag2     -> https://oeis.org/A1296
     StirlingSet_TablDiag3     -> https://oeis.org/A1297
     StirlingSet_PolyCol2      -> https://oeis.org/A1861
+    StirlingSet_RevPosHalf    -> https://oeis.org/A1861
     StirlingSet_PolyRow2      -> https://oeis.org/A2378
     StirlingSet_TablMax       -> https://oeis.org/A2870
     StirlingSet_PosHalf       -> https://oeis.org/A4211
@@ -89,8 +92,10 @@ if __name__ == "__main__":
     StirlingSet_TransSqrs     -> https://oeis.org/A33452
     StirlingSet_Triangle      -> https://oeis.org/A48993
     StirlingSet_Talt          -> https://oeis.org/A48993
+    StirlingSet_Trevinv       -> https://oeis.org/A54654
     StirlingSet_TablLcm       -> https://oeis.org/A63040
     StirlingSet_TablGcd       -> https://oeis.org/A89026
+    StirlingSet_Trevinv11     -> https://oeis.org/A94638
     StirlingSet_RevEvenSum    -> https://oeis.org/A96647
     StirlingSet_RevOddSum     -> https://oeis.org/A96648
     StirlingSet_Tinvrev11     -> https://oeis.org/A106342
@@ -115,5 +120,5 @@ if __name__ == "__main__":
     StirlingSet_RevAccRevSum  -> https://oeis.org/A359109
     StirlingSet_RevTransNat1  -> https://oeis.org/A359109
 
-    StirlingSet: Distinct: 51, Hits: 60, Misses: 7
+    StirlingSet: Distinct: 53, Hits: 63, Misses: 7
 '''

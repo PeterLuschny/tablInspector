@@ -39,6 +39,8 @@ if __name__ == "__main__":
     InspectTable(Sylvester)
 
 
+
+
 ''' OEIS
     Sylvester_Trev          -> 0 
     Sylvester_Toff11        -> 0 
@@ -98,6 +100,7 @@ if __name__ == "__main__":
     Sylvester_RevOddSum     -> https://oeis.org/A38155
     Sylvester_RevPolyRow1   -> https://oeis.org/A55642
     Sylvester_PolyCol2      -> https://oeis.org/A81923
+    Sylvester_RevPosHalf    -> https://oeis.org/A81923
     Sylvester_PosHalf       -> https://oeis.org/A84262
     Sylvester_RevPolyRow3   -> https://oeis.org/A137882
     Sylvester_PolyDiag      -> https://oeis.org/A295183
@@ -105,5 +108,5 @@ if __name__ == "__main__":
     Sylvester_Talt          -> https://oeis.org/A341101
     Sylvester_RevPolyCol3   -> https://oeis.org/A346258
 
-    Sylvester: Distinct: 19, Hits: 21, Misses: 43
+    Sylvester: Distinct: 19, Hits: 22, Misses: 43
 '''

@@ -45,7 +45,12 @@ if __name__ == "__main__":
     InspectTable(MotzkinPoly)
 
 
+
+
 ''' OEIS
+    MotzkinPoly_TablCol1      -> https://oeis.org/A-999999
+    MotzkinPoly_TablCol3      -> https://oeis.org/A-999999
+    MotzkinPoly_OddSum        -> https://oeis.org/A-999999
     MotzkinPoly_Tinvrev       -> 0 
     MotzkinPoly_Toff11        -> 0 
     MotzkinPoly_Trev11        -> 0 
@@ -71,9 +76,6 @@ if __name__ == "__main__":
     MotzkinPoly_RevColMiddle  -> 0 
     MotzkinPoly_RevCentralO   -> 0 
     MotzkinPoly_RevTransSqrs  -> 0 
-    MotzkinPoly_TablCol1      -> https://oeis.org/A7
-    MotzkinPoly_TablCol3      -> https://oeis.org/A7
-    MotzkinPoly_OddSum        -> https://oeis.org/A7
     MotzkinPoly_TablCol0      -> https://oeis.org/A12
     MotzkinPoly_PolyRow1      -> https://oeis.org/A12
     MotzkinPoly_RevPolyRow1   -> https://oeis.org/A27
@@ -98,6 +100,7 @@ if __name__ == "__main__":
     MotzkinPoly_PolyRow3      -> https://oeis.org/A56107
     MotzkinPoly_RevPolyRow3   -> https://oeis.org/A79908
     MotzkinPoly_PolyCol2      -> https://oeis.org/A91147
+    MotzkinPoly_RevPosHalf    -> https://oeis.org/A91147
     MotzkinPoly_RevNegHalf    -> https://oeis.org/A91147
     MotzkinPoly_Trev          -> https://oeis.org/A97610
     MotzkinPoly_RevTalt       -> https://oeis.org/A97610
@@ -113,5 +116,5 @@ if __name__ == "__main__":
     MotzkinPoly_CentralE      -> https://oeis.org/A359647
     MotzkinPoly_PolyDiag      -> https://oeis.org/A359649
 
-    MotzkinPoly: Distinct: 28, Hits: 41, Misses: 25
+    MotzkinPoly: Distinct: 28, Hits: 42, Misses: 25
 '''

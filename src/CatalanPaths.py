@@ -45,8 +45,14 @@ if __name__ == "__main__":
     InspectTable(CatalanPaths)
 
 
+
+
 ''' OEIS
+    CatalanPaths_TablDiag1     -> https://oeis.org/A-999999
+    CatalanPaths_TablDiag3     -> https://oeis.org/A-999999
+    CatalanPaths_RevOddSum     -> https://oeis.org/A-999999
     CatalanPaths_Trev11        -> 0 
+    CatalanPaths_Trevinv11     -> 0 
     CatalanPaths_Tantidiag     -> 0 
     CatalanPaths_Tacc          -> 0 
     CatalanPaths_Tder          -> 0 
@@ -62,9 +68,6 @@ if __name__ == "__main__":
     CatalanPaths_RevTransNat0  -> 0 
     CatalanPaths_RevTransSqrs  -> 0 
     CatalanPaths_RevPolyDiag   -> 0 
-    CatalanPaths_TablDiag1     -> https://oeis.org/A7
-    CatalanPaths_TablDiag3     -> https://oeis.org/A7
-    CatalanPaths_RevOddSum     -> https://oeis.org/A7
     CatalanPaths_TablDiag0     -> https://oeis.org/A12
     CatalanPaths_RevPolyRow1   -> https://oeis.org/A12
     CatalanPaths_TablDiag2     -> https://oeis.org/A27
@@ -86,6 +89,7 @@ if __name__ == "__main__":
     CatalanPaths_Triangle      -> https://oeis.org/A53121
     CatalanPaths_Talt          -> https://oeis.org/A53121
     CatalanPaths_PolyCol2      -> https://oeis.org/A54341
+    CatalanPaths_RevPosHalf    -> https://oeis.org/A54341
     CatalanPaths_RevNegHalf    -> https://oeis.org/A54341
     CatalanPaths_PolyRow3      -> https://oeis.org/A54602
     CatalanPaths_RevPolyRow3   -> https://oeis.org/A58331
@@ -103,6 +107,7 @@ if __name__ == "__main__":
     CatalanPaths_EvenSum       -> https://oeis.org/A126869
     CatalanPaths_PolyCol3      -> https://oeis.org/A126931
     CatalanPaths_OddSum        -> https://oeis.org/A138364
+    CatalanPaths_Trevinv       -> https://oeis.org/A162515
     CatalanPaths_Tinv          -> https://oeis.org/A168561
     CatalanPaths_RevAntiDSum   -> https://oeis.org/A274112
     CatalanPaths_AccSum        -> https://oeis.org/A296663
@@ -113,5 +118,5 @@ if __name__ == "__main__":
     CatalanPaths_InvBinConv    -> https://oeis.org/A344500
     CatalanPaths_CentralO      -> https://oeis.org/A359108
 
-    CatalanPaths: Distinct: 33, Hits: 50, Misses: 16
+    CatalanPaths: Distinct: 34, Hits: 52, Misses: 17
 '''

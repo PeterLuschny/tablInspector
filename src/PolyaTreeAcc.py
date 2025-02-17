@@ -11,6 +11,8 @@ from _tabltypes import Table
 [6] [0, 1, 11, 29,  42,  47,  48]
 [7] [0, 1, 15, 53,  89, 108, 114, 115]
 [8] [0, 1, 22, 98, 191, 252, 278, 285, 286]
+
+           STATUS: EXPERIMENTAL
 """
 
 
@@ -20,41 +22,45 @@ def divisors(n: int) -> list[int]:
 
 
 @cache
-def h(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n))
+def _h(n: int, k: int) -> int:
+    return sum(d * _T(d, k) for d in divisors(n))
 
 
 # A244925  (which is (1, 0)-based)
-@cache
-def H(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n) if k <= d)
+#@cache
+#def _H(n: int, k: int) -> int:
+#    return sum(d * _T(d, k) for d in divisors(n) if k <= d)
 
 
 # A113704
-@cache
-def e(n: int, k: int) -> int:
-    return sum(d * T(d, k) for d in divisors(n) if k == d)
+#@cache
+#def _e(n: int, k: int) -> int:
+#    return sum(d * T(d, k) for d in divisors(n) if k == d)
 
 
-# Call the function h, H, or e according to your use case.
+# Call the function _h, _H, or _e according to your use case.
 @cache
-def T(n: int, k: int) -> int:
+def _T(n: int, k: int) -> int:
     if n == 1:
         return int(k > 0)
 
-    return sum(T(i, k) * h(n - i, k - 1)
+    return sum(_T(i, k) * _h(n - i, k - 1)
                for i in range(1, n)
             ) // (n - 1)
 
 
-# T(n, k) will add a (0,0,0...) column on the left.
+# _T(n, k) will add a (0,0,0...) column on the left.
 # Interpretations exist for both cases, it is mainly
-# a matter of terminology. The form T(n + 1, k + 1) is
+# a matter of terminology. The form _T(n + 1, k + 1) is
 # to be prefered as it covers A113704 in the case k = d,
 # which is our Divisibility triangle.
 @cache
 def polyatreeacc(n: int) -> list[int]:
-    return [T(n + 1, k + 1) for k in range(n + 1)]
+    if n > 200:
+        # raise ValueError("n is too large for this function.")
+        print(f"ValueError: n = {n} is too large for function polyatreeacc.")
+        return []
+    return [_T(n + 1, k + 1) for k in range(n + 1)]
 
 
 PolyaTreeAcc = Table(
@@ -68,22 +74,30 @@ PolyaTreeAcc = Table(
 
 if __name__ == "__main__":
     from _tabldict import InspectTable
+    from _tablutils import TableGenerationTime
 
     InspectTable(PolyaTreeAcc)
 
-    for n in range(9):
-        print([h(n, k) for k in range(n + 1)])
+    # EXPERIMENTAL
 
-    for n in range(9):
-        print([H(n, k) for k in range(n + 1)])
+    for n in range(9):  # A375546
+        print([_h(n, k) for k in range(n + 1)])
+
+    #for n in range(9):  # A375467
+    #    print([_H(n, k) for k in range(n + 1)])
+        
+    TableGenerationTime(PolyaTreeAcc, 204) 
+
+
+
 
 
 ''' OEIS
+    PolyaTreeAcc_Tinvrev11     -> https://oeis.org/A-999999
     PolyaTreeAcc_Triangle      -> 0 
     PolyaTreeAcc_Trev          -> 0 
     PolyaTreeAcc_Toff11        -> 0 
     PolyaTreeAcc_Trev11        -> 0 
-    PolyaTreeAcc_Tinvrev11     -> 0 
     PolyaTreeAcc_Tantidiag     -> 0 
     PolyaTreeAcc_Tacc          -> 0 
     PolyaTreeAcc_Talt          -> 0 
@@ -124,6 +138,7 @@ if __name__ == "__main__":
     PolyaTreeAcc_RevAntiDSum   -> 0 
     PolyaTreeAcc_RevColMiddle  -> 0 
     PolyaTreeAcc_RevCentralO   -> 0 
+    PolyaTreeAcc_RevPosHalf    -> 0 
     PolyaTreeAcc_RevNegHalf    -> 0 
     PolyaTreeAcc_RevTransNat0  -> 0 
     PolyaTreeAcc_RevTransNat1  -> 0 
@@ -145,5 +160,5 @@ if __name__ == "__main__":
     PolyaTreeAcc_TablSum       -> https://oeis.org/A375468
     PolyaTreeAcc_AbsSum        -> https://oeis.org/A375468
 
-    PolyaTreeAcc: Distinct: 10, Hits: 14, Misses: 51
+    PolyaTreeAcc: Distinct: 11, Hits: 15, Misses: 51
 '''

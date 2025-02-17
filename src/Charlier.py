@@ -47,16 +47,19 @@ if __name__ == "__main__":
     InspectTable(Charlier)
 
 
+
+
 ''' OEIS
+    Charlier_TablDiag0     -> https://oeis.org/A-999999
     Charlier_Tinv          -> 0 
+    Charlier_Trevinv       -> 0 
     Charlier_Toff11        -> 0 
     Charlier_Trev11        -> 0 
     Charlier_Tinv11        -> 0 
+    Charlier_Trevinv11     -> 0 
     Charlier_Tantidiag     -> 0 
     Charlier_Tacc          -> 0 
     Charlier_Tder          -> 0 
-    Charlier_TablDiag2     -> 0 
-    Charlier_TablDiag3     -> 0 
     Charlier_TablLcm       -> 0 
     Charlier_TablMax       -> 0 
     Charlier_EvenSum       -> 0 
@@ -86,13 +89,13 @@ if __name__ == "__main__":
     Charlier_RevAntiDSum   -> 0 
     Charlier_RevColMiddle  -> 0 
     Charlier_RevCentralO   -> 0 
+    Charlier_RevPosHalf    -> 0 
     Charlier_RevTransNat0  -> 0 
     Charlier_RevTransNat1  -> 0 
     Charlier_RevTransSqrs  -> 0 
     Charlier_RevPolyRow3   -> 0 
     Charlier_RevPolyCol3   -> 0 
     Charlier_TablCol0      -> https://oeis.org/A12
-    Charlier_TablDiag0     -> https://oeis.org/A12
     Charlier_TablSum       -> https://oeis.org/A27
     Charlier_PolyRow1      -> https://oeis.org/A27
     Charlier_RevPolyRow1   -> https://oeis.org/A27
@@ -116,6 +119,8 @@ if __name__ == "__main__":
     Charlier_TablGcd       -> https://oeis.org/A174965
     Charlier_TablCol2      -> https://oeis.org/A290312
     Charlier_TablCol3      -> https://oeis.org/A290313
+    Charlier_TablDiag2     -> https://oeis.org/A381021
+    Charlier_TablDiag3     -> https://oeis.org/A381022
 
-    Charlier: Distinct: 18, Hits: 25, Misses: 43
+    Charlier: Distinct: 21, Hits: 27, Misses: 44
 '''

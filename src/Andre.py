@@ -46,14 +46,18 @@ if __name__ == "__main__":
     InspectTable(Andre)
 
 
+
+
 ''' OEIS
     Andre_Tinv          -> 0 
     Andre_Trev          -> 0 
     Andre_Tinvrev       -> 0 
+    Andre_Trevinv       -> 0 
     Andre_Toff11        -> 0 
     Andre_Trev11        -> 0 
     Andre_Tinv11        -> 0 
     Andre_Tinvrev11     -> 0 
+    Andre_Trevinv11     -> 0 
     Andre_Tantidiag     -> 0 
     Andre_Tacc          -> 0 
     Andre_Tder          -> 0 
@@ -87,6 +91,7 @@ if __name__ == "__main__":
     Andre_RevOddSum     -> 0 
     Andre_RevAccRevSum  -> 0 
     Andre_RevAntiDSum   -> 0 
+    Andre_RevPosHalf    -> 0 
     Andre_RevNegHalf    -> 0 
     Andre_RevTransNat0  -> 0 
     Andre_RevTransNat1  -> 0 
@@ -117,5 +122,5 @@ if __name__ == "__main__":
     Andre_Triangle      -> https://oeis.org/A375555
     Andre_Talt          -> https://oeis.org/A375555
 
-    Andre: Distinct: 16, Hits: 23, Misses: 46
+    Andre: Distinct: 16, Hits: 23, Misses: 49
 '''

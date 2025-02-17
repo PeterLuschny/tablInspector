@@ -45,7 +45,12 @@ if __name__ == "__main__":
     InspectTable(StirlingCycle2)
 
 
+
+
 ''' OEIS
+    StirlingCycle2_PolyRow1      -> https://oeis.org/A-999999
+    StirlingCycle2_RevCentralO   -> https://oeis.org/A-999999
+    StirlingCycle2_RevPolyRow1   -> https://oeis.org/A-999999
     StirlingCycle2_Trev          -> 0 
     StirlingCycle2_Toff11        -> 0 
     StirlingCycle2_Trev11        -> 0 
@@ -59,7 +64,6 @@ if __name__ == "__main__":
     StirlingCycle2_AccRevSum     -> 0 
     StirlingCycle2_AntiDSum      -> 0 
     StirlingCycle2_ColMiddle     -> 0 
-    StirlingCycle2_NegHalf       -> 0 
     StirlingCycle2_TransNat1     -> 0 
     StirlingCycle2_TransSqrs     -> 0 
     StirlingCycle2_BinConv       -> 0 
@@ -79,11 +83,6 @@ if __name__ == "__main__":
     StirlingCycle2_RevPolyDiag   -> 0 
     StirlingCycle2_TablCol0      -> https://oeis.org/A7
     StirlingCycle2_TablDiag0     -> https://oeis.org/A7
-    StirlingCycle2_TablDiag1     -> https://oeis.org/A7
-    StirlingCycle2_TablDiag2     -> https://oeis.org/A7
-    StirlingCycle2_PolyRow1      -> https://oeis.org/A7
-    StirlingCycle2_RevCentralO   -> https://oeis.org/A7
-    StirlingCycle2_RevPolyRow1   -> https://oeis.org/A7
     StirlingCycle2_TablGcd       -> https://oeis.org/A27
     StirlingCycle2_AltSum        -> https://oeis.org/A27
     StirlingCycle2_PolyRow2      -> https://oeis.org/A27
@@ -101,15 +100,19 @@ if __name__ == "__main__":
     StirlingCycle2_PolyRow3      -> https://oeis.org/A5843
     StirlingCycle2_RevPolyCol3   -> https://oeis.org/A33030
     StirlingCycle2_PosHalf       -> https://oeis.org/A53871
+    StirlingCycle2_NegHalf       -> https://oeis.org/A55142
     StirlingCycle2_PolyCol2      -> https://oeis.org/A87981
+    StirlingCycle2_RevPosHalf    -> https://oeis.org/A87981
     StirlingCycle2_RevColMiddle  -> https://oeis.org/A123023
     StirlingCycle2_PolyCol3      -> https://oeis.org/A137775
     StirlingCycle2_TransNat0     -> https://oeis.org/A162973
+    StirlingCycle2_TablDiag1     -> https://oeis.org/A209229
     StirlingCycle2_EvenSum       -> https://oeis.org/A216778
     StirlingCycle2_OddSum        -> https://oeis.org/A216779
+    StirlingCycle2_TablDiag2     -> https://oeis.org/A281669
     StirlingCycle2_PolyDiag      -> https://oeis.org/A295182
     StirlingCycle2_Triangle      -> https://oeis.org/A358622
     StirlingCycle2_Talt          -> https://oeis.org/A358622
 
-    StirlingCycle2: Distinct: 23, Hits: 33, Misses: 31
+    StirlingCycle2: Distinct: 27, Hits: 35, Misses: 30
 '''

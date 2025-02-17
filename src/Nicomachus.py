@@ -41,6 +41,8 @@ if __name__ == "__main__":
     InspectTable(Nicomachus)
 
 
+
+
 ''' OEIS
     Nicomachus_Toff11        -> 0 
     Nicomachus_Trev11        -> 0 
@@ -84,6 +86,7 @@ if __name__ == "__main__":
     Nicomachus_TablDiag1     -> https://oeis.org/A8776
     Nicomachus_AltSum        -> https://oeis.org/A15441
     Nicomachus_PolyCol2      -> https://oeis.org/A16129
+    Nicomachus_RevPosHalf    -> https://oeis.org/A16129
     Nicomachus_PolyCol3      -> https://oeis.org/A16133
     Nicomachus_RevPolyCol3   -> https://oeis.org/A16137
     Nicomachus_PolyRow1      -> https://oeis.org/A16789
@@ -107,5 +110,5 @@ if __name__ == "__main__":
     Nicomachus_RevTalt       -> https://oeis.org/A175840
     Nicomachus_Tacc          -> https://oeis.org/A230435
 
-    Nicomachus: Distinct: 34, Hits: 41, Misses: 23
+    Nicomachus: Distinct: 34, Hits: 42, Misses: 23
 '''

@@ -44,16 +44,18 @@ if __name__ == "__main__":
     InspectTable(BinaryPell)
 
 
+
+
 ''' OEIS
     BinaryPell_Toff11        -> 0 
     BinaryPell_Trev11        -> 0 
     BinaryPell_Tinv11        -> 0 
+    BinaryPell_Trevinv11     -> 0 
     BinaryPell_Tacc          -> 0 
     BinaryPell_Tder          -> 0 
     BinaryPell_TablLcm       -> 0 
     BinaryPell_ColMiddle     -> 0 
     BinaryPell_TransSqrs     -> 0 
-    BinaryPell_InvBinConv    -> 0 
     BinaryPell_RevTrev11     -> 0 
     BinaryPell_RevTacc       -> 0 
     BinaryPell_RevTder       -> 0 
@@ -69,6 +71,7 @@ if __name__ == "__main__":
     BinaryPell_PolyDiag      -> https://oeis.org/A272
     BinaryPell_PolyRow2      -> https://oeis.org/A290
     BinaryPell_PolyCol2      -> https://oeis.org/A302
+    BinaryPell_RevPosHalf    -> https://oeis.org/A302
     BinaryPell_PosHalf       -> https://oeis.org/A351
     BinaryPell_PolyCol3      -> https://oeis.org/A351
     BinaryPell_RevPolyCol3   -> https://oeis.org/A420
@@ -85,6 +88,7 @@ if __name__ == "__main__":
     BinaryPell_TransNat1     -> https://oeis.org/A6234
     BinaryPell_EvenSum       -> https://oeis.org/A7051
     BinaryPell_Trev          -> https://oeis.org/A13609
+    BinaryPell_Trevinv       -> https://oeis.org/A13609
     BinaryPell_RevTalt       -> https://oeis.org/A13609
     BinaryPell_RevPolyRow2   -> https://oeis.org/A16754
     BinaryPell_RevPolyRow3   -> https://oeis.org/A16755
@@ -102,6 +106,7 @@ if __name__ == "__main__":
     BinaryPell_RevAccRevSum  -> https://oeis.org/A81038
     BinaryPell_RevTransNat1  -> https://oeis.org/A81038
     BinaryPell_RevPolyDiag   -> https://oeis.org/A85527
+    BinaryPell_InvBinConv    -> https://oeis.org/A98332
     BinaryPell_RevColMiddle  -> https://oeis.org/A98660
     BinaryPell_TablMax       -> https://oeis.org/A109388
     BinaryPell_RevTantidiag  -> https://oeis.org/A128099
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     BinaryPell_RevTransNat0  -> https://oeis.org/A212697
     BinaryPell_RevToff11     -> https://oeis.org/A276985
 
-    BinaryPell: Distinct: 45, Hits: 54, Misses: 12
+    BinaryPell: Distinct: 46, Hits: 57, Misses: 12
 '''

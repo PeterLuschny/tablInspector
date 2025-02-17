@@ -41,10 +41,14 @@ if __name__ == "__main__":
     InspectTable(BesselInv)
 
 
+
+
 ''' OEIS
+    BesselInv_CentralO      -> https://oeis.org/A-999999
     BesselInv_Tantidiag     -> 0 
     BesselInv_Tacc          -> 0 
     BesselInv_Tder          -> 0 
+    BesselInv_TablCol2      -> 0 
     BesselInv_TablCol3      -> 0 
     BesselInv_TablLcm       -> 0 
     BesselInv_TablMax       -> 0 
@@ -63,9 +67,6 @@ if __name__ == "__main__":
     BesselInv_RevAntiDSum   -> 0 
     BesselInv_RevTransNat1  -> 0 
     BesselInv_TablCol0      -> https://oeis.org/A7
-    BesselInv_TablCol1      -> https://oeis.org/A7
-    BesselInv_TablCol2      -> https://oeis.org/A7
-    BesselInv_CentralO      -> https://oeis.org/A7
     BesselInv_TablDiag0     -> https://oeis.org/A12
     BesselInv_RevPolyRow1   -> https://oeis.org/A12
     BesselInv_PolyRow1      -> https://oeis.org/A27
@@ -75,6 +76,7 @@ if __name__ == "__main__":
     BesselInv_TablDiag1     -> https://oeis.org/A217
     BesselInv_RevEvenSum    -> https://oeis.org/A704
     BesselInv_PolyCol2      -> https://oeis.org/A898
+    BesselInv_RevPosHalf    -> https://oeis.org/A898
     BesselInv_CentralE      -> https://oeis.org/A1147
     BesselInv_RevCentralO   -> https://oeis.org/A1147
     BesselInv_AltSum        -> https://oeis.org/A1464
@@ -82,14 +84,17 @@ if __name__ == "__main__":
     BesselInv_AccRevSum     -> https://oeis.org/A1475
     BesselInv_TransNat1     -> https://oeis.org/A1475
     BesselInv_Tinv11        -> https://oeis.org/A1497
+    BesselInv_Trevinv11     -> https://oeis.org/A1498
     BesselInv_PolyRow2      -> https://oeis.org/A2378
     BesselInv_RevPolyRow3   -> https://oeis.org/A16777
+    BesselInv_TablCol1      -> https://oeis.org/A19590
     BesselInv_PosHalf       -> https://oeis.org/A47974
     BesselInv_Toff11        -> https://oeis.org/A49403
     BesselInv_TablDiag2     -> https://oeis.org/A50534
     BesselInv_RevNegHalf    -> https://oeis.org/A62267
     BesselInv_TablGcd       -> https://oeis.org/A69834
     BesselInv_EvenSum       -> https://oeis.org/A85386
+    BesselInv_Trevinv       -> https://oeis.org/A104548
     BesselInv_Trev11        -> https://oeis.org/A111924
     BesselInv_RevPolyCol3   -> https://oeis.org/A115327
     BesselInv_Triangle      -> https://oeis.org/A122848
@@ -109,5 +114,5 @@ if __name__ == "__main__":
     BesselInv_PolyCol3      -> https://oeis.org/A335819
     BesselInv_PolyRow3      -> https://oeis.org/A366151
 
-    BesselInv: Distinct: 37, Hits: 46, Misses: 20
+    BesselInv: Distinct: 41, Hits: 48, Misses: 21
 '''

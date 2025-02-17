@@ -45,8 +45,12 @@ if __name__ == "__main__":
     InspectTable(Narayana)
 
 
+
+
 ''' OEIS
     Narayana_Tinv          -> 0 
+    Narayana_Trevinv       -> 0 
+    Narayana_Trevinv11     -> 0 
     Narayana_Tantidiag     -> 0 
     Narayana_TablLcm       -> 0 
     Narayana_TablGcd       -> 0 
@@ -86,6 +90,7 @@ if __name__ == "__main__":
     Narayana_TablMax       -> https://oeis.org/A5558
     Narayana_RevColMiddle  -> https://oeis.org/A5558
     Narayana_PolyCol2      -> https://oeis.org/A6318
+    Narayana_RevPosHalf    -> https://oeis.org/A6318
     Narayana_TablDiag3     -> https://oeis.org/A6542
     Narayana_RevPolyCol3   -> https://oeis.org/A7564
     Narayana_RevPolyRow3   -> https://oeis.org/A28387
@@ -114,5 +119,5 @@ if __name__ == "__main__":
     Narayana_RevPolyDiag   -> https://oeis.org/A242369
     Narayana_Tacc          -> https://oeis.org/A349740
 
-    Narayana: Distinct: 36, Hits: 54, Misses: 13
+    Narayana: Distinct: 36, Hits: 55, Misses: 15
 '''

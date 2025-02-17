@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(Monotone)
 
 
+
+
 ''' OEIS
     Monotone_Trev11        -> 0 
     Monotone_Tantidiag     -> 0 
@@ -57,7 +59,6 @@ if __name__ == "__main__":
     Monotone_RevTacc       -> 0 
     Monotone_RevTder       -> 0 
     Monotone_RevColMiddle  -> 0 
-    Monotone_RevCentralO   -> 0 
     Monotone_RevNegHalf    -> 0 
     Monotone_RevPolyRow3   -> 0 
     Monotone_InvBinConv    -> https://oeis.org/A7
@@ -103,7 +104,9 @@ if __name__ == "__main__":
     Monotone_TransNat0     -> https://oeis.org/A110609
     Monotone_RevTinv11     -> https://oeis.org/A113214
     Monotone_AntiDSum      -> https://oeis.org/A116406
+    Monotone_RevCentralO   -> https://oeis.org/A117671
     Monotone_PolyCol2      -> https://oeis.org/A119259
+    Monotone_RevPosHalf    -> https://oeis.org/A119259
     Monotone_Toff11        -> https://oeis.org/A165257
     Monotone_CentralE      -> https://oeis.org/A165817
     Monotone_RevTransSqrs  -> https://oeis.org/A220101
@@ -111,5 +114,5 @@ if __name__ == "__main__":
     Monotone_NegHalf       -> https://oeis.org/A367548
     Monotone_PolyDiag      -> https://oeis.org/A368488
 
-    Monotone: Distinct: 36, Hits: 50, Misses: 16
+    Monotone: Distinct: 37, Hits: 52, Misses: 15
 '''

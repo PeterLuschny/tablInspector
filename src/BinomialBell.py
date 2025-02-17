@@ -48,9 +48,12 @@ if __name__ == "__main__":
     InspectTable(BinomialBell)
 
 
+
+
 ''' OEIS
     BinomialBell_Trev11        -> 0 
     BinomialBell_Tinv11        -> 0 
+    BinomialBell_Trevinv11     -> 0 
     BinomialBell_Tantidiag     -> 0 
     BinomialBell_Tacc          -> 0 
     BinomialBell_Tder          -> 0 
@@ -88,6 +91,7 @@ if __name__ == "__main__":
     BinomialBell_PolyRow2      -> https://oeis.org/A2522
     BinomialBell_PolyRow3      -> https://oeis.org/A5491
     BinomialBell_PolyCol2      -> https://oeis.org/A5493
+    BinomialBell_RevPosHalf    -> https://oeis.org/A5493
     BinomialBell_PolyCol3      -> https://oeis.org/A5494
     BinomialBell_TablCol1      -> https://oeis.org/A52889
     BinomialBell_Triangle      -> https://oeis.org/A56857
@@ -109,11 +113,11 @@ if __name__ == "__main__":
     BinomialBell_PolyDiag      -> https://oeis.org/A134980
     BinomialBell_TransSqrs     -> https://oeis.org/A175716
     BinomialBell_Toff11        -> https://oeis.org/A175757
+    BinomialBell_RevAntiDSum   -> https://oeis.org/A211694
     BinomialBell_EvenSum       -> https://oeis.org/A224271
     BinomialBell_RevPolyCol3   -> https://oeis.org/A284859
     BinomialBell_CentralO      -> https://oeis.org/A297926
-    BinomialBell_RevAntiDSum   -> https://oeis.org/A303586
     BinomialBell_RevPolyDiag   -> https://oeis.org/A307066
 
-    BinomialBell: Distinct: 33, Hits: 39, Misses: 26
+    BinomialBell: Distinct: 33, Hits: 40, Misses: 27
 '''

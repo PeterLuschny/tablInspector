@@ -43,6 +43,8 @@ if __name__ == "__main__":
     InspectTable(EytzingerPerm)
 
 
+
+
 ''' OEIS
     EytzingerPerm_Trev          -> 0 
     EytzingerPerm_Toff11        -> 0 
@@ -92,6 +94,7 @@ if __name__ == "__main__":
     EytzingerPerm_RevAntiDSum   -> 0 
     EytzingerPerm_RevColMiddle  -> 0 
     EytzingerPerm_RevCentralO   -> 0 
+    EytzingerPerm_RevPosHalf    -> 0 
     EytzingerPerm_RevNegHalf    -> 0 
     EytzingerPerm_RevTransNat0  -> 0 
     EytzingerPerm_RevTransNat1  -> 0 
@@ -109,5 +112,5 @@ if __name__ == "__main__":
     EytzingerPerm_Triangle      -> https://oeis.org/A375469
     EytzingerPerm_Talt          -> https://oeis.org/A375469
 
-    EytzingerPerm: Distinct: 7, Hits: 8, Misses: 56
+    EytzingerPerm: Distinct: 7, Hits: 8, Misses: 57
 '''

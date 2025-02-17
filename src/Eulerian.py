@@ -65,8 +65,12 @@ if __name__ == "__main__":
     InspectTable(Eulerian)
 
 
+
+
 ''' OEIS
     Eulerian_Tinv          -> 0 
+    Eulerian_Trevinv       -> 0 
+    Eulerian_Trevinv11     -> 0 
     Eulerian_Tantidiag     -> 0 
     Eulerian_Tacc          -> 0 
     Eulerian_TablGcd       -> 0 
@@ -92,6 +96,7 @@ if __name__ == "__main__":
     Eulerian_TablDiag2     -> https://oeis.org/A460
     Eulerian_TablDiag3     -> https://oeis.org/A498
     Eulerian_PolyCol2      -> https://oeis.org/A629
+    Eulerian_RevPosHalf    -> https://oeis.org/A629
     Eulerian_PosHalf       -> https://oeis.org/A670
     Eulerian_AntiDSum      -> https://oeis.org/A800
     Eulerian_RevAntiDSum   -> https://oeis.org/A800
@@ -134,5 +139,5 @@ if __name__ == "__main__":
     Eulerian_RevTransSqrs  -> https://oeis.org/A344054
     Eulerian_RevTantidiag  -> https://oeis.org/A344393
 
-    Eulerian: Distinct: 37, Hits: 55, Misses: 12
+    Eulerian: Distinct: 37, Hits: 56, Misses: 14
 '''

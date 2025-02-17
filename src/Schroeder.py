@@ -45,6 +45,8 @@ if __name__ == "__main__":
     InspectTable(Schroeder)
 
 
+
+
 ''' OEIS
     Schroeder_Tantidiag     -> 0 
     Schroeder_Tacc          -> 0 
@@ -91,6 +93,7 @@ if __name__ == "__main__":
     Schroeder_TransNat1     -> https://oeis.org/A10683
     Schroeder_RevAntiDSum   -> https://oeis.org/A26003
     Schroeder_Trev11        -> https://oeis.org/A33877
+    Schroeder_Trevinv11     -> https://oeis.org/A35607
     Schroeder_TablDiag2     -> https://oeis.org/A54000
     Schroeder_TablGcd       -> https://oeis.org/A55642
     Schroeder_TransSqrs     -> https://oeis.org/A65096
@@ -100,6 +103,7 @@ if __name__ == "__main__":
     Schroeder_Trev          -> https://oeis.org/A106579
     Schroeder_RevTalt       -> https://oeis.org/A106579
     Schroeder_PolyCol2      -> https://oeis.org/A109980
+    Schroeder_RevPosHalf    -> https://oeis.org/A109980
     Schroeder_Tinv11        -> https://oeis.org/A113413
     Schroeder_Triangle      -> https://oeis.org/A122538
     Schroeder_Talt          -> https://oeis.org/A122538
@@ -109,9 +113,10 @@ if __name__ == "__main__":
     Schroeder_RevEvenSum    -> https://oeis.org/A227506
     Schroeder_EvenSum       -> https://oeis.org/A239204
     Schroeder_TransNat0     -> https://oeis.org/A239204
+    Schroeder_Trevinv       -> https://oeis.org/A266213
     Schroeder_RevCentralO   -> https://oeis.org/A330801
     Schroeder_PosHalf       -> https://oeis.org/A330802
     Schroeder_NegHalf       -> https://oeis.org/A330803
 
-    Schroeder: Distinct: 34, Hits: 42, Misses: 24
+    Schroeder: Distinct: 36, Hits: 45, Misses: 24
 '''

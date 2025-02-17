@@ -52,7 +52,12 @@ if __name__ == "__main__":
 # See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
 
 
+
+
 ''' OEIS
+    EulerTan_TablDiag0     -> https://oeis.org/A-999999
+    EulerTan_TablDiag2     -> https://oeis.org/A-999999
+    EulerTan_RevEvenSum    -> https://oeis.org/A-999999
     EulerTan_Trev          -> 0 
     EulerTan_Toff11        -> 0 
     EulerTan_Trev11        -> 0 
@@ -85,6 +90,7 @@ if __name__ == "__main__":
     EulerTan_RevAntiDSum   -> 0 
     EulerTan_RevColMiddle  -> 0 
     EulerTan_RevCentralO   -> 0 
+    EulerTan_RevPosHalf    -> 0 
     EulerTan_RevNegHalf    -> 0 
     EulerTan_RevTransNat0  -> 0 
     EulerTan_RevTransNat1  -> 0 
@@ -92,9 +98,6 @@ if __name__ == "__main__":
     EulerTan_RevPolyRow3   -> 0 
     EulerTan_RevPolyCol3   -> 0 
     EulerTan_RevPolyDiag   -> 0 
-    EulerTan_TablDiag0     -> https://oeis.org/A7
-    EulerTan_TablDiag2     -> https://oeis.org/A7
-    EulerTan_RevEvenSum    -> https://oeis.org/A7
     EulerTan_PolyRow1      -> https://oeis.org/A12
     EulerTan_TablDiag1     -> https://oeis.org/A27
     EulerTan_RevPolyRow1   -> https://oeis.org/A27
@@ -118,5 +121,5 @@ if __name__ == "__main__":
     EulerTan_PosHalf       -> https://oeis.org/A326325
     EulerTan_NegHalf       -> https://oeis.org/A326325
 
-    EulerTan: Distinct: 18, Hits: 25, Misses: 39
+    EulerTan: Distinct: 18, Hits: 25, Misses: 40
 '''

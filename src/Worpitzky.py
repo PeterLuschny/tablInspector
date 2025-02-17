@@ -41,6 +41,8 @@ if __name__ == "__main__":
     InspectTable(Worpitzky)
 
 
+
+
 ''' OEIS
     Worpitzky_Trev11        -> 0 
     Worpitzky_Tantidiag     -> 0 
@@ -102,6 +104,7 @@ if __name__ == "__main__":
     Worpitzky_RevTalt       -> https://oeis.org/A130850
     Worpitzky_CentralE      -> https://oeis.org/A185157
     Worpitzky_PolyCol2      -> https://oeis.org/A201339
+    Worpitzky_RevPosHalf    -> https://oeis.org/A201339
     Worpitzky_PolyCol3      -> https://oeis.org/A201354
     Worpitzky_RevPolyCol3   -> https://oeis.org/A201355
     Worpitzky_AntiDSum      -> https://oeis.org/A229046
@@ -109,5 +112,5 @@ if __name__ == "__main__":
     Worpitzky_InvBinConv    -> https://oeis.org/A343584
     Worpitzky_PolyDiag      -> https://oeis.org/A372312
 
-    Worpitzky: Distinct: 31, Hits: 41, Misses: 25
+    Worpitzky: Distinct: 31, Hits: 42, Misses: 25
 '''

@@ -49,12 +49,16 @@ if __name__ == "__main__":
     InspectTable(StirlingSetB)
 
 
+
+
 ''' OEIS
     StirlingSetB_Tinv          -> 0 
     StirlingSetB_Trev          -> 0 
+    StirlingSetB_Trevinv       -> 0 
     StirlingSetB_Toff11        -> 0 
     StirlingSetB_Trev11        -> 0 
     StirlingSetB_Tinv11        -> 0 
+    StirlingSetB_Trevinv11     -> 0 
     StirlingSetB_Tantidiag     -> 0 
     StirlingSetB_Tacc          -> 0 
     StirlingSetB_Tder          -> 0 
@@ -94,6 +98,7 @@ if __name__ == "__main__":
     StirlingSetB_RevAntiDSum   -> 0 
     StirlingSetB_RevColMiddle  -> 0 
     StirlingSetB_RevCentralO   -> 0 
+    StirlingSetB_RevPosHalf    -> 0 
     StirlingSetB_RevTransNat0  -> 0 
     StirlingSetB_RevTransNat1  -> 0 
     StirlingSetB_RevTransSqrs  -> 0 
@@ -117,5 +122,5 @@ if __name__ == "__main__":
     StirlingSetB_Talt          -> https://oeis.org/A154602
     StirlingSetB_PolyCol3      -> https://oeis.org/A308543
 
-    StirlingSetB: Distinct: 13, Hits: 16, Misses: 50
+    StirlingSetB: Distinct: 13, Hits: 16, Misses: 53
 '''

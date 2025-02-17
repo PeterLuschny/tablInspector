@@ -41,6 +41,8 @@ if __name__ == "__main__":
     InspectTable(Lucas)
 
 
+
+
 ''' OEIS
     Lucas_Tacc          -> 0 
     Lucas_Tder          -> 0 
@@ -48,13 +50,13 @@ if __name__ == "__main__":
     Lucas_ColMiddle     -> 0 
     Lucas_InvBinConv    -> 0 
     Lucas_RevTacc       -> 0 
-    Lucas_AltSum        -> https://oeis.org/A7
-    Lucas_NegHalf       -> https://oeis.org/A7
+    Lucas_RevTalt       -> 0 
     Lucas_TablCol0      -> https://oeis.org/A12
     Lucas_TablGcd       -> https://oeis.org/A12
     Lucas_TablCol1      -> https://oeis.org/A27
     Lucas_RevPolyRow1   -> https://oeis.org/A27
     Lucas_AntiDSum      -> https://oeis.org/A32
+    Lucas_NegHalf       -> https://oeis.org/A38
     Lucas_RevAntiDSum   -> https://oeis.org/A45
     Lucas_TablCol2      -> https://oeis.org/A96
     Lucas_TablDiag2     -> https://oeis.org/A290
@@ -65,6 +67,7 @@ if __name__ == "__main__":
     Lucas_PosHalf       -> https://oeis.org/A3946
     Lucas_RevPolyCol3   -> https://oeis.org/A3947
     Lucas_PolyCol2      -> https://oeis.org/A5030
+    Lucas_RevPosHalf    -> https://oeis.org/A5030
     Lucas_TablDiag1     -> https://oeis.org/A5408
     Lucas_PolyRow1      -> https://oeis.org/A5408
     Lucas_TablCol3      -> https://oeis.org/A5581
@@ -83,8 +86,8 @@ if __name__ == "__main__":
     Lucas_CentralE      -> https://oeis.org/A29651
     Lucas_BinConv       -> https://oeis.org/A29651
     Lucas_Trev          -> https://oeis.org/A29653
-    Lucas_RevTalt       -> https://oeis.org/A29653
     Lucas_Tantidiag     -> https://oeis.org/A34807
+    Lucas_AltSum        -> https://oeis.org/A39964
     Lucas_TablMax       -> https://oeis.org/A50168
     Lucas_RevColMiddle  -> https://oeis.org/A50168
     Lucas_CentralO      -> https://oeis.org/A51924
@@ -108,5 +111,5 @@ if __name__ == "__main__":
     Lucas_RevTransNat1  -> https://oeis.org/A339252
     Lucas_RevPolyDiag   -> https://oeis.org/A373395
 
-    Lucas: Distinct: 44, Hits: 59, Misses: 6
+    Lucas: Distinct: 45, Hits: 59, Misses: 7
 '''

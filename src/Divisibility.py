@@ -50,6 +50,8 @@ if __name__ == "__main__":
     InspectTable(Divisibility)
 
 
+
+
 ''' OEIS
     Divisibility_Trev          -> 0 
     Divisibility_Tantidiag     -> 0 
@@ -66,12 +68,11 @@ if __name__ == "__main__":
     Divisibility_TablSum       -> https://oeis.org/A5
     Divisibility_AbsSum        -> https://oeis.org/A5
     Divisibility_TablCol0      -> https://oeis.org/A7
-    Divisibility_TablDiag1     -> https://oeis.org/A7
-    Divisibility_TablDiag2     -> https://oeis.org/A7
     Divisibility_TablDiag3     -> https://oeis.org/A7
-    Divisibility_CentralO      -> https://oeis.org/A7
     Divisibility_RevCentralO   -> https://oeis.org/A7
+    Divisibility_Trevinv       -> https://oeis.org/A12
     Divisibility_Tinvrev11     -> https://oeis.org/A12
+    Divisibility_Trevinv11     -> https://oeis.org/A12
     Divisibility_TablCol1      -> https://oeis.org/A12
     Divisibility_TablDiag0     -> https://oeis.org/A12
     Divisibility_TablLcm       -> https://oeis.org/A12
@@ -96,6 +97,7 @@ if __name__ == "__main__":
     Divisibility_PolyRow3      -> https://oeis.org/A34262
     Divisibility_Toff11        -> https://oeis.org/A51731
     Divisibility_PolyCol2      -> https://oeis.org/A55895
+    Divisibility_RevPosHalf    -> https://oeis.org/A55895
     Divisibility_BinConv       -> https://oeis.org/A56045
     Divisibility_PolyDiag      -> https://oeis.org/A66108
     Divisibility_PosHalf       -> https://oeis.org/A74854
@@ -113,11 +115,14 @@ if __name__ == "__main__":
     Divisibility_Tinv11        -> https://oeis.org/A174852
     Divisibility_RevTrev11     -> https://oeis.org/A175992
     Divisibility_EvenSum       -> https://oeis.org/A183063
+    Divisibility_TablDiag1     -> https://oeis.org/A209229
+    Divisibility_CentralO      -> https://oeis.org/A209229
+    Divisibility_TablDiag2     -> https://oeis.org/A279329
     Divisibility_RevEvenSum    -> https://oeis.org/A320111
     Divisibility_RevPolyCol3   -> https://oeis.org/A357051
     Divisibility_PolyCol3      -> https://oeis.org/A363913
     Divisibility_Tinv          -> https://oeis.org/A363914
     Divisibility_RevTransSqrs  -> https://oeis.org/A367326
 
-    Divisibility: Distinct: 35, Hits: 55, Misses: 12
+    Divisibility: Distinct: 37, Hits: 58, Misses: 12
 '''

@@ -43,8 +43,11 @@ if __name__ == "__main__":
     InspectTable(CentralSet)
 
 
+
+
 ''' OEIS
     CentralSet_Trev          -> 0 
+    CentralSet_Trevinv       -> 0 
     CentralSet_Tinvrev11     -> 0 
     CentralSet_Tantidiag     -> 0 
     CentralSet_Tacc          -> 0 
@@ -82,6 +85,7 @@ if __name__ == "__main__":
     CentralSet_RevAntiDSum   -> 0 
     CentralSet_RevColMiddle  -> 0 
     CentralSet_RevCentralO   -> 0 
+    CentralSet_RevPosHalf    -> 0 
     CentralSet_RevNegHalf    -> 0 
     CentralSet_RevTransNat0  -> 0 
     CentralSet_RevTransNat1  -> 0 
@@ -98,6 +102,7 @@ if __name__ == "__main__":
     CentralSet_PolyRow2      -> https://oeis.org/A2378
     CentralSet_TablCol2      -> https://oeis.org/A2450
     CentralSet_TablCol3      -> https://oeis.org/A2451
+    CentralSet_Trevinv11     -> https://oeis.org/A8955
     CentralSet_Trev11        -> https://oeis.org/A8957
     CentralSet_Toff11        -> https://oeis.org/A36969
     CentralSet_TablDiag2     -> https://oeis.org/A60493
@@ -112,5 +117,5 @@ if __name__ == "__main__":
     CentralSet_CentralE      -> https://oeis.org/A298851
     CentralSet_TablDiag3     -> https://oeis.org/A351105
 
-    CentralSet: Distinct: 19, Hits: 23, Misses: 44
+    CentralSet: Distinct: 20, Hits: 24, Misses: 46
 '''

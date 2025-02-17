@@ -47,11 +47,15 @@ if __name__ == "__main__":
     InspectTable(Jacobsthal)
 
 
+
+
 ''' OEIS
     Jacobsthal_Trev          -> 0 
+    Jacobsthal_Trevinv       -> 0 
     Jacobsthal_Toff11        -> 0 
     Jacobsthal_Trev11        -> 0 
     Jacobsthal_Tinv11        -> 0 
+    Jacobsthal_Trevinv11     -> 0 
     Jacobsthal_Tantidiag     -> 0 
     Jacobsthal_Tacc          -> 0 
     Jacobsthal_Tder          -> 0 
@@ -80,6 +84,7 @@ if __name__ == "__main__":
     Jacobsthal_RevAntiDSum   -> 0 
     Jacobsthal_RevColMiddle  -> 0 
     Jacobsthal_RevCentralO   -> 0 
+    Jacobsthal_RevPosHalf    -> 0 
     Jacobsthal_RevTransNat0  -> 0 
     Jacobsthal_RevTransNat1  -> 0 
     Jacobsthal_RevTransSqrs  -> 0 
@@ -115,5 +120,5 @@ if __name__ == "__main__":
     Jacobsthal_AccRevSum     -> https://oeis.org/A331320
     Jacobsthal_TransNat1     -> https://oeis.org/A331320
 
-    Jacobsthal: Distinct: 18, Hits: 28, Misses: 38
+    Jacobsthal: Distinct: 18, Hits: 28, Misses: 41
 '''

@@ -37,7 +37,11 @@ if __name__ == "__main__":
     InspectTable(One)
 
 
+
+
 ''' OEIS
+    One_Trevinv       -> 0 
+    One_Trevinv11     -> 0 
     One_InvBinConv    -> https://oeis.org/A7
     One_Triangle      -> https://oeis.org/A12
     One_Trev          -> https://oeis.org/A12
@@ -80,6 +84,7 @@ if __name__ == "__main__":
     One_RevTransNat1  -> https://oeis.org/A217
     One_PosHalf       -> https://oeis.org/A225
     One_PolyCol2      -> https://oeis.org/A225
+    One_RevPosHalf    -> https://oeis.org/A225
     One_TransSqrs     -> https://oeis.org/A330
     One_RevTransSqrs  -> https://oeis.org/A330
     One_NegHalf       -> https://oeis.org/A1045
@@ -108,5 +113,5 @@ if __name__ == "__main__":
     One_Tinvrev11     -> https://oeis.org/A97806
     One_RevTinv11     -> https://oeis.org/A97806
 
-    One: Distinct: 16, Hits: 69, Misses: 0
+    One: Distinct: 17, Hits: 70, Misses: 2
 '''

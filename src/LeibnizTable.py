@@ -36,7 +36,10 @@ if __name__ == "__main__":
     InspectTable(LeibnizTable)
 
 
+
+
 ''' OEIS
+    LeibnizTable_TablCol0      -> https://oeis.org/A-999999
     LeibnizTable_Tantidiag     -> 0 
     LeibnizTable_Tacc          -> 0 
     LeibnizTable_Tder          -> 0 
@@ -48,10 +51,9 @@ if __name__ == "__main__":
     LeibnizTable_RevTrev11     -> 0 
     LeibnizTable_RevTantidiag  -> 0 
     LeibnizTable_RevTder       -> 0 
+    LeibnizTable_RevPosHalf    -> 0 
     LeibnizTable_RevTransSqrs  -> 0 
     LeibnizTable_RevPolyDiag   -> 0 
-    LeibnizTable_TablCol0      -> https://oeis.org/A7
-    LeibnizTable_InvBinConv    -> https://oeis.org/A7
     LeibnizTable_RevPolyRow1   -> https://oeis.org/A12
     LeibnizTable_TablCol1      -> https://oeis.org/A27
     LeibnizTable_TablDiag0     -> https://oeis.org/A27
@@ -100,7 +102,8 @@ if __name__ == "__main__":
     LeibnizTable_AltSum        -> https://oeis.org/A142150
     LeibnizTable_TablLcm       -> https://oeis.org/A169900
     LeibnizTable_RevPolyCol3   -> https://oeis.org/A212337
+    LeibnizTable_InvBinConv    -> https://oeis.org/A245196
     LeibnizTable_RevPolyRow3   -> https://oeis.org/A271740
 
-    LeibnizTable: Distinct: 32, Hits: 51, Misses: 13
+    LeibnizTable: Distinct: 33, Hits: 51, Misses: 14
 '''

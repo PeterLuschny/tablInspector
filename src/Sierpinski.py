@@ -36,18 +36,20 @@ if __name__ == "__main__":
     InspectTable(Sierpinski)
 
 
+
+
 ''' OEIS
+    Sierpinski_NegHalf       -> https://oeis.org/A-999999
+    Sierpinski_RevNegHalf    -> https://oeis.org/A-999999
     Sierpinski_Tantidiag     -> 0 
     Sierpinski_AccSum        -> 0 
     Sierpinski_AccRevSum     -> 0 
-    Sierpinski_NegHalf       -> 0 
     Sierpinski_TransNat1     -> 0 
     Sierpinski_TransSqrs     -> 0 
     Sierpinski_InvBinConv    -> 0 
     Sierpinski_PolyDiag      -> 0 
     Sierpinski_RevTantidiag  -> 0 
     Sierpinski_RevAccRevSum  -> 0 
-    Sierpinski_RevNegHalf    -> 0 
     Sierpinski_RevTransNat1  -> 0 
     Sierpinski_RevTransSqrs  -> 0 
     Sierpinski_RevPolyDiag   -> 0 
@@ -68,6 +70,7 @@ if __name__ == "__main__":
     Sierpinski_RevOddSum     -> https://oeis.org/A1316
     Sierpinski_PosHalf       -> https://oeis.org/A1317
     Sierpinski_PolyCol2      -> https://oeis.org/A1317
+    Sierpinski_RevPosHalf    -> https://oeis.org/A1317
     Sierpinski_AntiDSum      -> https://oeis.org/A2487
     Sierpinski_RevAntiDSum   -> https://oeis.org/A2487
     Sierpinski_PolyRow2      -> https://oeis.org/A2522
@@ -76,6 +79,7 @@ if __name__ == "__main__":
     Sierpinski_Tinv          -> https://oeis.org/A47999
     Sierpinski_Trev          -> https://oeis.org/A47999
     Sierpinski_Tinvrev       -> https://oeis.org/A47999
+    Sierpinski_Trevinv       -> https://oeis.org/A47999
     Sierpinski_Talt          -> https://oeis.org/A47999
     Sierpinski_RevTalt       -> https://oeis.org/A47999
     Sierpinski_PolyRow3      -> https://oeis.org/A53698
@@ -86,6 +90,7 @@ if __name__ == "__main__":
     Sierpinski_Toff11        -> https://oeis.org/A90971
     Sierpinski_Trev11        -> https://oeis.org/A90971
     Sierpinski_Tinv11        -> https://oeis.org/A90971
+    Sierpinski_Trevinv11     -> https://oeis.org/A90971
     Sierpinski_RevToff11     -> https://oeis.org/A90971
     Sierpinski_RevTrev11     -> https://oeis.org/A90971
     Sierpinski_RevTinv11     -> https://oeis.org/A90971
@@ -106,5 +111,5 @@ if __name__ == "__main__":
     Sierpinski_TransNat0     -> https://oeis.org/A335063
     Sierpinski_RevTransNat0  -> https://oeis.org/A335063
 
-    Sierpinski: Distinct: 21, Hits: 54, Misses: 14
+    Sierpinski: Distinct: 22, Hits: 59, Misses: 12
 '''

@@ -46,8 +46,11 @@ if __name__ == "__main__":
     InspectTable(CatalanInv)
 
 
+
+
 ''' OEIS
     CatalanInv_Trev          -> 0 
+    CatalanInv_Trevinv       -> 0 
     CatalanInv_Tantidiag     -> 0 
     CatalanInv_Tacc          -> 0 
     CatalanInv_Tder          -> 0 
@@ -83,13 +86,14 @@ if __name__ == "__main__":
     CatalanInv_PolyRow2      -> https://oeis.org/A5563
     CatalanInv_TablDiag1     -> https://oeis.org/A5843
     CatalanInv_RevNegHalf    -> https://oeis.org/A10673
-    CatalanInv_AltSum        -> https://oeis.org/A11655
     CatalanInv_TablDiag2     -> https://oeis.org/A14105
     CatalanInv_TransNat0     -> https://oeis.org/A30267
     CatalanInv_Tinv11        -> https://oeis.org/A39598
     CatalanInv_RevCentralO   -> https://oeis.org/A45721
     CatalanInv_NegHalf       -> https://oeis.org/A49072
+    CatalanInv_Trevinv11     -> https://oeis.org/A50166
     CatalanInv_PolyCol2      -> https://oeis.org/A52530
+    CatalanInv_RevPosHalf    -> https://oeis.org/A52530
     CatalanInv_Toff11        -> https://oeis.org/A78812
     CatalanInv_RevPolyCol3   -> https://oeis.org/A99459
     CatalanInv_TablLcm       -> https://oeis.org/A99996
@@ -108,11 +112,12 @@ if __name__ == "__main__":
     CatalanInv_TransNat1     -> https://oeis.org/A290917
     CatalanInv_PolyRow3      -> https://oeis.org/A317637
     CatalanInv_TablGcd       -> https://oeis.org/A318829
+    CatalanInv_AltSum        -> https://oeis.org/A329682
     CatalanInv_InvBinConv    -> https://oeis.org/A350290
     CatalanInv_RevEvenSum    -> https://oeis.org/A376716
     CatalanInv_AccSum        -> https://oeis.org/A377866
     CatalanInv_RevAccRevSum  -> https://oeis.org/A377866
     CatalanInv_RevTransNat1  -> https://oeis.org/A377866
 
-    CatalanInv: Distinct: 41, Hits: 47, Misses: 19
+    CatalanInv: Distinct: 42, Hits: 49, Misses: 20
 '''

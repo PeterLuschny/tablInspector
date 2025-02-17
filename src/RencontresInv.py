@@ -40,12 +40,18 @@ if __name__ == "__main__":
     InspectTable(RencontresInv)
 
 
+
+
 ''' OEIS
+    RencontresInv_TablDiag1     -> https://oeis.org/A-999999
+    RencontresInv_AltSum        -> https://oeis.org/A-999999
     RencontresInv_Tinv          -> 0 
     RencontresInv_Trev          -> 0 
+    RencontresInv_Trevinv       -> 0 
     RencontresInv_Toff11        -> 0 
     RencontresInv_Trev11        -> 0 
     RencontresInv_Tinv11        -> 0 
+    RencontresInv_Trevinv11     -> 0 
     RencontresInv_Tantidiag     -> 0 
     RencontresInv_Tacc          -> 0 
     RencontresInv_Tder          -> 0 
@@ -79,12 +85,12 @@ if __name__ == "__main__":
     RencontresInv_RevAntiDSum   -> 0 
     RencontresInv_RevColMiddle  -> 0 
     RencontresInv_RevCentralO   -> 0 
+    RencontresInv_RevPosHalf    -> 0 
     RencontresInv_RevTransNat1  -> 0 
     RencontresInv_RevTransSqrs  -> 0 
     RencontresInv_RevPolyRow3   -> 0 
     RencontresInv_RevPolyCol3   -> 0 
     RencontresInv_RevPolyDiag   -> 0 
-    RencontresInv_TablDiag1     -> https://oeis.org/A7
     RencontresInv_TablDiag0     -> https://oeis.org/A12
     RencontresInv_TablGcd       -> https://oeis.org/A12
     RencontresInv_RevPolyRow1   -> https://oeis.org/A12
@@ -104,9 +110,8 @@ if __name__ == "__main__":
     RencontresInv_AbsSum        -> https://oeis.org/A48495
     RencontresInv_Triangle      -> https://oeis.org/A55137
     RencontresInv_Talt          -> https://oeis.org/A55137
-    RencontresInv_AltSum        -> https://oeis.org/A55642
     RencontresInv_NegHalf       -> https://oeis.org/A86970
     RencontresInv_TablMax       -> https://oeis.org/A191522
 
-    RencontresInv: Distinct: 18, Hits: 23, Misses: 43
+    RencontresInv: Distinct: 17, Hits: 23, Misses: 46
 '''

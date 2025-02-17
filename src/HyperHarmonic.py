@@ -43,9 +43,13 @@ if __name__ == "__main__":
     InspectTable(HyperHarmonic)
 
 
+
+
 ''' OEIS
     HyperHarmonic_Tinv          -> 0 
+    HyperHarmonic_Trevinv       -> 0 
     HyperHarmonic_Tinv11        -> 0 
+    HyperHarmonic_Trevinv11     -> 0 
     HyperHarmonic_Tantidiag     -> 0 
     HyperHarmonic_Tacc          -> 0 
     HyperHarmonic_Tder          -> 0 
@@ -80,6 +84,7 @@ if __name__ == "__main__":
     HyperHarmonic_RevAccRevSum  -> 0 
     HyperHarmonic_RevAntiDSum   -> 0 
     HyperHarmonic_RevColMiddle  -> 0 
+    HyperHarmonic_RevPosHalf    -> 0 
     HyperHarmonic_RevNegHalf    -> 0 
     HyperHarmonic_RevTransNat0  -> 0 
     HyperHarmonic_RevTransNat1  -> 0 
@@ -111,5 +116,5 @@ if __name__ == "__main__":
     HyperHarmonic_Talt          -> https://oeis.org/A165675
     HyperHarmonic_TablDiag3     -> https://oeis.org/A165676
 
-    HyperHarmonic: Distinct: 18, Hits: 23, Misses: 43
+    HyperHarmonic: Distinct: 18, Hits: 23, Misses: 46
 '''

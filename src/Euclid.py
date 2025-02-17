@@ -47,14 +47,13 @@ if __name__ == "__main__":
     InspectTable(Euclid)
 
 
+
+
 ''' OEIS
     Euclid_Tinvrev11     -> 0 
     Euclid_InvBinConv    -> 0 
     Euclid_PolyCol3      -> 0 
     Euclid_RevPolyCol3   -> 0 
-    Euclid_TablCol0      -> https://oeis.org/A7
-    Euclid_TablDiag0     -> https://oeis.org/A7
-    Euclid_CentralE      -> https://oeis.org/A7
     Euclid_TablSum       -> https://oeis.org/A10
     Euclid_AbsSum        -> https://oeis.org/A10
     Euclid_TablCol1      -> https://oeis.org/A12
@@ -97,6 +96,9 @@ if __name__ == "__main__":
     Euclid_RevTransNat1  -> https://oeis.org/A92790
     Euclid_Tder          -> https://oeis.org/A127368
     Euclid_RevTder       -> https://oeis.org/A127368
+    Euclid_TablCol0      -> https://oeis.org/A209229
+    Euclid_TablDiag0     -> https://oeis.org/A209229
+    Euclid_CentralE      -> https://oeis.org/A209229
     Euclid_Triangle      -> https://oeis.org/A217831
     Euclid_Trev          -> https://oeis.org/A217831
     Euclid_Talt          -> https://oeis.org/A217831
@@ -107,6 +109,7 @@ if __name__ == "__main__":
     Euclid_RevTantidiag  -> https://oeis.org/A359592
     Euclid_PosHalf       -> https://oeis.org/A367544
     Euclid_PolyCol2      -> https://oeis.org/A367544
+    Euclid_RevPosHalf    -> https://oeis.org/A367544
     Euclid_NegHalf       -> https://oeis.org/A367545
     Euclid_RevNegHalf    -> https://oeis.org/A367545
     Euclid_PolyDiag      -> https://oeis.org/A367546
@@ -114,5 +117,5 @@ if __name__ == "__main__":
     Euclid_Tacc          -> https://oeis.org/A378068
     Euclid_RevTacc       -> https://oeis.org/A378068
 
-    Euclid: Distinct: 24, Hits: 61, Misses: 4
+    Euclid: Distinct: 24, Hits: 62, Misses: 4
 '''

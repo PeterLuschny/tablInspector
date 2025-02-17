@@ -47,6 +47,8 @@ if __name__ == "__main__":
     InspectTable(LucasPoly)
 
 
+
+
 ''' OEIS
     LucasPoly_Trev          -> 0 
     LucasPoly_Tinvrev       -> 0 
@@ -85,6 +87,7 @@ if __name__ == "__main__":
     LucasPoly_RevAccRevSum  -> 0 
     LucasPoly_RevColMiddle  -> 0 
     LucasPoly_RevCentralO   -> 0 
+    LucasPoly_RevPosHalf    -> 0 
     LucasPoly_RevNegHalf    -> 0 
     LucasPoly_RevTransNat0  -> 0 
     LucasPoly_RevTransNat1  -> 0 
@@ -115,5 +118,5 @@ if __name__ == "__main__":
     LucasPoly_Triangle      -> https://oeis.org/A374440
     LucasPoly_Talt          -> https://oeis.org/A374440
 
-    LucasPoly: Distinct: 18, Hits: 23, Misses: 43
+    LucasPoly: Distinct: 18, Hits: 23, Misses: 44
 '''

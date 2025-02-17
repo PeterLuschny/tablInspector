@@ -45,11 +45,15 @@ if __name__ == "__main__":
     InspectTable(FiboLucasInv)
 
 
+
+
 ''' OEIS
+    FiboLucasInv_RevTantidiag  -> https://oeis.org/A-999999
     FiboLucasInv_Trev          -> 0 
     FiboLucasInv_Toff11        -> 0 
     FiboLucasInv_Trev11        -> 0 
     FiboLucasInv_Tinv11        -> 0 
+    FiboLucasInv_Trevinv11     -> 0 
     FiboLucasInv_Tantidiag     -> 0 
     FiboLucasInv_Tacc          -> 0 
     FiboLucasInv_Tder          -> 0 
@@ -78,7 +82,6 @@ if __name__ == "__main__":
     FiboLucasInv_PolyDiag      -> 0 
     FiboLucasInv_RevToff11     -> 0 
     FiboLucasInv_RevTrev11     -> 0 
-    FiboLucasInv_RevTantidiag  -> 0 
     FiboLucasInv_RevTacc       -> 0 
     FiboLucasInv_RevTalt       -> 0 
     FiboLucasInv_RevTder       -> 0 
@@ -109,9 +112,11 @@ if __name__ == "__main__":
     FiboLucasInv_OddSum        -> https://oeis.org/A86990
     FiboLucasInv_Tinv          -> https://oeis.org/A124038
     FiboLucasInv_PolyCol2      -> https://oeis.org/A126982
+    FiboLucasInv_RevPosHalf    -> https://oeis.org/A126982
+    FiboLucasInv_Trevinv       -> https://oeis.org/A374439
     FiboLucasInv_Triangle      -> https://oeis.org/A375025
     FiboLucasInv_Talt          -> https://oeis.org/A375025
     FiboLucasInv_AltSum        -> https://oeis.org/A375026
 
-    FiboLucasInv: Distinct: 15, Hits: 17, Misses: 49
+    FiboLucasInv: Distinct: 17, Hits: 20, Misses: 49
 '''

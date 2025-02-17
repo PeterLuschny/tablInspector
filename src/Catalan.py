@@ -47,8 +47,11 @@ if __name__ == "__main__":
     InspectTable(Catalan)
 
 
+
+
 ''' OEIS
     Catalan_Trev          -> 0 
+    Catalan_Trevinv       -> 0 
     Catalan_Tantidiag     -> 0 
     Catalan_Tacc          -> 0 
     Catalan_Tder          -> 0 
@@ -97,6 +100,7 @@ if __name__ == "__main__":
     Catalan_Trev11        -> https://oeis.org/A50166
     Catalan_NegHalf       -> https://oeis.org/A64062
     Catalan_PolyCol2      -> https://oeis.org/A67336
+    Catalan_RevPosHalf    -> https://oeis.org/A67336
     Catalan_Tinv11        -> https://oeis.org/A78812
     Catalan_RevPolyRow3   -> https://oeis.org/A79273
     Catalan_PolyCol3      -> https://oeis.org/A104530
@@ -106,6 +110,7 @@ if __name__ == "__main__":
     Catalan_Talt          -> https://oeis.org/A128899
     Catalan_Tinv          -> https://oeis.org/A128908
     Catalan_RevTransNat0  -> https://oeis.org/A172060
+    Catalan_Trevinv11     -> https://oeis.org/A172431
     Catalan_PosHalf       -> https://oeis.org/A194723
     Catalan_RevPolyCol3   -> https://oeis.org/A194724
     Catalan_RevAntiDSum   -> https://oeis.org/A224747
@@ -115,5 +120,5 @@ if __name__ == "__main__":
     Catalan_TablGcd       -> https://oeis.org/A318829
     Catalan_CentralE      -> https://oeis.org/A359108
 
-    Catalan: Distinct: 36, Hits: 42, Misses: 24
+    Catalan: Distinct: 37, Hits: 44, Misses: 25
 '''

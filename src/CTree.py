@@ -39,7 +39,11 @@ if __name__ == "__main__":
     InspectTable(CTree)
 
 
+
+
 ''' OEIS
+    CTree_NegHalf       -> https://oeis.org/A-999999
+    CTree_RevNegHalf    -> https://oeis.org/A-999999
     CTree_Tacc          -> 0 
     CTree_Tder          -> 0 
     CTree_PosHalf       -> 0 
@@ -49,10 +53,13 @@ if __name__ == "__main__":
     CTree_PolyDiag      -> 0 
     CTree_RevTacc       -> 0 
     CTree_RevTder       -> 0 
+    CTree_RevPosHalf    -> 0 
     CTree_RevTransSqrs  -> 0 
     CTree_RevPolyCol3   -> 0 
     CTree_RevPolyDiag   -> 0 
+    CTree_Trevinv       -> https://oeis.org/A12
     CTree_Tinv11        -> https://oeis.org/A12
+    CTree_Trevinv11     -> https://oeis.org/A12
     CTree_TablCol0      -> https://oeis.org/A12
     CTree_TablCol2      -> https://oeis.org/A12
     CTree_TablDiag0     -> https://oeis.org/A12
@@ -76,8 +83,6 @@ if __name__ == "__main__":
     CTree_RevEvenSum    -> https://oeis.org/A4526
     CTree_TablSum       -> https://oeis.org/A29578
     CTree_AbsSum        -> https://oeis.org/A29578
-    CTree_NegHalf       -> https://oeis.org/A52992
-    CTree_RevNegHalf    -> https://oeis.org/A52992
     CTree_PolyRow3      -> https://oeis.org/A53698
     CTree_RevPolyRow3   -> https://oeis.org/A53698
     CTree_TransNat0     -> https://oeis.org/A56136
@@ -109,5 +114,5 @@ if __name__ == "__main__":
     CTree_RevToff11     -> https://oeis.org/A362448
     CTree_RevTrev11     -> https://oeis.org/A362448
 
-    CTree: Distinct: 20, Hits: 56, Misses: 12
+    CTree: Distinct: 20, Hits: 58, Misses: 13
 '''

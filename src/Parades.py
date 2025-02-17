@@ -45,7 +45,11 @@ if __name__ == "__main__":
     InspectTable(Parades)
 
 
+
+
 ''' OEIS
+    Parades_PolyRow1      -> https://oeis.org/A-999999
+    Parades_RevPolyRow1   -> https://oeis.org/A-999999
     Parades_Toff11        -> 0 
     Parades_Trev11        -> 0 
     Parades_Tantidiag     -> 0 
@@ -77,6 +81,7 @@ if __name__ == "__main__":
     Parades_RevAccRevSum  -> 0 
     Parades_RevAntiDSum   -> 0 
     Parades_RevCentralO   -> 0 
+    Parades_RevPosHalf    -> 0 
     Parades_RevNegHalf    -> 0 
     Parades_RevTransNat0  -> 0 
     Parades_RevTransNat1  -> 0 
@@ -85,8 +90,6 @@ if __name__ == "__main__":
     Parades_RevPolyDiag   -> 0 
     Parades_TablCol0      -> https://oeis.org/A7
     Parades_TablDiag0     -> https://oeis.org/A7
-    Parades_PolyRow1      -> https://oeis.org/A7
-    Parades_RevPolyRow1   -> https://oeis.org/A7
     Parades_TablCol1      -> https://oeis.org/A12
     Parades_TablDiag1     -> https://oeis.org/A12
     Parades_PolyRow2      -> https://oeis.org/A27
@@ -111,5 +114,5 @@ if __name__ == "__main__":
     Parades_Talt          -> https://oeis.org/A371761
     Parades_RevTalt       -> https://oeis.org/A371761
 
-    Parades: Distinct: 14, Hits: 27, Misses: 37
+    Parades: Distinct: 15, Hits: 27, Misses: 38
 '''

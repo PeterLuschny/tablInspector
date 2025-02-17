@@ -40,6 +40,8 @@ if __name__ == "__main__":
     InspectTable(PowLaguerre)
 
 
+
+
 ''' OEIS
     PowLaguerre_Toff11        -> 0 
     PowLaguerre_Trev11        -> 0 
@@ -80,6 +82,7 @@ if __name__ == "__main__":
     PowLaguerre_RevTransNat0  -> https://oeis.org/A14479
     PowLaguerre_PosHalf       -> https://oeis.org/A32031
     PowLaguerre_PolyCol2      -> https://oeis.org/A32031
+    PowLaguerre_RevPosHalf    -> https://oeis.org/A32031
     PowLaguerre_PolyCol3      -> https://oeis.org/A47053
     PowLaguerre_RevPolyCol3   -> https://oeis.org/A47053
     PowLaguerre_TablMax       -> https://oeis.org/A59837
@@ -106,5 +109,5 @@ if __name__ == "__main__":
     PowLaguerre_CentralO      -> https://oeis.org/A360602
     PowLaguerre_RevCentralO   -> https://oeis.org/A360602
 
-    PowLaguerre: Distinct: 23, Hits: 52, Misses: 12
+    PowLaguerre: Distinct: 23, Hits: 53, Misses: 12
 '''

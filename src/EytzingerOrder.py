@@ -79,6 +79,8 @@ if __name__ == "__main__":
     InspectTable(EytzingerOrder)
 
 
+
+
 ''' OEIS
     EytzingerOrder_Triangle      -> 0 
     EytzingerOrder_Trev          -> 0 
@@ -126,6 +128,7 @@ if __name__ == "__main__":
     EytzingerOrder_RevAntiDSum   -> 0 
     EytzingerOrder_RevColMiddle  -> 0 
     EytzingerOrder_RevCentralO   -> 0 
+    EytzingerOrder_RevPosHalf    -> 0 
     EytzingerOrder_RevNegHalf    -> 0 
     EytzingerOrder_RevTransNat0  -> 0 
     EytzingerOrder_RevTransNat1  -> 0 
@@ -145,5 +148,5 @@ if __name__ == "__main__":
     EytzingerOrder_PolyRow3      -> https://oeis.org/A131649
     EytzingerOrder_TablCol0      -> https://oeis.org/A279521
 
-    EytzingerOrder: Distinct: 9, Hits: 11, Misses: 53
+    EytzingerOrder: Distinct: 9, Hits: 11, Misses: 54
 '''

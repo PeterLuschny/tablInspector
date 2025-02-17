@@ -43,10 +43,15 @@ if __name__ == "__main__":
     InspectTable(Motzkin)
 
 
+
+
 ''' OEIS
+    Motzkin_Tinv          -> https://oeis.org/A-999999
+    Motzkin_Trevinv       -> https://oeis.org/A-999999
+    Motzkin_Tinv11        -> https://oeis.org/A-999999
+    Motzkin_Trevinv11     -> https://oeis.org/A-999999
     Motzkin_Toff11        -> 0 
     Motzkin_Trev11        -> 0 
-    Motzkin_Tinv11        -> 0 
     Motzkin_Tacc          -> 0 
     Motzkin_Tder          -> 0 
     Motzkin_TablLcm       -> 0 
@@ -93,9 +98,9 @@ if __name__ == "__main__":
     Motzkin_RevAccRevSum  -> https://oeis.org/A26943
     Motzkin_RevTransNat1  -> https://oeis.org/A26943
     Motzkin_PolyCol2      -> https://oeis.org/A59738
+    Motzkin_RevPosHalf    -> https://oeis.org/A59738
     Motzkin_Triangle      -> https://oeis.org/A64189
     Motzkin_Talt          -> https://oeis.org/A64189
-    Motzkin_Tinv          -> https://oeis.org/A101950
     Motzkin_Tantidiag     -> https://oeis.org/A106489
     Motzkin_PolyRow3      -> https://oeis.org/A135859
     Motzkin_RevAntiDSum   -> https://oeis.org/A191519
@@ -111,5 +116,5 @@ if __name__ == "__main__":
     Motzkin_PolyCol3      -> https://oeis.org/A344506
     Motzkin_RevNegHalf    -> https://oeis.org/A344507
 
-    Motzkin: Distinct: 38, Hits: 47, Misses: 19
+    Motzkin: Distinct: 38, Hits: 51, Misses: 18
 '''

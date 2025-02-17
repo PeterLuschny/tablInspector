@@ -42,10 +42,14 @@ if __name__ == "__main__":
     InspectTable(FiboLucasRev)
 
 
+
+
 ''' OEIS
+    FiboLucasRev_Trevinv       -> 0 
     FiboLucasRev_Toff11        -> 0 
     FiboLucasRev_Trev11        -> 0 
     FiboLucasRev_Tinv11        -> 0 
+    FiboLucasRev_Trevinv11     -> 0 
     FiboLucasRev_Tantidiag     -> 0 
     FiboLucasRev_Tacc          -> 0 
     FiboLucasRev_Tder          -> 0 
@@ -62,7 +66,6 @@ if __name__ == "__main__":
     FiboLucasRev_TransSqrs     -> 0 
     FiboLucasRev_BinConv       -> 0 
     FiboLucasRev_InvBinConv    -> 0 
-    FiboLucasRev_PolyCol2      -> 0 
     FiboLucasRev_PolyDiag      -> 0 
     FiboLucasRev_RevToff11     -> 0 
     FiboLucasRev_RevTrev11     -> 0 
@@ -97,6 +100,8 @@ if __name__ == "__main__":
     FiboLucasRev_AntiDSum      -> https://oeis.org/A16116
     FiboLucasRev_TransNat0     -> https://oeis.org/A23607
     FiboLucasRev_TablCol1      -> https://oeis.org/A29578
+    FiboLucasRev_PolyCol2      -> https://oeis.org/A48654
+    FiboLucasRev_RevPosHalf    -> https://oeis.org/A48654
     FiboLucasRev_TablDiag1     -> https://oeis.org/A55642
     FiboLucasRev_PolyCol3      -> https://oeis.org/A108300
     FiboLucasRev_Triangle      -> https://oeis.org/A124038
@@ -110,5 +115,5 @@ if __name__ == "__main__":
     FiboLucasRev_RevTalt       -> https://oeis.org/A374439
     FiboLucasRev_Tinv          -> https://oeis.org/A375025
 
-    FiboLucasRev: Distinct: 25, Hits: 30, Misses: 36
+    FiboLucasRev: Distinct: 26, Hits: 32, Misses: 37
 '''

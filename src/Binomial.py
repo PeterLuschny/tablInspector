@@ -74,12 +74,14 @@ if __name__ == "__main__":
     InspectTable(InvBinomial)
 
 
+
+
 ''' OEIS
+    Binomial_NegHalf       -> https://oeis.org/A-999999
+    Binomial_RevNegHalf    -> https://oeis.org/A-999999
     Binomial_AltSum        -> https://oeis.org/A7
     Binomial_TablCol0      -> https://oeis.org/A12
     Binomial_TablDiag0     -> https://oeis.org/A12
-    Binomial_NegHalf       -> https://oeis.org/A12
-    Binomial_RevNegHalf    -> https://oeis.org/A12
     Binomial_TablCol1      -> https://oeis.org/A27
     Binomial_TablDiag1     -> https://oeis.org/A27
     Binomial_PolyRow1      -> https://oeis.org/A27
@@ -98,6 +100,7 @@ if __name__ == "__main__":
     Binomial_TablDiag2     -> https://oeis.org/A217
     Binomial_PosHalf       -> https://oeis.org/A244
     Binomial_PolyCol2      -> https://oeis.org/A244
+    Binomial_RevPosHalf    -> https://oeis.org/A244
     Binomial_PolyRow2      -> https://oeis.org/A290
     Binomial_RevPolyRow2   -> https://oeis.org/A290
     Binomial_TablCol3      -> https://oeis.org/A292
@@ -129,6 +132,7 @@ if __name__ == "__main__":
     Binomial_Tinv          -> https://oeis.org/A7318
     Binomial_Trev          -> https://oeis.org/A7318
     Binomial_Tinvrev       -> https://oeis.org/A7318
+    Binomial_Trevinv       -> https://oeis.org/A7318
     Binomial_Talt          -> https://oeis.org/A7318
     Binomial_RevTalt       -> https://oeis.org/A7318
     Binomial_Tacc          -> https://oeis.org/A8949
@@ -139,10 +143,11 @@ if __name__ == "__main__":
     Binomial_Toff11        -> https://oeis.org/A74909
     Binomial_Trev11        -> https://oeis.org/A74909
     Binomial_Tinv11        -> https://oeis.org/A74909
+    Binomial_Trevinv11     -> https://oeis.org/A74909
     Binomial_RevToff11     -> https://oeis.org/A74909
     Binomial_RevTrev11     -> https://oeis.org/A74909
     Binomial_RevTinv11     -> https://oeis.org/A74909
     Binomial_InvBinConv    -> https://oeis.org/A126869
 
-    Binomial: Distinct: 26, Hits: 68, Misses: 0
+    Binomial: Distinct: 27, Hits: 71, Misses: 0
 '''

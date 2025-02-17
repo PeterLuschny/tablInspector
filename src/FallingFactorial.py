@@ -42,6 +42,8 @@ if __name__ == "__main__":
     InspectTable(FallingFactorial)
 
 
+
+
 ''' OEIS
     FallingFactorial_Trev11        -> 0 
     FallingFactorial_Tder          -> 0 
@@ -85,6 +87,7 @@ if __name__ == "__main__":
     FallingFactorial_InvBinConv    -> https://oeis.org/A9940
     FallingFactorial_PosHalf       -> https://oeis.org/A10842
     FallingFactorial_PolyCol2      -> https://oeis.org/A10844
+    FallingFactorial_RevPosHalf    -> https://oeis.org/A10844
     FallingFactorial_PolyCol3      -> https://oeis.org/A10845
     FallingFactorial_RevTransSqrs  -> https://oeis.org/A30297
     FallingFactorial_RevPolyCol3   -> https://oeis.org/A53486
@@ -110,5 +113,5 @@ if __name__ == "__main__":
     FallingFactorial_Tacc          -> https://oeis.org/A347667
     FallingFactorial_RevTacc       -> https://oeis.org/A367962
 
-    FallingFactorial: Distinct: 48, Hits: 59, Misses: 7
+    FallingFactorial: Distinct: 48, Hits: 60, Misses: 7
 '''

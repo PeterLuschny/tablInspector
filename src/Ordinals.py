@@ -36,9 +36,12 @@ if __name__ == "__main__":
     InspectTable(Ordinals)
 
 
+
+
 ''' OEIS
-    Ordinals_TablCol0      -> https://oeis.org/A7
-    Ordinals_InvBinConv    -> https://oeis.org/A7
+    Ordinals_Tinvrev11     -> https://oeis.org/A-999999
+    Ordinals_Talt          -> https://oeis.org/A-999999
+    Ordinals_TablCol0      -> https://oeis.org/A-999999
     Ordinals_TablCol1      -> https://oeis.org/A12
     Ordinals_TablGcd       -> https://oeis.org/A12
     Ordinals_RevPolyRow1   -> https://oeis.org/A12
@@ -65,7 +68,6 @@ if __name__ == "__main__":
     Ordinals_BinConv       -> https://oeis.org/A1787
     Ordinals_Toff11        -> https://oeis.org/A2260
     Ordinals_Triangle      -> https://oeis.org/A2262
-    Ordinals_Talt          -> https://oeis.org/A2262
     Ordinals_RevTrev11     -> https://oeis.org/A2262
     Ordinals_RevTransSqrs  -> https://oeis.org/A2415
     Ordinals_RevEvenSum    -> https://oeis.org/A2620
@@ -86,6 +88,7 @@ if __name__ == "__main__":
     Ordinals_RevToff11     -> https://oeis.org/A25581
     Ordinals_RevTalt       -> https://oeis.org/A25581
     Ordinals_PolyCol2      -> https://oeis.org/A36799
+    Ordinals_RevPosHalf    -> https://oeis.org/A36799
     Ordinals_NegHalf       -> https://oeis.org/A53088
     Ordinals_Tantidiag     -> https://oeis.org/A55087
     Ordinals_TablCol2      -> https://oeis.org/A55642
@@ -100,8 +103,8 @@ if __name__ == "__main__":
     Ordinals_Tder          -> https://oeis.org/A133819
     Ordinals_RevNegHalf    -> https://oeis.org/A140960
     Ordinals_RevTacc       -> https://oeis.org/A141418
-    Ordinals_Tinvrev11     -> https://oeis.org/A167194
+    Ordinals_InvBinConv    -> https://oeis.org/A209229
     Ordinals_PolyCol3      -> https://oeis.org/A289399
 
-    Ordinals: Distinct: 40, Hits: 65, Misses: 0
+    Ordinals: Distinct: 40, Hits: 66, Misses: 0
 '''

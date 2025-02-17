@@ -48,11 +48,15 @@ if __name__ == "__main__":
     InspectTable(SchroederL)
 
 
+
+
 ''' OEIS
     SchroederL_Trev          -> 0 
+    SchroederL_Trevinv       -> 0 
     SchroederL_Toff11        -> 0 
     SchroederL_Trev11        -> 0 
     SchroederL_Tinv11        -> 0 
+    SchroederL_Trevinv11     -> 0 
     SchroederL_Tantidiag     -> 0 
     SchroederL_Tacc          -> 0 
     SchroederL_Tder          -> 0 
@@ -87,6 +91,7 @@ if __name__ == "__main__":
     SchroederL_RevAntiDSum   -> 0 
     SchroederL_RevColMiddle  -> 0 
     SchroederL_RevCentralO   -> 0 
+    SchroederL_RevPosHalf    -> 0 
     SchroederL_RevTransNat0  -> 0 
     SchroederL_RevTransNat1  -> 0 
     SchroederL_RevTransSqrs  -> 0 
@@ -116,5 +121,5 @@ if __name__ == "__main__":
     SchroederL_PosHalf       -> https://oeis.org/A331328
     SchroederL_Tinv          -> https://oeis.org/A331969
 
-    SchroederL: Distinct: 15, Hits: 22, Misses: 44
+    SchroederL: Distinct: 15, Hits: 22, Misses: 47
 '''

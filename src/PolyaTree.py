@@ -37,12 +37,15 @@ if __name__ == "__main__":
     InspectTable(PolyaTree)
 
 
+
+
 ''' OEIS
     PolyaTree_Triangle      -> 0 
     PolyaTree_Trev          -> 0 
     PolyaTree_Trev11        -> 0 
     PolyaTree_Tinv11        -> 0 
     PolyaTree_Tinvrev11     -> 0 
+    PolyaTree_Trevinv11     -> 0 
     PolyaTree_Tantidiag     -> 0 
     PolyaTree_Tacc          -> 0 
     PolyaTree_Talt          -> 0 
@@ -75,6 +78,7 @@ if __name__ == "__main__":
     PolyaTree_RevOddSum     -> 0 
     PolyaTree_RevAntiDSum   -> 0 
     PolyaTree_RevColMiddle  -> 0 
+    PolyaTree_RevPosHalf    -> 0 
     PolyaTree_RevNegHalf    -> 0 
     PolyaTree_RevTransNat0  -> 0 
     PolyaTree_RevTransSqrs  -> 0 
@@ -105,5 +109,5 @@ if __name__ == "__main__":
     PolyaTree_RevAccRevSum  -> https://oeis.org/A375468
     PolyaTree_RevTransNat1  -> https://oeis.org/A375468
 
-    PolyaTree: Distinct: 18, Hits: 24, Misses: 42
+    PolyaTree: Distinct: 18, Hits: 24, Misses: 44
 '''

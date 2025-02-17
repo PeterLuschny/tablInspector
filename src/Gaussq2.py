@@ -43,10 +43,13 @@ if __name__ == "__main__":
     InspectTable(Gaussq2)
 
 
+
+
 ''' OEIS
     Gaussq2_Toff11        -> 0 
     Gaussq2_Trev11        -> 0 
     Gaussq2_Tinv11        -> 0 
+    Gaussq2_Trevinv11     -> 0 
     Gaussq2_Tantidiag     -> 0 
     Gaussq2_Tacc          -> 0 
     Gaussq2_Tder          -> 0 
@@ -105,13 +108,15 @@ if __name__ == "__main__":
     Gaussq2_RevPolyRow2   -> https://oeis.org/A28387
     Gaussq2_Tinv          -> https://oeis.org/A135950
     Gaussq2_Tinvrev       -> https://oeis.org/A135950
+    Gaussq2_Trevinv       -> https://oeis.org/A158474
     Gaussq2_PosHalf       -> https://oeis.org/A182176
     Gaussq2_PolyCol2      -> https://oeis.org/A182176
+    Gaussq2_RevPosHalf    -> https://oeis.org/A182176
     Gaussq2_CentralO      -> https://oeis.org/A218449
     Gaussq2_RevCentralO   -> https://oeis.org/A218449
     Gaussq2_EvenSum       -> https://oeis.org/A289541
     Gaussq2_RevEvenSum    -> https://oeis.org/A289541
     Gaussq2_AltSum        -> https://oeis.org/A290974
 
-    Gaussq2: Distinct: 17, Hits: 32, Misses: 36
+    Gaussq2: Distinct: 18, Hits: 34, Misses: 37
 '''

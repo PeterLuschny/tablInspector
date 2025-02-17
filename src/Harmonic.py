@@ -46,10 +46,14 @@ if __name__ == "__main__":
     InspectTable(Harmonic)
 
 
+
+
 ''' OEIS
     Harmonic_Trev          -> 0 
+    Harmonic_Trevinv       -> 0 
     Harmonic_Toff11        -> 0 
     Harmonic_Tinv11        -> 0 
+    Harmonic_Trevinv11     -> 0 
     Harmonic_Tantidiag     -> 0 
     Harmonic_Tacc          -> 0 
     Harmonic_Tder          -> 0 
@@ -101,6 +105,7 @@ if __name__ == "__main__":
     Harmonic_RevPolyRow2   -> https://oeis.org/A5408
     Harmonic_PolyRow2      -> https://oeis.org/A5563
     Harmonic_PolyCol2      -> https://oeis.org/A52582
+    Harmonic_RevPosHalf    -> https://oeis.org/A52582
     Harmonic_TablCol3      -> https://oeis.org/A67318
     Harmonic_RevPolyRow3   -> https://oeis.org/A80859
     Harmonic_TransNat0     -> https://oeis.org/A81052
@@ -114,5 +119,5 @@ if __name__ == "__main__":
     Harmonic_Triangle      -> https://oeis.org/A358694
     Harmonic_Talt          -> https://oeis.org/A358694
 
-    Harmonic: Distinct: 23, Hits: 26, Misses: 40
+    Harmonic: Distinct: 23, Hits: 27, Misses: 42
 '''

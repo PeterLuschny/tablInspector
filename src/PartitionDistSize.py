@@ -54,7 +54,10 @@ if __name__ == "__main__":
     InspectTable(PartDistSize)
 
 
+
+
 ''' OEIS
+    PartitionDistSize_Talt          -> https://oeis.org/A-999999
     PartitionDistSize_Trev          -> 0 
     PartitionDistSize_Toff11        -> 0 
     PartitionDistSize_Trev11        -> 0 
@@ -85,12 +88,8 @@ if __name__ == "__main__":
     PartitionDistSize_RevPolyDiag   -> 0 
     PartitionDistSize_TablCol1      -> https://oeis.org/A5
     PartitionDistSize_TablCol0      -> https://oeis.org/A7
-    PartitionDistSize_TablDiag0     -> https://oeis.org/A7
-    PartitionDistSize_TablDiag1     -> https://oeis.org/A7
-    PartitionDistSize_TablDiag2     -> https://oeis.org/A7
     PartitionDistSize_TablDiag3     -> https://oeis.org/A7
     PartitionDistSize_CentralE      -> https://oeis.org/A7
-    PartitionDistSize_RevCentralO   -> https://oeis.org/A7
     PartitionDistSize_RevPolyRow1   -> https://oeis.org/A12
     PartitionDistSize_PolyRow1      -> https://oeis.org/A27
     PartitionDistSize_CentralO      -> https://oeis.org/A38
@@ -104,8 +103,13 @@ if __name__ == "__main__":
     PartitionDistSize_PolyRow3      -> https://oeis.org/A5563
     PartitionDistSize_PolyRow2      -> https://oeis.org/A5843
     PartitionDistSize_RevPolyRow2   -> https://oeis.org/A5843
+    PartitionDistSize_TablDiag1     -> https://oeis.org/A6996
     PartitionDistSize_RevPolyRow3   -> https://oeis.org/A14105
     PartitionDistSize_PolyCol2      -> https://oeis.org/A15128
+    PartitionDistSize_RevPosHalf    -> https://oeis.org/A15128
+    PartitionDistSize_TablDiag0     -> https://oeis.org/A19590
+    PartitionDistSize_RevCentralO   -> https://oeis.org/A19590
+    PartitionDistSize_TablDiag2     -> https://oeis.org/A71164
     PartitionDistSize_OddSum        -> https://oeis.org/A90794
     PartitionDistSize_EvenSum       -> https://oeis.org/A92306
     PartitionDistSize_AltSum        -> https://oeis.org/A104575
@@ -118,7 +122,6 @@ if __name__ == "__main__":
     PartitionDistSize_RevAccRevSum  -> https://oeis.org/A365675
     PartitionDistSize_RevTransNat1  -> https://oeis.org/A365675
     PartitionDistSize_Triangle      -> https://oeis.org/A365676
-    PartitionDistSize_Talt          -> https://oeis.org/A365676
 
-    PartitionDistSize: Distinct: 24, Hits: 36, Misses: 28
+    PartitionDistSize: Distinct: 28, Hits: 37, Misses: 28
 '''

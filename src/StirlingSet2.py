@@ -47,13 +47,19 @@ if __name__ == "__main__":
     InspectTable(StirlingSet2)
 
 
+
+
 ''' OEIS
+    StirlingSet2_PolyRow1      -> https://oeis.org/A-999999
+    StirlingSet2_RevCentralO   -> https://oeis.org/A-999999
+    StirlingSet2_RevPolyRow1   -> https://oeis.org/A-999999
     StirlingSet2_Trev          -> 0 
     StirlingSet2_Toff11        -> 0 
     StirlingSet2_Trev11        -> 0 
     StirlingSet2_Tantidiag     -> 0 
     StirlingSet2_Tacc          -> 0 
     StirlingSet2_Tder          -> 0 
+    StirlingSet2_TablDiag2     -> 0 
     StirlingSet2_TablDiag3     -> 0 
     StirlingSet2_TablLcm       -> 0 
     StirlingSet2_TablGcd       -> 0 
@@ -82,11 +88,6 @@ if __name__ == "__main__":
     StirlingSet2_RevTransSqrs  -> 0 
     StirlingSet2_TablCol0      -> https://oeis.org/A7
     StirlingSet2_TablDiag0     -> https://oeis.org/A7
-    StirlingSet2_TablDiag1     -> https://oeis.org/A7
-    StirlingSet2_TablDiag2     -> https://oeis.org/A7
-    StirlingSet2_PolyRow1      -> https://oeis.org/A7
-    StirlingSet2_RevCentralO   -> https://oeis.org/A7
-    StirlingSet2_RevPolyRow1   -> https://oeis.org/A7
     StirlingSet2_TablCol1      -> https://oeis.org/A12
     StirlingSet2_PolyRow2      -> https://oeis.org/A27
     StirlingSet2_PolyRow3      -> https://oeis.org/A27
@@ -103,6 +104,8 @@ if __name__ == "__main__":
     StirlingSet2_EvenSum       -> https://oeis.org/A97763
     StirlingSet2_RevColMiddle  -> https://oeis.org/A123023
     StirlingSet2_PolyCol2      -> https://oeis.org/A194689
+    StirlingSet2_RevPosHalf    -> https://oeis.org/A194689
+    StirlingSet2_TablDiag1     -> https://oeis.org/A209229
     StirlingSet2_ColMiddle     -> https://oeis.org/A259877
     StirlingSet2_NegHalf       -> https://oeis.org/A334190
     StirlingSet2_PosHalf       -> https://oeis.org/A337038
@@ -113,5 +116,5 @@ if __name__ == "__main__":
     StirlingSet2_Talt          -> https://oeis.org/A358623
     StirlingSet2_PolyCol3      -> https://oeis.org/A367890
 
-    StirlingSet2: Distinct: 23, Hits: 32, Misses: 32
+    StirlingSet2: Distinct: 25, Hits: 32, Misses: 33
 '''

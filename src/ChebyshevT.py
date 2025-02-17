@@ -49,7 +49,14 @@ if __name__ == "__main__":
     InspectTable(ChebyshevT)
 
 
+
+
 ''' OEIS
+    ChebyshevT_TablCol0      -> https://oeis.org/A-999999
+    ChebyshevT_TablDiag1     -> https://oeis.org/A-999999
+    ChebyshevT_TablDiag3     -> https://oeis.org/A-999999
+    ChebyshevT_AltSum        -> https://oeis.org/A-999999
+    ChebyshevT_RevOddSum     -> https://oeis.org/A-999999
     ChebyshevT_Toff11        -> 0 
     ChebyshevT_Trev11        -> 0 
     ChebyshevT_Tantidiag     -> 0 
@@ -71,22 +78,18 @@ if __name__ == "__main__":
     ChebyshevT_RevTransSqrs  -> 0 
     ChebyshevT_RevPolyRow3   -> 0 
     ChebyshevT_RevPolyDiag   -> 0 
-    ChebyshevT_TablDiag1     -> https://oeis.org/A7
-    ChebyshevT_TablDiag3     -> https://oeis.org/A7
     ChebyshevT_AntiDSum      -> https://oeis.org/A7
-    ChebyshevT_RevOddSum     -> https://oeis.org/A7
     ChebyshevT_TablSum       -> https://oeis.org/A12
-    ChebyshevT_AltSum        -> https://oeis.org/A12
     ChebyshevT_RevEvenSum    -> https://oeis.org/A12
     ChebyshevT_RevPolyRow1   -> https://oeis.org/A12
     ChebyshevT_PolyRow1      -> https://oeis.org/A27
-    ChebyshevT_TablCol0      -> https://oeis.org/A35
     ChebyshevT_EvenSum       -> https://oeis.org/A35
     ChebyshevT_OddSum        -> https://oeis.org/A35
     ChebyshevT_RevAntiDSum   -> https://oeis.org/A73
     ChebyshevT_TablDiag0     -> https://oeis.org/A79
     ChebyshevT_TransNat0     -> https://oeis.org/A290
     ChebyshevT_PolyCol2      -> https://oeis.org/A1075
+    ChebyshevT_RevPosHalf    -> https://oeis.org/A1075
     ChebyshevT_RevNegHalf    -> https://oeis.org/A1075
     ChebyshevT_TablCol2      -> https://oeis.org/A1105
     ChebyshevT_AbsSum        -> https://oeis.org/A1333
@@ -115,5 +118,5 @@ if __name__ == "__main__":
     ChebyshevT_PolyRow3      -> https://oeis.org/A144129
     ChebyshevT_TablCol1      -> https://oeis.org/A193356
 
-    ChebyshevT: Distinct: 29, Hits: 43, Misses: 21
+    ChebyshevT: Distinct: 30, Hits: 44, Misses: 21
 '''
