@@ -19,12 +19,12 @@ from CompositionLP import compositionlp
 
 
 @cache
-def compoacc(n: int) -> list[int]:
+def compositionacc(n: int) -> list[int]:
     return list(accumulate(compositionlp(n)))
 
 
-CompoAcc = Table(
-    compoacc, 
+CompositionAcc = Table(
+    compositionacc, 
     "CompositionAcc", 
     ["A126198"], 
     "",  # not integer-invertible
@@ -35,7 +35,7 @@ CompoAcc = Table(
 if __name__ == "__main__":
     from _tabldict import InspectTable
 
-    InspectTable(CompoAcc)
+    InspectTable(CompositionAcc)
 
 
 

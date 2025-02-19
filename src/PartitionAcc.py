@@ -19,12 +19,12 @@ from Partition import partition
 
 
 @cache
-def partacc(n: int) -> list[int]:
+def partitionacc(n: int) -> list[int]:
     return list(accumulate(partition(n)))
 
 
-PartAcc = Table(
-    partacc, 
+PartitionAcc = Table(
+    partitionacc, 
     "PartitionAcc", 
     ["A026820", "A058400"], 
     "",
@@ -35,7 +35,7 @@ PartAcc = Table(
 if __name__ == "__main__":
     from _tabldict import InspectTable
 
-    InspectTable(PartAcc)
+    InspectTable(PartitionAcc)
 
 
 

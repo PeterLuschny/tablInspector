@@ -2,7 +2,7 @@ from functools import cache
 from _tabltypes import Table
 
 """Template.  This is a demonstration file producing a valid "Table" class.
-   The including file should be named "Template.py". the class "Template"
+   The including file has to be named "Template.py", the class "Template"
    and the generating function "template" (that should be decorated with "@cache").
 
    After you have defined the class and the generating function, add the

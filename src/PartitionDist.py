@@ -30,7 +30,7 @@ def _partdist(n: int, k: int) -> int:
 
 
 @cache
-def partdist(n: int) -> list[int]:
+def partitiondist(n: int) -> list[int]:
     if n == 0:
         return [1]
 
@@ -38,8 +38,8 @@ def partdist(n: int) -> list[int]:
     return [_partdist(n, k) if k <= f else 0 for k in range(n + 1)]
 
 
-PartDist = Table(
-    partdist, 
+PartitionDist = Table(
+    partitiondist, 
     "PartitionDist", 
     ["A008289"], 
     "",
@@ -50,7 +50,7 @@ PartDist = Table(
 if __name__ == "__main__":
     from _tabldict import InspectTable
 
-    InspectTable(PartDist)
+    InspectTable(PartitionDist)
 
 
 

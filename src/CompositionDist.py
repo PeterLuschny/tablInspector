@@ -32,13 +32,13 @@ def _compodist(n: int, k: int) -> int:
 
 
 @cache
-def compodist(n: int) -> list[int]:
+def compositiondist(n: int) -> list[int]:
     f = (sqrt(1 + 8*n) - 1) // 2
     return [_compodist(n, k) if k <= f else 0 for k in range(n + 1)]
 
 
-CompoDist = Table(
-    compodist, 
+CompositionDist = Table(
+    compositiondist, 
     "CompositionDist", 
     ["A072574", "A216652"],
     "",
@@ -49,7 +49,7 @@ CompoDist = Table(
 if __name__ == "__main__":
     from _tabldict import InspectTable
 
-    InspectTable(CompoDist)
+    InspectTable(CompositionDist)
 
 
 

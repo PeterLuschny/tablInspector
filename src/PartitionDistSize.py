@@ -34,13 +34,13 @@ def _partdistsize(n: int, k: int, r: int) -> int:
 
 
 @cache
-def partdistsize(n: int) -> list[int]:
+def partitiondistsize(n: int) -> list[int]:
     f = (sqrt(1 + 8*n) - 1) // 2
     return [_partdistsize(n, k, n) if k <= f else 0 for k in range(n + 1)]
 
 
-PartDistSize = Table(
-    partdistsize, 
+PartitionDistSize = Table(
+    partitiondistsize, 
     "PartitionDistSize", 
     ["A365676", "A116608", "A060177"], 
     "", 
@@ -51,7 +51,7 @@ PartDistSize = Table(
 if __name__ == "__main__":
     from _tabldict import InspectTable
 
-    InspectTable(PartDistSize)
+    InspectTable(PartitionDistSize)
 
 
 

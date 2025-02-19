@@ -59,7 +59,7 @@ def Ranking() -> Dict[int, Rank]:
     print("|   | Name             |  OEIS |Distinct| Hits | Traits | Links |")
     print("| :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |")
     for n, r in Rankings.items():
-        print(f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [T](https://peterluschny.github.io/tabl/{r.name}.html)   | [L](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |")
+        print(f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [All](https://peterluschny.github.io/tabl/{r.name}.html)   | [OEIS](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |")
 
     return Rankings
 

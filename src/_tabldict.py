@@ -370,6 +370,27 @@ def TraitOccurences() -> Dict[str, set[int]]:
     return trdict
 
 
+def GetAnumOccurence(lookup: int) -> list[str]:
+    """
+    Generates a dictionary of traits 
+    Returns:
+        list[str]: A list where each key is a trait identifier 
+        and the value is a set of A-numbers.
+    """
+    global GlobalDict
+    ReadJsonDict()
+    trdict: list[str] = []
+
+    for T in TablesList:
+        for trid in AllTraits.keys():
+            # the key of the dictionary is the table name + trait name.
+            key = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
+            anum = GlobalDict[T.id].get(key, 1)
+            if anum == lookup:
+                trdict.append(f"{trid.replace(" ", "") }({T.id})")
+    return trdict
+
+
 def InspectTable(T: Table, oeis: bool=False) -> None:
     """
     Prints the table traits. If the option oeis is True, 
@@ -405,10 +426,13 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
 
 if __name__ == "__main__":
 
+    #for cmd in GetAnumOccurence(-999999):
+    #    print(cmd)
+
     #RefreshDatabase()
     RefreshHtml(True)
 
-    from Abel import Abel                  # type: ignore
+    #from Abel import Abel                  # type: ignore
     #from MotzkinInv import MotzkinInv      # type: ignore
     #from DoublePochhammer import DoublePochhammer  # type: ignore
 

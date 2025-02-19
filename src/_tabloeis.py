@@ -223,24 +223,24 @@ def QueryOEIS(
 
     Raises:
         Exception: If the OEIS server cannot be reached after multiple attempts.
-        Currently, the function will return -999999 if the OEIS server cannot be reached or if the sequence has only zeros.
+        Currently, the function will return -999999 if the OEIS server cannot be reached.
     """
     if len(seqlist) < minlen:
       print(f"Sequence is too short! We require at least {minlen} terms.")
       print("You provided:", seqlist)
       return 0
 
-    if 0 == sum(seqlist[0:36]): return -999999  # XXXXX dont search for the all zeros sequence
+    if 0 == sum(seqlist[0:36]): return 4  # XXXXX dont search for the all zeros sequence
     off = 0 if 0 == sum(seqlist[3:36]) else 3   # XXXXX dont skip leading terms if the rest is zero
     seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
 
-    for repeat in range(3):
+    for repeat in range(4):
         time.sleep(0.5)  # give the OEIS server some time to relax
         if info: print(f"connecting: [{repeat}]")
         try:
-            # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=20).json()
-            jdata = get(url, timeout=20).json()
+            # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=30).json()
+            jdata = get(url, timeout=30).json()
             if jdata == None:
                 if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]): 
                     seqlist = [k for k in seqlist if k != 0]

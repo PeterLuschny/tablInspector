@@ -829,26 +829,26 @@ def QueryOEIS(
         modulo a couple of first terms and the signs.
     Raises:
         Exception: If the OEIS server cannot be reached after multiple attempts.
-        Currently, the function will return -999999 if the OEIS server cannot be reached or if the sequence has only zeros.
+        Currently, the function will return -999999 if the OEIS server cannot be reached.
     """
     if len(seqlist) < minlen:
         print(f"Sequence is too short! We require at least {minlen} terms.")
         print("You provided:", seqlist)
         return 0
     if 0 == sum(seqlist[0:36]):
-        return -999999  # XXXXX dont search for the all zeros sequence
+        return 4  # XXXXX dont search for the all zeros sequence
     off = (
         0 if 0 == sum(seqlist[3:36]) else 3
     )  # XXXXX dont skip leading terms if the rest is zero
     seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
-    for repeat in range(3):
+    for repeat in range(4):
         time.sleep(0.5)  # give the OEIS server some time to relax
         if info:
             print(f"connecting: [{repeat}]")
         try:
-            # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=20).json()
-            jdata = get(url, timeout=20).json()
+            # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=30).json()
+            jdata = get(url, timeout=30).json()
             if jdata == None:
                 if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]):
                     seqlist = [k for k in seqlist if k != 0]
@@ -1932,7 +1932,7 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
     return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
 
 
-def Rev_Toff11(t: Table, size: int = 8) -> list[int]:
+def RevToff11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by reversing the given table, offsetting it by (1, 1),
     and flattening the result to the specified size.
@@ -1947,7 +1947,7 @@ def Rev_Toff11(t: Table, size: int = 8) -> list[int]:
     return T11.flat(size)
 
 
-def Rev_Trev11(t: Table, size: int = 8) -> list[int]:
+def RevTrev11(t: Table, size: int = 8) -> list[int]:
     """
     Generates a list of integers by applying the rev11 method of the RevTable class to a given Table object.
     Args:
@@ -1960,7 +1960,7 @@ def Rev_Trev11(t: Table, size: int = 8) -> list[int]:
     return list(flatten([T.rev11(n) for n in range(size)]))
 
 
-def Rev_Tinv11(t: Table, size: int = 8) -> list[int]:
+def RevTinv11(t: Table, size: int = 8) -> list[int]:
     """
     Computes the inverse of the table `t` and flattens the result.
     Args:
@@ -1974,7 +1974,7 @@ def Rev_Tinv11(t: Table, size: int = 8) -> list[int]:
     return list(flatten(InvT11))
 
 
-def Rev_Talt(t: Table, size: int = 7) -> list[int]:
+def RevTalt(t: Table, size: int = 7) -> list[int]:
     """
     Generate a list of integers by reversing the table and flattening the alternates.
     Args:
@@ -1987,7 +1987,7 @@ def Rev_Talt(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.alt(n) for n in range(size)]))
 
 
-def Rev_Tacc(t: Table, size: int = 7) -> list[int]:
+def RevTacc(t: Table, size: int = 7) -> list[int]:
     """
     Generate a list of accumulated values from a reversed table.
     Args:
@@ -2000,7 +2000,7 @@ def Rev_Tacc(t: Table, size: int = 7) -> list[int]:
     return list(flatten([T.acc(n) for n in range(size)]))
 
 
-def Rev_Tder(t: Table, size: int = 8) -> list[int]:
+def RevTder(t: Table, size: int = 8) -> list[int]:
     """
     Generate a list of derivatives from a reversed table.
     Args:
@@ -2013,7 +2013,7 @@ def Rev_Tder(t: Table, size: int = 8) -> list[int]:
     return list(flatten([T.der(n) for n in range(size)]))
 
 
-def Rev_Tantidiag(t: Table, size: int = 9) -> list[int]:
+def RevTantidiag(t: Table, size: int = 9) -> list[int]:
     """
     Generates a list of integers from the reversed table's antidiagonals.
     Args:
@@ -2031,7 +2031,7 @@ def Rev_Tantidiag(t: Table, size: int = 9) -> list[int]:
     return list(flatten([T.antidiag(n) for n in range(size)]))
 
 
-def Rev_PolyRow1(t: Table, size: int = 28) -> list[int]:
+def RevPolyRow1(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial values from a reversed table.
     Args:
@@ -2044,7 +2044,7 @@ def Rev_PolyRow1(t: Table, size: int = 28) -> list[int]:
     return [T.poly(1, x) for x in range(size)]
 
 
-def Rev_PolyRow2(t: Table, size: int = 28) -> list[int]:
+def RevPolyRow2(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial values of degree 2 from a reversed table.
     Args:
@@ -2057,7 +2057,7 @@ def Rev_PolyRow2(t: Table, size: int = 28) -> list[int]:
     return [T.poly(2, x) for x in range(size)]
 
 
-def Rev_PolyRow3(t: Table, size: int = 28) -> list[int]:
+def RevPolyRow3(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial values of degree 3 for a given table.
     This function takes a table `t` and generates a list of polynomial values
@@ -2074,7 +2074,7 @@ def Rev_PolyRow3(t: Table, size: int = 28) -> list[int]:
     return [T.poly(3, x) for x in range(size)]
 
 
-def Rev_PolyCol3(t: Table, size: int = 28) -> list[int]:
+def RevPolyCol3(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial values of degree 3 from a reversed table.
     Args:
@@ -2087,7 +2087,7 @@ def Rev_PolyCol3(t: Table, size: int = 28) -> list[int]:
     return [T.poly(x, 3) for x in range(size)]
 
 
-def Rev_PolyDiag(t: Table, size: int = 28) -> list[int]:
+def RevPolyDiag(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial diagonal values from a reversed table.
     Args:
@@ -2105,7 +2105,7 @@ def Rev_PolyDiag(t: Table, size: int = 28) -> list[int]:
     return [T.poly(n, n) for n in range(size)]
 
 
-def Rev_EvenSum(t: Table, size: int = 28) -> list[int]:
+def RevEvenSum(t: Table, size: int = 28) -> list[int]:
     """
     Calculate the sum of even-indexed elements in each row of the reversed table.
     Args:
@@ -2118,7 +2118,7 @@ def Rev_EvenSum(t: Table, size: int = 28) -> list[int]:
     return [sum(T.row(n)[::2]) for n in range(size)]
 
 
-def Rev_OddSum(t: Table, size: int = 28) -> list[int]:
+def RevOddSum(t: Table, size: int = 28) -> list[int]:
     """
     Calculate the sum of odd-indexed elements in each row of the reversed table.
     Args:
@@ -2131,7 +2131,7 @@ def Rev_OddSum(t: Table, size: int = 28) -> list[int]:
     return [sum(T.row(n)[1::2]) for n in range(size)]
 
 
-def Rev_AccRevSum(t: Table, size: int = 28) -> list[int]:
+def RevAccRevSum(t: Table, size: int = 28) -> list[int]:
     """
     Calculate the accumulated row sums of the reversed table.
     Args:
@@ -2144,7 +2144,7 @@ def Rev_AccRevSum(t: Table, size: int = 28) -> list[int]:
     return [sum(accumulate(T.rev(n))) for n in range(size)]
 
 
-def Rev_AntiDSum(t: Table, size: int = 28) -> list[int]:
+def RevAntiDSum(t: Table, size: int = 28) -> list[int]:
     """
     Calculate the sums of the antidiagonals of the reversed table.
     Args:
@@ -2162,7 +2162,7 @@ def Rev_AntiDSum(t: Table, size: int = 28) -> list[int]:
     return [sum(T.antidiag(n)) for n in range(size)]
 
 
-def Rev_ColMiddle(t: Table, size: int = 28) -> list[int]:
+def RevColMiddle(t: Table, size: int = 28) -> list[int]:
     """
     Generates a list of integers by reversing the table and selecting the middle column.
     Args:
@@ -2175,7 +2175,7 @@ def Rev_ColMiddle(t: Table, size: int = 28) -> list[int]:
     return [T(n, n // 2) for n in range(size)]
 
 
-def Rev_CentralO(t: Table, size: int = 28) -> list[int]:
+def RevCentralO(t: Table, size: int = 28) -> list[int]:
     """
     Generate the central elements T(2n + 1, n) of the reversed table.
     Args:
@@ -2188,7 +2188,7 @@ def Rev_CentralO(t: Table, size: int = 28) -> list[int]:
     return [T(2 * n + 1, n) for n in range(size)]
 
 
-def Rev_PosHalf(t: Table, size: int = 28) -> list[int]:
+def RevPosHalf(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial fractions for reversed elements of a table.
     Args:
@@ -2205,7 +2205,7 @@ def Rev_PosHalf(t: Table, size: int = 28) -> list[int]:
     return [PolyFrac(t.rev(n), 2) for n in range(size)]
 
 
-def Rev_NegHalf(t: Table, size: int = 28) -> list[int]:
+def RevNegHalf(t: Table, size: int = 28) -> list[int]:
     """
     Generate a list of polynomial fractions with a negative half exponent.
     This function takes a Table object and generates a list of polynomial fractions
@@ -2224,7 +2224,7 @@ def Rev_NegHalf(t: Table, size: int = 28) -> list[int]:
     return [PolyFrac(t.rev(n), -2) for n in range(size)]
 
 
-def Rev_TransNat0(t: Table, size: int = 28) -> list[int]:
+def RevTransNat0(t: Table, size: int = 28) -> list[int]:
     """
     Reverse the given table and transform its elements.
     This function takes a table `t`, reverses it using the `RevTable` function,
@@ -2246,7 +2246,7 @@ def Rev_TransNat0(t: Table, size: int = 28) -> list[int]:
     return T.trans(lambda k: k, size)
 
 
-def Rev_TransNat1(t: Table, size: int = 28) -> list[int]:
+def RevTransNat1(t: Table, size: int = 28) -> list[int]:
     """
     Reverse the given table and transform its elements by adding 1.
     Args:
@@ -2264,7 +2264,7 @@ def Rev_TransNat1(t: Table, size: int = 28) -> list[int]:
     return T.trans(lambda k: k + 1, size)
 
 
-def Rev_TransSqrs(t: Table, size: int = 28) -> list[int]:
+def RevTransSqrs(t: Table, size: int = 28) -> list[int]:
     """
     Applies a transformation to the given table by reversing it and then squaring each element.
     Args:
@@ -2344,29 +2344,29 @@ AllTraits: dict[str, TraitInfo] = {
     "PolyCol2     ": (PolyCol2, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ 2^k\)"),
     "PolyCol3     ": (PolyCol3, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ 3^k\)"),
     "PolyDiag     ": (PolyDiag, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ n^k\)"),
-    "RevToff11    ": (Rev_Toff11, 7, r"\(T_{n+1,n-k} \)"),
-    "RevTrev11    ": (Rev_Trev11, 7, r"\(T_{n+1,n-k} \)"),
-    "RevTinv11    ": (Rev_Tinv11, 7, r"\(T^{-1}_{n+1,n-k}\)"),
-    "RevTantidiag ": (Rev_Tantidiag, 9, r"\(T_{n-k,n-2k}\ \ (k \le n/2)\)"),
-    "RevTacc      ": (Rev_Tacc, 7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),
-    "RevTalt      ": (Rev_Talt, 7, r"\(T_{n,n-k}\ (-1)^{n-k}\)"),
-    "RevTder      ": (Rev_Tder, 8, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
-    "RevEvenSum   ": (Rev_EvenSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (2 \mid k) \)"),
-    "RevOddSum    ": (Rev_OddSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1- (2 \mid k)) \)"),
-    "RevAccRevSum ": (Rev_AccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k}T_{n,n-j}\)"),
-    "RevAntiDSum  ": (Rev_AntiDSum, 28, r"\(\sum_{k=0}^{n/2}T_{n-k,n-k}\)"),
-    "RevColMiddle ": (Rev_ColMiddle, 28, r"\(T_{n, n/2}\)"),
-    "RevCentralO  ": (Rev_CentralO, 28, r"\(T_{2n+1,n}\)"),
-    "RevPosHalf   ": (Rev_PosHalf, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 2^{n-k} \)"),
-    "RevNegHalf   ": (Rev_NegHalf, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (-2)^{n-k} \)"),
-    "RevTransNat0 ": (Rev_TransNat0, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ k\)"),
-    "RevTransNat1 ": (Rev_TransNat1, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (k + 1)\)"),
-    "RevTransSqrs ": (Rev_TransSqrs, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ k^{2}\)"),
-    "RevPolyRow1  ": (Rev_PolyRow1, 28, r"\(\sum_{k=0}^{1}T_{1,n-k}\ n^k\)"),
-    "RevPolyRow2  ": (Rev_PolyRow2, 28, r"\(\sum_{k=0}^{2}T_{2,n-k}\ n^k\)"),
-    "RevPolyRow3  ": (Rev_PolyRow3, 28, r"\(\sum_{k=0}^{3}T_{3,n-k}\ n^k\)"),
-    "RevPolyCol3  ": (Rev_PolyCol3, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 3^k\)"),
-    "RevPolyDiag  ": (Rev_PolyDiag, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ n^k\)"),
+    "RevToff11    ": (RevToff11, 7, r"\(T_{n+1,n-k} \)"),
+    "RevTrev11    ": (RevTrev11, 7, r"\(T_{n+1,n-k} \)"),
+    "RevTinv11    ": (RevTinv11, 7, r"\(T^{-1}_{n+1,n-k}\)"),
+    "RevTantidiag ": (RevTantidiag, 9, r"\(T_{n-k,n-2k}\ \ (k \le n/2)\)"),
+    "RevTacc      ": (RevTacc, 7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),
+    "RevTalt      ": (RevTalt, 7, r"\(T_{n,n-k}\ (-1)^{n-k}\)"),
+    "RevTder      ": (RevTder, 8, r"\(T_{n+1,n-k}\ (n-k+1) \)"),
+    "RevEvenSum   ": (RevEvenSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (2 \mid k) \)"),
+    "RevOddSum    ": (RevOddSum, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (1- (2 \mid k)) \)"),
+    "RevAccRevSum ": (RevAccRevSum, 28, r"\(\sum_{k=0}^{n} \sum_{j=0}^{k}T_{n,n-j}\)"),
+    "RevAntiDSum  ": (RevAntiDSum, 28, r"\(\sum_{k=0}^{n/2}T_{n-k,n-k}\)"),
+    "RevColMiddle ": (RevColMiddle, 28, r"\(T_{n, n/2}\)"),
+    "RevCentralO  ": (RevCentralO, 28, r"\(T_{2n+1,n}\)"),
+    "RevPosHalf   ": (RevPosHalf, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 2^{n-k} \)"),
+    "RevNegHalf   ": (RevNegHalf, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (-2)^{n-k} \)"),
+    "RevTransNat0 ": (RevTransNat0, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ k\)"),
+    "RevTransNat1 ": (RevTransNat1, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ (k + 1)\)"),
+    "RevTransSqrs ": (RevTransSqrs, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ k^{2}\)"),
+    "RevPolyRow1  ": (RevPolyRow1, 28, r"\(\sum_{k=0}^{1}T_{1,n-k}\ n^k\)"),
+    "RevPolyRow2  ": (RevPolyRow2, 28, r"\(\sum_{k=0}^{2}T_{2,n-k}\ n^k\)"),
+    "RevPolyRow3  ": (RevPolyRow3, 28, r"\(\sum_{k=0}^{3}T_{3,n-k}\ n^k\)"),
+    "RevPolyCol3  ": (RevPolyCol3, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 3^k\)"),
+    "RevPolyDiag  ": (RevPolyDiag, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ n^k\)"),
 }
 
 
@@ -2678,6 +2678,26 @@ def TraitOccurences() -> Dict[str, set[int]]:
     return trdict
 
 
+def GetAnumOccurence(lookup: int) -> list[str]:
+    """
+    Generates a dictionary of traits
+    Returns:
+        list[str]: A list where each key is a trait identifier
+        and the value is a set of A-numbers.
+    """
+    global GlobalDict
+    ReadJsonDict()
+    trdict: list[str] = []
+    for T in TablesList:
+        for trid in AllTraits.keys():
+            # the key of the dictionary is the table name + trait name.
+            key = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+            anum = GlobalDict[T.id].get(key, 1)
+            if anum == lookup:
+                trdict.append(f"{trid.replace(" ", "") }({T.id})")
+    return trdict
+
+
 def InspectTable(T: Table, oeis: bool = False) -> None:
     """
     Prints the table traits. If the option oeis is True,
@@ -2739,7 +2759,7 @@ def Ranking() -> Dict[int, Rank]:
     print("| :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |")
     for n, r in Rankings.items():
         print(
-            f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [T](https://peterluschny.github.io/tabl/{r.name}.html)   | [L](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |"
+            f"| {(n+1):2}| {r.name}       |{r.anum}|  {r.distinct:2}    | {r.hits:2}| [All](https://peterluschny.github.io/tabl/{r.name}.html)   | [OEIS](https://peterluschny.github.io/tablInspector/{r.name}Traits.html) |"
         )
     return Rankings
 
@@ -3137,9 +3157,9 @@ def catalaninv(n: int) -> list[int]:
 CatalanInv = Table(
     catalaninv,  # the generating function
     "CatalanInv",  # name of the table
-    ["A128908", "A053122", "A285072"],  # similar sequences in OEIS
+    ["A128908", "A053122", "A078812", "A285072"],  # similar sequences in OEIS
     "A128899",  # id of inverse sequence
-    r"T(n,k)=0",  # TeX of defining formula
+    r"\binom{n+k-1}{2k-1}",  # TeX of defining formula
 )
 
 
@@ -3393,12 +3413,12 @@ CompositionLP = Table(
 
 
 @cache
-def compoacc(n: int) -> list[int]:
+def compositionacc(n: int) -> list[int]:
     return list(accumulate(compositionlp(n)))
 
 
-CompoAcc = Table(
-    compoacc,
+CompositionAcc = Table(
+    compositionacc,
     "CompositionAcc",
     ["A126198"],
     "",  # not integer-invertible
@@ -3419,12 +3439,14 @@ def _compodist(n: int, k: int) -> int:
 
 
 @cache
-def compodist(n: int) -> list[int]:
+def compositiondist(n: int) -> list[int]:
     f = (sqrt(1 + 8 * n) - 1) // 2
     return [_compodist(n, k) if k <= f else 0 for k in range(n + 1)]
 
 
-CompoDist = Table(compodist, "CompositionDist", ["A072574", "A216652"], "", r"%%")
+CompositionDist = Table(
+    compositiondist, "CompositionDist", ["A072574", "A216652"], "", r"%%"
+)
 
 
 @cache
@@ -4595,11 +4617,11 @@ Partition = Table(
 
 
 @cache
-def partacc(n: int) -> list[int]:
+def partitionacc(n: int) -> list[int]:
     return list(accumulate(partition(n)))
 
 
-PartAcc = Table(partacc, "PartitionAcc", ["A026820", "A058400"], "", r"%%")
+PartitionAcc = Table(partitionacc, "PartitionAcc", ["A026820", "A058400"], "", r"%%")
 
 
 @cache
@@ -4612,14 +4634,14 @@ def _partdist(n: int, k: int) -> int:
 
 
 @cache
-def partdist(n: int) -> list[int]:
+def partitiondist(n: int) -> list[int]:
     if n == 0:
         return [1]
     f = (sqrt(1 + 8 * n) - 1) // 2
     return [_partdist(n, k) if k <= f else 0 for k in range(n + 1)]
 
 
-PartDist = Table(partdist, "PartitionDist", ["A008289"], "", r"%%")
+PartitionDist = Table(partitiondist, "PartitionDist", ["A008289"], "", r"%%")
 
 
 @cache
@@ -4635,13 +4657,13 @@ def _partdistsize(n: int, k: int, r: int) -> int:
 
 
 @cache
-def partdistsize(n: int) -> list[int]:
+def partitiondistsize(n: int) -> list[int]:
     f = (sqrt(1 + 8 * n) - 1) // 2
     return [_partdistsize(n, k, n) if k <= f else 0 for k in range(n + 1)]
 
 
-PartDistSize = Table(
-    partdistsize, "PartitionDistSize", ["A365676", "A116608", "A060177"], "", r"%%"
+PartitionDistSize = Table(
+    partitiondistsize, "PartitionDistSize", ["A365676", "A116608", "A060177"], "", r"%%"
 )
 
 
@@ -5230,8 +5252,8 @@ TablesList: list[Table] = [
     ChebyshevT,
     ChebyshevU,
     CompositionLP,
-    CompoAcc,
-    CompoDist,
+    CompositionAcc,
+    CompositionDist,
     CTree,
     Delannoy,
     DelannoyInv,
@@ -5291,9 +5313,9 @@ TablesList: list[Table] = [
     OrderedCycle,
     Parades,
     Partition,
-    PartAcc,
-    PartDist,
-    PartDistSize,
+    PartitionAcc,
+    PartitionDist,
+    PartitionDistSize,
     Pascal,
     PolyaTreeAcc,
     PolyaTree,

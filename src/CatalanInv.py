@@ -3,17 +3,16 @@ from _tabltypes import Table
 
 """Inverse Catalan triangle. Unsigned version.
 
-   0:   1
-   1:   0    1
-   2:   0    2    1
-   3:   0    3    4    1
-   4:   0    4   10    6    1
-   5:   0    5   20   21    8    1
-   6:   0    6   35   56   36   10    1
-   7:   0    7   56  126  120   55   12    1
-   8:   0    8   84  252  330  220   78   14    1
-   9:   0    9  120  462  792  715  364  105   16    1
-  10:   0   10  165  792 1716 2002 1365  560  136   18    1
+  [0] [1]
+  [1] [0, 1]
+  [2] [0, 2, 1]
+  [3] [0, 3, 4, 1]
+  [4] [0, 4, 10, 6, 1]
+  [5] [0, 5, 20, 21, 8, 1]
+  [6] [0, 6, 35, 56, 36, 10, 1]
+  [7] [0, 7, 56, 126, 120, 55, 12, 1]
+  [8] [0, 8, 84, 252, 330, 220, 78, 14, 1]
+  [9] [0, 9, 120, 462, 792, 715, 364, 105, 16, 1]
 """
 
 @cache
@@ -34,9 +33,9 @@ def catalaninv(n: int) -> list[int]:
 CatalanInv = Table(
     catalaninv,    # the generating function
     "CatalanInv",  # name of the table
-    ["A128908", "A053122", "A285072"],   # similar sequences in OEIS
+    ["A128908", "A053122", "A078812", "A285072"],  # similar sequences in OEIS
     "A128899",     # id of inverse sequence
-    r"T(n,k)=0"    # TeX of defining formula
+    r"\binom{n+k-1}{2k-1}",  # TeX of defining formula
 )
 
 
@@ -44,7 +43,6 @@ if __name__ == "__main__":
     from _tabldict import InspectTable
 
     InspectTable(CatalanInv)
-
 
 
 
