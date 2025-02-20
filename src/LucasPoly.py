@@ -49,6 +49,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     LucasPoly_Trev          -> 0 
     LucasPoly_Tinvrev       -> 0 

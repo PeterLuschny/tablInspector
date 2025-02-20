@@ -38,8 +38,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Seidel_InvBinConv    -> https://oeis.org/A-999999
     Seidel_Toff11        -> 0 
     Seidel_Trev11        -> 0 
     Seidel_Tantidiag     -> 0 
@@ -97,6 +98,7 @@ if __name__ == "__main__":
     Seidel_Triangle      -> https://oeis.org/A8280
     Seidel_Talt          -> https://oeis.org/A8280
     Seidel_TablDiag0     -> https://oeis.org/A9006
+    Seidel_InvBinConv    -> https://oeis.org/A33999
     Seidel_PolyRow3      -> https://oeis.org/A48395
     Seidel_Trev          -> https://oeis.org/A108040
     Seidel_RevTalt       -> https://oeis.org/A108040

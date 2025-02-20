@@ -76,9 +76,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Binomial_NegHalf       -> https://oeis.org/A-999999
-    Binomial_RevNegHalf    -> https://oeis.org/A-999999
     Binomial_AltSum        -> https://oeis.org/A7
     Binomial_TablCol0      -> https://oeis.org/A12
     Binomial_TablDiag0     -> https://oeis.org/A12
@@ -140,6 +140,8 @@ if __name__ == "__main__":
     Binomial_Tantidiag     -> https://oeis.org/A11973
     Binomial_RevTantidiag  -> https://oeis.org/A11973
     Binomial_TablGcd       -> https://oeis.org/A14963
+    Binomial_NegHalf       -> https://oeis.org/A33999
+    Binomial_RevNegHalf    -> https://oeis.org/A33999
     Binomial_Toff11        -> https://oeis.org/A74909
     Binomial_Trev11        -> https://oeis.org/A74909
     Binomial_Tinv11        -> https://oeis.org/A74909

@@ -43,6 +43,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Worpitzky_Trev11        -> 0 
     Worpitzky_Tantidiag     -> 0 

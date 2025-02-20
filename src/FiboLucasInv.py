@@ -47,8 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    FiboLucasInv_RevTantidiag  -> https://oeis.org/A-999999
     FiboLucasInv_Trev          -> 0 
     FiboLucasInv_Toff11        -> 0 
     FiboLucasInv_Trev11        -> 0 
@@ -82,6 +83,7 @@ if __name__ == "__main__":
     FiboLucasInv_PolyDiag      -> 0 
     FiboLucasInv_RevToff11     -> 0 
     FiboLucasInv_RevTrev11     -> 0 
+    FiboLucasInv_RevTantidiag  -> 0 
     FiboLucasInv_RevTacc       -> 0 
     FiboLucasInv_RevTalt       -> 0 
     FiboLucasInv_RevTder       -> 0 
@@ -118,5 +120,5 @@ if __name__ == "__main__":
     FiboLucasInv_Talt          -> https://oeis.org/A375025
     FiboLucasInv_AltSum        -> https://oeis.org/A375026
 
-    FiboLucasInv: Distinct: 17, Hits: 20, Misses: 49
+    FiboLucasInv: Distinct: 16, Hits: 19, Misses: 50
 '''

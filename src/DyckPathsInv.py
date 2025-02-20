@@ -49,8 +49,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    DyckPathsInv_RevNegHalf    -> https://oeis.org/A-999999
     DyckPathsInv_Trevinv11     -> 0 
     DyckPathsInv_Tacc          -> 0 
     DyckPathsInv_Tder          -> 0 
@@ -94,6 +95,7 @@ if __name__ == "__main__":
     DyckPathsInv_RevTransNat1  -> https://oeis.org/A27989
     DyckPathsInv_PolyRow2      -> https://oeis.org/A28387
     DyckPathsInv_RevPolyRow2   -> https://oeis.org/A28387
+    DyckPathsInv_RevNegHalf    -> https://oeis.org/A33999
     DyckPathsInv_Tantidiag     -> https://oeis.org/A34839
     DyckPathsInv_RevTacc       -> https://oeis.org/A38730
     DyckPathsInv_AccRevSum     -> https://oeis.org/A38731

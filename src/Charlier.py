@@ -49,8 +49,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Charlier_TablDiag0     -> https://oeis.org/A-999999
     Charlier_Tinv          -> 0 
     Charlier_Trevinv       -> 0 
     Charlier_Toff11        -> 0 
@@ -110,6 +111,7 @@ if __name__ == "__main__":
     Charlier_PosHalf       -> https://oeis.org/A28387
     Charlier_PolyRow2      -> https://oeis.org/A28387
     Charlier_RevPolyRow2   -> https://oeis.org/A28387
+    Charlier_TablDiag0     -> https://oeis.org/A33999
     Charlier_Triangle      -> https://oeis.org/A46716
     Charlier_Talt          -> https://oeis.org/A46716
     Charlier_Tinvrev       -> https://oeis.org/A49020

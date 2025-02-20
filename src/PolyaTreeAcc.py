@@ -92,12 +92,13 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    PolyaTreeAcc_Tinvrev11     -> https://oeis.org/A-999999
-    PolyaTreeAcc_Triangle      -> 0 
     PolyaTreeAcc_Trev          -> 0 
     PolyaTreeAcc_Toff11        -> 0 
     PolyaTreeAcc_Trev11        -> 0 
+    PolyaTreeAcc_Tinvrev11     -> 0 
     PolyaTreeAcc_Tantidiag     -> 0 
     PolyaTreeAcc_Tacc          -> 0 
     PolyaTreeAcc_Talt          -> 0 
@@ -157,6 +158,7 @@ if __name__ == "__main__":
     PolyaTreeAcc_TablCol3      -> https://oeis.org/A1383
     PolyaTreeAcc_PolyRow2      -> https://oeis.org/A14105
     PolyaTreeAcc_RevPolyRow3   -> https://oeis.org/A14206
+    PolyaTreeAcc_Triangle      -> https://oeis.org/A375467
     PolyaTreeAcc_TablSum       -> https://oeis.org/A375468
     PolyaTreeAcc_AbsSum        -> https://oeis.org/A375468
 

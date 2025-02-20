@@ -47,10 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Bessel2_TablCol1      -> https://oeis.org/A-999999
-    Bessel2_TablCol3      -> https://oeis.org/A-999999
-    Bessel2_OddSum        -> https://oeis.org/A-999999
     Bessel2_Toff11        -> 0 
     Bessel2_Trev11        -> 0 
     Bessel2_Tantidiag     -> 0 
@@ -76,6 +75,9 @@ if __name__ == "__main__":
     Bessel2_RevCentralO   -> 0 
     Bessel2_RevTransSqrs  -> 0 
     Bessel2_RevPolyDiag   -> 0 
+    Bessel2_TablCol1      -> https://oeis.org/A4
+    Bessel2_TablCol3      -> https://oeis.org/A4
+    Bessel2_OddSum        -> https://oeis.org/A4
     Bessel2_TablCol0      -> https://oeis.org/A12
     Bessel2_PolyRow1      -> https://oeis.org/A12
     Bessel2_RevPolyRow1   -> https://oeis.org/A27

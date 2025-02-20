@@ -2531,19 +2531,17 @@ def AnumberDict(
     return trait_dict
 
 
-header = r'<!DOCTYPE html lang="en"><head><title>NAMEXXX</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">window.MathJax={ loader:{ load: ["[tex]/bbox"]}, tex:{ packages:{ "[+]": ["bbox"]}}}</script><style type="text/css">table{ margin-top: 8px; display: inline-block;} table.rTable{ position: fixed; top: 0px; border: 2px solid #5949b3; background-color: #EEE7DB; text-align: center; border-collapse: collapse; font-family: "Segoe UI", sans-serif; font: 1em sans-serif; overflow-y: auto; max-height: 850px;} table.rTable td, table.rTable th{ border: 1px solid #AAAAAA; padding: 8px 2px;} table.rTable tbody td{ font-size: 16px;} table.rTable tr:nth-child(even){ background: #f3f1f0;} table.rTable thead{ background: #585ada;} table.rTable thead th{ font-size: 16px; font-weight: bold; color: #FFFFFF; text-align: center; border-left: 2px solid #A40808;} </style></head><body><iframe name="OEISframe" scrolling="yes" width="70%" height="850" align="left" title="Sequences" src=https://oeis.org/AXXXXXX></iframe><div style="height:850px; overflow:auto;"><table class="rTable"><thead><tr><th>OEIS</th><th>TRAIT</th><th>FORMULA</th></tr></thead><tbody><tr><td><a href="https://oeis.org/AXXXXXX" target="OEISframe">AXXXXXX</a></td><td style="color: darkgreen;font-weight:800">NAMEXXX</td><td style="color: darkgreen;font-weight:800">\(T_{n,k}\)</td></tr>'
+header = r'<!DOCTYPE html lang="en"><head><title>NAMEXXX</title><meta charset="utf-8"><meta name="viewport" content="width=device-width"><script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">window.MathJax={ loader:{ load: ["[tex]/bbox"]}, tex:{ packages:{ "[+]": ["bbox"]}}}</script><style type="text/css">table{ margin-top: 8px; display: inline-block;} table.rTable{ position: fixed; top: 0px; border: 2px solid #5949b3; background-color: #EEE7DB; text-align: center; border-collapse: collapse; font-family: "Segoe UI", sans-serif; font: 1em sans-serif; overflow-y: auto; max-height: 850px;} table.rTable td, table.rTable th{ border: 1px solid #AAAAAA; padding: 8px 2px;} table.rTable tbody td{ font-size: 16px;} table.rTable tr:nth-child(even){ background: #f3f1f0;} table.rTable thead{ background: #585ada;} table.rTable thead th{ font-size: 16px; font-weight: bold; color: #FFFFFF; text-align: center; border-left: 2px solid #A40808;} </style></head><body><iframe name="OEISframe" scrolling="yes" width="66%" height="850" align="left" title="Sequences" src=https://oeis.org/AXXXXXX></iframe><div style="height:850px; overflow:auto;"><table class="rTable"><thead><tr><th>OEIS</th><th>TRAIT</th><th>FORMULA</th></tr></thead><tbody><tr><td><a href="https://oeis.org/AXXXXXX" target="OEISframe">AXXXXXX</a></td><td style="color: darkgreen;font-weight:800">NAMEXXX</td><td style="color: darkgreen;font-weight:800">\(T_{n,k}\)</td></tr>'
 
 
-def DictToHtml(
-    T: Table, dict: Dict[str, int], info: bool = False
-) -> tuple[int, int, int]:
+def DictToHtml(T: Table, dict: Dict[str, int], info: bool = False) -> int:
     """Transforms a dictionary {trait, anum} of the Table T
-    into two html files: TNameTraits.html and TNameMissing.html.
+    into a html files: TNameTraits.html.
     A trait is 'missing' if the anum in the dictionary is 0.
     """
     hitpath = GetRoot(f"docs/{T.id}Traits.html")
     head = header.replace("NAMEXXX", T.id).replace("AXXXXXX", f"{T.oeis[0]}")
-    hits = misses = doubles = 0
+    hits = doubles = 0
     anumlist: set[int] = set()
     with open(hitpath, "w+", encoding="utf-8") as oeis:
         oeis.write(head)
@@ -2565,9 +2563,7 @@ def DictToHtml(
 
         row = f"<tr><td colspan='3'><a href='https://peterluschny.github.io/tablInspector/index.html'>I N D E X</a></td></tr></tbody></table></div></body></html>"
         oeis.write(row)
-    distincts = len(anumlist)
-    print(f"{T.id:17}, Distinct: {distincts}, Hits: {hits}, Misses: {misses}")
-    return (distincts, hits, misses)
+    return hits
 
 
 def RefreshHtml(filter: bool = False) -> None:
@@ -2747,7 +2743,7 @@ def Ranking() -> Dict[int, Rank]:
         a = len(v)
         d = len(set(v))
         m = len([k for k in v if k == 0])
-        w = v[0] if v[0] != 0 else v[3]  # if not (0,0) then (1,1)
+        w = v[0] if v[0] != 0 else v[4]  # if not (0,0) then (1,1)
         anum = "A" + str(w).rjust(6, "0")
         ranks.append(Rank(anum, name, d, a - m, m))
     sorted_ranks = sorted(ranks, key=itemgetter(2), reverse=True)

@@ -48,6 +48,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Lehmer_Trev          -> 0 
     Lehmer_Trevinv       -> 0 

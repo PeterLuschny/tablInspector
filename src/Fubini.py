@@ -46,8 +46,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Fubini_AltSum        -> https://oeis.org/A-999999
     Fubini_Trev          -> 0 
     Fubini_Tinvrev11     -> 0 
     Fubini_Tacc          -> 0 
@@ -89,6 +90,7 @@ if __name__ == "__main__":
     Fubini_RevPolyRow3   -> https://oeis.org/A28872
     Fubini_PolyCol3      -> https://oeis.org/A32033
     Fubini_RevEvenSum    -> https://oeis.org/A32109
+    Fubini_AltSum        -> https://oeis.org/A33999
     Fubini_TablDiag2     -> https://oeis.org/A37960
     Fubini_TablDiag3     -> https://oeis.org/A37961
     Fubini_EvenSum       -> https://oeis.org/A52841

@@ -1896,7 +1896,7 @@
     "ChebyshevU_RevPolyDiag  ": 0
   },
   "CompositionLP": {
-    "CompositionLP_Triangle     ": 0,
+    "CompositionLP_Triangle     ": 48004,
     "CompositionLP_Tinv         ": 0,
     "CompositionLP_Trev         ": 0,
     "CompositionLP_Trevinv      ": 0,
@@ -1968,7 +1968,7 @@
     "CompositionLP_RevPolyDiag  ": 0
   },
   "CompositionAcc": {
-    "CompositionAcc_Triangle     ": 0,
+    "CompositionAcc_Triangle     ": 126198,
     "CompositionAcc_Trev         ": 0,
     "CompositionAcc_Toff11       ": 126198,
     "CompositionAcc_Trev11       ": 0,
@@ -2036,7 +2036,7 @@
     "CompositionAcc_RevPolyDiag  ": 0
   },
   "CompositionDist": {
-    "CompositionDist_Triangle     ": 0,
+    "CompositionDist_Triangle     ": 72574,
     "CompositionDist_Trev         ": 0,
     "CompositionDist_Toff11       ": 72574,
     "CompositionDist_Trev11       ": 0,
@@ -2466,7 +2466,7 @@
     "Divisibility_RevPolyDiag  ": 0
   },
   "DoublePochhammer": {
-    "DoublePochhammer_Triangle     ": 0,
+    "DoublePochhammer_Triangle     ": 39683,
     "DoublePochhammer_Tinv         ": 0,
     "DoublePochhammer_Trev         ": 0,
     "DoublePochhammer_Trevinv      ": 0,
@@ -3100,7 +3100,7 @@
     "EulerianB_RevPolyDiag  ": 0
   },
   "EulerianZigZag": {
-    "EulerianZigZag_Triangle     ": 0,
+    "EulerianZigZag_Triangle     ": 205497,
     "EulerianZigZag_Trev         ": 0,
     "EulerianZigZag_Tinvrev      ": 0,
     "EulerianZigZag_Toff11       ": 0,
@@ -3307,7 +3307,7 @@
     "EulerTan_RevPolyDiag  ": 0
   },
   "EytzingerOrder": {
-    "EytzingerOrder_Triangle     ": 0,
+    "EytzingerOrder_Triangle     ": 375825,
     "EytzingerOrder_Trev         ": 0,
     "EytzingerOrder_Toff11       ": 0,
     "EytzingerOrder_Trev11       ": 0,
@@ -6227,7 +6227,7 @@
     "Partition_RevPolyDiag  ": 338697
   },
   "PartitionAcc": {
-    "PartitionAcc_Triangle     ": 0,
+    "PartitionAcc_Triangle     ": 26820,
     "PartitionAcc_Trev         ": 0,
     "PartitionAcc_Toff11       ": 26820,
     "PartitionAcc_Trev11       ": 58400,
@@ -6295,7 +6295,7 @@
     "PartitionAcc_RevPolyDiag  ": 0
   },
   "PartitionDist": {
-    "PartitionDist_Triangle     ": 0,
+    "PartitionDist_Triangle     ": 8289,
     "PartitionDist_Trev         ": 124788,
     "PartitionDist_Toff11       ": 60016,
     "PartitionDist_Trev11       ": 0,
@@ -6503,7 +6503,7 @@
     "Pascal_RevPolyDiag  ": 169
   },
   "PolyaTreeAcc": {
-    "PolyaTreeAcc_Triangle     ": 0,
+    "PolyaTreeAcc_Triangle     ": 375467,
     "PolyaTreeAcc_Trev         ": 0,
     "PolyaTreeAcc_Toff11       ": 0,
     "PolyaTreeAcc_Trev11       ": 0,
@@ -6571,7 +6571,7 @@
     "PolyaTreeAcc_RevPolyDiag  ": 0
   },
   "PolyaTree": {
-    "PolyaTree_Triangle     ": 0,
+    "PolyaTree_Triangle     ": 34781,
     "PolyaTree_Trev         ": 0,
     "PolyaTree_Toff11       ": 34781,
     "PolyaTree_Trev11       ": 0,
@@ -7059,7 +7059,7 @@
     "RisingFactorial_RevPolyDiag  ": 0
   },
   "RootedTree": {
-    "RootedTree_Triangle     ": 0,
+    "RootedTree_Triangle     ": 34781,
     "RootedTree_Trev         ": 0,
     "RootedTree_Toff11       ": 34781,
     "RootedTree_Trev11       ": 0,

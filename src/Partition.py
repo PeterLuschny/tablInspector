@@ -48,8 +48,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Partition_Talt          -> https://oeis.org/A-999999
     Partition_Tinv          -> 0 
     Partition_Trev          -> 0 
     Partition_Tinvrev11     -> 0 
@@ -105,6 +106,7 @@ if __name__ == "__main__":
     Partition_RevPosHalf    -> https://oeis.org/A70933
     Partition_RevNegHalf    -> https://oeis.org/A71109
     Partition_Triangle      -> https://oeis.org/A72233
+    Partition_Talt          -> https://oeis.org/A72233
     Partition_PosHalf       -> https://oeis.org/A75900
     Partition_AccRevSum     -> https://oeis.org/A93694
     Partition_TransNat1     -> https://oeis.org/A93694
@@ -120,5 +122,5 @@ if __name__ == "__main__":
     Partition_NegHalf       -> https://oeis.org/A352402
     Partition_TablGcd       -> https://oeis.org/A373820
 
-    Partition: Distinct: 44, Hits: 55, Misses: 15
+    Partition: Distinct: 43, Hits: 55, Misses: 15
 '''

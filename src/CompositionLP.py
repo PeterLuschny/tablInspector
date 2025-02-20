@@ -59,8 +59,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CompositionLP_Triangle      -> 0 
     CompositionLP_Tinv          -> 0 
     CompositionLP_Trev          -> 0 
     CompositionLP_Trevinv       -> 0 
@@ -123,6 +124,7 @@ if __name__ == "__main__":
     CompositionLP_RevCentralO   -> https://oeis.org/A45623
     CompositionLP_PolyRow3      -> https://oeis.org/A45991
     CompositionLP_CentralE      -> https://oeis.org/A47859
+    CompositionLP_Triangle      -> https://oeis.org/A48004
     CompositionLP_Toff11        -> https://oeis.org/A48004
     CompositionLP_TablDiag1     -> https://oeis.org/A55642
     CompositionLP_TransNat0     -> https://oeis.org/A102712
@@ -131,5 +133,5 @@ if __name__ == "__main__":
     CompositionLP_Trev11        -> https://oeis.org/A140993
     CompositionLP_AntiDSum      -> https://oeis.org/A368279
 
-    CompositionLP: Distinct: 23, Hits: 28, Misses: 42
+    CompositionLP: Distinct: 23, Hits: 29, Misses: 41
 '''

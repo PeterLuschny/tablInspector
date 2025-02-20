@@ -54,8 +54,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CompositionDist_Triangle      -> 0 
     CompositionDist_Trev          -> 0 
     CompositionDist_Trev11        -> 0 
     CompositionDist_Tinvrev11     -> 0 
@@ -105,6 +106,7 @@ if __name__ == "__main__":
     CompositionDist_RevAntiDSum   -> https://oeis.org/A32021
     CompositionDist_AntiDSum      -> https://oeis.org/A32022
     CompositionDist_TablCol2      -> https://oeis.org/A52928
+    CompositionDist_Triangle      -> https://oeis.org/A72574
     CompositionDist_Toff11        -> https://oeis.org/A72574
     CompositionDist_RevTrev11     -> https://oeis.org/A72574
     CompositionDist_AccRevSum     -> https://oeis.org/A72576
@@ -122,5 +124,5 @@ if __name__ == "__main__":
     CompositionDist_PosHalf       -> https://oeis.org/A336127
     CompositionDist_AltSum        -> https://oeis.org/A339435
 
-    CompositionDist: Distinct: 23, Hits: 32, Misses: 34
+    CompositionDist: Distinct: 23, Hits: 33, Misses: 33
 '''

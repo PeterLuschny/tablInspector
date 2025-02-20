@@ -52,6 +52,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Divisibility_Trev          -> 0 
     Divisibility_Tantidiag     -> 0 

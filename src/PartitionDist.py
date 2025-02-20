@@ -55,14 +55,14 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    PartitionDist_Tinvrev11     -> https://oeis.org/A-999999
-    PartitionDist_Talt          -> https://oeis.org/A-999999
-    PartitionDist_RevTalt       -> https://oeis.org/A-999999
-    PartitionDist_Triangle      -> 0 
     PartitionDist_Trev11        -> 0 
+    PartitionDist_Tinvrev11     -> 0 
     PartitionDist_Tantidiag     -> 0 
     PartitionDist_Tacc          -> 0 
+    PartitionDist_Talt          -> 0 
     PartitionDist_Tder          -> 0 
     PartitionDist_TablLcm       -> 0 
     PartitionDist_TablGcd       -> 0 
@@ -97,6 +97,7 @@ if __name__ == "__main__":
     PartitionDist_PolyRow3      -> https://oeis.org/A2378
     PartitionDist_RevPolyRow3   -> https://oeis.org/A2378
     PartitionDist_TablCol2      -> https://oeis.org/A4526
+    PartitionDist_Triangle      -> https://oeis.org/A8289
     PartitionDist_TransNat0     -> https://oeis.org/A15723
     PartitionDist_TablDiag0     -> https://oeis.org/A19590
     PartitionDist_RevCentralO   -> https://oeis.org/A19590
@@ -113,6 +114,7 @@ if __name__ == "__main__":
     PartitionDist_AltSum        -> https://oeis.org/A80995
     PartitionDist_RevEvenSum    -> https://oeis.org/A96791
     PartitionDist_RevOddSum     -> https://oeis.org/A96792
+    PartitionDist_RevTalt       -> https://oeis.org/A124744
     PartitionDist_Trev          -> https://oeis.org/A124788
     PartitionDist_RevColMiddle  -> https://oeis.org/A183918
     PartitionDist_TablDiag1     -> https://oeis.org/A279329
@@ -123,5 +125,5 @@ if __name__ == "__main__":
     PartitionDist_RevPolyDiag   -> https://oeis.org/A340103
     PartitionDist_RevPolyCol3   -> https://oeis.org/A344062
 
-    PartitionDist: Distinct: 31, Hits: 44, Misses: 22
+    PartitionDist: Distinct: 32, Hits: 43, Misses: 23
 '''

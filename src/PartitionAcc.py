@@ -40,9 +40,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    PartitionAcc_Tinvrev11     -> https://oeis.org/A-999999
-    PartitionAcc_Triangle      -> 0 
     PartitionAcc_Trev          -> 0 
     PartitionAcc_Tantidiag     -> 0 
     PartitionAcc_Tacc          -> 0 
@@ -94,6 +94,7 @@ if __name__ == "__main__":
     PartitionAcc_TablCol2      -> https://oeis.org/A4526
     PartitionAcc_TablDiag2     -> https://oeis.org/A7042
     PartitionAcc_PolyRow2      -> https://oeis.org/A14105
+    PartitionAcc_Triangle      -> https://oeis.org/A26820
     PartitionAcc_Toff11        -> https://oeis.org/A26820
     PartitionAcc_AltSum        -> https://oeis.org/A46682
     PartitionAcc_TablSum       -> https://oeis.org/A58397
@@ -107,6 +108,7 @@ if __name__ == "__main__":
     PartitionAcc_CentralE      -> https://oeis.org/A209816
     PartitionAcc_TablDiag3     -> https://oeis.org/A335323
     PartitionAcc_RevColMiddle  -> https://oeis.org/A336106
+    PartitionAcc_Tinvrev11     -> https://oeis.org/A375383
 
-    PartitionAcc: Distinct: 22, Hits: 27, Misses: 39
+    PartitionAcc: Distinct: 22, Hits: 28, Misses: 38
 '''

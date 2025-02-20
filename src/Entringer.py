@@ -44,8 +44,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Entringer_InvBinConv    -> https://oeis.org/A-999999
     Entringer_Trev          -> 0 
     Entringer_Tantidiag     -> 0 
     Entringer_Tacc          -> 0 
@@ -103,6 +104,7 @@ if __name__ == "__main__":
     Entringer_Toff11        -> https://oeis.org/A8282
     Entringer_RevTacc       -> https://oeis.org/A8282
     Entringer_Trev11        -> https://oeis.org/A10094
+    Entringer_InvBinConv    -> https://oeis.org/A33999
     Entringer_AccSum        -> https://oeis.org/A34428
     Entringer_RevAccRevSum  -> https://oeis.org/A34428
     Entringer_RevTransNat1  -> https://oeis.org/A34428

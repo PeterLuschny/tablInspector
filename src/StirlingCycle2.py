@@ -47,10 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    StirlingCycle2_PolyRow1      -> https://oeis.org/A-999999
-    StirlingCycle2_RevCentralO   -> https://oeis.org/A-999999
-    StirlingCycle2_RevPolyRow1   -> https://oeis.org/A-999999
     StirlingCycle2_Trev          -> 0 
     StirlingCycle2_Toff11        -> 0 
     StirlingCycle2_Trev11        -> 0 
@@ -81,6 +80,9 @@ if __name__ == "__main__":
     StirlingCycle2_RevTransNat1  -> 0 
     StirlingCycle2_RevTransSqrs  -> 0 
     StirlingCycle2_RevPolyDiag   -> 0 
+    StirlingCycle2_PolyRow1      -> https://oeis.org/A4
+    StirlingCycle2_RevCentralO   -> https://oeis.org/A4
+    StirlingCycle2_RevPolyRow1   -> https://oeis.org/A4
     StirlingCycle2_TablCol0      -> https://oeis.org/A7
     StirlingCycle2_TablDiag0     -> https://oeis.org/A7
     StirlingCycle2_TablGcd       -> https://oeis.org/A27

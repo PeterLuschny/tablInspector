@@ -54,9 +54,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Pascal_NegHalf       -> https://oeis.org/A-999999
-    Pascal_RevNegHalf    -> https://oeis.org/A-999999
     Pascal_AltSum        -> https://oeis.org/A7
     Pascal_TablCol0      -> https://oeis.org/A12
     Pascal_TablDiag0     -> https://oeis.org/A12
@@ -118,6 +118,8 @@ if __name__ == "__main__":
     Pascal_Tantidiag     -> https://oeis.org/A11973
     Pascal_RevTantidiag  -> https://oeis.org/A11973
     Pascal_TablGcd       -> https://oeis.org/A14963
+    Pascal_NegHalf       -> https://oeis.org/A33999
+    Pascal_RevNegHalf    -> https://oeis.org/A33999
     Pascal_Toff11        -> https://oeis.org/A74909
     Pascal_Trev11        -> https://oeis.org/A74909
     Pascal_Tinv11        -> https://oeis.org/A74909

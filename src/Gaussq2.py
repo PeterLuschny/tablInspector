@@ -45,6 +45,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Gaussq2_Toff11        -> 0 
     Gaussq2_Trev11        -> 0 

@@ -38,8 +38,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    LeibnizTable_TablCol0      -> https://oeis.org/A-999999
     LeibnizTable_Tantidiag     -> 0 
     LeibnizTable_Tacc          -> 0 
     LeibnizTable_Tder          -> 0 
@@ -54,6 +55,7 @@ if __name__ == "__main__":
     LeibnizTable_RevPosHalf    -> 0 
     LeibnizTable_RevTransSqrs  -> 0 
     LeibnizTable_RevPolyDiag   -> 0 
+    LeibnizTable_TablCol0      -> https://oeis.org/A4
     LeibnizTable_RevPolyRow1   -> https://oeis.org/A12
     LeibnizTable_TablCol1      -> https://oeis.org/A27
     LeibnizTable_TablDiag0     -> https://oeis.org/A27

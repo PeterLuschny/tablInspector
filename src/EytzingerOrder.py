@@ -81,8 +81,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    EytzingerOrder_Triangle      -> 0 
     EytzingerOrder_Trev          -> 0 
     EytzingerOrder_Toff11        -> 0 
     EytzingerOrder_Trev11        -> 0 
@@ -147,6 +148,7 @@ if __name__ == "__main__":
     EytzingerOrder_RevPolyRow2   -> https://oeis.org/A59100
     EytzingerOrder_PolyRow3      -> https://oeis.org/A131649
     EytzingerOrder_TablCol0      -> https://oeis.org/A279521
+    EytzingerOrder_Triangle      -> https://oeis.org/A375825
 
-    EytzingerOrder: Distinct: 9, Hits: 11, Misses: 54
+    EytzingerOrder: Distinct: 10, Hits: 12, Misses: 53
 '''

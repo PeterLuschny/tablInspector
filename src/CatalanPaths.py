@@ -47,10 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CatalanPaths_TablDiag1     -> https://oeis.org/A-999999
-    CatalanPaths_TablDiag3     -> https://oeis.org/A-999999
-    CatalanPaths_RevOddSum     -> https://oeis.org/A-999999
     CatalanPaths_Trev11        -> 0 
     CatalanPaths_Trevinv11     -> 0 
     CatalanPaths_Tantidiag     -> 0 
@@ -68,6 +67,9 @@ if __name__ == "__main__":
     CatalanPaths_RevTransNat0  -> 0 
     CatalanPaths_RevTransSqrs  -> 0 
     CatalanPaths_RevPolyDiag   -> 0 
+    CatalanPaths_TablDiag1     -> https://oeis.org/A4
+    CatalanPaths_TablDiag3     -> https://oeis.org/A4
+    CatalanPaths_RevOddSum     -> https://oeis.org/A4
     CatalanPaths_TablDiag0     -> https://oeis.org/A12
     CatalanPaths_RevPolyRow1   -> https://oeis.org/A12
     CatalanPaths_TablDiag2     -> https://oeis.org/A27

@@ -46,7 +46,7 @@ def Ranking() -> Dict[int, Rank]:
         a = len(v)
         d = len(set(v))
         m = len([k for k in v if k == 0])
-        w = v[0] if v[0] != 0 else v[3] # if not (0,0) then (1,1)
+        w = v[0] if v[0] != 0 else v[4] # if not (0,0) then (1,1)
         anum = 'A' + str(w).rjust(6, "0")
         ranks.append(Rank(anum, name, d, a - m, m))
 

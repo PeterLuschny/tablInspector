@@ -41,9 +41,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CTree_NegHalf       -> https://oeis.org/A-999999
-    CTree_RevNegHalf    -> https://oeis.org/A-999999
     CTree_Tacc          -> 0 
     CTree_Tder          -> 0 
     CTree_PosHalf       -> 0 
@@ -83,6 +83,8 @@ if __name__ == "__main__":
     CTree_RevEvenSum    -> https://oeis.org/A4526
     CTree_TablSum       -> https://oeis.org/A29578
     CTree_AbsSum        -> https://oeis.org/A29578
+    CTree_NegHalf       -> https://oeis.org/A52992
+    CTree_RevNegHalf    -> https://oeis.org/A52992
     CTree_PolyRow3      -> https://oeis.org/A53698
     CTree_RevPolyRow3   -> https://oeis.org/A53698
     CTree_TransNat0     -> https://oeis.org/A56136

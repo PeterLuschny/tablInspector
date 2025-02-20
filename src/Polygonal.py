@@ -60,9 +60,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Polygonal_Talt          -> https://oeis.org/A-999999
-    Polygonal_TablCol0      -> https://oeis.org/A-999999
     Polygonal_Trev          -> 0 
     Polygonal_Tinvrev11     -> 0 
     Polygonal_Tantidiag     -> 0 
@@ -101,6 +101,7 @@ if __name__ == "__main__":
     Polygonal_RevTransSqrs  -> 0 
     Polygonal_RevPolyCol3   -> 0 
     Polygonal_RevPolyDiag   -> 0 
+    Polygonal_TablCol0      -> https://oeis.org/A4
     Polygonal_TablCol1      -> https://oeis.org/A12
     Polygonal_RevPolyRow1   -> https://oeis.org/A12
     Polygonal_TablCol2      -> https://oeis.org/A27
@@ -123,6 +124,7 @@ if __name__ == "__main__":
     Polygonal_TablGcd       -> https://oeis.org/A114890
     Polygonal_Trev11        -> https://oeis.org/A134394
     Polygonal_Triangle      -> https://oeis.org/A139600
+    Polygonal_Talt          -> https://oeis.org/A139600
     Polygonal_RevTrev11     -> https://oeis.org/A139601
     Polygonal_PolyRow3      -> https://oeis.org/A249354
     Polygonal_NegHalf       -> https://oeis.org/A360605

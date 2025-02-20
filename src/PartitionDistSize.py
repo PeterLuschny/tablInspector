@@ -56,8 +56,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    PartitionDistSize_Talt          -> https://oeis.org/A-999999
     PartitionDistSize_Trev          -> 0 
     PartitionDistSize_Toff11        -> 0 
     PartitionDistSize_Trev11        -> 0 
@@ -122,6 +123,7 @@ if __name__ == "__main__":
     PartitionDistSize_RevAccRevSum  -> https://oeis.org/A365675
     PartitionDistSize_RevTransNat1  -> https://oeis.org/A365675
     PartitionDistSize_Triangle      -> https://oeis.org/A365676
+    PartitionDistSize_Talt          -> https://oeis.org/A365676
 
-    PartitionDistSize: Distinct: 28, Hits: 37, Misses: 28
+    PartitionDistSize: Distinct: 27, Hits: 37, Misses: 28
 '''

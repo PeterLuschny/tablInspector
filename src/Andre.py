@@ -48,6 +48,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Andre_Tinv          -> 0 
     Andre_Trev          -> 0 

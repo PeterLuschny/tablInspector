@@ -39,8 +39,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    PolyaTree_Triangle      -> 0 
     PolyaTree_Trev          -> 0 
     PolyaTree_Trev11        -> 0 
     PolyaTree_Tinv11        -> 0 
@@ -98,6 +99,7 @@ if __name__ == "__main__":
     PolyaTree_RevPolyRow3   -> https://oeis.org/A290
     PolyaTree_TransNat0     -> https://oeis.org/A1853
     PolyaTree_PolyRow2      -> https://oeis.org/A2378
+    PolyaTree_Triangle      -> https://oeis.org/A34781
     PolyaTree_Toff11        -> https://oeis.org/A34781
     PolyaTree_TablDiag2     -> https://oeis.org/A34856
     PolyaTree_TablDiag3     -> https://oeis.org/A34857
@@ -109,5 +111,5 @@ if __name__ == "__main__":
     PolyaTree_RevAccRevSum  -> https://oeis.org/A375468
     PolyaTree_RevTransNat1  -> https://oeis.org/A375468
 
-    PolyaTree: Distinct: 18, Hits: 24, Misses: 44
+    PolyaTree: Distinct: 18, Hits: 25, Misses: 43
 '''

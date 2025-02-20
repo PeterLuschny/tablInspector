@@ -46,6 +46,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     BinaryPell_Toff11        -> 0 
     BinaryPell_Trev11        -> 0 

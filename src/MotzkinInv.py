@@ -45,13 +45,12 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    MotzkinInv_Triangle      -> https://oeis.org/A-999999
-    MotzkinInv_Trev          -> https://oeis.org/A-999999
-    MotzkinInv_Toff11        -> https://oeis.org/A-999999
-    MotzkinInv_Trev11        -> https://oeis.org/A-999999
-    MotzkinInv_TablSum       -> https://oeis.org/A-999999
-    MotzkinInv_AntiDSum      -> https://oeis.org/A-999999
+    MotzkinInv_Trev          -> 0 
+    MotzkinInv_Toff11        -> 0 
+    MotzkinInv_Trev11        -> 0 
     MotzkinInv_Tinv11        -> 0 
     MotzkinInv_Trevinv11     -> 0 
     MotzkinInv_Tacc          -> 0 
@@ -101,12 +100,15 @@ if __name__ == "__main__":
     MotzkinInv_RevAccRevSum  -> https://oeis.org/A26741
     MotzkinInv_RevTransNat1  -> https://oeis.org/A26741
     MotzkinInv_RevTransNat0  -> https://oeis.org/A29578
+    MotzkinInv_AntiDSum      -> https://oeis.org/A33999
     MotzkinInv_NegHalf       -> https://oeis.org/A49072
+    MotzkinInv_TablSum       -> https://oeis.org/A56594
     MotzkinInv_AccRevSum     -> https://oeis.org/A57979
     MotzkinInv_TransNat1     -> https://oeis.org/A57979
     MotzkinInv_Tinv          -> https://oeis.org/A64189
     MotzkinInv_TablGcd       -> https://oeis.org/A99563
     MotzkinInv_Talt          -> https://oeis.org/A101950
+    MotzkinInv_Triangle      -> https://oeis.org/A104562
     MotzkinInv_PosHalf       -> https://oeis.org/A106853
     MotzkinInv_TablCol2      -> https://oeis.org/A128504
     MotzkinInv_TransSqrs     -> https://oeis.org/A129889
@@ -116,5 +118,5 @@ if __name__ == "__main__":
     MotzkinInv_Tantidiag     -> https://oeis.org/A249303
     MotzkinInv_CentralO      -> https://oeis.org/A350383
 
-    MotzkinInv: Distinct: 29, Hits: 44, Misses: 25
+    MotzkinInv: Distinct: 31, Hits: 41, Misses: 28
 '''

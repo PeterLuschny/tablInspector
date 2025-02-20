@@ -42,9 +42,11 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Powers_Trevinv       -> https://oeis.org/A-999999
     Powers_Tinv          -> 0 
+    Powers_Trevinv       -> 0 
     Powers_Tinv11        -> 0 
     Powers_Tinvrev11     -> 0 
     Powers_Trevinv11     -> 0 
@@ -114,5 +116,5 @@ if __name__ == "__main__":
     Powers_RevAntiDSum   -> https://oeis.org/A352944
     Powers_RevEvenSum    -> https://oeis.org/A353016
 
-    Powers: Distinct: 40, Hits: 50, Misses: 20
+    Powers: Distinct: 39, Hits: 49, Misses: 21
 '''

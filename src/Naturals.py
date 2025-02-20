@@ -32,6 +32,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Naturals_Trev11        -> 0 
     Naturals_Tacc          -> 0 

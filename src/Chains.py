@@ -48,6 +48,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Chains_Trev          -> 0 
     Chains_Toff11        -> 0 

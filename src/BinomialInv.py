@@ -39,13 +39,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    BinomialInv_Tacc          -> https://oeis.org/A-999999
-    BinomialInv_TablCol0      -> https://oeis.org/A-999999
-    BinomialInv_AccSum        -> https://oeis.org/A-999999
-    BinomialInv_PosHalf       -> https://oeis.org/A-999999
-    BinomialInv_RevAccRevSum  -> https://oeis.org/A-999999
-    BinomialInv_RevTransNat1  -> https://oeis.org/A-999999
     BinomialInv_Tinvrev       -> 0 
     BinomialInv_RevTinv11     -> 0 
     BinomialInv_TablSum       -> https://oeis.org/A7
@@ -99,6 +95,8 @@ if __name__ == "__main__":
     BinomialInv_TablGcd       -> https://oeis.org/A14963
     BinomialInv_AccRevSum     -> https://oeis.org/A19590
     BinomialInv_TransNat1     -> https://oeis.org/A19590
+    BinomialInv_TablCol0      -> https://oeis.org/A33999
+    BinomialInv_PosHalf       -> https://oeis.org/A33999
     BinomialInv_RevTacc       -> https://oeis.org/A71919
     BinomialInv_Toff11        -> https://oeis.org/A74909
     BinomialInv_Trev11        -> https://oeis.org/A74909
@@ -106,11 +104,15 @@ if __name__ == "__main__":
     BinomialInv_Trevinv11     -> https://oeis.org/A74909
     BinomialInv_RevToff11     -> https://oeis.org/A74909
     BinomialInv_RevTrev11     -> https://oeis.org/A74909
+    BinomialInv_Tacc          -> https://oeis.org/A110555
     BinomialInv_BinConv       -> https://oeis.org/A126869
+    BinomialInv_AccSum        -> https://oeis.org/A154955
+    BinomialInv_RevAccRevSum  -> https://oeis.org/A154955
+    BinomialInv_RevTransNat1  -> https://oeis.org/A154955
     BinomialInv_TransNat0     -> https://oeis.org/A209229
     BinomialInv_RevTransNat0  -> https://oeis.org/A209229
     BinomialInv_TransSqrs     -> https://oeis.org/A245196
     BinomialInv_RevTransSqrs  -> https://oeis.org/A245196
 
-    BinomialInv: Distinct: 28, Hits: 69, Misses: 2
+    BinomialInv: Distinct: 30, Hits: 69, Misses: 2
 '''

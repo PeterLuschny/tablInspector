@@ -45,8 +45,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    DistLattices_Talt          -> https://oeis.org/A-999999
     DistLattices_Tinv          -> 0 
     DistLattices_Tinvrev       -> 0 
     DistLattices_Trevinv       -> 0 
@@ -110,6 +111,7 @@ if __name__ == "__main__":
     DistLattices_TablCol2      -> https://oeis.org/A6356
     DistLattices_TablCol3      -> https://oeis.org/A6357
     DistLattices_Triangle      -> https://oeis.org/A50446
+    DistLattices_Talt          -> https://oeis.org/A50446
     DistLattices_Trev          -> https://oeis.org/A50447
     DistLattices_RevTalt       -> https://oeis.org/A50447
     DistLattices_TablGcd       -> https://oeis.org/A99563
@@ -118,5 +120,5 @@ if __name__ == "__main__":
     DistLattices_AbsSum        -> https://oeis.org/A373353
     DistLattices_CentralE      -> https://oeis.org/A373659
 
-    DistLattices: Distinct: 17, Hits: 23, Misses: 48
+    DistLattices: Distinct: 16, Hits: 23, Misses: 48
 '''

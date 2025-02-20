@@ -39,8 +39,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    NimSum_CentralE      -> https://oeis.org/A-999999
     NimSum_Toff11        -> 0 
     NimSum_Trev11        -> 0 
     NimSum_Tantidiag     -> 0 
@@ -82,6 +83,7 @@ if __name__ == "__main__":
     NimSum_RevPolyRow3   -> 0 
     NimSum_RevPolyCol3   -> 0 
     NimSum_RevPolyDiag   -> 0 
+    NimSum_CentralE      -> https://oeis.org/A4
     NimSum_TablCol0      -> https://oeis.org/A27
     NimSum_TablDiag0     -> https://oeis.org/A27
     NimSum_TablMax       -> https://oeis.org/A27

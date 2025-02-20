@@ -54,9 +54,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Lozanic_NegHalf       -> https://oeis.org/A-999999
-    Lozanic_RevNegHalf    -> https://oeis.org/A-999999
     Lozanic_Trevinv       -> 0 
     Lozanic_Toff11        -> 0 
     Lozanic_Trev11        -> 0 
@@ -69,6 +69,7 @@ if __name__ == "__main__":
     Lozanic_AccSum        -> 0 
     Lozanic_AccRevSum     -> 0 
     Lozanic_PosHalf       -> 0 
+    Lozanic_NegHalf       -> 0 
     Lozanic_TransNat0     -> 0 
     Lozanic_TransNat1     -> 0 
     Lozanic_TransSqrs     -> 0 
@@ -84,6 +85,7 @@ if __name__ == "__main__":
     Lozanic_RevTder       -> 0 
     Lozanic_RevAccRevSum  -> 0 
     Lozanic_RevPosHalf    -> 0 
+    Lozanic_RevNegHalf    -> 0 
     Lozanic_RevTransNat0  -> 0 
     Lozanic_RevTransNat1  -> 0 
     Lozanic_RevTransSqrs  -> 0 
@@ -127,5 +129,5 @@ if __name__ == "__main__":
     Lozanic_Tantidiag     -> https://oeis.org/A102541
     Lozanic_RevTantidiag  -> https://oeis.org/A102541
 
-    Lozanic: Distinct: 19, Hits: 39, Misses: 32
+    Lozanic: Distinct: 18, Hits: 37, Misses: 34
 '''

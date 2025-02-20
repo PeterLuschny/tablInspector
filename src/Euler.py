@@ -48,6 +48,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Euler_Toff11        -> 0 
     Euler_Trev11        -> 0 

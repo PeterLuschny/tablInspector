@@ -43,9 +43,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CentralSetInv_Talt          -> https://oeis.org/A-999999
-    CentralSetInv_AltSum        -> https://oeis.org/A-999999
     CentralSetInv_Trev          -> 0 
     CentralSetInv_Trevinv       -> 0 
     CentralSetInv_Tantidiag     -> 0 
@@ -107,9 +107,11 @@ if __name__ == "__main__":
     CentralSetInv_RevOddSum     -> https://oeis.org/A51893
     CentralSetInv_TablSum       -> https://oeis.org/A101686
     CentralSetInv_AbsSum        -> https://oeis.org/A101686
+    CentralSetInv_AltSum        -> https://oeis.org/A154955
     CentralSetInv_Toff11        -> https://oeis.org/A204579
     CentralSetInv_RevCentralO   -> https://oeis.org/A234324
     CentralSetInv_Triangle      -> https://oeis.org/A269944
+    CentralSetInv_Talt          -> https://oeis.org/A269944
     CentralSetInv_Tinv          -> https://oeis.org/A269945
     CentralSetInv_PosHalf       -> https://oeis.org/A277352
     CentralSetInv_RevPolyCol3   -> https://oeis.org/A277353

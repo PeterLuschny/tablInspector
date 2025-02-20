@@ -38,10 +38,10 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Ordinals_Tinvrev11     -> https://oeis.org/A-999999
-    Ordinals_Talt          -> https://oeis.org/A-999999
-    Ordinals_TablCol0      -> https://oeis.org/A-999999
+    Ordinals_TablCol0      -> https://oeis.org/A4
     Ordinals_TablCol1      -> https://oeis.org/A12
     Ordinals_TablGcd       -> https://oeis.org/A12
     Ordinals_RevPolyRow1   -> https://oeis.org/A12
@@ -68,6 +68,7 @@ if __name__ == "__main__":
     Ordinals_BinConv       -> https://oeis.org/A1787
     Ordinals_Toff11        -> https://oeis.org/A2260
     Ordinals_Triangle      -> https://oeis.org/A2262
+    Ordinals_Talt          -> https://oeis.org/A2262
     Ordinals_RevTrev11     -> https://oeis.org/A2262
     Ordinals_RevTransSqrs  -> https://oeis.org/A2415
     Ordinals_RevEvenSum    -> https://oeis.org/A2620
@@ -103,8 +104,9 @@ if __name__ == "__main__":
     Ordinals_Tder          -> https://oeis.org/A133819
     Ordinals_RevNegHalf    -> https://oeis.org/A140960
     Ordinals_RevTacc       -> https://oeis.org/A141418
+    Ordinals_Tinvrev11     -> https://oeis.org/A185018
     Ordinals_InvBinConv    -> https://oeis.org/A209229
     Ordinals_PolyCol3      -> https://oeis.org/A289399
 
-    Ordinals: Distinct: 40, Hits: 66, Misses: 0
+    Ordinals: Distinct: 41, Hits: 66, Misses: 0
 '''

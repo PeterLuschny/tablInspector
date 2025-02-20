@@ -46,6 +46,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     CatalanInv_Trev          -> 0 
     CatalanInv_Trevinv       -> 0 

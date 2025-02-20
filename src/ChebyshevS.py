@@ -47,12 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    ChebyshevS_TablCol0      -> https://oeis.org/A-999999
-    ChebyshevS_TablDiag1     -> https://oeis.org/A-999999
-    ChebyshevS_TablDiag3     -> https://oeis.org/A-999999
-    ChebyshevS_OddSum        -> https://oeis.org/A-999999
-    ChebyshevS_RevOddSum     -> https://oeis.org/A-999999
     ChebyshevS_Trev11        -> 0 
     ChebyshevS_Trevinv11     -> 0 
     ChebyshevS_Tantidiag     -> 0 
@@ -73,6 +70,9 @@ if __name__ == "__main__":
     ChebyshevS_RevTransNat1  -> 0 
     ChebyshevS_RevTransSqrs  -> 0 
     ChebyshevS_RevPolyDiag   -> 0 
+    ChebyshevS_TablDiag1     -> https://oeis.org/A4
+    ChebyshevS_TablDiag3     -> https://oeis.org/A4
+    ChebyshevS_RevOddSum     -> https://oeis.org/A4
     ChebyshevS_AntiDSum      -> https://oeis.org/A7
     ChebyshevS_TablDiag0     -> https://oeis.org/A12
     ChebyshevS_RevPolyRow1   -> https://oeis.org/A12
@@ -96,6 +96,8 @@ if __name__ == "__main__":
     ChebyshevS_Trevinv       -> https://oeis.org/A52173
     ChebyshevS_Tinv          -> https://oeis.org/A53121
     ChebyshevS_RevPolyRow3   -> https://oeis.org/A56220
+    ChebyshevS_TablCol0      -> https://oeis.org/A56594
+    ChebyshevS_OddSum        -> https://oeis.org/A56594
     ChebyshevS_TablMax       -> https://oeis.org/A73028
     ChebyshevS_PolyDiag      -> https://oeis.org/A97690
     ChebyshevS_RevAntiDSum   -> https://oeis.org/A99530
@@ -118,5 +120,5 @@ if __name__ == "__main__":
     ChebyshevS_InvBinConv    -> https://oeis.org/A278415
     ChebyshevS_Tder          -> https://oeis.org/A294519
 
-    ChebyshevS: Distinct: 34, Hits: 49, Misses: 20
+    ChebyshevS: Distinct: 35, Hits: 49, Misses: 20
 '''

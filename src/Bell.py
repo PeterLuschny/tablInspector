@@ -45,6 +45,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Bell_Trev11        -> 0 
     Bell_Tantidiag     -> 0 

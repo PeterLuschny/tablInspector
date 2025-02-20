@@ -1,4 +1,4 @@
-![Tables](imag/IntegerTrianglesPy.png)
+![The tabl Inspector](imag/tablinspector.jpg)
 
 # tablInspector
 
@@ -117,7 +117,7 @@ These transformations are called 'table traits' and are implemented in the modul
 These are very simple transformations that occur everywhere in the OEIS, but are not always 
 recognized as such and then often lead to unnecessarily complicated formulas.
 
-In the table below, the two columns on the right are examples of hundreds of similar identities that can be generated with the module.
+In the table below, the two columns on the right are _examples_ of thousands of similar identities that can be generated with the module.
 Note: References to OEIS-Ids are approximate. They often differ in signs and offset, sometimes also in the first few values. 
 
 | Name         |  Formula | Triangle   | Trait  |
@@ -185,7 +185,8 @@ The module provides a central function that extracts the traits from tables and 
         Args:
             t (Table): The table to be analyzed.
             tr (Trait): A function that extracts a trait from the table.
-            info (bool, optional): If True, information about the matching will be displayed. Defaults to True.
+            info (bool, optional): If True, information about the matching 
+                                   will be displayed. Defaults to True.
 
         Returns:
             int: The A-number of the sequence if found, otherwise 0.
@@ -215,57 +216,64 @@ on average, 35 distinct related sequences registered in the OEIS. Thus, a high r
 means the triangle is a significant structural component in the OEIS database and binds
 seemingly unrelated sequences into a semantically meaningful cluster. 
 
-Currently, 116 triangles are included in this ranking. The top 50 triangles are listed below. (Note that some links are not yet implemented.)
+Currently, 118 triangles are included in this ranking. The top 50 triangles are listed below. (Note that some links are not yet implemented.)
+
 
 |   | Name             |  OEIS |Distinct| Hits | Traits | Links |
 | :-: | :---           | :---:  | :---:   |  :---: |  :---:  |  :---: |
-|  1| StirlingSet       |A048993|  51    | 60| [T](https://peterluschny.github.io/tabl/StirlingSet.html)   | [L](https://peterluschny.github.io/tablInspector/StirlingSetTraits.html) |
-|  2| FallingFactorial       |A008279|  48    | 59| [T](https://peterluschny.github.io/tabl/FallingFactorial.html)   | [L](https://peterluschny.github.io/tablInspector/FallingFactorialTraits.html) |
-|  3| Lah       |A271703|  46    | 54| [T](https://peterluschny.github.io/tabl/Lah.html)   | [L](https://peterluschny.github.io/tablInspector/LahTraits.html) |
-|  4| BinaryPell       |A038207|  45    | 54| [T](https://peterluschny.github.io/tabl/BinaryPell.html)   | [L](https://peterluschny.github.io/tablInspector/BinaryPellTraits.html) |
-|  5| Lucas       |A029635|  44    | 59| [T](https://peterluschny.github.io/tabl/Lucas.html)   | [L](https://peterluschny.github.io/tablInspector/LucasTraits.html) |
-|  6| Partition       |A072233|  43    | 53| [T](https://peterluschny.github.io/tabl/Partition.html)   | [L](https://peterluschny.github.io/tablInspector/PartitionTraits.html) |
-|  7| Fubini       |A131689|  42    | 49| [T](https://peterluschny.github.io/tabl/Fubini.html)   | [L](https://peterluschny.github.io/tablInspector/FubiniTraits.html) |
-|  8| StirlingCycle       |A132393|  42    | 60| [T](https://peterluschny.github.io/tabl/StirlingCycle.html)   | [L](https://peterluschny.github.io/tablInspector/StirlingCycleTraits.html) |
-|  9| CatalanInv       |A128908|  41    | 47| [T](https://peterluschny.github.io/tabl/CatalanInv.html)   | [L](https://peterluschny.github.io/tablInspector/CatalanInvTraits.html) |
-| 10| Ordinals       |A002262|  40    | 65| [T](https://peterluschny.github.io/tabl/Ordinals.html)   | [L](https://peterluschny.github.io/tablInspector/OrdinalsTraits.html) |
-| 11| DyckPathsInv       |A085478|  40    | 52| [T](https://peterluschny.github.io/tabl/DyckPathsInv.html)   | [L](https://peterluschny.github.io/tablInspector/DyckPathsInvTraits.html) |
-| 12| Powers       |A004248|  39    | 48| [T](https://peterluschny.github.io/tabl/Powers.html)   | [L](https://peterluschny.github.io/tablInspector/PowersTraits.html) |
-| 13| Motzkin       |A064189|  38    | 47| [T](https://peterluschny.github.io/tabl/Motzkin.html)   | [L](https://peterluschny.github.io/tablInspector/MotzkinTraits.html) |
-| 14| BesselInv       |A122848|  37    | 46| [T](https://peterluschny.github.io/tabl/BesselInv.html)   | [L](https://peterluschny.github.io/tablInspector/BesselInvTraits.html) |
-| 15| DyckPaths       |A039599|  37    | 48| [T](https://peterluschny.github.io/tabl/DyckPaths.html)   | [L](https://peterluschny.github.io/tablInspector/DyckPathsTraits.html) |
-| 16| Eulerian       |A173018|  37    | 55| [T](https://peterluschny.github.io/tabl/Eulerian.html)   | [L](https://peterluschny.github.io/tablInspector/EulerianTraits.html) |
-| 17| Catalan       |A128899|  36    | 42| [T](https://peterluschny.github.io/tabl/Catalan.html)   | [L](https://peterluschny.github.io/tablInspector/CatalanTraits.html) |   
-| 18| Laguerre       |A021009|  36    | 42| [T](https://peterluschny.github.io/tabl/Laguerre.html)   | [L](https://peterluschny.github.io/tablInspector/LaguerreTraits.html) |
-| 19| Monotone       |A059481|  36    | 50| [T](https://peterluschny.github.io/tabl/Monotone.html)   | [L](https://peterluschny.github.io/tablInspector/MonotoneTraits.html) |
-| 20| Narayana       |A090181|  36    | 54| [T](https://peterluschny.github.io/tabl/Narayana.html)   | [L](https://peterluschny.github.io/tablInspector/NarayanaTraits.html) |
-| 21| AbelInv       |A059297|  35    | 40| [T](https://peterluschny.github.io/tabl/AbelInv.html)   | [L](https://peterluschny.github.io/tablInspector/AbelInvTraits.html) |   
-| 22| Divisibility       |A113704|  35    | 55| [T](https://peterluschny.github.io/tabl/Divisibility.html)   | [L](https://peterluschny.github.io/tablInspector/DivisibilityTraits.html) |
-| 23| Abel       |A137452|  34    | 39| [T](https://peterluschny.github.io/tabl/Abel.html)   | [L](https://peterluschny.github.io/tablInspector/AbelTraits.html) |
-| 24| Nicomachus       |A036561|  34    | 41| [T](https://peterluschny.github.io/tabl/Nicomachus.html)   | [L](https://peterluschny.github.io/tablInspector/NicomachusTraits.html) |
-| 25| OrderedCycle       |A225479|  34    | 38| [T](https://peterluschny.github.io/tabl/OrderedCycle.html)   | [L](https://peterluschny.github.io/tablInspector/OrderedCycleTraits.html) |
-| 26| Schroeder       |A122538|  34    | 42| [T](https://peterluschny.github.io/tabl/Schroeder.html)   | [L](https://peterluschny.github.io/tablInspector/SchroederTraits.html) |
-| 27| Bessel       |A132062|  33    | 39| [T](https://peterluschny.github.io/tabl/Bessel.html)   | [L](https://peterluschny.github.io/tablInspector/BesselTraits.html) |      
-| 28| BinomialBell       |A056857|  33    | 39| [T](https://peterluschny.github.io/tabl/BinomialBell.html)   | [L](https://peterluschny.github.io/tablInspector/BinomialBellTraits.html) |
-| 29| BinomialCatalan       |A098474|  33    | 38| [T](https://peterluschny.github.io/tabl/BinomialCatalan.html)   | [L](https://peterluschny.github.io/tablInspector/BinomialCatalanTraits.html) |
-| 30| CatalanPaths       |A053121|  33    | 50| [T](https://peterluschny.github.io/tabl/CatalanPaths.html)   | [L](https://peterluschny.github.io/tablInspector/CatalanPathsTraits.html) |
-| 31| ChebyshevS       |A168561|  33    | 47| [T](https://peterluschny.github.io/tabl/ChebyshevS.html)   | [L](https://peterluschny.github.io/tablInspector/ChebyshevSTraits.html) |
-| 32| LeibnizTable       |A094053|  32    | 51| [T](https://peterluschny.github.io/tabl/LeibnizTable.html)   | [L](https://peterluschny.github.io/tablInspector/LeibnizTableTraits.html) |
-| 33| Rencontres       |A008290|  32    | 42| [T](https://peterluschny.github.io/tabl/Rencontres.html)   | [L](https://peterluschny.github.io/tablInspector/RencontresTraits.html) |
-| 34| LucasInv       |A112857|  31    | 41| [T](https://peterluschny.github.io/tabl/LucasInv.html)   | [L](https://peterluschny.github.io/tablInspector/LucasInvTraits.html) |
-| 35| Naturals       |A000027|  31    | 35| [T](https://peterluschny.github.io/tabl/Naturals.html)   | [L](https://peterluschny.github.io/tablInspector/NaturalsTraits.html) |
-| 36| Worpitzky       |A028246|  31    | 41| [T](https://peterluschny.github.io/tabl/Worpitzky.html)   | [L](https://peterluschny.github.io/tablInspector/WorpitzkyTraits.html) |
-| 37| SchroederP       |A104684|  30    | 34| [T](https://peterluschny.github.io/tabl/SchroederP.html)   | [L](https://peterluschny.github.io/tablInspector/SchroederPTraits.html) |
-| 38| ChebyshevT       |A053120|  29    | 43| [T](https://peterluschny.github.io/tabl/ChebyshevT.html)   | [L](https://peterluschny.github.io/tablInspector/ChebyshevTTraits.html) |
-| 39| MotzkinInv       |A101950|  28    | 39| [T](https://peterluschny.github.io/tabl/MotzkinInv.html)   | [L](https://peterluschny.github.io/tablInspector/MotzkinInvTraits.html) |
-| 40| MotzkinPoly       |A359364|  28    | 41| [T](https://peterluschny.github.io/tabl/MotzkinPoly.html)   | [L](https://peterluschny.github.io/tablInspector/MotzkinPolyTraits.html) |
-| 41| PartitionDist       |A000000|  28    | 41| [T](https://peterluschny.github.io/tabl/PartitionDist.html)   | [L](https://peterluschny.github.io/tablInspector/PartitionDistTraits.html) |
-| 42| Bell       |A011971|  27    | 37| [T](https://peterluschny.github.io/tabl/Bell.html)   | [L](https://peterluschny.github.io/tablInspector/BellTraits.html) |
-| 43| ChebyshevU       |A115322|  27    | 38| [T](https://peterluschny.github.io/tabl/ChebyshevU.html)   | [L](https://peterluschny.github.io/tablInspector/ChebyshevUTraits.html) |
-| 44| Euler       |A109449|  27    | 36| [T](https://peterluschny.github.io/tabl/Euler.html)   | [L](https://peterluschny.github.io/tablInspector/EulerTraits.html) |
-| 45| StirlingCycleB       |A028338|  27    | 38| [T](https://peterluschny.github.io/tabl/StirlingCycleB.html)   | [L](https://peterluschny.github.io/tablInspector/StirlingCycleBTraits.html) |
-| 46| Binomial       |A007318|  26    | 68| [T](https://peterluschny.github.io/tabl/Binomial.html)   | [L](https://peterluschny.github.io/tablInspector/BinomialTraits.html) |
-| 47| DoublePochhammer       |A039683|  26    | 32| [T](https://peterluschny.github.io/tabl/DoublePochhammer.html)   | [L](https://peterluschny.github.io/tablInspector/DoublePochhammerTraits.html) |
-| 48| Pascal       |A007318|  26    | 68| [T](https://peterluschny.github.io/tabl/Pascal.html)   | [L](https://peterluschny.github.io/tablInspector/PascalTraits.html) |      
-| 49| Bessel2       |A359760|  25    | 41| [T](https://peterluschny.github.io/tabl/Bessel2.html)   | [L](https://peterluschny.github.io/tablInspector/Bessel2Traits.html) |   
-| 50| Delannoy       |A008288|  25    | 49| [T](https://peterluschny.github.io/tabl/Delannoy.html)   | [L](https://peterluschny.github.io/tablInspector/DelannoyTraits.html) |
+|  1| StirlingSet       |A048993|  53    | 63| [All](https://peterluschny.github.io/tabl/StirlingSet.html)   | [OEIS](https://peterluschny.github.io/tablInspector/StirlingSetTraits.html) |
+|  2| FallingFactorial       |A008279|  48    | 60| [All](https://peterluschny.github.io/tabl/FallingFactorial.html)   | [OEIS](https://peterluschny.github.io/tablInspector/FallingFactorialTraits.html) | 
+|  3| StirlingCycle       |A132393|  47    | 63| [All](https://peterluschny.github.io/tabl/StirlingCycle.html)   | [OEIS](https://peterluschny.github.io/tablInspector/StirlingCycleTraits.html) |
+|  4| BinaryPell       |A038207|  46    | 57| [All](https://peterluschny.github.io/tabl/BinaryPell.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BinaryPellTraits.html) |
+|  5| Lah       |A271703|  46    | 56| [All](https://peterluschny.github.io/tabl/Lah.html)   | [OEIS](https://peterluschny.github.io/tablInspector/LahTraits.html) |
+|  6| Lucas       |A029635|  45    | 59| [All](https://peterluschny.github.io/tabl/Lucas.html)   | [OEIS](https://peterluschny.github.io/tablInspector/LucasTraits.html) |
+|  7| DyckPathsInv       |A085478|  43    | 55| [All](https://peterluschny.github.io/tabl/DyckPathsInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/DyckPathsInvTraits.html) |
+|  8| Fubini       |A131689|  43    | 50| [All](https://peterluschny.github.io/tabl/Fubini.html)   | [OEIS](https://peterluschny.github.io/tablInspector/FubiniTraits.html) |
+|  9| Partition       |A072233|  43    | 55| [All](https://peterluschny.github.io/tabl/Partition.html)   | [OEIS](https://peterluschny.github.io/tablInspector/PartitionTraits.html) |
+| 10| CatalanInv       |A128908|  42    | 49| [All](https://peterluschny.github.io/tabl/CatalanInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/CatalanInvTraits.html) |
+| 11| BesselInv       |A122848|  41    | 48| [All](https://peterluschny.github.io/tabl/BesselInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BesselInvTraits.html) |
+| 12| Ordinals       |A002262|  41    | 66| [All](https://peterluschny.github.io/tabl/Ordinals.html)   | [OEIS](https://peterluschny.github.io/tablInspector/OrdinalsTraits.html) |
+| 13| DyckPaths       |A039599|  39    | 51| [All](https://peterluschny.github.io/tabl/DyckPaths.html)   | [OEIS](https://peterluschny.github.io/tablInspector/DyckPathsTraits.html) |
+| 14| Powers       |A004248|  39    | 49| [All](https://peterluschny.github.io/tabl/Powers.html)   | [OEIS](https://peterluschny.github.io/tablInspector/PowersTraits.html) |
+| 15| Motzkin       |A064189|  38    | 48| [All](https://peterluschny.github.io/tabl/Motzkin.html)   | [OEIS](https://peterluschny.github.io/tablInspector/MotzkinTraits.html) |
+| 16| Catalan       |A128899|  37    | 44| [All](https://peterluschny.github.io/tabl/Catalan.html)   | [OEIS](https://peterluschny.github.io/tablInspector/CatalanTraits.html) |
+| 17| Divisibility       |A113704|  37    | 58| [All](https://peterluschny.github.io/tabl/Divisibility.html)   | [OEIS](https://peterluschny.github.io/tablInspector/DivisibilityTraits.html) |
+| 18| Eulerian       |A173018|  37    | 56| [All](https://peterluschny.github.io/tabl/Eulerian.html)   | [OEIS](https://peterluschny.github.io/tablInspector/EulerianTraits.html) |
+| 19| Monotone       |A059481|  37    | 52| [All](https://peterluschny.github.io/tabl/Monotone.html)   | [OEIS](https://peterluschny.github.io/tablInspector/MonotoneTraits.html) |
+| 20| Abel       |A137452|  36    | 42| [All](https://peterluschny.github.io/tabl/Abel.html)   | [OEIS](https://peterluschny.github.io/tablInspector/AbelTraits.html) |
+| 21| AbelInv       |A059297|  36    | 42| [All](https://peterluschny.github.io/tabl/AbelInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/AbelInvTraits.html) |
+| 22| Laguerre       |A021009|  36    | 44| [All](https://peterluschny.github.io/tabl/Laguerre.html)   | [OEIS](https://peterluschny.github.io/tablInspector/LaguerreTraits.html) |
+| 23| Narayana       |A090181|  36    | 55| [All](https://peterluschny.github.io/tabl/Narayana.html)   | [OEIS](https://peterluschny.github.io/tablInspector/NarayanaTraits.html) |
+| 24| Schroeder       |A122538|  36    | 45| [All](https://peterluschny.github.io/tabl/Schroeder.html)   | [OEIS](https://peterluschny.github.io/tablInspector/SchroederTraits.html) |
+| 25| Bessel       |A132062|  35    | 42| [All](https://peterluschny.github.io/tabl/Bessel.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BesselTraits.html) |
+| 26| ChebyshevS       |A168561|  35    | 49| [All](https://peterluschny.github.io/tabl/ChebyshevS.html)   | [OEIS](https://peterluschny.github.io/tablInspector/ChebyshevSTraits.html) |
+| 27| BinomialCatalan       |A098474|  34    | 40| [All](https://peterluschny.github.io/tabl/BinomialCatalan.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BinomialCatalanTraits.html) |    
+| 28| CatalanPaths       |A053121|  34    | 52| [All](https://peterluschny.github.io/tabl/CatalanPaths.html)   | [OEIS](https://peterluschny.github.io/tablInspector/CatalanPathsTraits.html) |
+| 29| Nicomachus       |A036561|  34    | 42| [All](https://peterluschny.github.io/tabl/Nicomachus.html)   | [OEIS](https://peterluschny.github.io/tablInspector/NicomachusTraits.html) |
+| 30| OrderedCycle       |A225479|  34    | 39| [All](https://peterluschny.github.io/tabl/OrderedCycle.html)   | [OEIS](https://peterluschny.github.io/tablInspector/OrderedCycleTraits.html) |
+| 31| BinomialBell       |A056857|  33    | 40| [All](https://peterluschny.github.io/tabl/BinomialBell.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BinomialBellTraits.html) |
+| 32| LeibnizTable       |A094053|  33    | 51| [All](https://peterluschny.github.io/tabl/LeibnizTable.html)   | [OEIS](https://peterluschny.github.io/tablInspector/LeibnizTableTraits.html) |
+| 33| Moebius       |A363914|  33    | 54| [All](https://peterluschny.github.io/tabl/Moebius.html)   | [OEIS](https://peterluschny.github.io/tablInspector/MoebiusTraits.html) |
+| 34| ChebyshevT       |A053120|  32    | 44| [All](https://peterluschny.github.io/tabl/ChebyshevT.html)   | [OEIS](https://peterluschny.github.io/tablInspector/ChebyshevTTraits.html) |
+| 35| LucasInv       |A112857|  32    | 43| [All](https://peterluschny.github.io/tabl/LucasInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/LucasInvTraits.html) |
+| 36| PartitionDist       |A008289|  32    | 43| [All](https://peterluschny.github.io/tabl/PartitionDist.html)   | [OEIS](https://peterluschny.github.io/tablInspector/PartitionDistTraits.html) |
+| 37| Rencontres       |A008290|  32    | 43| [All](https://peterluschny.github.io/tabl/Rencontres.html)   | [OEIS](https://peterluschny.github.io/tablInspector/RencontresTraits.html) |
+| 38| SchroederP       |A104684|  32    | 37| [All](https://peterluschny.github.io/tabl/SchroederP.html)   | [OEIS](https://peterluschny.github.io/tablInspector/SchroederPTraits.html) |
+| 39| MotzkinInv       |A104562|  31    | 41| [All](https://peterluschny.github.io/tabl/MotzkinInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/MotzkinInvTraits.html) |
+| 40| Naturals       |A000027|  31    | 35| [All](https://peterluschny.github.io/tabl/Naturals.html)   | [OEIS](https://peterluschny.github.io/tablInspector/NaturalsTraits.html) |
+| 41| Worpitzky       |A028246|  31    | 42| [All](https://peterluschny.github.io/tabl/Worpitzky.html)   | [OEIS](https://peterluschny.github.io/tablInspector/WorpitzkyTraits.html) |
+| 42| BinomialInv       |A007318|  30    | 69| [All](https://peterluschny.github.io/tabl/BinomialInv.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BinomialInvTraits.html) |
+| 43| Bell       |A011971|  28    | 39| [All](https://peterluschny.github.io/tabl/Bell.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BellTraits.html) |
+| 44| ChebyshevU       |A115322|  28    | 39| [All](https://peterluschny.github.io/tabl/ChebyshevU.html)   | [OEIS](https://peterluschny.github.io/tablInspector/ChebyshevUTraits.html) |
+| 45| MotzkinPoly       |A359364|  28    | 42| [All](https://peterluschny.github.io/tabl/MotzkinPoly.html)   | [OEIS](https://peterluschny.github.io/tablInspector/MotzkinPolyTraits.html) |
+| 46| StirlingCycleB       |A028338|  28    | 40| [All](https://peterluschny.github.io/tabl/StirlingCycleB.html)   | [OEIS](https://peterluschny.github.io/tablInspector/StirlingCycleBTraits.html) |       
+| 47| Binomial       |A007318|  27    | 71| [All](https://peterluschny.github.io/tabl/Binomial.html)   | [OEIS](https://peterluschny.github.io/tablInspector/BinomialTraits.html) |
+| 48| Euler       |A109449|  27    | 38| [All](https://peterluschny.github.io/tabl/Euler.html)   | [OEIS](https://peterluschny.github.io/tablInspector/EulerTraits.html) |
+| 49| EulerSec       |A119879|  27    | 39| [All](https://peterluschny.github.io/tabl/EulerSec.html)   | [OEIS](https://peterluschny.github.io/tablInspector/EulerSecTraits.html) |
+| 50| PartitionDistSize       |A365676|  27    | 37| [All](https://peterluschny.github.io/tabl/PartitionDistSize.html)   | [OEIS](https://peterluschny.github.io/tablInspector/PartitionDistSizeTraits.html) |
+
+## The tablInspector as an OEIS add-on
+
+The tblInspector can also be thought of as an app that works like an add-on when displaying some HTML pages of the OEIS. However, you do not have to load an app or add an add-on to your browser, you just need to access these pages via the link below. Don't forget to bookmark it.
+
+ ## [tablInspector](https://peterluschny.github.io/tablInspector/index.html) 

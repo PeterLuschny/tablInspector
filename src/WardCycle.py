@@ -46,8 +46,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    WardCycle_AltSum        -> https://oeis.org/A-999999
     WardCycle_Trev          -> 0 
     WardCycle_Tacc          -> 0 
     WardCycle_Tder          -> 0 
@@ -105,6 +106,7 @@ if __name__ == "__main__":
     WardCycle_RevNegHalf    -> https://oeis.org/A6351
     WardCycle_TablSum       -> https://oeis.org/A32188
     WardCycle_AbsSum        -> https://oeis.org/A32188
+    WardCycle_AltSum        -> https://oeis.org/A33999
     WardCycle_PolyRow2      -> https://oeis.org/A45944
     WardCycle_Tantidiag     -> https://oeis.org/A106828
     WardCycle_Trev11        -> https://oeis.org/A111999

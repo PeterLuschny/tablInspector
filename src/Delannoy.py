@@ -47,10 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Delannoy_Talt          -> https://oeis.org/A-999999
-    Delannoy_AltSum        -> https://oeis.org/A-999999
-    Delannoy_RevTalt       -> https://oeis.org/A-999999
     Delannoy_Toff11        -> 0 
     Delannoy_Trev11        -> 0 
     Delannoy_Tinv11        -> 0 
@@ -94,6 +93,8 @@ if __name__ == "__main__":
     Delannoy_RevPosHalf    -> https://oeis.org/A7482
     Delannoy_Triangle      -> https://oeis.org/A8288
     Delannoy_Trev          -> https://oeis.org/A8288
+    Delannoy_Talt          -> https://oeis.org/A8288
+    Delannoy_RevTalt       -> https://oeis.org/A8288
     Delannoy_PolyCol3      -> https://oeis.org/A15530
     Delannoy_RevPolyCol3   -> https://oeis.org/A15530
     Delannoy_TablMax       -> https://oeis.org/A26003
@@ -107,6 +108,7 @@ if __name__ == "__main__":
     Delannoy_PolyRow2      -> https://oeis.org/A28387
     Delannoy_RevPolyRow2   -> https://oeis.org/A28387
     Delannoy_Trevinv       -> https://oeis.org/A33878
+    Delannoy_AltSum        -> https://oeis.org/A56594
     Delannoy_InvBinConv    -> https://oeis.org/A59304
     Delannoy_NegHalf       -> https://oeis.org/A77020
     Delannoy_RevNegHalf    -> https://oeis.org/A77020

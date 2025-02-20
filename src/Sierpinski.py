@@ -38,18 +38,20 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Sierpinski_NegHalf       -> https://oeis.org/A-999999
-    Sierpinski_RevNegHalf    -> https://oeis.org/A-999999
     Sierpinski_Tantidiag     -> 0 
     Sierpinski_AccSum        -> 0 
     Sierpinski_AccRevSum     -> 0 
+    Sierpinski_NegHalf       -> 0 
     Sierpinski_TransNat1     -> 0 
     Sierpinski_TransSqrs     -> 0 
     Sierpinski_InvBinConv    -> 0 
     Sierpinski_PolyDiag      -> 0 
     Sierpinski_RevTantidiag  -> 0 
     Sierpinski_RevAccRevSum  -> 0 
+    Sierpinski_RevNegHalf    -> 0 
     Sierpinski_RevTransNat1  -> 0 
     Sierpinski_RevTransSqrs  -> 0 
     Sierpinski_RevPolyDiag   -> 0 
@@ -111,5 +113,5 @@ if __name__ == "__main__":
     Sierpinski_TransNat0     -> https://oeis.org/A335063
     Sierpinski_RevTransNat0  -> https://oeis.org/A335063
 
-    Sierpinski: Distinct: 22, Hits: 59, Misses: 12
+    Sierpinski: Distinct: 21, Hits: 57, Misses: 14
 '''

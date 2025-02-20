@@ -43,6 +43,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Nicomachus_Toff11        -> 0 
     Nicomachus_Trev11        -> 0 

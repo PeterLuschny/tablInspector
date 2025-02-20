@@ -55,10 +55,11 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Moebius_Tantidiag     -> https://oeis.org/A-999999
-    Moebius_OddSum        -> https://oeis.org/A-999999
     Moebius_Trevinv       -> 0 
+    Moebius_Tantidiag     -> 0 
     Moebius_Tacc          -> 0 
     Moebius_BinConv       -> 0 
     Moebius_InvBinConv    -> 0 
@@ -114,6 +115,7 @@ if __name__ == "__main__":
     Moebius_ColMiddle     -> https://oeis.org/A128174
     Moebius_AltSum        -> https://oeis.org/A130779
     Moebius_EvenSum       -> https://oeis.org/A154272
+    Moebius_OddSum        -> https://oeis.org/A154955
     Moebius_Toff11        -> https://oeis.org/A174852
     Moebius_TablDiag1     -> https://oeis.org/A209229
     Moebius_CentralO      -> https://oeis.org/A209229
@@ -126,5 +128,5 @@ if __name__ == "__main__":
     Moebius_NegHalf       -> https://oeis.org/A367773
     Moebius_PosHalf       -> https://oeis.org/A367774
 
-    Moebius: Distinct: 33, Hits: 55, Misses: 14
+    Moebius: Distinct: 33, Hits: 54, Misses: 15
 '''

@@ -45,8 +45,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    DoublePochhammer_Triangle      -> 0 
     DoublePochhammer_Tinv          -> 0 
     DoublePochhammer_Trev          -> 0 
     DoublePochhammer_Trevinv       -> 0 
@@ -105,6 +106,7 @@ if __name__ == "__main__":
     DoublePochhammer_NegHalf       -> https://oeis.org/A8545
     DoublePochhammer_RevPolyRow3   -> https://oeis.org/A14634
     DoublePochhammer_TablDiag2     -> https://oeis.org/A36464
+    DoublePochhammer_Triangle      -> https://oeis.org/A39683
     DoublePochhammer_Toff11        -> https://oeis.org/A39683
     DoublePochhammer_TablGcd       -> https://oeis.org/A65176
     DoublePochhammer_Tinv11        -> https://oeis.org/A75497
@@ -116,5 +118,5 @@ if __name__ == "__main__":
     DoublePochhammer_AntiDSum      -> https://oeis.org/A353255
     DoublePochhammer_PolyRow3      -> https://oeis.org/A370912
 
-    DoublePochhammer: Distinct: 26, Hits: 32, Misses: 37
+    DoublePochhammer: Distinct: 26, Hits: 33, Misses: 36
 '''

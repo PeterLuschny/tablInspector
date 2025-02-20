@@ -47,6 +47,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Eulerian2_Tinvrev11     -> 0 
     Eulerian2_Tantidiag     -> 0 

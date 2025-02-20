@@ -45,13 +45,13 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    DelannoyInv_Tinv          -> https://oeis.org/A-999999
-    DelannoyInv_Trevinv       -> https://oeis.org/A-999999
-    DelannoyInv_Tinv11        -> https://oeis.org/A-999999
-    DelannoyInv_Trevinv11     -> https://oeis.org/A-999999
     DelannoyInv_Toff11        -> 0 
     DelannoyInv_Trev11        -> 0 
+    DelannoyInv_Tinv11        -> 0 
+    DelannoyInv_Trevinv11     -> 0 
     DelannoyInv_Tantidiag     -> 0 
     DelannoyInv_Tacc          -> 0 
     DelannoyInv_Tder          -> 0 
@@ -100,6 +100,8 @@ if __name__ == "__main__":
     DelannoyInv_TablCol0      -> https://oeis.org/A6318
     DelannoyInv_TablSum       -> https://oeis.org/A6318
     DelannoyInv_AbsSum        -> https://oeis.org/A6318
+    DelannoyInv_Tinv          -> https://oeis.org/A8288
+    DelannoyInv_Trevinv       -> https://oeis.org/A8288
     DelannoyInv_RevTacc       -> https://oeis.org/A33877
     DelannoyInv_Trev          -> https://oeis.org/A33878
     DelannoyInv_RevTalt       -> https://oeis.org/A33878
@@ -116,5 +118,5 @@ if __name__ == "__main__":
     DelannoyInv_NegHalf       -> https://oeis.org/A330803
     DelannoyInv_CentralE      -> https://oeis.org/A367393
 
-    DelannoyInv: Distinct: 23, Hits: 37, Misses: 32
+    DelannoyInv: Distinct: 23, Hits: 35, Misses: 34
 '''

@@ -47,9 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Parades_PolyRow1      -> https://oeis.org/A-999999
-    Parades_RevPolyRow1   -> https://oeis.org/A-999999
     Parades_Toff11        -> 0 
     Parades_Trev11        -> 0 
     Parades_Tantidiag     -> 0 
@@ -88,6 +88,8 @@ if __name__ == "__main__":
     Parades_RevTransSqrs  -> 0 
     Parades_RevPolyCol3   -> 0 
     Parades_RevPolyDiag   -> 0 
+    Parades_PolyRow1      -> https://oeis.org/A4
+    Parades_RevPolyRow1   -> https://oeis.org/A4
     Parades_TablCol0      -> https://oeis.org/A7
     Parades_TablDiag0     -> https://oeis.org/A7
     Parades_TablCol1      -> https://oeis.org/A12

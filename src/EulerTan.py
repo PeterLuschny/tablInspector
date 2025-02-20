@@ -54,10 +54,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    EulerTan_TablDiag0     -> https://oeis.org/A-999999
-    EulerTan_TablDiag2     -> https://oeis.org/A-999999
-    EulerTan_RevEvenSum    -> https://oeis.org/A-999999
     EulerTan_Trev          -> 0 
     EulerTan_Toff11        -> 0 
     EulerTan_Trev11        -> 0 
@@ -98,6 +97,9 @@ if __name__ == "__main__":
     EulerTan_RevPolyRow3   -> 0 
     EulerTan_RevPolyCol3   -> 0 
     EulerTan_RevPolyDiag   -> 0 
+    EulerTan_TablDiag0     -> https://oeis.org/A4
+    EulerTan_TablDiag2     -> https://oeis.org/A4
+    EulerTan_RevEvenSum    -> https://oeis.org/A4
     EulerTan_PolyRow1      -> https://oeis.org/A12
     EulerTan_TablDiag1     -> https://oeis.org/A27
     EulerTan_RevPolyRow1   -> https://oeis.org/A27

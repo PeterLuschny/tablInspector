@@ -47,10 +47,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    MotzkinPoly_TablCol1      -> https://oeis.org/A-999999
-    MotzkinPoly_TablCol3      -> https://oeis.org/A-999999
-    MotzkinPoly_OddSum        -> https://oeis.org/A-999999
     MotzkinPoly_Tinvrev       -> 0 
     MotzkinPoly_Toff11        -> 0 
     MotzkinPoly_Trev11        -> 0 
@@ -76,6 +75,9 @@ if __name__ == "__main__":
     MotzkinPoly_RevColMiddle  -> 0 
     MotzkinPoly_RevCentralO   -> 0 
     MotzkinPoly_RevTransSqrs  -> 0 
+    MotzkinPoly_TablCol1      -> https://oeis.org/A4
+    MotzkinPoly_TablCol3      -> https://oeis.org/A4
+    MotzkinPoly_OddSum        -> https://oeis.org/A4
     MotzkinPoly_TablCol0      -> https://oeis.org/A12
     MotzkinPoly_PolyRow1      -> https://oeis.org/A12
     MotzkinPoly_RevPolyRow1   -> https://oeis.org/A27

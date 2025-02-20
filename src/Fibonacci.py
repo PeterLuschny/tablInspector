@@ -48,13 +48,14 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Fibonacci_Tinv11        -> https://oeis.org/A-999999
-    Fibonacci_Trevinv11     -> https://oeis.org/A-999999
     Fibonacci_Tinv          -> 0 
     Fibonacci_Trev          -> 0 
     Fibonacci_Trevinv       -> 0 
     Fibonacci_Trev11        -> 0 
+    Fibonacci_Trevinv11     -> 0 
     Fibonacci_Tantidiag     -> 0 
     Fibonacci_Tacc          -> 0 
     Fibonacci_Tder          -> 0 
@@ -110,6 +111,7 @@ if __name__ == "__main__":
     Fibonacci_OddSum        -> https://oeis.org/A99036
     Fibonacci_AbsSum        -> https://oeis.org/A99036
     Fibonacci_Toff11        -> https://oeis.org/A105809
+    Fibonacci_Tinv11        -> https://oeis.org/A105810
     Fibonacci_RevCentralO   -> https://oeis.org/A108081
     Fibonacci_RevNegHalf    -> https://oeis.org/A113312
     Fibonacci_TablGcd       -> https://oeis.org/A174965
@@ -119,5 +121,5 @@ if __name__ == "__main__":
     Fibonacci_CentralE      -> https://oeis.org/A371870
     Fibonacci_BinConv       -> https://oeis.org/A371870
 
-    Fibonacci: Distinct: 22, Hits: 33, Misses: 36
+    Fibonacci: Distinct: 22, Hits: 32, Misses: 37
 '''

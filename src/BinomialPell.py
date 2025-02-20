@@ -50,6 +50,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     BinomialPell_Trev          -> 0 
     BinomialPell_Toff11        -> 0 

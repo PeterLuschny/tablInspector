@@ -48,8 +48,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Rencontres_TablDiag1     -> https://oeis.org/A-999999
     Rencontres_Trevinv       -> 0 
     Rencontres_Toff11        -> 0 
     Rencontres_Trev11        -> 0 
@@ -76,6 +77,7 @@ if __name__ == "__main__":
     Rencontres_RevPolyRow3   -> 0 
     Rencontres_RevPolyCol3   -> 0 
     Rencontres_RevPolyDiag   -> 0 
+    Rencontres_TablDiag1     -> https://oeis.org/A4
     Rencontres_TablDiag0     -> https://oeis.org/A12
     Rencontres_TablGcd       -> https://oeis.org/A12
     Rencontres_RevPolyRow1   -> https://oeis.org/A12

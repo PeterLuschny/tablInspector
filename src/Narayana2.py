@@ -44,9 +44,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    Narayana2_Talt          -> https://oeis.org/A-999999
-    Narayana2_AltSum        -> https://oeis.org/A-999999
     Narayana2_Tinv          -> 0 
     Narayana2_Trevinv       -> 0 
     Narayana2_Toff11        -> 0 
@@ -111,10 +111,12 @@ if __name__ == "__main__":
     Narayana2_AbsSum        -> https://oeis.org/A68875
     Narayana2_NegHalf       -> https://oeis.org/A91593
     Narayana2_RevNegHalf    -> https://oeis.org/A152681
+    Narayana2_AltSum        -> https://oeis.org/A154955
     Narayana2_CentralE      -> https://oeis.org/A172392
     Narayana2_PosHalf       -> https://oeis.org/A238113
     Narayana2_Triangle      -> https://oeis.org/A352687
     Narayana2_Trev          -> https://oeis.org/A352687
+    Narayana2_Talt          -> https://oeis.org/A352687
 
     Narayana2: Distinct: 19, Hits: 31, Misses: 39
 '''

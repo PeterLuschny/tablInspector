@@ -49,6 +49,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     Jacobsthal_Trev          -> 0 
     Jacobsthal_Trevinv       -> 0 

@@ -50,8 +50,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    EulerianZigZag_Triangle      -> 0 
     EulerianZigZag_Trev          -> 0 
     EulerianZigZag_Tinvrev       -> 0 
     EulerianZigZag_Toff11        -> 0 
@@ -109,6 +110,7 @@ if __name__ == "__main__":
     EulerianZigZag_RevPolyRow3   -> https://oeis.org/A11379
     EulerianZigZag_TablCol2      -> https://oeis.org/A205492
     EulerianZigZag_TablCol3      -> https://oeis.org/A205493
+    EulerianZigZag_Triangle      -> https://oeis.org/A205497
     EulerianZigZag_PolyCol2      -> https://oeis.org/A350354
     EulerianZigZag_RevPosHalf    -> https://oeis.org/A350354
     EulerianZigZag_AltSum        -> https://oeis.org/A373388
@@ -119,5 +121,5 @@ if __name__ == "__main__":
     EulerianZigZag_RevOddSum     -> https://oeis.org/A373753
     EulerianZigZag_TablMax       -> https://oeis.org/A373755
 
-    EulerianZigZag: Distinct: 17, Hits: 26, Misses: 41
+    EulerianZigZag: Distinct: 18, Hits: 27, Misses: 40
 '''

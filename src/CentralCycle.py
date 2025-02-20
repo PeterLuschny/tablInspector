@@ -45,8 +45,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CentralCycle_AltSum        -> https://oeis.org/A-999999
     CentralCycle_Trev          -> 0 
     CentralCycle_Tacc          -> 0 
     CentralCycle_Tder          -> 0 
@@ -104,6 +105,7 @@ if __name__ == "__main__":
     CentralCycle_RevNegHalf    -> https://oeis.org/A6351
     CentralCycle_TablSum       -> https://oeis.org/A32188
     CentralCycle_AbsSum        -> https://oeis.org/A32188
+    CentralCycle_AltSum        -> https://oeis.org/A33999
     CentralCycle_PolyRow2      -> https://oeis.org/A45944
     CentralCycle_Tantidiag     -> https://oeis.org/A106828
     CentralCycle_Trev11        -> https://oeis.org/A111999

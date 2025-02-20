@@ -42,6 +42,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     PowLaguerre_Toff11        -> 0 
     PowLaguerre_Trev11        -> 0 

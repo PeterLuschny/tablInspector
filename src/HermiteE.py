@@ -40,10 +40,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    HermiteE_TablDiag1     -> https://oeis.org/A-999999
-    HermiteE_TablDiag3     -> https://oeis.org/A-999999
-    HermiteE_RevOddSum     -> https://oeis.org/A-999999
     HermiteE_Toff11        -> 0 
     HermiteE_Trev11        -> 0 
     HermiteE_Tinv11        -> 0 
@@ -71,6 +70,9 @@ if __name__ == "__main__":
     HermiteE_RevTransNat1  -> 0 
     HermiteE_RevTransSqrs  -> 0 
     HermiteE_RevPolyCol3   -> 0 
+    HermiteE_TablDiag1     -> https://oeis.org/A4
+    HermiteE_TablDiag3     -> https://oeis.org/A4
+    HermiteE_RevOddSum     -> https://oeis.org/A4
     HermiteE_TablDiag0     -> https://oeis.org/A12
     HermiteE_RevPolyRow1   -> https://oeis.org/A12
     HermiteE_PolyRow1      -> https://oeis.org/A27

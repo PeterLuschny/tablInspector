@@ -43,8 +43,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    BesselInv_CentralO      -> https://oeis.org/A-999999
     BesselInv_Tantidiag     -> 0 
     BesselInv_Tacc          -> 0 
     BesselInv_Tder          -> 0 
@@ -66,6 +67,7 @@ if __name__ == "__main__":
     BesselInv_RevAccRevSum  -> 0 
     BesselInv_RevAntiDSum   -> 0 
     BesselInv_RevTransNat1  -> 0 
+    BesselInv_CentralO      -> https://oeis.org/A4
     BesselInv_TablCol0      -> https://oeis.org/A7
     BesselInv_TablDiag0     -> https://oeis.org/A12
     BesselInv_RevPolyRow1   -> https://oeis.org/A12

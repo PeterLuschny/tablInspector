@@ -51,6 +51,8 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
     StirlingSetB_Tinv          -> 0 
     StirlingSetB_Trev          -> 0 

@@ -40,11 +40,12 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    CompositionAcc_Tinvrev11     -> https://oeis.org/A-999999
-    CompositionAcc_Triangle      -> 0 
     CompositionAcc_Trev          -> 0 
     CompositionAcc_Trev11        -> 0 
+    CompositionAcc_Tinvrev11     -> 0 
     CompositionAcc_Tantidiag     -> 0 
     CompositionAcc_Tacc          -> 0 
     CompositionAcc_Talt          -> 0 
@@ -103,10 +104,11 @@ if __name__ == "__main__":
     CompositionAcc_TablSum       -> https://oeis.org/A39671
     CompositionAcc_AbsSum        -> https://oeis.org/A39671
     CompositionAcc_CentralO      -> https://oeis.org/A100575
+    CompositionAcc_Triangle      -> https://oeis.org/A126198
     CompositionAcc_Toff11        -> https://oeis.org/A126198
     CompositionAcc_TablDiag3     -> https://oeis.org/A159741
     CompositionAcc_RevColMiddle  -> https://oeis.org/A336103
     CompositionAcc_ColMiddle     -> https://oeis.org/A368484
 
-    CompositionAcc: Distinct: 19, Hits: 23, Misses: 43
+    CompositionAcc: Distinct: 18, Hits: 23, Misses: 43
 '''

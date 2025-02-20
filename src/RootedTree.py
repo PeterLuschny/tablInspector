@@ -39,10 +39,9 @@ if __name__ == "__main__":
 
 
 
+
+
 ''' OEIS
-    RootedTree_Talt          -> https://oeis.org/A-999999
-    RootedTree_TablCol0      -> https://oeis.org/A-999999
-    RootedTree_Triangle      -> 0 
     RootedTree_Trev          -> 0 
     RootedTree_Trev11        -> 0 
     RootedTree_Tinv11        -> 0 
@@ -50,6 +49,7 @@ if __name__ == "__main__":
     RootedTree_Trevinv11     -> 0 
     RootedTree_Tantidiag     -> 0 
     RootedTree_Tacc          -> 0 
+    RootedTree_Talt          -> 0 
     RootedTree_Tder          -> 0 
     RootedTree_TablLcm       -> 0 
     RootedTree_TablMax       -> 0 
@@ -85,6 +85,7 @@ if __name__ == "__main__":
     RootedTree_RevTransSqrs  -> 0 
     RootedTree_RevPolyCol3   -> 0 
     RootedTree_RevPolyDiag   -> 0 
+    RootedTree_TablCol0      -> https://oeis.org/A4
     RootedTree_TablCol1      -> https://oeis.org/A12
     RootedTree_TablDiag0     -> https://oeis.org/A12
     RootedTree_RevPolyRow1   -> https://oeis.org/A12
@@ -98,6 +99,7 @@ if __name__ == "__main__":
     RootedTree_RevPolyRow3   -> https://oeis.org/A290
     RootedTree_TransNat0     -> https://oeis.org/A1853
     RootedTree_PolyRow2      -> https://oeis.org/A2378
+    RootedTree_Triangle      -> https://oeis.org/A34781
     RootedTree_Toff11        -> https://oeis.org/A34781
     RootedTree_TablDiag2     -> https://oeis.org/A34856
     RootedTree_TablDiag3     -> https://oeis.org/A34857
