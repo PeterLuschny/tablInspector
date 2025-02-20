@@ -1,4 +1,4 @@
-![The tabl Inspector](imag/tablinspector.jpg)
+![The tabl Inspector](imag/tblinspector.jpg)
 
 # tablInspector
 
