@@ -1,6 +1,6 @@
-![The tabl Inspector](imag/tblinspector.jpg)
+<img src="imag/tblinspector.jpg" width="300" alt="The tabl Inspector"/>
 
-# tablInspector
+# tabl Inspector
 
 No, the name has no typo. 'tabl' is a keyword in the Online Encyclopedia of Integer Sequences (OEIS). It classifies a sequence as a regular triangular array of numbers.
 
