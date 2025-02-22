@@ -6,7 +6,7 @@ No, the name has no typo. 'tabl' is a keyword in the Online Encyclopedia of Inte
 
 This library can be used in three ways:
 
-- As a library of Python implementations of lower triangular matrices with integer values values, which can be integrated into your own programs.
+- As a library of Python implementations of lower triangular matrices with integer values, which can be integrated into your own programs.
 
 - The tblInspector can also be thought of as an app that works like an add-on when displaying some HTML pages of the OEIS (those that are implemented in this library). However, you do not have to load an app or add an add-on to your browser, you just need to access these pages via this link:
 
