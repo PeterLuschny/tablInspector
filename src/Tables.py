@@ -842,10 +842,9 @@ def QueryOEIS(
     )  # XXXXX dont skip leading terms if the rest is zero
     seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
-    for repeat in range(4):
+    for _ in range(4):
         time.sleep(0.5)  # give the OEIS server some time to relax
-        if info:
-            print(f"connecting: [{repeat}]")
+        # if debug: print(f"connecting: [{repeat}]")
         try:
             # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=30).json()
             jdata = get(url, timeout=30).json()
@@ -2602,7 +2601,7 @@ def RefreshHtml(filter: bool = False) -> None:
         index.flush()
 
 
-indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{ font-family: Calabri, Arial, sans-serif; font-size: 16px; background-color: yellow; color: #0f0f0f} a{ text-decoration: none;} tbody td:hover{ background-color: greenyellow;} table, td,th{ border: 2px solid black; border-collapse: collapse; margin-left: 16px; padding-left: 10px; padding-top: 4px;} </style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>Triangle Inspector</th></tr></thead><tbody><tr>"
+indheader = "<!DOCTYPE html><html lang='en'><head><title>Index</title><meta name='viewport' content='width=device-width,initial-scale=1'><style type='text/css'>body{ font-family: Calabri, Arial, sans-serif; font-size: 16px; background-color: #2f3332; color: #0f0f0f} a{ text-decoration: none;} tbody td:hover{ background-color: greenyellow;} table, td,th{ background-color: lightgrey; border: 2px solid black; border-collapse: collapse; margin-left: 16px; padding-left: 10px; padding-top: 4px;} </style><base href='https://peterluschny.github.io/tablInspector/' target='_blank'></head><body><table><thead><tr><th align='left'>Triangle Inspector</th></tr></thead><tbody><tr>"
 
 
 def RefreshDatabase() -> None:

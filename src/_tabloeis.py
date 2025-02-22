@@ -235,9 +235,9 @@ def QueryOEIS(
     seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
 
-    for repeat in range(4):
+    for _ in range(4):      
         time.sleep(0.5)  # give the OEIS server some time to relax
-        if info: print(f"connecting: [{repeat}]")
+        # if debug: print(f"connecting: [{repeat}]")
         try:
             # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=30).json()
             jdata = get(url, timeout=30).json()
