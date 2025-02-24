@@ -28,7 +28,7 @@ This allows us to identify an integer triangle with a list whose indexing is lik
 [ [(0,0)], [(1,0), (1,1)], [(2,0), (2,1), (2,2)], ..., [(n,0), (n,1), ... (n,k), ... (n,n)] ]
 ```
 
-For example, G. W. Leibniz wrote down a number triangle in his "Dissertatio de arte combinatoria", Leipzig in 1666, that we will display like this:
+For example, G. W. Leibniz wrote down a number triangle in his "Dissertatio de arte combinatoria", Leipzig in 1666, that will be displayed:
 
 ```
     [0]    [0]
@@ -46,7 +46,7 @@ For example, G. W. Leibniz wrote down a number triangle in his "Dissertatio de a
 The first (left) column indicates the row number and is not part of the triangle.
 
 To use the library, put the file Tables.py in the same directory where your project is or where the interpreter can find it elsewhere.
-Make sure your Python has the "more_itertools" package installed. The other Python files are not needed as long as you do not want to 
+Make sure your Python has the "more_itertools" package installed. The other Python files are not needed as long as you do not want to add new triangles.
 
 ### Example 1
 
