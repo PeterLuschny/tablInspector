@@ -384,7 +384,7 @@ def GetAnumOccurence(lookup: int) -> list[str]:
             key = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
             anum = GlobalDict[T.id].get(key, 1)
             if anum == lookup:
-                trdict.append(f"{trid.replace(" ", "") }({T.id})")
+                trdict.append(f"{trid.replace(' ', '') }({T.id})")
     return trdict
 
 
