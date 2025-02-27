@@ -37,7 +37,7 @@ Functions:
 from Tables import TablesList
 from _tabltypes import Table
 from _tabloeis import QueryOEIS
-from _tabltraits import AllTraits, TableTraits
+from _tabltraits import TraitsDict, TableTraits
 from _tablutils import TableGenerationTime
 from pathlib import Path
 from typing import Dict
@@ -188,7 +188,7 @@ def AnumberDict(
     print(f"*** Table {T.id} under construction ***")
 
     trait_dict: Dict[str, int] = {}
-    for trid, tr in AllTraits.items():
+    for trid, tr in TraitsDict.items():
         # the key of the dictionary is the table name + trait name.
         name = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
         if info: print(name)
@@ -227,7 +227,7 @@ def DictToHtml(
 
         for fullname, anum in d.items():
             if info: print(f"    {fullname} -> {anum}") # prints sorted dict 
-            traitfun, size, tex = AllTraits[fullname.split('_')[1]] # type: ignore
+            traitfun, size, tex = TraitsDict[fullname.split('_')[1]] # type: ignore
             if anum == 0:
                 continue
             if anum in anumlist: 
@@ -357,10 +357,10 @@ def TraitOccurences() -> Dict[str, set[int]]:
     """
     global GlobalDict
     ReadJsonDict()
-    trdict: Dict[str, set[int]] = {trid: set() for trid in AllTraits.keys()}
+    trdict: Dict[str, set[int]] = {trid: set() for trid in TraitsDict.keys()}
 
     for T in TablesList:
-        for trid in AllTraits.keys():
+        for trid in TraitsDict.keys():
             # the key of the dictionary is the table name + trait name.
             key = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
             trdict[trid].add(GlobalDict[T.id].get(key, 1))
@@ -379,7 +379,7 @@ def GetAnumOccurence(lookup: int) -> list[str]:
     trdict: list[str] = []
 
     for T in TablesList:
-        for trid in AllTraits.keys():
+        for trid in TraitsDict.keys():
             # the key of the dictionary is the table name + trait name.
             key = (T.id + '_' + trid).ljust(10 + len(T.id), ' ')
             anum = GlobalDict[T.id].get(key, 1)
@@ -429,12 +429,13 @@ if __name__ == "__main__":
     # RefreshDatabase()
     # RefreshHtml(True)
 
-    from Abel import Abel                  # type: ignore
+    from SchroederInv import SchroederInv   # type: ignore
     #from MotzkinInv import MotzkinInv      # type: ignore
     #from DoublePochhammer import DoublePochhammer  # type: ignore
 
-    # InspectTable(CentralFactorial)
-    # AddTable(Abel) # type: ignore
+    #InspectTable(SchroederInv)
+
+    # AddTable(SchroederInv) # type: ignore
 
     #for T in TablesList:
     #    print(T.id, T.tex)

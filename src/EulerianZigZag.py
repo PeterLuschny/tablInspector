@@ -42,7 +42,7 @@ EulerianZigZag = Table(
 
 
 if __name__ == "__main__":
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
 
     InspectTable(EulerianZigZag)
     for n in range(8): print(ezz(n))

@@ -34,13 +34,13 @@ Schroeder = Table(
     schroeder,
     "Schroeder",
     ["A122538", "A033877", "A080245", "A080247", "A106579"],
-    "A000000",
+    "A122542",
     r"is(k = 0)\ ? \ 0^{n} : T(n-1,k-1)+T(n-1,k)+T(n,k+1)",
 )
 
 
 if __name__ == "__main__":
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
 
     InspectTable(Schroeder)
 

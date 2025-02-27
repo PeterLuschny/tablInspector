@@ -725,10 +725,12 @@ def SubTable(T: Table, N: int, K: int) -> Table:
 Trait: TypeAlias = Callable[[Table, int], list[int]]
 
 
+
+
 if __name__ == "__main__":
 
     from functools import cache
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
     from more_itertools import flatten
     from StirlingSet import StirlingSet
     from Abel import Abel

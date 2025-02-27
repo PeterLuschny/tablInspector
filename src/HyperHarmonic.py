@@ -38,7 +38,7 @@ HyperHarmonic = Table(
 
 
 if __name__ == "__main__":
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
 
     InspectTable(HyperHarmonic)
 

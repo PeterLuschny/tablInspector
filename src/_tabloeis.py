@@ -270,7 +270,9 @@ def QueryOEIS(
                 if info or dl < 12:
                     print("You searched:", seqstr)
                     print("OEIS-data is:", data)          # type: ignore
-                    print(f"Info: Starting at index {sl} the next {dl} consecutive terms match.\nThe matched substring starts at byte {start} and has length {length}.")
+                    # print(f"Info: Starting at index {sl} the next {dl} 
+                    # consecutive terms match.\nThe matched substring starts 
+                    # at byte {start} and has length {length}.")
                     print("*** Found:", anumber, name)
                 if dl > 12:
                     break
@@ -305,11 +307,8 @@ def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
     
     Example:
         >>> LookUp(Fubini, PolyDiag)
-        connecting: [0]
         You searched: 1,1,10,219,8676,...
         OEIS-data is: 1,1,10,219,8676,...
-        Info: Starting at index 0 the next 13 consecutive terms match.
-        The matched substring starts at 0 and has length 135.
         *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
         Returns the int 94420.
     """

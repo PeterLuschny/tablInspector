@@ -24,7 +24,7 @@ Functions:
 
 from typing import Dict, NamedTuple    
 from operator import itemgetter
-from _tabldict import ReadJsonDict
+from _tabldatabase import ReadJsonDict
 
 
 # #@

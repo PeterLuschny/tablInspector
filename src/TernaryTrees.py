@@ -17,19 +17,19 @@ from _tabltypes import Table
 
 
 @cache
-def ternarytree(n: int) -> list[int]:
+def ternarytrees(n: int) -> list[int]:
     if n == 0:
         return [1]
     if n == 1:
         return [0, 1]
 
-    row = ternarytree(n - 1) + [ternarytree(n - 1)[n - 1]]
+    row = ternarytrees(n - 1) + [ternarytrees(n - 1)[n - 1]]
 
     return list(accumulate(accumulate(row)))
 
 
-TernaryTree = Table(
-    ternarytree,
+TernaryTrees = Table(
+    ternarytrees,
     "TernaryTrees",
     ["A355172"],
     "",
@@ -38,14 +38,9 @@ TernaryTree = Table(
 
 
 if __name__ == "__main__":
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
 
-    InspectTable(TernaryTree)
-
-
-
-
-
+    InspectTable(TernaryTrees)
 
 ''' OEIS
     TernaryTrees_Trev          -> 0 

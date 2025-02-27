@@ -1,5 +1,5 @@
 from functools import cache
-from Tables import Table
+from _tabltypes import Table
 
 """
 DoublePochhammer
@@ -38,7 +38,7 @@ DoublePochhammer = Table(
 
 
 if __name__ == "__main__":
-    from _tabldict import InspectTable
+    from _tabldatabase import InspectTable
 
     InspectTable(DoublePochhammer)  # type: ignore
 
