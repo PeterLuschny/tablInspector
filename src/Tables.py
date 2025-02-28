@@ -628,6 +628,16 @@ def FNVhash(seq: str) -> str:
     return hex(fnv(bytes(seq, encoding="ascii")))[2:]
 
 
+def NumToAnum(n: int) -> str:
+    """Converts an integer to an A-number string."""
+    return "A" + str(n).zfill(6)
+
+
+def IdToStdName(n: str) -> str:
+    """Converts an id to a name string in standard format."""
+    return n.ljust(17)
+
+
 def SeqToString(
     seq: list[int],
     maxchars: int,
@@ -4175,17 +4185,17 @@ Lah = Table(
 
 
 @cache
-def t(n: int, k: int, m: int) -> int:
+def _t(n: int, k: int, m: int) -> int:
     if k < 0 or n < 0:
         return 0
     if k == 0:
         return n**k
-    return m * t(n, k - 1, m) + t(n - 1, k, m + 1)
+    return m * _t(n, k - 1, m) + _t(n - 1, k, m + 1)
 
 
 @cache
 def lehmer(n: int) -> list[int]:
-    return [t(k - 1, n - k, n - k) if n != k else 1 for k in range(n + 1)]
+    return [_t(k - 1, n - k, n - k) if n != k else 1 for k in range(n + 1)]
 
 
 Lehmer = Table(
@@ -5386,10 +5396,14 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
     """
     T = TablesDict[t]
     TR = TraitsDict[tr][0]
-    print("Selected triangle: " + t)  # + "  " + T.tex)
-    T.show(7)
-    print("Selected trait:    " + tr)  # + "  " + TraitsDict[tr][2])
-    return LookUp(T, TR, info)
+    if info:
+        print("Selected triangle: " + t)  # + "  " + T.tex)
+        print("Selected trait:    " + tr)  # + "  " + TraitsDict[tr][2])
+        T.show(7)
+    num = LookUp(T, TR, info)
+    if not info:
+        print(f"{IdToStdName(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
+    return num
 
 
 def GetTablSelector():

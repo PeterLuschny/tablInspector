@@ -16,6 +16,7 @@ Modules:
 
 from Tables import TraitsDict, TablesDict, LookUp
 from ipywidgets import Dropdown
+from _tablutils import NumToAnum, IdToStdName
 
 # #@
 
@@ -46,10 +47,18 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
     """
     T = TablesDict[t]
     TR = TraitsDict[tr][0]
-    print('Selected triangle: ' + t) # + "  " + T.tex)
-    T.show(7)
-    print('Selected trait:    ' + tr) # + "  " + TraitsDict[tr][2])
-    return LookUp(T, TR, info)
+
+    if info:
+        print('Selected triangle: ' + t) # + "  " + T.tex)
+        print('Selected trait:    ' + tr) # + "  " + TraitsDict[tr][2])
+        T.show(7)
+
+    num = LookUp(T, TR, info)
+
+    if not info:
+        print(f"{IdToStdName(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
+
+    return num
 
 def GetTablSelector():
     return Dropdown(options=[k for k in TablesDict.keys()])

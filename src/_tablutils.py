@@ -60,6 +60,16 @@ def FNVhash(seq: str) -> str:
     return hex(fnv(bytes(seq, encoding="ascii")))[2:]
 
 
+def NumToAnum(n: int) -> str:
+    """Converts an integer to an A-number string."""
+    return "A" + str(n).zfill(6)
+
+
+def IdToStdName(n: str) -> str:
+    """Converts an id to a name string in standard format."""
+    return n.ljust(17)
+
+
 def SeqToString(
         seq: list[int],
         maxchars: int,
