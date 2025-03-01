@@ -16,7 +16,7 @@ Modules:
 
 from Tables import TraitsDict, TablesDict, LookUp
 from ipywidgets import Dropdown
-from _tablutils import NumToAnum, IdToStdName
+from _tablutils import NumToAnum, TidToStdFormat
 
 # #@
 
@@ -56,7 +56,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
     num = LookUp(T, TR, info)
 
     if not info:
-        print(f"{IdToStdName(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
+        print(f"{TidToStdFormat(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
 
     return num
 

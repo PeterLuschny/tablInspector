@@ -38,7 +38,7 @@ from Tables import TablesList
 from _tabltypes import Table
 from _tabloeis import QueryOEIS
 from _tabltraits import TraitsDict, TableTraits
-from _tablutils import TableGenerationTime
+from _tablutils import TidToStdFormat, NumToAnum, TableGenerationTime
 from pathlib import Path
 from typing import Dict
 import json
@@ -81,7 +81,7 @@ def ReadJsonDict() -> Dict[str, Dict[str, int]]:
         print("New GlobalDict created.")
         return GlobalDict
 
-    print("GlobalDict loaded with file AllTraits.json!")
+     # print("GlobalDict loaded with file AllTraits.json!")
     return GlobalDict
 
 
@@ -367,6 +367,25 @@ def TraitOccurences() -> Dict[str, set[int]]:
     return trdict
 
 
+def TraitOccurence(trid: str) -> Dict[str, tuple[str, str]]:
+    """
+    Generates a dictionary of traits with A-numbers from the global dictionary.
+    Each key is a trait identifier and the value is a tuple of the OEIS sequence.
+    Returns:
+        Dict[str, tuple[str, str]]: A dictionary where each key is the triangle identifier 
+        and the value is the pair of A-numbers of the triangle and the trait. 
+    """
+    global GlobalDict
+    ReadJsonDict()
+    trdict: Dict[str, tuple[str, str]] = {}
+
+    for T in TablesList:
+        key = T.id + '_' + trid
+        anum = NumToAnum(GlobalDict[T.id][key])
+        trdict[T.id] = (T.oeis[0], anum)
+    return trdict
+
+
 def GetAnumOccurence(lookup: int) -> list[str]:
     """
     Generates a dictionary of traits 
@@ -429,7 +448,7 @@ if __name__ == "__main__":
     # RefreshDatabase()
     # RefreshHtml(True)
 
-    from SchroederInv import SchroederInv   # type: ignore
+    # from SchroederInv import SchroederInv   # type: ignore
     #from MotzkinInv import MotzkinInv      # type: ignore
     #from DoublePochhammer import DoublePochhammer  # type: ignore
 
@@ -456,3 +475,6 @@ if __name__ == "__main__":
     
     # srcpath = GetRoot(f"src/Mist.py")
     # TruncateInfo(srcpath)
+
+    for k, v in TraitOccurence("PosHalf").items():
+        print(f"{TidToStdFormat(k)}  {v[0]} -> {v[1]}")

@@ -633,7 +633,7 @@ def NumToAnum(n: int) -> str:
     return "A" + str(n).zfill(6)
 
 
-def IdToStdName(n: str) -> str:
+def TidToStdFormat(n: str) -> str:
     """Converts an id to a name string in standard format."""
     return n.ljust(17)
 
@@ -2434,7 +2434,7 @@ def ReadJsonDict() -> Dict[str, Dict[str, int]]:
         GlobalDict = {}
         print("New GlobalDict created.")
         return GlobalDict
-    print("GlobalDict loaded with file AllTraits.json!")
+    # print("GlobalDict loaded with file AllTraits.json!")
     return GlobalDict
 
 
@@ -2678,6 +2678,24 @@ def TraitOccurences() -> Dict[str, set[int]]:
             # the key of the dictionary is the table name + trait name.
             key = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
             trdict[trid].add(GlobalDict[T.id].get(key, 1))
+    return trdict
+
+
+def TraitOccurence(trid: str) -> Dict[str, tuple[str, str]]:
+    """
+    Generates a dictionary of traits with A-numbers from the global dictionary.
+    Each key is a trait identifier and the value is a tuple of the OEIS sequence.
+    Returns:
+        Dict[str, tuple[str, str]]: A dictionary where each key is the triangle identifier
+        and the value is the pair of A-numbers of the triangle and the trait.
+    """
+    global GlobalDict
+    ReadJsonDict()
+    trdict: Dict[str, tuple[str, str]] = {}
+    for T in TablesList:
+        key = T.id + "_" + trid
+        anum = NumToAnum(GlobalDict[T.id][key])
+        trdict[T.id] = (T.oeis[0], anum)
     return trdict
 
 
@@ -5402,7 +5420,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         T.show(7)
     num = LookUp(T, TR, info)
     if not info:
-        print(f"{IdToStdName(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
+        print(f"{TidToStdFormat(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
     return num
 
 

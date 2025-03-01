@@ -65,7 +65,7 @@ def NumToAnum(n: int) -> str:
     return "A" + str(n).zfill(6)
 
 
-def IdToStdName(n: str) -> str:
+def TidToStdFormat(n: str) -> str:
     """Converts an id to a name string in standard format."""
     return n.ljust(17)
 
