@@ -1,0 +1,32 @@
+﻿<!DOCTYPE html><html lang='en'>
+
+<head>
+    <title>tabInspector</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <script src='https://code.jquery.com/jquery-2.1.3.min.js'></script>
+    <script src='https://sagecell.sagemath.org/static/embedded_sagecell.js'></script>
+    <script>$(function () { sagecell.makeSagecell({ inputLocation: '#SageCell', evalButtonText: 'Evaluate' }); });</script>
+</head>
+
+<body>
+    <p class='sage'>Computing is done on the SageMath CellServer. See the project
+    <a href="https://github.com/PeterLuschny/tablInspector">tablInspector</a> on GitHub.</p>
+    <hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+
+    <p>Load the tablInspector</p>
+    <div id="sagecell0"><script type='text/x-sage'>
+        load('https://raw.githubusercontent.com/PeterLuschny/tablInspector/refs/heads/main/src/Tables.py')
+    </script></div>
+
+    <p>What are the row sums of the inverse Schroeder triangle?</p>
+    <div id="sagecell1"><script type="application/sage">
+        ILookUp("SchroederInv", "TablSum")
+    </script></pre></div>
+
+    <p></p>
+    <div id="sagecell2"><script type="application/sage">
+        TablPlot("SchroederInv", 8)
+    </script></div>
+
+</body></html>

@@ -94,8 +94,8 @@ def ListOccurences() -> None:
           w.append((Anum, len(names)))
 
     # Show a list of the sequences most often found.
-    w.sort(key = lambda x: x[1], reverse=True)
-    for x in w[1:]: print(x)
+    w.sort(key = lambda r: r[1], reverse=True)
+    for r in w[1:]: print(r)
 
 
 if __name__ == "__main__":

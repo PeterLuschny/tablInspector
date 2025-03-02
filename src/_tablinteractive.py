@@ -14,9 +14,12 @@ Modules:
     Tables: Contains the TraitsDict, TablesDict, and LookUp functions for table and trait management.
 '''
 
-from Tables import TraitsDict, TablesDict, LookUp
+from _tabltypes import Table
+from _tabldatabase import TraitsDict
+from _tabloeis import LookUp
+from _tablutils import is_sage_running, NumToAnum, TidToStdFormat
+from Tables import TablesDict
 from ipywidgets import Dropdown
-from _tablutils import NumToAnum, TidToStdFormat
 
 # #@
 
@@ -53,7 +56,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         print('Selected trait:    ' + tr) # + "  " + TraitsDict[tr][2])
         T.show(7)
 
-    num = LookUp(T, TR, info)
+    num = LookUp(T, TR, info) # type: ignore
 
     if not info:
         print(f"{TidToStdFormat(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
@@ -65,3 +68,39 @@ def GetTablSelector():
 
 def GetTraitSelector():
     return Dropdown(options=sorted([k for k in TraitsDict.keys()]))
+
+
+def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
+    """Plots the first size row polynomials of a table.
+    This function can only be used in a SageMath environment.
+    If 'scaled'=True, the polynomials are scaled by the factorial of the row index.
+    """
+
+    if not is_sage_running():
+        print("This function can only be used in a SageMath environment.")
+        return
+
+    from sage.all import var, plot, show, factorial
+
+    T = TablesDict[t] if isinstance(t, str) else t 
+
+    C = ['red', 'green', 'blue', 'violet', 'sienna', 'plum', 'springgreen', 
+         'chocolate', 'crimson', 'black']
+    sv = var('sv') 
+
+    if scaled:
+        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size)]  # type: ignore
+        s = '(scaled)'
+    else:
+        pol = [T.poly(n, sv) for n in range(1, size)]  # type: ignore
+        s = ''
+
+    a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
+    for c, p in enumerate(pol):  # type: ignore
+        a += plot(p, sv, (-1, 1), color=C[c], legend_label=f"p{c+1}")
+    show(a)
+
+
+if __name__ == "__main__":
+
+    ILookUp("SchroederInv", "TablSum")

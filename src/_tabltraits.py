@@ -550,7 +550,7 @@ def PolyRow(T: Table, row: int, size: int = 28) -> list[int]:
         >>> print(PolyRow(Abel, 3, 7))
         [0, 16, 50, 108, 196, 320, 486]
     """
-    return [T.poly(row, x) for x in range(size)]
+    return [T.poly(row, v) for v in range(size)]
 
 
 def PolyRow1(T: Table, size: int = 28) -> list[int]:
@@ -564,7 +564,7 @@ def PolyRow1(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 1.
     """
-    return [T.poly(1, x) for x in range(size)]
+    return [T.poly(1, v) for v in range(size)]
 
 
 def PolyRow2(T: Table, size: int = 28) -> list[int]:
@@ -578,7 +578,7 @@ def PolyRow2(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 2.
     """
-    return [T.poly(2, x) for x in range(size)]
+    return [T.poly(2, v) for v in range(size)]
 
 
 def PolyRow3(T: Table, size: int = 28) -> list[int]:
@@ -592,7 +592,7 @@ def PolyRow3(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 3.
     """
-    return [T.poly(3, x) for x in range(size)]
+    return [T.poly(3, v) for v in range(size)]
 
 
 def PolyCol(T: Table, col: int, size: int = 28) -> list[int]:
@@ -613,7 +613,7 @@ def PolyCol(T: Table, col: int, size: int = 28) -> list[int]:
         [1, 3, 15, 108, 1029, 12288, 177147]
         A362354
     """
-    return [T.poly(x, col) for x in range(size)]
+    return [T.poly(v, col) for v in range(size)]
 
 
 def PolyCol1(T: Table, size: int = 28) -> list[int]:
@@ -627,7 +627,7 @@ def PolyCol1(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values in column 1.
     """
-    return [T.poly(x, 1) for x in range(size)]
+    return [T.poly(v, 1) for v in range(size)]
 
 
 def PolyCol2(T: Table, size: int = 28) -> list[int]:
@@ -646,7 +646,7 @@ def PolyCol2(T: Table, size: int = 28) -> list[int]:
         [1, 2, 8, 50, 432, 4802, 65536]
         A007334
     """
-    return [T.poly(x, 2) for x in range(size)]
+    return [T.poly(v, 2) for v in range(size)]
 
 
 def PolyCol3(T: Table, size: int = 28) -> list[int]:
@@ -660,7 +660,7 @@ def PolyCol3(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values in column 3.
     """
-    return [T.poly(x, 3) for x in range(size)]
+    return [T.poly(v, 3) for v in range(size)]
 
 
 def PolyDiag(T: Table, size: int = 28) -> list[int]:
@@ -1011,7 +1011,7 @@ def ColRight(T: Table, size: int = 28) -> list[int]:
     return [T(n, n) for n in range(size)]
 
 
-def PolyFrac(row: list[int], x: int) -> int:
+def PolyFrac(row: list[int], v: int) -> int:
     """
     Evaluate a polynomial with integer coefficients at a given point x.
 
@@ -1027,7 +1027,7 @@ def PolyFrac(row: list[int], x: int) -> int:
         int: The result of the polynomial evaluation at x.
     """
     n = len(row) - 1
-    return sum(c * x**(n - k) for (k, c) in enumerate(row))
+    return sum(c * v**(n - k) for (k, c) in enumerate(row))
 
 
 def PosHalf(T: Table, size: int = 28) -> list[int]:
@@ -1290,7 +1290,7 @@ def RevPolyRow1(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial values of degree 1 from the reversed table.
     """
     T = RevTable(t)
-    return [T.poly(1, x) for x in range(size)]
+    return [T.poly(1, v) for v in range(size)]
 
 
 def RevPolyRow2(t: Table, size: int = 28) -> list[int]:
@@ -1305,7 +1305,7 @@ def RevPolyRow2(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial values of degree 2.
     """
     T = RevTable(t)
-    return [T.poly(2, x) for x in range(size)]
+    return [T.poly(2, v) for v in range(size)]
 
 
 def RevPolyRow3(t: Table, size: int = 28) -> list[int]:

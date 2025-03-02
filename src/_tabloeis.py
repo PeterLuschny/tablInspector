@@ -181,15 +181,15 @@ def lcsubstr(s: str, t: str) -> tuple[int, int]:
     """
     m = [[0] * (1 + len(t)) for _ in range(1 + len(s))]
     longest, x_longest = 0, 0
-    for x in range(1, 1 + len(s)):
+    for i in range(1, 1 + len(s)):
         for y in range(1, 1 + len(t)):
-            if s[x - 1] == t[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
+            if s[i - 1] == t[y - 1]:
+                m[i][y] = m[i - 1][y - 1] + 1
+                if m[i][y] > longest:
+                    longest = m[i][y]
+                    x_longest = i
             else:
-                m[x][y] = 0
+                m[i][y] = 0
     # lcs_str =  s[x_longest - longest : x_longest] 
     return (x_longest - longest, longest)
 

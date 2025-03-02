@@ -12,6 +12,7 @@ import requests
 import json
 from ipywidgets import Dropdown
 from requests import get
+import sys
 from sys import setrecursionlimit, set_int_max_str_digits
 from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple
 
@@ -601,6 +602,10 @@ def SubTable(T: Table, N: int, K: int) -> Table:
 Trait: TypeAlias = Callable[[Table, int], list[int]]
 
 
+def is_sage_running() -> bool:
+    return "sage" in sys.modules
+
+
 def fnv(data: bytes) -> int:
     """
     This function calculates the FNV-1a hash value for the given data.
@@ -806,15 +811,15 @@ def lcsubstr(s: str, t: str) -> tuple[int, int]:
     """
     m = [[0] * (1 + len(t)) for _ in range(1 + len(s))]
     longest, x_longest = 0, 0
-    for x in range(1, 1 + len(s)):
+    for i in range(1, 1 + len(s)):
         for y in range(1, 1 + len(t)):
-            if s[x - 1] == t[y - 1]:
-                m[x][y] = m[x - 1][y - 1] + 1
-                if m[x][y] > longest:
-                    longest = m[x][y]
-                    x_longest = x
+            if s[i - 1] == t[y - 1]:
+                m[i][y] = m[i - 1][y - 1] + 1
+                if m[i][y] > longest:
+                    longest = m[i][y]
+                    x_longest = i
             else:
-                m[x][y] = 0
+                m[i][y] = 0
     # lcs_str =  s[x_longest - longest : x_longest]
     return (x_longest - longest, longest)
 
@@ -1395,7 +1400,7 @@ def PolyRow(T: Table, row: int, size: int = 28) -> list[int]:
         >>> print(PolyRow(Abel, 3, 7))
         [0, 16, 50, 108, 196, 320, 486]
     """
-    return [T.poly(row, x) for x in range(size)]
+    return [T.poly(row, v) for v in range(size)]
 
 
 def PolyRow1(T: Table, size: int = 28) -> list[int]:
@@ -1407,7 +1412,7 @@ def PolyRow1(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 1.
     """
-    return [T.poly(1, x) for x in range(size)]
+    return [T.poly(1, v) for v in range(size)]
 
 
 def PolyRow2(T: Table, size: int = 28) -> list[int]:
@@ -1419,7 +1424,7 @@ def PolyRow2(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 2.
     """
-    return [T.poly(2, x) for x in range(size)]
+    return [T.poly(2, v) for v in range(size)]
 
 
 def PolyRow3(T: Table, size: int = 28) -> list[int]:
@@ -1431,7 +1436,7 @@ def PolyRow3(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values for row 3.
     """
-    return [T.poly(3, x) for x in range(size)]
+    return [T.poly(3, v) for v in range(size)]
 
 
 def PolyCol(T: Table, col: int, size: int = 28) -> list[int]:
@@ -1449,7 +1454,7 @@ def PolyCol(T: Table, col: int, size: int = 28) -> list[int]:
         [1, 3, 15, 108, 1029, 12288, 177147]
         A362354
     """
-    return [T.poly(x, col) for x in range(size)]
+    return [T.poly(v, col) for v in range(size)]
 
 
 def PolyCol1(T: Table, size: int = 28) -> list[int]:
@@ -1461,7 +1466,7 @@ def PolyCol1(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values in column 1.
     """
-    return [T.poly(x, 1) for x in range(size)]
+    return [T.poly(v, 1) for v in range(size)]
 
 
 def PolyCol2(T: Table, size: int = 28) -> list[int]:
@@ -1477,7 +1482,7 @@ def PolyCol2(T: Table, size: int = 28) -> list[int]:
         [1, 2, 8, 50, 432, 4802, 65536]
         A007334
     """
-    return [T.poly(x, 2) for x in range(size)]
+    return [T.poly(v, 2) for v in range(size)]
 
 
 def PolyCol3(T: Table, size: int = 28) -> list[int]:
@@ -1489,7 +1494,7 @@ def PolyCol3(T: Table, size: int = 28) -> list[int]:
     Returns:
         list[int]: A list of polynomial values in column 3.
     """
-    return [T.poly(x, 3) for x in range(size)]
+    return [T.poly(v, 3) for v in range(size)]
 
 
 def PolyDiag(T: Table, size: int = 28) -> list[int]:
@@ -1804,7 +1809,7 @@ def ColRight(T: Table, size: int = 28) -> list[int]:
     return [T(n, n) for n in range(size)]
 
 
-def PolyFrac(row: list[int], x: int) -> int:
+def PolyFrac(row: list[int], v: int) -> int:
     """
     Evaluate a polynomial with integer coefficients at a given point x.
     This function takes a list of coefficients representing a polynomial
@@ -1817,7 +1822,7 @@ def PolyFrac(row: list[int], x: int) -> int:
         int: The result of the polynomial evaluation at x.
     """
     n = len(row) - 1
-    return sum(c * x ** (n - k) for (k, c) in enumerate(row))
+    return sum(c * v ** (n - k) for (k, c) in enumerate(row))
 
 
 def PosHalf(T: Table, size: int = 28) -> list[int]:
@@ -2048,7 +2053,7 @@ def RevPolyRow1(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial values of degree 1 from the reversed table.
     """
     T = RevTable(t)
-    return [T.poly(1, x) for x in range(size)]
+    return [T.poly(1, v) for v in range(size)]
 
 
 def RevPolyRow2(t: Table, size: int = 28) -> list[int]:
@@ -2061,7 +2066,7 @@ def RevPolyRow2(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial values of degree 2.
     """
     T = RevTable(t)
-    return [T.poly(2, x) for x in range(size)]
+    return [T.poly(2, v) for v in range(size)]
 
 
 def RevPolyRow3(t: Table, size: int = 28) -> list[int]:
@@ -2813,9 +2818,9 @@ def ListOccurences() -> None:
             Anum = "A" + str(anum).rjust(6, "0")
             w.append((Anum, len(names)))
     # Show a list of the sequences most often found.
-    w.sort(key=lambda x: x[1], reverse=True)
-    for x in w[1:]:
-        print(x)
+    w.sort(key=lambda r: r[1], reverse=True)
+    for r in w[1:]:
+        print(r)
 
 
 @cache
@@ -5418,7 +5423,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         print("Selected triangle: " + t)  # + "  " + T.tex)
         print("Selected trait:    " + tr)  # + "  " + TraitsDict[tr][2])
         T.show(7)
-    num = LookUp(T, TR, info)
+    num = LookUp(T, TR, info)  # type: ignore
     if not info:
         print(f"{TidToStdFormat(T.id)} {T.oeis[0]} -> {NumToAnum(num)}")
     return num
@@ -5430,6 +5435,42 @@ def GetTablSelector():
 
 def GetTraitSelector():
     return Dropdown(options=sorted([k for k in TraitsDict.keys()]))
+
+
+def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
+    """Plots the first size row polynomials of a table.
+    This function can only be used in a SageMath environment.
+    If 'scaled'=True, the polynomials are scaled by the factorial of the row index.
+    """
+    if not is_sage_running():
+        print("This function can only be used in a SageMath environment.")
+        return
+    from sage.all import var, plot, show, factorial
+
+    T = TablesDict[t] if isinstance(t, str) else t
+    C = [
+        "red",
+        "green",
+        "blue",
+        "violet",
+        "sienna",
+        "plum",
+        "springgreen",
+        "chocolate",
+        "crimson",
+        "black",
+    ]
+    sv = var("sv")
+    if scaled:
+        pol = [T.poly(n, sv) / factorial(n) for n in range(1, size)]  # type: ignore
+        s = "(scaled)"
+    else:
+        pol = [T.poly(n, sv) for n in range(1, size)]  # type: ignore
+        s = ""
+    a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
+    for c, p in enumerate(pol):  # type: ignore
+        a += plot(p, sv, (-1, 1), color=C[c], legend_label=f"p{c+1}")
+    show(a)
 
 
 # TablesListPreview()

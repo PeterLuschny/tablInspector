@@ -309,6 +309,7 @@ import_header: list[str] = [
     "import json\n",
     "from ipywidgets import Dropdown\n",
     "from requests import get\n",
+    "import sys\n",
     "from sys import setrecursionlimit, set_int_max_str_digits\n",
     "from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple\n",
 ] 

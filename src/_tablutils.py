@@ -24,8 +24,12 @@ Classes:
 from _tabltypes import Table
 from typing import Callable
 import time
+import sys
 
 # #@
+
+
+def is_sage_running() -> bool: return 'sage' in sys.modules
 
 
 def fnv(data: bytes) -> int:

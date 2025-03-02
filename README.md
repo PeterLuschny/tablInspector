@@ -109,7 +109,7 @@ Currently, 116 triangles are included in this library, implementing the class `T
     off (N: int, K: int) -> rowgen | new offset (N, K)
     revinv11 (size: int) -> tabl | revinv from offset (1, 1)
     invrev11 (size: int) -> tabl | invrev from offset (1, 1)
-    poly(n: int, x: int) -> int  | sum(T(n, k) * x^j for j=0..n)
+    poly(n: int, v: int) -> int  | sum(T(n, k) * v^j for j=0..n)
     trans(s: seq, size)  -> list[int] | linear transformation induced by T
     invtrans(s: seq, size) -> list[int] | inverse transformation induced by T
     show (size: int)     -> None | prints the first 'size' rows with row-numbers
