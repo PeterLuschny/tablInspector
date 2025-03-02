@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <title>tabInspector</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width'>
+    <script src='https://sagecell.sagemath.org/static/embedded_sagecell.js'></script>
+    <script>$(function () { sagecell.makeSagecell({ 
+        inputLocation: 'div.compute', 
+        evalButtonText: 'Evaluate' 
+    }); });</script>
+</head>
+
+<body>
+<hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+    <h2>The interactive tab-Inspector</h2>
+    <h5>See the project <a href="https://github.com/PeterLuschny/tablInspector">tablInspector</a> on GitHub.</h5> 
+
+    <hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+    <h5>What are the row sums of the inverse Schroeder triangle?</h5>
+
+    <div class="compute" id="sagecell1"><script type="text/x-sage">
+load('https://raw.githubusercontent.com/PeterLuschny/tablInspector/refs/heads/main/src/Tables.py')
+ILookUp("SchroederInv", "TablSum")
+    </script></div>
+
+    <hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+    <h5>Plot the first 8 row polynomials of the inverse Schroeder triangle.</h5>
+
+    <div class="compute" id="sagecell2"><script type="text/x-sage">
+load('https://raw.githubusercontent.com/PeterLuschny/tablInspector/refs/heads/main/src/Tables.py')
+TablPlot("SchroederInv", 8)
+    </script></div>
+
+</body></html>
