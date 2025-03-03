@@ -24,6 +24,17 @@ for t in TablesDict.keys(): print(t)
     </script></div>
 
 <hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+<h4>This is the list of available traits:</h4>
+
+    <div class="compute" id="sagecell3" style="font-size: large;"><script type="text/x-sage">
+load('https://raw.githubusercontent.com/PeterLuschny/tablInspector/refs/heads/main/src/Tables.py')
+for t in TraitsDict.keys(): print(t)
+    </script></div>
+
+<hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
+<h4>By combining a table with a trait, you get about 8000 ways to query the characteristics of tables. Below is an example.</h4>
+
+<hr style='margin-top:16px;color:maroon;border-style:solid;height:2px;background-color:maroon;' />
 <h4>What are the row sums of the inverse Schroeder triangle?</h4>
 
     <div class="compute" id="sagecell1" style="font-size: large;"><script type="text/x-sage">
@@ -38,4 +49,5 @@ ILookUp("SchroederInv", "TablSum")
 load('https://raw.githubusercontent.com/PeterLuschny/tablInspector/refs/heads/main/src/Tables.py')
 TablPlot("SchroederInv", 8)
     </script></div>
+
 </body></html>
