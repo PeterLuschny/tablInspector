@@ -5418,8 +5418,12 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
         Returns the int 94420.
     """
-    T = TablesDict[t]
-    TR = TraitsDict[tr][0]
+    try:
+        T = TablesDict[t]
+        TR = TraitsDict[tr][0]
+    except KeyError as e:
+        print("Error:", e)
+        return 0
     if info:
         print("Selected triangle: " + t)  # + "  " + T.tex)
         print("Selected trait:    " + tr)  # + "  " + TraitsDict[tr][2])
@@ -5448,7 +5452,11 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
         return
     from sage.all import var, plot, show, factorial
 
-    T = TablesDict[t] if isinstance(t, str) else t
+    try:
+        T = TablesDict[t] if isinstance(t, str) else t
+    except KeyError as e:
+        print("Error:", e)
+        return
     C = [
         "red",
         "green",
