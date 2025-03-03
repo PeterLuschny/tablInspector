@@ -140,7 +140,7 @@ In the table below, the two columns on the right are _examples_ of thousands of 
 | InvBinConv   | $ \sum_{k=0}^{n}T_{n,k}\ (-1)^{n-k}\ \binom{n}{k} $ | FallingFactorial | A009940  |
 | PolyCol2     | $ \sum_{k=0}^{n}T_{n,k}\ 2^k $ | Abel | A007334 |
 
-Note that references to OEIS-Ids are approximate. They often differ in signs and offset, sometimes also in the first few values. In Visual Studio Code, the TeX formulas are displayed correctly.
+Note that references to OEIS-Ids are approximate. They often differ in signs and offset, sometimes also in the first few values. In the notebook the TeX formulas are displayed correctly.
 
 # Looking up the traits in the OEIS
 
@@ -178,8 +178,8 @@ In this way, we found that each of the 50 most highly ranked triangles generates
 
 Currently, 118 triangles are included in this ranking. The top 20 triangles are listed below. (Note that some links have not yet been implemented.) The full list can be seen in [Ranking.md](data/Ranking.md).
 
-|     | Name             |  OEIS   | Distinct | Hits |                              Traits                              |                                      Links                                       |
-| :-: | :--------------- | :-----: | :------: | :--: | :--------------------------------------------------------------: | :------------------------------------------------------------------------------: |
+|     | Name             |  OEIS   | Distinct | Hits |                              Traits                              | Links |
+| :-: | :--------------- | :-----: | :------: | :--: | :--------------------------------------------------------------: | :---: |
 |  1  | StirlingSet      | A048993 |    53    |  63  | [All](https://peterluschny.github.io/tabl/StirlingSet.html)      | [OEIS](https://peterluschny.github.io/tablInspector/StirlingSetTraits.html)    |
 |  2  | FallingFactorial | A008279 |    48    |  60  | [All](https://peterluschny.github.io/tabl/FallingFactorial.html) | [OEIS](https://peterluschny.github.io/tablInspector/FallingFactorialTraits.html) |
 |  3  | StirlingCycle    | A132393 |    47    |  63  | [All](https://peterluschny.github.io/tabl/StirlingCycle.html)    | [OEIS](https://peterluschny.github.io/tablInspector/StirlingCycleTraits.html)   |

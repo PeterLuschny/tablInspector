@@ -2398,7 +2398,7 @@ def TableTraits(T: Table) -> None:
         None
     """
     for trait_id, tr in TraitsDict.items():
-        name = (T.id + "_" + trait_id).ljust(9 + len(T.id), " ")
+        name = T.id + "_" + trait_id
         tex = tr[2]
         seq = tr[0](T, tr[1])
         print(name, tex)
@@ -2531,7 +2531,7 @@ def AnumberDict(
     trait_dict: Dict[str, int] = {}
     for trid, tr in TraitsDict.items():
         # the key of the dictionary is the table name + trait name.
-        name = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+        name = T.id + "_" + trid
         if info:
             print(name)
         # generate the trait data for the query
@@ -2559,16 +2559,17 @@ def DictToHtml(T: Table, dict: Dict[str, int], info: bool = False) -> int:
         oeis.write(head)
         d = {k: v for k, v in sorted(dict.items(), key=lambda item: item[1])}
         for fullname, anum in d.items():
+            trname = fullname.split("_")[1]
             if info:
                 print(f"    {fullname} -> {anum}")  # prints sorted dict
-            traitfun, size, tex = TraitsDict[fullname.split("_")[1]]  # type: ignore
+            traitfun, size, tex = TraitsDict[trname]  # type: ignore
             if anum == 0:
                 continue
             if anum in anumlist:
                 doubles += 1
             Anum = "A" + str(anum).rjust(6, "0")
             url = f"<a href='https://oeis.org/{Anum}' target='OEISframe'>{Anum}</a>"
-            row = f"<tr><td>{url}</td><td>{fullname.split('_')[1]}</td><td>{tex}</td></tr>"
+            row = f"<tr><td>{url}</td><td>{trname}</td><td>{tex}</td></tr>"
             oeis.write(row)
             hits += 1
             anumlist.add(anum)
@@ -2659,10 +2660,10 @@ def AddTable(T: Table, dict: Dict[str, int] = {}) -> Dict[str, int]:
     if dict == {}:  # info, add2globalDict
         dict = AnumberDict(T, True, True)
     print("Dict length:", len(dict))
+    datapath = GetRoot(f"data/AllTraits.json")
+    with open(datapath, "w+") as alltraits:
+        json.dump(GlobalDict, alltraits)
     DictToHtml(T, dict, True)
-    jsonpath = GetRoot(f"data/AllTraits.json")
-    with open(jsonpath, "w+") as fileson:
-        json.dump(GlobalDict, fileson)
     return dict
 
 
@@ -2681,7 +2682,7 @@ def TraitOccurences() -> Dict[str, set[int]]:
     for T in TablesList:
         for trid in TraitsDict.keys():
             # the key of the dictionary is the table name + trait name.
-            key = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+            key = T.id + "_" + trid
             trdict[trid].add(GlobalDict[T.id].get(key, 1))
     return trdict
 
@@ -2717,7 +2718,7 @@ def GetAnumOccurence(lookup: int) -> list[str]:
     for T in TablesList:
         for trid in TraitsDict.keys():
             # the key of the dictionary is the table name + trait name.
-            key = (T.id + "_" + trid).ljust(10 + len(T.id), " ")
+            key = T.id + "_" + trid
             anum = GlobalDict[T.id].get(key, 1)
             if anum == lookup:
                 trdict.append(f"{trid.replace(' ', '') }({T.id})")

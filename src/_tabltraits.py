@@ -1675,7 +1675,7 @@ def TableTraits(T: Table) -> None:
         None
     """
     for trait_id, tr in TraitsDict.items():
-        name = (T.id + '_' + trait_id).ljust(9 + len(T.id), " ")
+        name = (T.id + '_' + trait_id)
         tex = tr[2]
         seq = tr[0](T, tr[1])
         print(name, tex)

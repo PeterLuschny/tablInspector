@@ -35,11 +35,6 @@ if __name__ == "__main__":
 
     InspectTable(Seidel)
 
-
-
-
-
-
 ''' OEIS
     Seidel_Toff11        -> 0 
     Seidel_Trev11        -> 0 

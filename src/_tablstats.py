@@ -99,8 +99,8 @@ def ListOccurences() -> None:
 
 
 if __name__ == "__main__":
-    Ranking()
-    # ListOccurences()
+    # Ranking()
+    ListOccurences()
 
 """ 
 # The most influential triangles in the OEIS database.
