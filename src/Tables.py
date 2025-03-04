@@ -13,6 +13,7 @@ import json
 from ipywidgets import Dropdown
 from requests import get
 import sys
+import colorsys
 from sys import setrecursionlimit, set_int_max_str_digits
 from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple
 
@@ -5422,7 +5423,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         T = TablesDict[t]
         TR = TraitsDict[tr][0]
     except KeyError as e:
-        print("Error:", e)
+        print("KeyError:", e)
         return 0
     if info:
         print("Selected triangle: " + t)  # + "  " + T.tex)
@@ -5455,30 +5456,22 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
     try:
         T = TablesDict[t] if isinstance(t, str) else t
     except KeyError as e:
-        print("Error:", e)
+        print("KeyError:", e)
         return
-    C = [
-        "red",
-        "green",
-        "blue",
-        "violet",
-        "sienna",
-        "plum",
-        "springgreen",
-        "chocolate",
-        "crimson",
-        "black",
-    ]
+
+    C_HSV = [(x * 1.0 / size, 0.8, 0.5) for x in range(size)]
+    C_RGB = list(map(lambda x: colorsys.hsv_to_rgb(*x), C_HSV))
+
     sv = var("sv")
     if scaled:
-        pol = [T.poly(n, sv) / factorial(n) for n in range(1, size)]  # type: ignore
+        pol = [T.poly(n, sv) / factorial(n) for n in range(1, size + 2)]  # type: ignore
         s = "(scaled)"
     else:
-        pol = [T.poly(n, sv) for n in range(1, size)]  # type: ignore
+        pol = [T.poly(n, sv) for n in range(1, size + 2)]  # type: ignore
         s = ""
     a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
     for c, p in enumerate(pol):  # type: ignore
-        a += plot(p, sv, (-1, 1), color=C[c], legend_label=f"p{c+1}")
+        a += plot(p, sv, (-1, 1), color=C_RGB[c], legend_label=f"p{c+1}")
     show(a)
 
 

@@ -20,6 +20,7 @@ from _tabloeis import LookUp
 from _tablutils import is_sage_running, NumToAnum, TidToStdFormat
 from Tables import TablesDict
 from ipywidgets import Dropdown
+import colorsys
 
 # #@
 
@@ -91,21 +92,22 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
     except KeyError as e: 
         print("KeyError:", e)
         return
-
-    C = ['red', 'green', 'blue', 'violet', 'sienna', 'plum', 'springgreen', 
-         'chocolate', 'crimson', 'black']
+ 
+    C_HSV = [(x*1.0/size, 0.8, 0.5) for x in range(size)]
+    C_RGB = list(map(lambda x: colorsys.hsv_to_rgb(*x), C_HSV))
+    
     sv = var('sv') 
 
     if scaled:
-        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size + 1)]  # type: ignore
+        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size + 2)]  # type: ignore
         s = '(scaled)'
     else:
-        pol = [T.poly(n, sv) for n in range(1, size + 1)]  # type: ignore
+        pol = [T.poly(n, sv) for n in range(1, size + 2)]  # type: ignore
         s = ''
 
     a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
     for c, p in enumerate(pol):  # type: ignore
-        a += plot(p, sv, (-1, 1), color=C[c], legend_label=f"p{c+1}")
+        a += plot(p, sv, (-1, 1), color=C_RGB[c], legend_label=f"p{c+1}")
     show(a)
 
 

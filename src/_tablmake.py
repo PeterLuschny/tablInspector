@@ -310,6 +310,7 @@ import_header: list[str] = [
     "from ipywidgets import Dropdown\n",
     "from requests import get\n",
     "import sys\n",
+    "import colorsys\n",
     "from sys import setrecursionlimit, set_int_max_str_digits\n",
     "from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple\n",
 ] 
