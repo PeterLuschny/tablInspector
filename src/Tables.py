@@ -5448,7 +5448,7 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
     If 'scaled'=True, the polynomials are scaled by the factorial of the row index.
     """
     if size <= 0 or size > 10:
-        print("Size must be in the range 1-10.")
+        print(f"Size must be in the range 1-10, but was {size}.")
         return
     if not is_sage_running():
         print("This function can only be used in a SageMath environment.")
@@ -5461,18 +5461,17 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
         print("KeyError:", e)
         return
     C_RGB = [
-        0x66A3CA,
-        0x5D9EC7,
-        0xEB6235,
-        0x8FB032,
-        0x8778B3,
-        0xE19C24,
-        0x5E81B5,
-        0xC56E1A,
-        0xFFC003,
-        0xA6619E,
+        (102, 163, 202),
+        (93, 158, 199),
+        (235, 98, 53),
+        (143, 176, 50),
+        (135, 120, 179),
+        (225, 156, 36),
+        (94, 129, 181),
+        (197, 110, 26),
+        (255, 192, 3),
+        (166, 97, 158),
     ]
-
     sv = var("sv")
     if scaled:
         pol = [T.poly(n, sv) / factorial(n) for n in range(1, size + 1)]  # type: ignore
