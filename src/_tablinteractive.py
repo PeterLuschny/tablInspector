@@ -80,6 +80,8 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
     This function can only be used in a SageMath environment.
     If 'scaled'=True, the polynomials are scaled by the factorial of the row index.
     """
+    if size <= 0:
+        return
 
     if not is_sage_running():
         print("This function can only be used in a SageMath environment.")
@@ -93,16 +95,16 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
         print("KeyError:", e)
         return
  
-    C_HSV = [(x*1.0/size, 0.8, 0.5) for x in range(size)]
+    C_HSV = [(x*1.0/size, 0.5, 0.5) for x in range(size)]
     C_RGB = list(map(lambda x: colorsys.hsv_to_rgb(*x), C_HSV))
     
     sv = var('sv') 
 
     if scaled:
-        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size + 2)]  # type: ignore
+        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size + 1)]  # type: ignore
         s = '(scaled)'
     else:
-        pol = [T.poly(n, sv) for n in range(1, size + 2)]  # type: ignore
+        pol = [T.poly(n, sv) for n in range(1, size + 1)]  # type: ignore
         s = ''
 
     a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
@@ -113,5 +115,5 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
 
 if __name__ == "__main__":
 
-    ILookUp("SchroederInv", "TablSum")
-    TablPlot("Polya", 8)
+    #ILookUp("SchroederInv", "TablSum")
+    TablPlot("Hans", 8)
