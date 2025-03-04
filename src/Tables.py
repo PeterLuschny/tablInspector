@@ -13,7 +13,6 @@ import json
 from ipywidgets import Dropdown
 from requests import get
 import sys
-import colorsys
 from sys import setrecursionlimit, set_int_max_str_digits
 from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple
 
@@ -5448,7 +5447,8 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
     This function can only be used in a SageMath environment.
     If 'scaled'=True, the polynomials are scaled by the factorial of the row index.
     """
-    if size <= 0:
+    if size <= 0 or size > 10:
+        print("Size must be in the range 1-10.")
         return
     if not is_sage_running():
         print("This function can only be used in a SageMath environment.")
@@ -5460,9 +5460,18 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
     except KeyError as e:
         print("KeyError:", e)
         return
-
-    C_HSV = [(x * 1.0 / size, 0.5, 0.5) for x in range(size)]
-    C_RGB = list(map(lambda x: colorsys.hsv_to_rgb(*x), C_HSV))
+    C_RGB = [
+        0x66A3CA,
+        0x5D9EC7,
+        0xEB6235,
+        0x8FB032,
+        0x8778B3,
+        0xE19C24,
+        0x5E81B5,
+        0xC56E1A,
+        0xFFC003,
+        0xA6619E,
+    ]
 
     sv = var("sv")
     if scaled:
