@@ -52,7 +52,7 @@ def ILookUp(t: str, tr: str, info: bool = True) -> int:
         T = TablesDict[t]
         TR = TraitsDict[tr][0]
     except KeyError as e: 
-        print("Error:", e)
+        print("KeyError:", e)
         return 0
 
     if info:
@@ -89,7 +89,7 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
     try:
         T = TablesDict[t] if isinstance(t, str) else t 
     except KeyError as e: 
-        print("Error:", e)
+        print("KeyError:", e)
         return
 
     C = ['red', 'green', 'blue', 'violet', 'sienna', 'plum', 'springgreen', 
@@ -97,10 +97,10 @@ def TablPlot(t: Table | str, size: int, scaled: bool=True) -> None:
     sv = var('sv') 
 
     if scaled:
-        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size)]  # type: ignore
+        pol = [T.poly(n, sv)/factorial(n) for n in range(1, size + 1)]  # type: ignore
         s = '(scaled)'
     else:
-        pol = [T.poly(n, sv) for n in range(1, size)]  # type: ignore
+        pol = [T.poly(n, sv) for n in range(1, size + 1)]  # type: ignore
         s = ''
 
     a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
