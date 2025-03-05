@@ -5460,17 +5460,19 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
     except KeyError as e:
         print("KeyError:", e)
         return
-    C_RGB = [
-        (102, 163, 202),
-        (93, 158, 199),
-        (235, 98, 53),
-        (143, 176, 50),
-        (135, 120, 179),
-        (225, 156, 36),
-        (94, 129, 181),
-        (197, 110, 26),
-        (255, 192, 3),
-        (166, 97, 158),
+    # RGB = [(102, 163, 202), (93, 158, 199), (235, 98, 53), (143, 176, 50), (135, 120, 179), (225, 156, 36), (94, 129, 181), (197, 110, 26), (255, 192, 3), (166, 97, 158)]
+
+    C = [
+        "green",
+        "blue",
+        "violet",
+        "sienna",
+        "plum",
+        "springgreen",
+        "chocolate",
+        "crimson",
+        "red",
+        "black",
     ]
     sv = var("sv")
     if scaled:
@@ -5481,7 +5483,7 @@ def TablPlot(t: Table | str, size: int, scaled: bool = True) -> None:
         s = ""
     a = plot([], figsize=(5, 5), title=f"{T.id} Polynomials {s}")
     for c, p in enumerate(pol):  # type: ignore
-        a += plot(p, sv, (-1, 1), color=C_RGB[c], legend_label=f"p{c+1}")
+        a += plot(p, sv, (-1, 1), color=C[c], legend_label=f"p{c+1}")
     show(a)
 
 
