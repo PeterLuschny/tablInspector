@@ -44,10 +44,6 @@ if __name__ == "__main__":
     InspectTable(BinaryPell)
 
 
-
-
-
-
 ''' OEIS
     BinaryPell_Toff11        -> 0 
     BinaryPell_Trev11        -> 0 

@@ -45,10 +45,6 @@ if __name__ == "__main__":
     InspectTable(Delannoy)
 
 
-
-
-
-
 ''' OEIS
     Delannoy_Toff11        -> 0 
     Delannoy_Trev11        -> 0 

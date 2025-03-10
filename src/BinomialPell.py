@@ -47,10 +47,48 @@ if __name__ == "__main__":
 
     InspectTable(BinomialPell)
 
+#    Timing 100 rows:  BinomialPell 0.0038 sec
 
+''' MMA
 
+(* Generate the table *)
+Tabl[T_, upto_] := Table[T[n, k], {n, 0, upto}, {k, 0, n}];
 
+(* Define the benchmarking function *)
+TablBench[T_, Upto_] := AbsoluteTiming[Tabl[T, Upto]][[1]];
 
+(* --------------------------------------------------- *)
+
+ClearAll[BinomialPell]
+
+BinomialPell[n_, k_] := Module[{P},
+  P[m_] := P[m] = If[m <= 1, m, 2*P[m - 1] + P[m - 2]];
+  P[(n + 1) - k] * Binomial[n + 1, k]
+];
+
+Tabl[BinomialPell, 9]
+TablBench[BinomialPell, 100]  (* 1.59433 sec *)
+
+(* --------------------------------------------------- *)
+
+ClearAll[Xbinomialpell]
+ClearAll[XBinomialPell]
+
+Xbinomialpell[0] := {1}
+Xbinomialpell[1] := {2, 2}
+
+Xbinomialpell[n_] := Xbinomialpell[n] = Module[{arow, row}, 
+  arow = Xbinomialpell[n - 1]; row = Append[arow, n + 1];
+  Do[row[[k + 1]] = (arow[[k]] * (n + 1)) / k, {k, 1, n - 1}];
+  row[[1]] = 2 * arow[[1]] + Xbinomialpell[n - 2][[1]];
+  row
+]
+
+XBinomialPell[n_, k_] := Xbinomialpell[n][[k+1]];
+
+Tabl[XBinomialPell, 9]
+TablBench[XBinomialPell, 100]  (* 0.0849657 sec *)
+'''
 
 ''' OEIS
     BinomialPell_Trev          -> 0 
