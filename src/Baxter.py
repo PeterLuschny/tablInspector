@@ -1,7 +1,5 @@
 from functools import cache
-from math import factorial
 from _tabltypes import Table
-
 
 """Baxter polynomials.
 
@@ -18,16 +16,36 @@ from _tabltypes import Table
 """
 
 
-@cache
-def F(n: int) -> int:
-    return factorial(n) ** 3 * ((n + 1) * (n + 1) * (n + 2))
+#from math import factorial
+#$cache
+#def F(n: int) -> int:
+#    return factorial(n) ** 3 * ((n + 1) * (n + 1) * (n + 2))
+#@cache
+#def baxter(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    return [0] + [(2 * F(n - 1)) // (F(k - 1) * F(n - k)) for k in range(1, n + 1)]
 
 
 @cache
 def baxter(n: int) -> list[int]:
+    """
+    Builds each row via the ratio 
+    T(n, k+1) / T(n, k) = (n-k)(n-k+1)(n-k+2) / (k(k+1)(k+2)).
+    Row[1:] is palindromic, so only the first half is computed and mirrored.
+    """
     if n == 0:
         return [1]
-    return [0] + [(2 * F(n - 1)) // (F(k - 1) * F(n - k)) for k in range(1, n + 1)]
+    m = (n - 1) // 2
+    half = [1]
+    t = 1
+    for (a, b, c), (d, e, f) in zip(
+        zip(range(n - 1, n - 1 - m, -1), range(n, n - m, -1), range(n + 1, n - m + 1, -1)),
+        zip(range(1, m + 1),              range(2, m + 2),      range(3, m + 3))):
+        t = t * a * b * c // (d * e * f)
+        half.append(t)
+    interior = (half + half[-2::-1]) if n % 2 == 1 else (half + half[::-1])
+    return [0] + interior
 
 
 Baxter = Table(
@@ -43,11 +61,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Baxter)
-
-
-
-
-
 
 ''' OEIS
     Baxter_Tinv          -> 0 

@@ -27,7 +27,6 @@ def _euclid(n: int, k: int) -> int:
     return 1 if n == 1 else 0
 
 
-@cache
 def euclid(n: int) -> list[int]:
     return [_euclid(i, n) for i in range(n + 1)]
 
@@ -45,9 +44,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Euclid)
-
-
-
 
 
 

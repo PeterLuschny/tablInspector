@@ -47,7 +47,6 @@ if __name__ == "__main__":
 
     InspectTable(BinomialPell)
 
-#    Timing 100 rows:  BinomialPell 0.0038 sec
 
 ''' MMA
 

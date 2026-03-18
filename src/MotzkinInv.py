@@ -13,6 +13,20 @@ from _tabltypes import Table
   [7] -1,  3,   9, -15,  -5,  15,  -7,   1;
 """
 
+#$cache
+#def motzkininv(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [-1, 1]
+#    r2  = motzkininv(n - 2) + [0]
+#    r1  = motzkininv(n - 1) + [0]
+#    r   = motzkininv(n - 1) + [1]
+#    for k in range(0, n):
+#        r[k] = r1[k - 1] - r2[k] - r1[k]
+#    return r
+
+
 @cache
 def motzkininv(n: int) -> list[int]:
     if n == 0:
@@ -20,12 +34,15 @@ def motzkininv(n: int) -> list[int]:
     if n == 1:
         return [-1, 1]
 
-    r2  = motzkininv(n - 2) + [0]
-    r1  = motzkininv(n - 1) + [0]
-    r   = motzkininv(n - 1) + [1]
-    for k in range(0, n):
-        r[k] = r1[k - 1] - r2[k] - r1[k]
-    return r
+    r1 = motzkininv(n - 1)
+    r2 = motzkininv(n - 2)
+    row = [-r1[0] - r2[0]]
+    for a, b, c in zip(r1, r1[1:], r2[1:]):
+        row.append(a - b - c)
+    row.append(r1[-2] - r1[-1])
+    row.append(1)
+    return row
+
 
 
 MotzkinInv = Table(
@@ -41,10 +58,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(MotzkinInv)
-
-
-
-
 
 
 ''' OEIS

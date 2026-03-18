@@ -2,7 +2,7 @@ from functools import cache
 from itertools import accumulate, islice
 from more_itertools import difference, flatten
 from functools import reduce
-from math import factorial, sqrt, lcm, gcd
+from math import sqrt, lcm, gcd
 from fractions import Fraction
 import operator
 from operator import itemgetter
@@ -10,6 +10,7 @@ import time
 from pathlib import Path
 import requests
 import json
+import tracemalloc
 from ipywidgets import Dropdown
 from requests import get
 import sys
@@ -534,7 +535,6 @@ class Table:
         Args:
             size: number of rows to print.
             total (optional): If True, print also the row sum. Defaults to False.
-
         Example:
             >>> Abel.show(5, True)
             [0] [1] [1]
@@ -546,6 +546,26 @@ class Table:
         for n in range(size):
             r = self.row(n)
             print([n], r, [sum(r)] if total else "")
+
+    def showarray(self, size: int) -> None:
+        """Prints the triangle read by upwards antidiagonals,
+        with the row-index in front.
+
+        Args:
+            size: number of rows to print.
+
+        Example:
+            >>> Abel.showarray(5)
+            [0] [1,   1,    1,     1,      1]
+            [1] [0,   2,    6,    12,     20]
+            [2] [0,   9,   48,   150,    360]
+            [3] [0,  64,  500,  2160,   6860]
+            [4] [0, 625, 6480, 36015, 143360]
+        """
+
+        for n in range(size):
+            diag = self.diag(n, size)
+            print([n], diag)
 
 
 def RevTable(T: Table) -> Table:
@@ -797,6 +817,35 @@ def MeasureTableGenerationTime(BenchLength: int = 100) -> None:
     for tabl in TablesList:
         TableGenerationTime(tabl, BenchLength)  # type: ignore
     t.stop()
+
+
+"""
+Benchmark utility: time and peak memory for triangle-generating functions.
+If the function has a cache_clear method, it is called before each benchmark run to ensure that the timing reflects the time taken to generate the triangle without any cached results.
+Usage:
+    bench(f)  where f(n) -> list[int]
+Computes `for n in range(X): f(n)`
+for X in (25, 100, ...) and reports wall-clock time and peak RSS delta.
+"""
+
+
+def Bench(f: Callable[[int], list[int]], name: str = "", len: int = 8) -> None:
+    label = name or getattr(f, "__name__", repr(f))
+    if hasattr(f, "cache_clear"):
+        f.cache_clear()
+    # --- warm up cache for small n so timing reflects steady-state ---
+    for X in [5, 25, 100, 200, 300, 400, 600, 1000][:len]:
+        tracemalloc.start()
+        t0 = time.perf_counter()
+        for n in range(X):
+            f(n)
+        elapsed = time.perf_counter() - t0
+        _, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+        peak_kb = peak / 1024
+        print(
+            f"{label:12s}  X={X:5d}  time={elapsed*1000:10.0f} ms  mem={peak_kb:9.0f} KB"
+        )
 
 
 def lcsubstr(s: str, t: str) -> tuple[int, int]:
@@ -1941,7 +1990,7 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
         [1, 0, -1, -4, -15, -56]
         A009940
     """
-    return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
+    return [dotproduct(BinomialInv.row(n), T.row(n)) for n in range(size)]
 
 
 def RevToff11(t: Table, size: int = 8) -> list[int]:
@@ -2746,11 +2795,15 @@ def InspectTable(T: Table, oeis: bool = False) -> None:
     print("Formula    ", T.tex)
     print("Similars   ", T.oeis)
     print("Inverse    ", T.invid if T.invQ else "None")
-    print("Timing 100 rows:", end="")
-    TableGenerationTime(T)
     print()
     print("TABLE")
     T.show(10)
+    print()
+    print("ARRAY")
+    T.showarray(7)
+    print()
+    print("PERFORMANCE")
+    Bench(T.gen)
     print()
     if oeis:
         print("Searching OEIS -- this will take some time!")
@@ -2828,8 +2881,17 @@ def ListOccurences() -> None:
 def abel(n: int) -> list[int]:
     if n == 0:
         return [1]
-    b = binomial(n - 1)
-    return [b[k - 1] * n ** (n - k) if k > 0 else 0 for k in range(n + 1)]
+    row = [0] * (n + 1)
+    c = 1  # C(n - 1, k - 1), starts at C(n-1, 0) = 1
+    p = n ** (n - 1)  # n**(n - k) for k = 1
+    for k in range(1, n + 1):
+        row[k] = c * p
+        if k < n:
+            # advance C(n - 1, k - 1) -> C(n - 1, k)
+            c = c * (n - 1 - (k - 1)) // k
+            # advance n**(n - k) -> n**(n - k - 1)
+            p = p // n
+    return row
 
 
 Abel = Table(
@@ -2861,10 +2923,10 @@ AbelInv = Table(
 def _andre(n: int, k: int) -> int:
     if k == 0 or n == 0:
         return 1
-    return -sum(Binomial(k, j) * _andre(n, j) for j in range(0, k, n))
+    brow = binomial(k)
+    return -sum(brow[j] * _andre(n, j) for j in range(0, k, n))
 
 
-@cache
 def andre(n: int) -> list[int]:
     return [abs(_andre(k, n)) for k in range(n + 1)]
 
@@ -2879,15 +2941,29 @@ Andre = Table(
 
 
 @cache
-def F(n: int) -> int:
-    return factorial(n) ** 3 * ((n + 1) * (n + 1) * (n + 2))
-
-
-@cache
 def baxter(n: int) -> list[int]:
+    """
+    Builds each row via the ratio
+    T(n, k+1) / T(n, k) = (n-k)(n-k+1)(n-k+2) / (k(k+1)(k+2)).
+    Row[1:] is palindromic, so only the first half is computed and mirrored.
+    """
     if n == 0:
         return [1]
-    return [0] + [(2 * F(n - 1)) // (F(k - 1) * F(n - k)) for k in range(1, n + 1)]
+    m = (n - 1) // 2
+    half = [1]
+    t = 1
+    for (a, b, c), (d, e, f) in zip(
+        zip(
+            range(n - 1, n - 1 - m, -1),
+            range(n, n - m, -1),
+            range(n + 1, n - m + 1, -1),
+        ),
+        zip(range(1, m + 1), range(2, m + 2), range(3, m + 3)),
+    ):
+        t = t * a * b * c // (d * e * f)
+        half.append(t)
+    interior = (half + half[-2::-1]) if n % 2 == 1 else (half + half[::-1])
+    return [0] + interior
 
 
 Baxter = Table(
@@ -2914,7 +2990,7 @@ Bell = Table(
     bell,
     "Bell",
     ["A011971", "A011972", "A123346"],
-    "",  # No inverse!
+    "A000000",  # No inverse!
     r"\sum_{j=0}^{k} \binom{k}{j} Bell(n - k + j)",
 )
 
@@ -3010,10 +3086,6 @@ def binomial(n: int) -> list[int]:
     return row
 
 
-def invbinomial(n: int) -> list[int]:
-    return [(-1) ** (n - k) * binomial(n)[k] for k in range(n + 1)]
-
-
 Binomial = Table(
     binomial,
     "Binomial",
@@ -3030,18 +3102,16 @@ Binomial = Table(
     "A130595",
     r"n! \, / (k! \, (n - k)! )",
 )
-InvBinomial = Table(
-    invbinomial,
-    "InvBinomial",
-    ["A130595"],
-    "A000000",
-    r"(-1)^{n-k} \, n! \, / (k! \, (n - k)! )",
-)
 
 
 @cache
 def binomialinv(n: int) -> list[int]:
-    return [(-1) ** (n - k) * binomial(n)[k] for k in range(n + 1)]
+    """Avoids (-1)**(n-k).
+    Reads the cached binomial row once and pairs it with a sign sequence."""
+    sgns = [1] * (n + 1)
+    for k in range(n - 1, -1, -2):
+        sgns[k] = -1
+    return [sg * v for sg, v in zip(sgns, binomial(n))]
 
 
 BinomialInv = Table(
@@ -3093,7 +3163,7 @@ BinomialCatalan = Table(
     binomialcatalan,
     "BinomialCatalan",
     ["A124644", "A098474"],
-    "",  # not invertible
+    "A000000",  # not invertible
     r"\binom{n}{k} \text{Catalan}(n - k)",
 )
 
@@ -3150,12 +3220,9 @@ def catalan(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [0, 1]
-    pow = catalan(n - 1) + [0]
-    row = pow.copy()
-    for k in range(n - 1, 0, -1):
-        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
-    row[n] = 1
-    return row
+    prev = catalan(n - 1) + [0]
+    middle = [l + 2 * m + r for l, m, r in zip(prev[:-2], prev[1:-1], prev[2:])]
+    return [0] + middle + [1]
 
 
 Catalan = Table(
@@ -3173,12 +3240,10 @@ def catalaninv(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [0, 1]
-    row = [0] * (n + 1)
     c0 = catalaninv(n - 2) + [0, 0]
     c1 = catalaninv(n - 1) + [0]
-    for k in range(1, n + 1):
-        row[k] = c1[k - 1] + 2 * c1[k] - c0[k]
-    return row
+    mid = [a + 2 * b - c for a, b, c in zip(c1[:-1], c1[1:], c0[1:])]
+    return [0] + mid
 
 
 CatalanInv = Table(
@@ -3261,7 +3326,7 @@ def centralset(n: int) -> list[int]:
         return [0, 1]
     row = centralset(n - 1) + [1]
     for k in range(n - 1, 1, -1):
-        row[k] = k**2 * row[k] + row[k - 1]
+        row[k] = k * k * row[k] + row[k - 1]
     return row
 
 
@@ -3323,12 +3388,11 @@ def charlier(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [1, -1]
-    a = charlier(n - 1)
-    b = [0] + charlier(n - 2)
-    c = charlier(n - 1) + [(-1) ** n]
-    for k in range(1, n):
-        c[k] = a[k] - n * a[k - 1] - (n - 1) * b[k - 1]
-    return c
+    prev1 = charlier(n - 1)
+    prev2 = [0] + charlier(n - 2)
+    sign = -1 if n & 1 else 1
+    middle = [a - n * b - (n - 1) * c for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
+    return [1] + middle + [sign]
 
 
 Charlier = Table(
@@ -3423,7 +3487,6 @@ def _clp(n: int, k: int) -> int:
     )
 
 
-@cache
 def compositionlp(n: int) -> list[int]:
     if n == 0:
         return [1]
@@ -3493,16 +3556,34 @@ CTree = Table(
 
 
 @cache
+def _S(n: int, k: int) -> int:
+    return (
+        _S(n, k - 1)
+        + sum(_S(2 * j, k - 1) * _S(n - 1 - 2 * j, k) for j in range(1 + (n - 1) // 2))
+        if k > 0
+        else 1
+    )
+
+
+def degsympoly(n: int) -> list[int]:
+    return [_S(n, k) for k in range(n + 1)]
+
+
+DegSymPoly = Table(
+    degsympoly, "DegSymPoly", ["A394080", "A050446", "A050447"], "", r"%%"
+)
+
+
+@cache
 def delannoy(n: int) -> list[int]:
     if n == 0:
         return [1]
     if n == 1:
         return [1, 1]
-    rov = delannoy(n - 2)
-    row = delannoy(n - 1) + [1]
-    for k in range(n - 1, 0, -1):
-        row[k] += row[k - 1] + rov[k - 1]
-    return row
+    prev1 = delannoy(n - 1)
+    prev2 = delannoy(n - 2)
+    middle = [a + b + c for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
+    return [1] + middle + [1]
 
 
 Delannoy = Table(
@@ -3514,15 +3595,28 @@ Delannoy = Table(
 )
 
 
+def _suffix_sums(row: list[int]) -> list[int]:
+    suffix = [0] * len(row)
+    total = 0
+    for k in range(len(row) - 1, -1, -1):
+        total += row[k]
+        suffix[k] = total
+    return suffix
+
+
+"""Build the next row from suffix sums of the previous row.
+    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], where s is the suffix-sum row.
+"""
+
+
 @cache
 def delannoyinv(n: int) -> list[int]:
     if n == 0:
         return [1]
-    d = delannoyinv(n - 1)
-    row = [sum(d)] + d
-    for k in range(n - 1, 0, -1):
-        row[k] = row[k + 1] + d[k - 1] + d[k]
-    return row
+    prev = delannoyinv(n - 1)
+    suffix = _suffix_sums(prev)
+    middle = [left + right for left, right in zip(suffix, suffix[1:])]
+    return [suffix[0]] + middle + [suffix[-1]]
 
 
 DelannoyInv = Table(
@@ -3531,27 +3625,6 @@ DelannoyInv = Table(
     ["A132372", "A103136", "A033878"],
     "A008288",
     r"%%",
-)
-
-
-@cache
-def _distlattices(n: int, k: int) -> int:
-    if k == 0 or n == 0:
-        return 1
-    s = [
-        _distlattices(2 * j, k - 1) * _distlattices(n - 1 - 2 * j, k)
-        for j in range(1 + (n - 1) // 2)
-    ]
-    return sum(s) + _distlattices(n, k - 1)
-
-
-@cache
-def distlattices(n: int) -> list[int]:
-    return [_distlattices(n - k, k) for k in range(n + 1)]
-
-
-DistLattices = Table(
-    distlattices, "DistLattices", ["A050446", "A050447"], "A000000", r""
 )
 
 
@@ -3605,13 +3678,9 @@ DoublePochhammer = Table(
 def dyckpaths(n: int) -> list[int]:
     if n == 0:
         return [1]
-    pow = dyckpaths(n - 1) + [0]
-    row = pow.copy()
-    row[0] += row[1]
-    row[n] = 1
-    for k in range(n - 1, 0, -1):
-        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
-    return row
+    prev = dyckpaths(n - 1) + [0]
+    middle = [a + (b << 1) + c for a, b, c in zip(prev[:-2], prev[1:-1], prev[2:])]
+    return [prev[0] + prev[1]] + middle + [1]
 
 
 DyckPaths = Table(
@@ -3651,12 +3720,8 @@ DyckPathsInv = Table(
 def entringer(n: int) -> list[int]:
     if n == 0:
         return [1]
-    rowA = entringer(n - 1)
-    row = [0] + entringer(n - 1)
-    row[1] = row[n]
-    for k in range(2, n + 1):
-        row[k] = row[k - 1] + rowA[n - k]
-    return row
+    prev = entringer(n - 1)
+    return [0] + list(accumulate(reversed(prev)))
 
 
 Entringer = Table(
@@ -3677,7 +3742,6 @@ def _euclid(n: int, k: int) -> int:
     return 1 if n == 1 else 0
 
 
-@cache
 def euclid(n: int) -> list[int]:
     return [_euclid(i, n) for i in range(n + 1)]
 
@@ -3694,7 +3758,9 @@ def euler(n: int) -> list[int]:
     row = euler(n - 1) + [1]
     for k in range(n, 0, -1):
         row[k] = (row[k - 1] * n) // (k)
-    row[0] = -sum((-1) ** (j // 2) * row[j] for j in range(n, 0, -2))
+    a = sum(row[j] for j in range(n, 0, -4))
+    b = sum(row[j] for j in range(n - 2, 0, -4))
+    row[0] = b - a if (n // 2) % 2 == 0 else a - b
     return row
 
 
@@ -3773,22 +3839,45 @@ EulerianB = Table(eulerianb, "EulerianB", ["A060187", "A138076"], "A000000", r"%
 
 
 @cache
-def eulerianzigzag(n: int) -> list[int]:
-    b = binomial(n + 1)
-    return [
-        sum((-1) ** j * b[j] * _distlattices(n, k - j) for j in range(k + 1))
-        for k in range(n + 1)
-    ]
+def _s(n: int, k: int) -> int:
+    if k == 0:
+        return 1
+    return _s(n, k - 1) + sum(
+        _s(2 * j, k - 1) * _s(n - 1 - 2 * j, k) for j in range(1 + (n - 1) // 2)
+    )
 
 
 @cache
-def ezz(n: int) -> list[int]:
-    n += 2
-    b = binomial(n + 1)
-    return [
-        sum((-1) ** j * b[j] * _distlattices(n, k - j) for j in range(k + 1))
-        for k in range(n - 1)
+def eulerianrevzigzag(n: int) -> list[int]:
+    if n == 0:
+        return [1]
+    if n == 1:
+        return [0, 1]
+    b = [(-1 if j & 1 else 1) * binomial(n + 1)[j] for j in range(n + 1)]
+    r = [sum(b[j] * _s(n, k - j) for j in range(k + 1)) for k in range(n - 1)]
+    return [0, 0] + r
+
+
+EulerianRevZigZag = Table(
+    eulerianrevzigzag, "EulerianRevZigZag", ["A205497"], "A000000", r"%%"
+)
+
+
+@cache
+def eulerianzigzag(n: int) -> list[int]:
+    if n == 0:
+        return [1]
+    if n == 1:
+        return [1, 1]
+    half = (n + 2) // 2
+    row = [
+        sum(
+            (-1 if j & 1 else 1) * binomial(n + 3)[j] * degsympoly(n + 2)[k - j]
+            for j in range(k + 1)
+        )
+        for k in range(half)
     ]
+    return (row + row[-2::-1]) if n % 2 == 0 else (row + row[::-1])
 
 
 EulerianZigZag = Table(eulerianzigzag, "EulerianZigZag", ["A205497"], "", r"%%")
@@ -4128,12 +4217,12 @@ def jacobsthal(n: int) -> list[int]:
         return [1, 1]
     if n == 2:
         return [1, 2, 1]
-    Jn1 = jacobsthal(n - 1)
-    Jn2 = jacobsthal(n - 2) + [0]
+    j1 = jacobsthal(n - 1)
+    j2 = jacobsthal(n - 2) + [0]
     row = [1] * (n + 1)
     for k in range(1, n):
-        row[k] = Jn1[k - 1] + Jn1[k] + 2 * Jn2[k]
-    row[0] = Jn1[0] + 2 * Jn2[0]
+        row[k] = j1[k - 1] + j1[k] + 2 * j2[k]
+    row[0] = j1[0] + 2 * j2[0]
     return row
 
 
@@ -4150,14 +4239,16 @@ Jacobsthal = Table(
 def labeledgraphs(n: int) -> list[int]:
     if n == 0:
         return [1]
-    s = [
-        2 ** (((k - n + 1) * (k - n)) // 2)
-        * Binomial(n - 1, k - 1)
-        * labeledgraphs(k)[k]
-        for k in range(1, n)
-    ]
-    b = 2 ** (((n - 1) * n) // 2) - sum(s)
-    return [0] + s + [b]
+    result = [0] * (n + 1)
+    pow2 = 1 << ((n - 1) * (n - 2) // 2)  # 2^C(n-1,2), exponent for k=1
+    binom = 1  # C(n-1, 0)
+    for k in range(1, n):
+        result[k] = pow2 * binom * labeledgraphs(k)[k]
+        pow2 >>= n - k - 1  # advance to 2^C(n-k-1, 2)
+        if k < n - 1:
+            binom = binom * (n - k) // k  # advance to C(n-1, k)
+    result[n] = (1 << ((n - 1) * n // 2)) - sum(result[1:n])
+    return result
 
 
 LabeledGraphs = Table(
@@ -4209,17 +4300,26 @@ Lah = Table(
 
 
 @cache
-def _t(n: int, k: int, m: int) -> int:
-    if k < 0 or n < 0:
-        return 0
-    if k == 0:
-        return n**k
-    return m * _t(n, k - 1, m) + _t(n - 1, k, m + 1)
-
-
-@cache
 def lehmer(n: int) -> list[int]:
-    return [_t(k - 1, n - k, n - k) if n != k else 1 for k in range(n + 1)]
+    if n < 0:
+        return []
+    if n == 0:
+        return [1]
+    res = [0] * (n + 1)
+    res[n] = 1
+    if n == 1:
+        return res
+    # Start with the base row of 0-th forward differences: x^(n-1)
+    row = [x ** (n - 1) for x in range(n)]
+    res[1] = row[-1]
+    fact = 1
+    for k in range(2, n):
+        # Use the previously computed row to build
+        # the next sequence of differences. c.f. A199656
+        row = [row[i + 1] - row[i] for i in range(len(row) - 1)]
+        fact *= k - 1
+        res[k] = row[-1] // fact
+    return res
 
 
 Lehmer = Table(
@@ -4235,7 +4335,7 @@ Lehmer = Table(
 def leibniz(n: int) -> list[int]:
     if n == 0:
         return [1]
-    row = leibniz(n - 1) + [n + 1]
+    row = [0] * (n + 1)
     row[0] = row[n] = n + 1
     for k in range(1, n):
         row[k] = ((n - k + 1) * row[k - 1]) // k
@@ -4352,6 +4452,32 @@ LucasPoly = Table(
 
 
 @cache
+def _pow_row(n: int) -> tuple[int, ...]:
+    """Returns (0**n, 1**n, ..., n**n), reusing (n-1)-th powers."""
+    if n == 0:
+        return (1,)  # 0^0 = 1
+    prev = _pow_row(n - 1)
+    return tuple(k * prev[k] for k in range(n)) + (n**n,)
+
+
+@cache
+def maxval(n: int) -> list[int]:
+    if n == 0:
+        return [1]
+    pows = _pow_row(n)
+    return [0] + [pows[k] - pows[k - 1] for k in range(1, n + 1)]
+
+
+MaxVal = Table(
+    maxval,
+    "MaxVal",
+    ["A199656"],
+    "",
+    r"k^n - (k-1)^n",
+)
+
+
+@cache
 def _moebius(n: int) -> int:
     if n == 1:
         return 1
@@ -4427,12 +4553,14 @@ def motzkininv(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [-1, 1]
-    r2 = motzkininv(n - 2) + [0]
-    r1 = motzkininv(n - 1) + [0]
-    r = motzkininv(n - 1) + [1]
-    for k in range(0, n):
-        r[k] = r1[k - 1] - r2[k] - r1[k]
-    return r
+    r1 = motzkininv(n - 1)
+    r2 = motzkininv(n - 2)
+    row = [-r1[0] - r2[0]]
+    for a, b, c in zip(r1, r1[1:], r2[1:]):
+        row.append(a - b - c)
+    row.append(r1[-2] - r1[-1])
+    row.append(1)
+    return row
 
 
 MotzkinInv = Table(
@@ -4603,12 +4731,15 @@ def A(n: int, k: int) -> int:
     if k > n:
         n, k = k, n
     b = binomial(k + 1)
-    return k * A(n - 1, k) + sum(b[j + 1] * A(n - 1, k - j) for j in range(1, k + 1))
+    s = sum(b[j + 1] * A(n - 1, k - j) for j in range(1, k + 1))
+    return s + k * A(n - 1, k)
 
 
 @cache
 def parades(n: int) -> list[int]:
-    return [A(n - k, k) for k in range(n + 1)]
+    half = (n + 2) // 2
+    row = [A(n - k, k) for k in range(half)]
+    return (row + row[-2::-1]) if n % 2 == 0 else (row + row[::-1])
 
 
 Parades = Table(
@@ -4629,7 +4760,6 @@ def part(n: int, k: int) -> int:
     return part(n - 1, k - 1) + part(n - k, k)
 
 
-@cache
 def partition(n: int) -> list[int]:
     return [part(n, k) for k in range(n + 1)]
 
@@ -4921,11 +5051,10 @@ def schroederinv(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [0, 1]
-    arow = schroederinv(n - 2) + [1]
-    row = schroederinv(n - 1) + [1]
-    for k in range(n - 1, 0, -1):
-        row[k] += row[k - 1] + arow[k - 1]
-    return row
+    prev1 = schroederinv(n - 1)
+    prev2 = schroederinv(n - 2)
+    middle = [a + b + c for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
+    return [0] + middle + [1]
 
 
 SchroederInv = Table(
@@ -4943,12 +5072,9 @@ def schroederl(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [1, 1]
-    arow = schroederl(n - 1) + [0]
-    row = schroederl(n - 1) + [1]
-    row[0] = row[0] + 2 * row[1]
-    for k in range(1, n):
-        row[k] = arow[k - 1] + 3 * arow[k] + 2 * arow[k + 1]
-    return row
+    prev = schroederl(n - 1)
+    interior = [a + 3 * b + 2 * c for a, b, c in zip(prev, prev[1:], prev[2:])]
+    return [prev[0] + 2 * prev[1], *interior, prev[-2] + 3 * prev[-1], 1]
 
 
 SchroederL = Table(schroederl, "SchroederL", ["A172094"], "A000000", r"%%")
@@ -5114,12 +5240,14 @@ def stirlingsetb(n: int) -> list[int]:
         return [1]
     if n == 1:
         return [1, 1]
-    pow = stirlingsetb(n - 1)
-    row = stirlingsetb(n - 1) + [1]
-    row[0] += 2 * row[1]
-    for k in range(1, n - 1):
-        row[k] = 2 * (k + 1) * pow[k + 1] + (2 * k + 1) * pow[k] + pow[k - 1]
-    row[n - 1] = (2 * n - 1) * pow[n - 1] + pow[n - 2]
+    prev = stirlingsetb(n - 1)
+    row = [prev[0] + 2 * prev[1]]
+    row += [
+        2 * (k + 1) * b + (2 * k + 1) * c + a
+        for k, (a, c, b) in enumerate(zip(prev, prev[1:], prev[2:]), 1)
+    ]
+    row.append((2 * n - 1) * prev[-1] + prev[-2])
+    row.append(1)
     return row
 
 
@@ -5304,9 +5432,9 @@ TablesDict: dict[str, Table] = {
     "CompositionAcc": CompositionAcc,
     "CompositionDist": CompositionDist,
     "CTree": CTree,
+    "DegSymPoly": DegSymPoly,
     "Delannoy": Delannoy,
     "DelannoyInv": DelannoyInv,
-    "DistLattices": DistLattices,
     "Divisibility": Divisibility,
     "DoublePochhammer": DoublePochhammer,
     "DyckPaths": DyckPaths,
@@ -5317,6 +5445,7 @@ TablesDict: dict[str, Table] = {
     "Eulerian": Eulerian,
     "Eulerian2": Eulerian2,
     "EulerianB": EulerianB,
+    "EulerianRevZigZag": EulerianRevZigZag,
     "EulerianZigZag": EulerianZigZag,
     "EulerSec": EulerSec,
     "EulerTan": EulerTan,
@@ -5347,6 +5476,7 @@ TablesDict: dict[str, Table] = {
     "Lucas": Lucas,
     "LucasInv": LucasInv,
     "LucasPoly": LucasPoly,
+    "MaxVal": MaxVal,
     "Moebius": Moebius,
     "Monotone": Monotone,
     "Motzkin": Motzkin,

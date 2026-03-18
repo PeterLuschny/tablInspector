@@ -4,22 +4,24 @@ from _tabltypes import Table
 
 """FiboLucasRev polynomials, m = 2.
 
-| [1] |
-| [2, 1] |
-| [1, 2, 1] |
-| [2, 2, 2, 1] |
-| [1, 4, 3, 2, 1] |
-| [2, 3, 6, 4, 2, 1] |
-| [1, 6, 6, 8, 5, 2, 1] |
-| [2, 4, 12, 10, 10, 6, 2, 1] |
+[0] [1]
+[1] [2, 1]
+[2] [1, 2, 1]
+[3] [2, 2, 2, 1]
+[4] [1, 4, 3, 2, 1]
+[5] [2, 3, 6, 4, 2, 1]
+[6] [1, 6, 6, 8, 5, 2, 1]
+[7] [2, 4, 12, 10, 10, 6, 2, 1]
+[8] [1, 8, 10, 20, 15, 12, 7, 2, 1]
+[9] [2, 5, 20, 20, 30, 21, 14, 8, 2, 1]
 
-# @cache
+
+# $cache
 def T(n: int, k: int) -> int:
     if k > n: return 0
     if k < 2: return k + 1
     return T(n - 1, k) + T(n - 2, k - 2)
 """
-
 
 @cache
 def fibolucasrev(n: int) -> list[int]:
@@ -40,8 +42,6 @@ FiboLucasRev = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
     InspectTable(FiboLucasRev)
-
-
 
 
 

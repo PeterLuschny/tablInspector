@@ -42,6 +42,7 @@ if __name__ == "__main__":
 
     InspectTable(Eulerian2)
 
+
 # See also http://luschny.de/math/oeis/A340556.html
 
 

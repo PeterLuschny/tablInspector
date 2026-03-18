@@ -17,9 +17,18 @@ from Binomial import binomial
   ...
 """
 
+#$cache
+#def binomialinv(n: int) -> list[int]:
+#    return [(-1)**(n - k) * binomial(n)[k] for k in range(n + 1)]
+
 @cache
 def binomialinv(n: int) -> list[int]:
-    return [(-1)**(n - k) * binomial(n)[k] for k in range(n + 1)]
+    """Avoids (-1)**(n-k).
+    Reads the cached binomial row once and pairs it with a sign sequence."""
+    sgns = [1] * (n + 1)
+    for k in range(n - 1 , -1, -2):
+        sgns[k] = -1
+    return [sg * v for sg, v in zip(sgns, binomial(n))]
 
 
 BinomialInv = Table(
@@ -35,10 +44,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(BinomialInv)
-
-
-
-
 
 
 ''' OEIS

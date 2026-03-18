@@ -13,6 +13,8 @@ from PolyaTreeAcc import polyatreeacc
 [7] [0, 1, 14,  38,  36,  19,  6,  1]
 [8] [0, 1, 21,  76,  93,  61, 26,  7, 1]
 [9] [0, 1, 29, 147, 225, 180, 94, 34, 8, 1]
+
+           STATUS: EXPERIMENTAL
 """
 
 

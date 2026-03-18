@@ -35,7 +35,7 @@ BinomialCatalan = Table(
     binomialcatalan,
     "BinomialCatalan",
     ["A124644", "A098474"],
-    "",  # not invertible
+    "A000000",  # not invertible
     r"\binom{n}{k} \text{Catalan}(n - k)",
 )
 

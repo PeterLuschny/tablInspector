@@ -49,9 +49,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     BinomialBell_Trev11        -> 0 
     BinomialBell_Tinv11        -> 0 

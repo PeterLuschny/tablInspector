@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Bessel2_Toff11        -> 0 
     Bessel2_Trev11        -> 0 

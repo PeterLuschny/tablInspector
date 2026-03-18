@@ -29,6 +29,8 @@ def template(n: int) -> list[int]:
         return [0]
 
     row = [0]*(n + 1)
+    # Here you would compute the values of row[0], row[1], ..., row[n] 
+    # according to the definition of the sequence.
     return row
 
 
@@ -37,7 +39,7 @@ Template = Table(
     "Template",  # name of the table
     ["A000004"], # similar sequences in OEIS
     "",          # id of inverse sequence if it exists
-    r"T(n,k)=0"  # TeX of the defining formula
+    r"T(n,k)=0"  # TeX form of the defining formula
 )
 
 

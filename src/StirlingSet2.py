@@ -32,6 +32,7 @@ def stirlingset2(n: int) -> list[int]:
     return row
 
 
+
 StirlingSet2 = Table(
     stirlingset2,
     "StirlingSet2",

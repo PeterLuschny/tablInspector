@@ -15,6 +15,20 @@ from _tabltypes import Table
 """
 
 
+#$cache
+#def schroederinv(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [0, 1]
+#    arow = schroederinv(n - 2) + [1]
+#    row = schroederinv(n - 1) + [1]
+#    for k in range(n - 1, 0, -1):
+#        row[k] += row[k - 1] + arow[k - 1]
+#    return row
+
+"""Same recurrence as schroederinv, but builds interior terms with zip."""
+
 @cache
 def schroederinv(n: int) -> list[int]:
     if n == 0:
@@ -22,12 +36,11 @@ def schroederinv(n: int) -> list[int]:
     if n == 1:
         return [0, 1]
 
-    arow = schroederinv(n - 2) + [1]
-    row = schroederinv(n - 1) + [1]
-    for k in range(n - 1, 0, -1):
-        row[k] += row[k - 1] + arow[k - 1]
-
-    return row
+    prev1 = schroederinv(n - 1)
+    prev2 = schroederinv(n - 2)
+    middle = [a + b + c for a, b, c 
+              in zip(prev1[1:], prev1[:-1], prev2)]
+    return [0] + middle + [1]
 
 
 SchroederInv = Table(

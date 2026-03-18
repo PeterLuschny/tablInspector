@@ -38,7 +38,7 @@ from Tables import TablesList
 from _tabltypes import Table
 from _tabloeis import QueryOEIS
 from _tabltraits import TraitsDict, TableTraits
-from _tablutils import NumToAnum, TableGenerationTime
+from _tablutils import NumToAnum, Bench
 from pathlib import Path
 from typing import Dict
 import json
@@ -431,9 +431,12 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
     print("Formula    ", T.tex)
     print("Similars   ", T.oeis)
     print("Inverse    ", T.invid if T.invQ else "None")
-    print("Timing 100 rows:", end=''); TableGenerationTime(T)
     print()
     print("TABLE"); T.show(10)
+    print()
+    print("ARRAY"); T.showarray(7)
+    print()
+    print("PERFORMANCE"); Bench(T.gen)
     print()
     if oeis:
         print("Searching OEIS -- this will take some time!")
@@ -453,9 +456,9 @@ if __name__ == "__main__":
     #from MotzkinInv import MotzkinInv      # type: ignore
     #from DoublePochhammer import DoublePochhammer  # type: ignore
     from Sidi import Sidi  # type: ignore
-    AddTable(Sidi) # type: ignore
+    # AddTable(Sidi) # type: ignore
 
-    #InspectTable(Sidi)
+    InspectTable(Sidi)
 
     #for T in TablesList:
     #    print(T.id, T.tex)

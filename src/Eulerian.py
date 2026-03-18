@@ -67,8 +67,6 @@ if __name__ == "__main__":
 
 
 
-
-
 ''' OEIS
     Eulerian_Tinv          -> 0 
     Eulerian_Trevinv       -> 0 

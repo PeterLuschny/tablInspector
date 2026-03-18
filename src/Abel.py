@@ -26,7 +26,6 @@ References:
 """
 
 from functools import cache
-from Binomial import binomial
 from _tabltypes import Table
 
 """Abel polynomials (unsigned coefficients).
@@ -41,13 +40,36 @@ from _tabltypes import Table
 [8] [0,  2097152, 1835008,  688128, 143360,  17920, 1344,  56, 1]
 """
 
+# from Binomial import binomial
+#$cache
+#def abel(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#
+#    b = binomial(n - 1)
+#    return [b[k - 1] * n ** (n - k) 
+#            if k > 0 else 0 for k in range(n + 1)]
+#
+# -- Alternativ for improved efficiency:
+
+
 @cache
-def abel(n: int) -> list[int]:
+def abel(n: int) -> list[int]: 
     if n == 0:
         return [1]
 
-    b = binomial(n - 1)
-    return [b[k - 1] * n ** (n - k) if k > 0 else 0 for k in range(n + 1)]
+    row = [0] * (n + 1)
+    c = 1  # C(n - 1, k - 1), starts at C(n-1, 0) = 1
+    p = n ** (n - 1)  # n**(n - k) for k = 1
+
+    for k in range(1, n + 1):
+        row[k] = c * p
+        if k < n:
+            # advance C(n - 1, k - 1) -> C(n - 1, k)
+            c = c * (n - 1 - (k - 1)) // k
+            # advance n**(n - k) -> n**(n - k - 1)
+            p = p // n
+    return row
 
 
 Abel = Table(
@@ -63,10 +85,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Abel)
-
-
-
-
 
 
 ''' OEIS

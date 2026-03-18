@@ -16,6 +16,21 @@ from _tabltypes import Table
 """
 
 
+#$cache
+#def catalan(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [0, 1]
+#    pow = catalan(n - 1) + [0]
+#    row = pow.copy()
+#    for k in range(n - 1, 0, -1):
+#        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
+#    row[n] = 1
+#    return row
+
+"""Same recurrence as above but builds the interior using zip."""
+    
 @cache
 def catalan(n: int) -> list[int]:
     if n == 0:
@@ -23,13 +38,9 @@ def catalan(n: int) -> list[int]:
     if n == 1:
         return [0, 1]
 
-    pow = catalan(n - 1) + [0]
-    row = pow.copy()
-    for k in range(n - 1, 0, -1):
-        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
-    row[n] = 1
-
-    return row
+    prev = catalan(n - 1) + [0]
+    middle = [l + 2 * m + r for l, m, r in zip(prev[:-2], prev[1:-1], prev[2:])]
+    return [0] + middle + [1]
 
 
 Catalan = Table(
@@ -45,10 +56,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Catalan)
-
-
-
-
 
 
 ''' OEIS

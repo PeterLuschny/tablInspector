@@ -1,35 +1,27 @@
 from functools import cache
 from Binomial import binomial
-from DistLattices import _distlattices  # type: ignore
+from DegSymPoly import degsympoly
 from _tabltypes import Table
 
 """EulerianZigZag triangle.
 
 [0] [1]
-[1] [1,  0]
-[2] [1,  0,   0]
-[3] [1,  1,   0,   0]
-[4] [1,  3,   1,   0,   0]
-[5] [1,  7,   7,   1,   0,  0]
-[6] [1, 14,  31,  14,   1,  0, 0]
-[7] [1, 26, 109, 109,  26,  1, 0, 0]
-[8] [1, 46, 334, 623, 334, 46, 1, 0, 0]
+[1] [1,  1]
+[2] [1,  3,   1]
+[3] [1,  7,   7,   1]
+[4] [1, 14,  31,  14,   1]
+[5] [1, 26, 109, 109,  26,  1]
+[6] [1, 46, 334, 623, 334, 46, 1]
 """
 
-#TODO: Get rid of the _distlattices function 
 @cache
 def eulerianzigzag(n: int) -> list[int]:
-
-    b = binomial(n + 1)
-    return [sum((-1)**j * b[j] * _distlattices(n, k - j) for j in range(k + 1)) for k in range(n + 1)]
-
-
-# Using a different enumeration:
-@cache
-def ezz(n: int) -> list[int]:
-    n += 2
-    b = binomial(n + 1)
-    return [sum((-1)**j * b[j] * _distlattices(n, k - j) for j in range(k + 1)) for k in range(n - 1)]
+    if n == 0: return [1]
+    if n == 1: return [1, 1]
+    half = (n + 2) // 2
+    row = [sum((-1 if j & 1 else 1) * binomial(n + 3)[j] * 
+        degsympoly(n+2)[k - j] for j in range(k + 1)) for k in range(half)]
+    return (row + row[-2::-1]) if n % 2 == 0 else (row + row[::-1])
 
 
 EulerianZigZag = Table(
@@ -45,11 +37,9 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(EulerianZigZag)
-    for n in range(8): print(ezz(n))
-
-
-
-
+    #from _tablutils import Bench
+    #Bench(eulerianzigzag, "EulerianZigZag", 4)
+    # for n in range(7): print(eulerianzigzag(n))
 
 
 ''' OEIS

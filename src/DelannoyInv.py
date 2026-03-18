@@ -15,17 +15,40 @@ Inverse of the Delannoy triangle, unsigned version.
 [8]  8558, 15310, 10286,  4942, 1838,  526, 110,  15,  1;
 """
 
+#$cache
+#def delannoyinv(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    d = delannoyinv(n - 1)
+#    row = [sum(d)] + d
+#    for k in range(n - 1, 0, -1):
+#        row[k] = row[k + 1] + d[k - 1] + d[k]
+#    return row
+
+# #@
+
+def _suffix_sums(row: list[int]) -> list[int]:
+    suffix = [0] * len(row)
+    total = 0
+    for k in range(len(row) - 1, -1, -1):
+        total += row[k]
+        suffix[k] = total
+    return suffix
+
+"""Build the next row from suffix sums of the previous row.
+    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], where s is the suffix-sum row.
+"""
+
 @cache
 def delannoyinv(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    d = delannoyinv(n - 1)
-    row = [sum(d)] + d
-    for k in range(n - 1, 0, -1):
-        row[k] = row[k + 1] + d[k - 1] + d[k]
+    prev = delannoyinv(n - 1)
+    suffix = _suffix_sums(prev)
+    middle = [left + right for left, right in zip(suffix, suffix[1:])]
+    return [suffix[0]] + middle + [suffix[-1]]
 
-    return row
 
 
 DelannoyInv = Table(
@@ -41,7 +64,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(DelannoyInv)
-
 
 
 

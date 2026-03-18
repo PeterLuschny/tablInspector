@@ -34,6 +34,21 @@ def chebyshevt(n: int) -> list[int]:
     return row
 
 
+#@cache
+#def _chebyshevt_zip(n: int) -> list[int]:
+#    """Same three-term recurrence T_n = 2x*T_{n-1} - T_{n-2},
+#    expressed with zip: avoids index arithmetic and in-place mutation.
+#    ** But benchmark does not show any advantage."""
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [0, 1]
+#    prev1 = _chebyshevt_zip(n - 1)
+#    prev2 = _chebyshevt_zip(n - 2)
+#    shifted = [0] + [2 * c for c in prev1]  # coefficients of 2x * T_{n-1}
+#    return [a - b for a, b in zip(shifted, prev2 + [0, 0])]
+
+
 ChebyshevT = Table(
     chebyshevt, 
     "ChebyshevT", 
@@ -47,9 +62,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(ChebyshevT)
-
-
-
 
 
 

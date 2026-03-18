@@ -34,7 +34,6 @@ def _clp(n: int, k: int) -> int:
     )
 
 
-@cache
 def compositionlp(n: int) -> list[int]:
     if n == 0:
         return [1]

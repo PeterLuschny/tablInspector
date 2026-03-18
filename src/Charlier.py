@@ -15,6 +15,20 @@ from _tabltypes import Table
 """
 
 
+#$cache
+#def charlier(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [1, -1]
+#    a = charlier(n - 1)
+#    b = [0] + charlier(n - 2)
+#    c = charlier(n - 1) + [(-1) ** n]
+#    for k in range(1, n):
+#        c[k] = a[k] - n * a[k - 1] - (n - 1) * b[k - 1]
+#    return c
+
+
 @cache
 def charlier(n: int) -> list[int]:
     if n == 0:
@@ -22,14 +36,12 @@ def charlier(n: int) -> list[int]:
     if n == 1:
         return [1, -1]
 
-    a = charlier(n - 1)
-    b = [0] + charlier(n - 2)
-    c = charlier(n - 1) + [(-1) ** n]
-
-    for k in range(1, n):
-        c[k] = a[k] - n * a[k - 1] - (n - 1) * b[k - 1]
-
-    return c
+    prev1 = charlier(n - 1)
+    prev2 = [0] + charlier(n - 2)
+    sign = -1 if n & 1 else 1
+    middle = [a - n * b - (n - 1) * c
+        for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
+    return [1] + middle + [sign]
 
 
 Charlier = Table(
@@ -45,9 +57,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Charlier)
-
-
-
 
 
 

@@ -21,13 +21,15 @@ def A(n: int, k: int) -> int:
         n, k = k, n
 
     b = binomial(k + 1)
-    return k * A(n - 1, k) + sum(b[j + 1] * A(n - 1, k - j)
-                             for j in range(1, k + 1))
+    s = sum(b[j + 1] * A(n - 1, k - j) for j in range(1, k + 1))
+    return s + k * A(n - 1, k) 
 
 
 @cache
 def parades(n: int) -> list[int]:
-    return [A(n - k, k) for k in range(n + 1)]
+    half = (n + 2) // 2
+    row = [A(n - k, k) for k in range(half)]
+    return (row + row[-2::-1]) if n % 2 == 0 else (row + row[::-1])
 
 
 Parades = Table(

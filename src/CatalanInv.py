@@ -15,6 +15,21 @@ from _tabltypes import Table
   [9] [0, 9, 120, 462, 792, 715, 364, 105, 16, 1]
 """
 
+#$cache
+#def catalaninv(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    if n == 1:
+#        return [0, 1]
+#    row = [0]*(n+1)
+#    c0 = catalaninv(n-2) + [0, 0]
+#    c1 = catalaninv(n-1) + [0]
+#    for k in range(1, n+1):
+#        row[k] = c1[k-1] + 2*c1[k] - c0[k]
+#    return row
+
+"""Same recurrence as above but builds the interior using zip."""
+
 @cache
 def catalaninv(n: int) -> list[int]:
     if n == 0:
@@ -22,12 +37,10 @@ def catalaninv(n: int) -> list[int]:
     if n == 1:
         return [0, 1]
 
-    row = [0]*(n+1)
-    c0 = catalaninv(n-2) + [0, 0]
-    c1 = catalaninv(n-1) + [0]
-    for k in range(1, n+1):
-        row[k] = c1[k-1] + 2*c1[k] - c0[k]
-    return row
+    c0 = catalaninv(n - 2) + [0, 0]
+    c1 = catalaninv(n - 1) + [0]
+    mid = [a + 2 * b - c for a, b, c in zip(c1[:-1], c1[1:], c0[1:])]
+    return [0] + mid
 
 
 CatalanInv = Table(
@@ -43,8 +56,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(CatalanInv)
-
-
 
 
 

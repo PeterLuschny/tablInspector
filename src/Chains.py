@@ -46,10 +46,6 @@ if __name__ == "__main__":
     InspectTable(Chains)
 
 
-
-
-
-
 ''' OEIS
     Chains_Trev          -> 0 
     Chains_Toff11        -> 0 

@@ -41,10 +41,6 @@ if __name__ == "__main__":
     InspectTable(BesselInv)
 
 
-
-
-
-
 ''' OEIS
     BesselInv_Tantidiag     -> 0 
     BesselInv_Tacc          -> 0 

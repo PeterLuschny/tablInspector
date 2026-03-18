@@ -15,7 +15,6 @@ from _tabltypes import Table
 [7] 0, 720, 2604, 4046, 3570, 1960, 672, 128;
 """
 
-
 @cache
 def sylvester(n: int) -> list[int]:
     def s(n: int, k: int) -> int:
@@ -35,7 +34,7 @@ Sylvester = Table(
 
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
-
+    
     InspectTable(Sylvester)
 
 

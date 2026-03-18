@@ -26,7 +26,6 @@ def part(n: int, k: int) -> int:
     return part(n - 1, k - 1) + part(n - k, k)
 
 
-@cache
 def partition(n: int) -> list[int]:
     return [part(n, k) for k in range(n + 1)]
 

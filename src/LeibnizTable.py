@@ -21,6 +21,7 @@ def leibniztable(n: int) -> list[int]:
     L = leibniztable(n - 1)
     return [L[k] + k for k in range(n)] + [n]
 
+
 LeibnizTable = Table(
     leibniztable, 
     "LeibnizTable", 
@@ -34,9 +35,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(LeibnizTable)
-
-
-
 
 
 

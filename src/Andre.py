@@ -1,5 +1,5 @@
 from functools import cache
-from Binomial import Binomial
+from Binomial import binomial
 from _tabltypes import Table
 
 
@@ -16,17 +16,15 @@ from _tabltypes import Table
   [9]  1, 1, 7936, 1513, 496, 125, 83, 35, 8, 1;
 """
 
-
-# TODO Give a row based recurrence for this.
 @cache
 def _andre(n: int, k: int) -> int:
     if k == 0 or n == 0:
         return 1
 
-    return -sum(Binomial(k, j) * _andre(n, j) for j in range(0, k, n))
+    brow = binomial(k)
+    return -sum(brow[j] * _andre(n, j) for j in range(0, k, n))
 
 
-@cache
 def andre(n: int) -> list[int]:
     return [abs(_andre(k, n)) for k in range(n + 1)]
 
@@ -44,9 +42,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Andre)
-
-
-
 
 
 

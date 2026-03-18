@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     CentralCycle_Trev          -> 0 
     CentralCycle_Tacc          -> 0 

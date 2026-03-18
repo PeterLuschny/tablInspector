@@ -16,20 +16,28 @@ from _tabltypes import Table
 """
 
 
+#$cache
+#def dyckpaths(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    pow = dyckpaths(n - 1) + [0]
+#    row = pow.copy()
+#    row[0] += row[1]
+#    row[n] = 1
+#    for k in range(n - 1, 0, -1):
+#        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
+#    return row
+
+
 @cache
 def dyckpaths(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    pow = dyckpaths(n - 1) + [0]
-    row = pow.copy()
-    row[0] += row[1]
-    row[n] = 1
-
-    for k in range(n - 1, 0, -1):
-        row[k] = pow[k - 1] + 2 * pow[k] + pow[k + 1]
-
-    return row
+    prev = dyckpaths(n - 1) + [0]
+    middle = [a + (b << 1) + c 
+            for a, b, c in zip(prev[:-2], prev[1:-1], prev[2:])]
+    return [prev[0] + prev[1]] + middle + [1]
 
 
 DyckPaths = Table(

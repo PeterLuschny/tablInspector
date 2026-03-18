@@ -316,7 +316,8 @@ def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
 
 
 if __name__ == "__main__":
-    from Tables import Lehmer, TablesList,TablSum
+    from Tables import Lehmer, TablesList, TablSum
+    # from Tables import Fubini, PolyDiag
 
     data1 = [1, 4, 1, 9, 9, 2, 16, 36]
     data2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,17,19,20,21,22,23,24,25,26,27]

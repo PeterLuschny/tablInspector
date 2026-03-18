@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     ChebyshevS_Trev11        -> 0 
     ChebyshevS_Trevinv11     -> 0 

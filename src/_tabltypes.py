@@ -658,7 +658,7 @@ class Table:
         Args:
             size: number of rows to print.
             total (optional): If True, print also the row sum. Defaults to False.
-            
+
         Example:
             >>> Abel.show(5, True)
             [0] [1] [1]
@@ -670,6 +670,27 @@ class Table:
         for n in range(size):
             r = self.row(n)
             print([n], r, [sum(r)] if total else '')
+
+
+    def showarray(self, size: int) -> None:
+        """Prints the triangle read by upwards antidiagonals,
+        with the row-index in front.
+        
+        Args:
+            size: number of rows to print.
+            
+        Example:
+            >>> Abel.showarray(5)
+            [0] [1,   1,    1,     1,      1]
+            [1] [0,   2,    6,    12,     20]
+            [2] [0,   9,   48,   150,    360]
+            [3] [0,  64,  500,  2160,   6860]
+            [4] [0, 625, 6480, 36015, 143360]
+        """
+        
+        for n in range(size): 
+            diag = self.diag(n, size)
+            print([n], diag)
  
 
 def RevTable(T: Table) -> Table:

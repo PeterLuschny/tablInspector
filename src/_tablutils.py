@@ -23,6 +23,7 @@ Classes:
 
 from _tabltypes import Table
 from typing import Callable
+import tracemalloc
 import time
 import sys
 
@@ -246,16 +247,50 @@ def MeasureTableGenerationTime(BenchLength: int = 100) -> None:
     for tabl in TablesList:
         TableGenerationTime(tabl, BenchLength)  # type: ignore
     t.stop()
+    
+"""
+Benchmark utility: time and peak memory for triangle-generating functions.
+If the function has a cache_clear method, it is called before each benchmark run to ensure that the timing reflects the time taken to generate the triangle without any cached results.
+
+Usage:
+    bench(f)  where f(n) -> list[int]
+
+Computes `for n in range(X): f(n)`
+for X in (25, 100, ...) and reports wall-clock time and peak RSS delta.
+"""
+def Bench(f: Callable[[int], list[int]], name: str = "", len: int = 8) -> None:
+    label = name or getattr(f, "__name__", repr(f))
+
+    if hasattr(f, "cache_clear"):
+        f.cache_clear()
+
+    # --- warm up cache for small n so timing reflects steady-state ---
+    for X in [5, 25, 100, 200, 300, 400, 600, 1000][:len]: 
+
+        tracemalloc.start()
+        t0 = time.perf_counter()
+
+        for n in range(X):
+            f(n)
+
+        elapsed = time.perf_counter() - t0
+        _, peak = tracemalloc.get_traced_memory()
+        tracemalloc.stop()
+
+        peak_kb = peak / 1024
+        print(f"{label:12s}  X={X:5d}  time={elapsed*1000:10.0f} ms  mem={peak_kb:9.0f} KB")
+
 
 
 if __name__ == "__main__":
     from Tables import TablesList
+    #from Abel import abel
 
     def OrderBench() -> None:
         for tabl in TablesList:
             print(TimeIncrease(tabl))  # type: ignore
 
-    MeasureTableGenerationTime(201)
+    #Bench(abel)
 
     # print(IsSimilarTriangleInLib('A021009'))
     # print(f"\n{len(Tables)} tables tested!\n")

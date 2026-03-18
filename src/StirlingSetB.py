@@ -22,16 +22,16 @@ def stirlingsetb(n: int) -> list[int]:
     if n == 1:
         return [1, 1]
 
-    pow = stirlingsetb(n - 1)
-    row = stirlingsetb(n - 1) + [1]
-
-    row[0] += 2 * row[1]
-
-    for k in range(1, n - 1):
-        row[k] = 2 * (k + 1) * pow[k + 1] + (2 * k + 1) * pow[k] + pow[k - 1]
-
-    row[n - 1] = (2 * n - 1) * pow[n - 1] + pow[n - 2]
+    prev = stirlingsetb(n - 1)
+    row = [prev[0] + 2 * prev[1]]
+    row += [
+        2 * (k + 1) * b + (2 * k + 1) * c + a
+        for k, (a, c, b) in enumerate(zip(prev, prev[1:], prev[2:]), 1)
+    ]
+    row.append((2 * n - 1) * prev[-1] + prev[-2])
+    row.append(1)
     return row
+
 
 
 StirlingSetB = Table(
@@ -47,9 +47,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(StirlingSetB)
-
-
-
 
 
 

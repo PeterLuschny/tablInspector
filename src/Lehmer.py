@@ -15,19 +15,43 @@ from _tabltypes import Table
 [8] 0, 823543, 543607, 170898, 33621, 4550, 434, 28, 1;
 """
 
+# TODO Needs a more efficient implementation.
 
-@cache
-def _t(n: int, k: int, m: int) -> int:
-    if k < 0 or n < 0:
-        return 0
-    if k == 0:
-        return n**k
-    return m * _t(n, k - 1, m) + _t(n - 1, k, m + 1)
-
+#$cache
+#def _t(n: int, k: int, m: int) -> int:
+#    if k < 0 or n < 0:
+#        return 0
+#    if k == 0:
+#        return n**k
+#    return m * _t(n, k - 1, m) + _t(n - 1, k, m + 1)
+#$cache
+#def lehmer(n: int) -> list[int]:
+#    return [_t(k - 1, n - k, n - k) if n != k else 1 for k in range(n + 1)]
 
 @cache
 def lehmer(n: int) -> list[int]:
-    return [_t(k - 1, n - k, n - k) if n != k else 1 for k in range(n + 1)]
+    if n < 0:
+        return []
+    if n == 0:
+        return [1]
+
+    res = [0] * (n + 1)
+    res[n] = 1
+    if n == 1:
+        return res
+
+    # Start with the base row of 0-th forward differences: x^(n-1) 
+    row = [x**(n - 1) for x in range(n)]
+    res[1] = row[-1]
+
+    fact = 1
+    for k in range(2, n):
+        # Use the previously computed row to build 
+        # the next sequence of differences. c.f. A199656
+        row = [row[i+1] - row[i] for i in range(len(row) - 1)]
+        fact *= (k - 1)
+        res[k] = row[-1] // fact
+    return res
 
 
 Lehmer = Table(
@@ -42,8 +66,7 @@ Lehmer = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    # TODO Needs a more efficient implementation.
-    InspectTable(Lehmer)
+    InspectTable(Lehmer) 
 
 
 ''' OEIS

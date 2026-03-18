@@ -1,5 +1,5 @@
 from functools import cache
-from Binomial import Binomial
+# from Binomial import Binomial
 from _tabltypes import Table
 
 """Labeled graphs.
@@ -20,15 +20,18 @@ def labeledgraphs(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    s = [
-        2 ** (((k - n + 1) * (k - n)) // 2)
-        * Binomial(n - 1, k - 1)
-        * labeledgraphs(k)[k]
-        for k in range(1, n)
-    ]
-    b = 2 ** (((n - 1) * n) // 2) - sum(s)
+    result = [0] * (n + 1)
+    pow2 = 1 << ((n - 1) * (n - 2) // 2)   # 2^C(n-1,2), exponent for k=1
+    binom = 1                              # C(n-1, 0)
 
-    return [0] + s + [b]
+    for k in range(1, n):
+        result[k] = pow2 * binom * labeledgraphs(k)[k]
+        pow2 >>= (n - k - 1)               # advance to 2^C(n-k-1, 2)
+        if k < n - 1:
+            binom = binom * (n - k) // k   # advance to C(n-1, k)
+
+    result[n] = (1 << ((n - 1) * n // 2)) - sum(result[1:n])
+    return result
 
 
 LabeledGraphs = Table(
@@ -44,9 +47,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(LabeledGraphs)
-
-
-
 
 
 

@@ -2,7 +2,8 @@ from functools import cache
 from _tabltypes import Table
 
 """
-The divisibility matrix, the indicator function for divisibility. The Matrix inverse of the Moebius Matrix.
+The divisibility matrix, the indicator function for divisibility. 
+The Matrix inverse of the Moebius Matrix.
 
 [ 0]  1
 [ 1]  0  1

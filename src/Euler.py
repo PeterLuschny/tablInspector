@@ -24,8 +24,9 @@ def euler(n: int) -> list[int]:
     row = euler(n - 1) + [1]
     for k in range(n, 0, -1):
         row[k] = (row[k - 1] * n) // (k)
-    row[0] = -sum((-1) ** (j // 2) * row[j] for j in range(n, 0, -2))
-
+    a = sum(row[j] for j in range(n, 0, -4))
+    b = sum(row[j] for j in range(n - 2, 0, -4))
+    row[0] = b - a if (n // 2) % 2 == 0 else a - b
     return row
 
 
@@ -44,8 +45,6 @@ if __name__ == "__main__":
     InspectTable(Euler)
 
 # See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
-
-
 
 
 

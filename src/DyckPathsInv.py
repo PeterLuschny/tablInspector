@@ -47,10 +47,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
 ''' OEIS
     DyckPathsInv_Trevinv11     -> 0 
     DyckPathsInv_Tacc          -> 0 

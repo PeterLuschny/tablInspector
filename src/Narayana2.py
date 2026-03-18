@@ -14,6 +14,7 @@ from _tabltypes import Table
 [9] [0, 1, 29, 224, 686, 980, 686, 224, 29, 1]
 """
 
+
 @cache
 def narayana2(n: int) -> list[int]:
 

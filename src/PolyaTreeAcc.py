@@ -73,10 +73,10 @@ PolyaTreeAcc = Table(
 
 
 if __name__ == "__main__":
-    from _tabldatabase import InspectTable
+    #from _tabldatabase import InspectTable
     from _tablutils import TableGenerationTime
 
-    InspectTable(PolyaTreeAcc)
+    # InspectTable(PolyaTreeAcc)
 
     # EXPERIMENTAL
 

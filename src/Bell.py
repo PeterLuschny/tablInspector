@@ -15,7 +15,6 @@ from _tabltypes import Table
 [9] 21147, 25287, 30304, 36401, 43833, 52922, 64077, 77821, 94828, 115975;
 """
 
-
 @cache
 def bell(n: int) -> list[int]:
     if n == 0:
@@ -32,7 +31,7 @@ Bell = Table(
     bell, 
     "Bell", 
     ["A011971", "A011972", "A123346"], 
-    "", # No inverse!
+    "A000000", # No inverse!
     r"\sum_{j=0}^{k} \binom{k}{j} Bell(n - k + j)"
 )
 
@@ -41,10 +40,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Bell)
-
-
-
-
 
 
 ''' OEIS

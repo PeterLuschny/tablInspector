@@ -23,8 +23,7 @@ def rencontres(n: int) -> list[int]:
     if n == 1:
         return [0, 1]
 
-    row = [
-        (n - 1) * (rencontres(n - 1)[0] + rencontres(n - 2)[0])
+    row = [(n - 1) * (rencontres(n - 1)[0] + rencontres(n - 2)[0])
     ] + rencontres(n - 1)
     for k in range(1, n - 1):
         row[k] = (n * row[k]) // k

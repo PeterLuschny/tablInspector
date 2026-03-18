@@ -38,17 +38,17 @@ from _tabltypes import Table
 
 
 # $cache  #  Variant 1, not used here!
-def Xeytzingerorder(n: int) -> list[int]:
-    row = [0] * (n + 1)
-
-    def e_rec(k: int, i: int) -> int:
-        if k <= n:
-            i = e_rec(2 * k, i)
-            row[k] = i
-            i = e_rec(2 * k + 1, i + 1)
-        return i
-    e_rec(1, 1)
-    return row
+#def Xeytzingerorder(n: int) -> list[int]:
+#    row = [0] * (n + 1)
+#
+#    def e_rec(k: int, i: int) -> int:
+#        if k <= n:
+#            i = e_rec(2 * k, i)
+#            row[k] = i
+#            i = e_rec(2 * k + 1, i + 1)
+#        return i
+#    e_rec(1, 1)
+#    return row
 
 
 @cache

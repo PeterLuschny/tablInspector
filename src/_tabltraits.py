@@ -3,7 +3,8 @@ This module provides various functions to analyze and transform integer triangle
 It includes functions to compute different traits of tables, such as dot products, polynomials, table columns, diagonals, rows, and various transformations and convolutions of tables. Additionally, it provides functions to compute lcm, gcd, sums, and other properties of table rows and columns. 
 """
 
-from Binomial import Binomial, InvBinomial
+from Binomial import Binomial
+from BinomialInv import BinomialInv
 from _tabltypes import Table, RevTable, rowgen, Trait
 from _tablutils import SeqToString
 from typing import Tuple, TypeAlias
@@ -1160,7 +1161,7 @@ def InvBinConv(T: Table, size: int = 28) -> list[int]:
         [1, 0, -1, -4, -15, -56]
         A009940
     """
-    return [dotproduct(InvBinomial.row(n), T.row(n)) for n in range(size)]
+    return [dotproduct(BinomialInv.row(n), T.row(n)) for n in range(size)]
 
 #------
 

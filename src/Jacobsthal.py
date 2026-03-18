@@ -23,12 +23,12 @@ def jacobsthal(n: int) -> list[int]:
     if n == 1: return [1, 1]
     if n == 2: return [1, 2, 1]
 
-    Jn1 = jacobsthal(n - 1)
-    Jn2 = jacobsthal(n - 2) + [0]
+    j1 = jacobsthal(n - 1)
+    j2 = jacobsthal(n - 2) + [0]
     row = [1] * (n + 1)
     for k in range(1, n):
-        row[k] = Jn1[k-1] + Jn1[k] + 2 * Jn2[k]
-    row[0] = Jn1[0] + 2 * Jn2[0]
+        row[k] = j1[k-1] + j1[k] + 2 * j2[k]
+    row[0] = j1[0] + 2 * j2[0]
     return row
 
 

@@ -1,4 +1,5 @@
 from functools import cache
+from itertools import accumulate
 from _tabltypes import Table
 
 """Euler-Bernoulli triangle.
@@ -14,17 +15,28 @@ from _tabltypes import Table
 """
 
 
+#$cache
+#def entringer(n: int) -> list[int]:
+#    if n == 0:
+#        return [1]
+#    rowA = entringer(n - 1)
+#    row = [0] + entringer(n - 1)
+#    row[1] = row[n]
+#    for k in range(2, n + 1):
+#        row[k] = row[k - 1] + rowA[n - k]
+#    return row
+
+""" Same recurrence as entringer, but computed from one previous row.
+    The nonzero part is the cumulative sum of the reversed previous row.
+"""
+
 @cache
 def entringer(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    rowA = entringer(n - 1)
-    row = [0] + entringer(n - 1)
-    row[1] = row[n]
-    for k in range(2, n + 1):
-        row[k] = row[k - 1] + rowA[n - k]
-    return row
+    prev = entringer(n - 1)
+    return [0] + list(accumulate(reversed(prev)))
 
 
 Entringer = Table(
