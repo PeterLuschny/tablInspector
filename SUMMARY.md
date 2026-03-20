@@ -240,7 +240,7 @@ print(Abel(4, 2))            # T(4,2) = 48
 4. Add the filename to `tabl_files` and the class to `tabl_dict` in `_tablmake.py`.
 5. Run `_tablmake.py` to regenerate `Tables.py`.
 
-### OEIS lookup for a single trait
+### OEIS lookup for a single trait (in interactive window)
 
 ```python
 from Tables import LookUp, Fubini, PolyDiag
