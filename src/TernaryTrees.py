@@ -1,5 +1,4 @@
 from functools import cache
-from itertools import accumulate
 from _tabltypes import Table
 
 """Ternary trees, Fuss-Catalan 2.
@@ -24,9 +23,12 @@ def ternarytrees(n: int) -> list[int]:
         return [0, 1]
 
     row = ternarytrees(n - 1) + [ternarytrees(n - 1)[n - 1]]
-
-    return list(accumulate(accumulate(row)))
-
+    s = a = 0
+    for i, x in enumerate(row):
+        s += x
+        a += s
+        row[i] = a
+    return row
 
 TernaryTrees = Table(
     ternarytrees,

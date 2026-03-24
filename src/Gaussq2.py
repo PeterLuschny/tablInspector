@@ -19,13 +19,13 @@ def gaussq2(n: int) -> list[int]:
     if n == 0:
         return [1]
 
-    row = gaussq2(n - 1)
-    pow = [1] + gaussq2(n - 1)
+    prev = gaussq2(n - 1)
+    row = [1] + gaussq2(n - 1)
     p = 2
     for k in range(1, n):
-        pow[k] = row[k - 1] + p * row[k]
+        row[k] = prev[k - 1] + p * prev[k]
         p *= 2
-    return pow
+    return row
 
 
 Gaussq2 = Table(

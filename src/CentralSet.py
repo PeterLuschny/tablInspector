@@ -24,7 +24,7 @@ def centralset(n: int) -> list[int]:
 
     row = centralset(n - 1) + [1]
     for k in range(n - 1, 1, -1):
-        row[k] = k*k * row[k] + row[k - 1]
+        row[k] = k * k * row[k] + row[k - 1]
     return row
 
 

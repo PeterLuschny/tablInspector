@@ -38,7 +38,6 @@ def dotproduct(vec: list[int], tor: list[int]) -> int:
         >>> dotproduct([1, 2, 3], [4, 5, 6])
         32
     """
-    """Returns the dot product of the two vectors."""
     return sum(map(operator.mul, vec, tor))
 
 
@@ -884,7 +883,7 @@ def AccRevSum(T: Table, size: int = 28) -> list[int]:
     Return the accumulated sums of the reversed rows for the given table.
 
     Args:
-        T (Table): The table object containing revenue data.
+        T (Table): The table object containing reversed row data.
         size (int, optional): The number of periods to calculate the accumulated sums for. Defaults to 28.
 
     Returns:
@@ -977,6 +976,7 @@ def CentralO(T: Table, size: int = 28) -> list[int]:
 def ColLeft(T: Table, size: int = 28) -> list[int]:
     """
     Extracts the leftmost column from a table.
+    Identical to TablCol0 with rev=False.
 
     Args:
         T (Table): The table from which to extract the column.
@@ -996,6 +996,7 @@ def ColLeft(T: Table, size: int = 28) -> list[int]:
 def ColRight(T: Table, size: int = 28) -> list[int]:
     """
     Generate a list of integers by applying the function T to each integer in the range from 0 to size-1.
+    Identical to TablDiag0 with rev=False.
 
     Args:
         T (Table): A function that takes two integer arguments and returns an integer.
@@ -1014,21 +1015,25 @@ def ColRight(T: Table, size: int = 28) -> list[int]:
 
 def PolyFrac(row: list[int], v: int) -> int:
     """
-    Evaluate a polynomial with integer coefficients at a given point x.
+    Evaluate a polynomial with integer coefficients at a given point v.
 
     This function takes a list of coefficients representing a polynomial
-    and evaluates the polynomial at the given value of x. The coefficients
+    and evaluates the polynomial at the given value of v. The coefficients
     are assumed to be in descending order of powers.
 
     Args:
         row (list[int]): A list of integers representing the coefficients of the polynomial.
-        x (int): The value at which to evaluate the polynomial.
+        v (int): The value at which to evaluate the polynomial.
 
     Returns:
-        int: The result of the polynomial evaluation at x.
+        int: The result of the polynomial evaluation at v.
     """
-    n = len(row) - 1
-    return sum(c * v**(n - k) for (k, c) in enumerate(row))
+    # n = len(row) - 1
+    # return sum(c * v**(n - k) for (k, c) in enumerate(row))
+    result = 0
+    for c in row:
+        result = result * v + c
+    return result
 
 
 def PosHalf(T: Table, size: int = 28) -> list[int]:
@@ -1062,9 +1067,9 @@ def NegHalf(T: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial fractions with a -2 exponent.
         
         Example:
-        >>> NegHalf(FallingFactorial, 7)
-        [1, -1, 2, -2, 8, 8, 112]
-        A000023
+            >>> NegHalf(FallingFactorial, 7)
+            [1, -1, 2, -2, 8, 8, 112]
+            A000023
     """
     return [PolyFrac(T.row(n), -2) for n in range(size)]
 
@@ -1271,7 +1276,7 @@ def RevTantidiag(t: Table, size: int = 9) -> list[int]:
         list[int]: A flattened list of integers from the reversed table's antidiagonals.
     
     Example:
-        >>> Rev_Tantidiag(Leibniz, 5)
+        >>> RevTantidiag(Leibniz, 5)
         [1, 2, 3, 2, 4, 6, 5, 12, 3]
         A128502
     """
@@ -1356,7 +1361,7 @@ def RevPolyDiag(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial diagonal values.
     
     Example:
-        >>> Rev_PolyDiag(Narayana, 6)
+        >>> RevPolyDiag(Narayana, 6)
         [1, 1, 3, 19, 185, 2426]
         A242369
     """
@@ -1421,7 +1426,7 @@ def RevAntiDSum(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of sums of the antidiagonals of the reversed table.
     
     Example:
-        >>> Rev_AntiDSum(Narayana, 6)
+        >>> RevAntiDSum(Narayana, 6)
         [1, 1, 1, 2, 4, 8]
         A004148
     """
@@ -1471,7 +1476,7 @@ def RevPosHalf(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial fractions for the reversed elements.
     
     Example:
-        >>> Rev_PosHalf(Narayana, 6)
+        >>> RevPosHalf(Narayana, 6)
         [1, 2, 6, 22, 90, 394]
         A152681
     """
@@ -1493,7 +1498,7 @@ def RevNegHalf(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of polynomial fractions with a negative half exponent.
         
     Example:
-        Rev_NegHalf(Narayana, 6)
+        RevNegHalf(Narayana, 6)
         [1, -2, 2, 2, -10, 6]
         A152681
     """
@@ -1517,7 +1522,7 @@ def RevTransNat0(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of integers resulting from the transformation.
     
     Example:
-        >>> Rev_TransNat0(StirlingCycle, 6)
+        >>> RevTransNat0(StirlingCycle, 6)
         [0, 0, 1, 7, 46, 326]
         A067318
     """
@@ -1537,7 +1542,7 @@ def RevTransNat1(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of integers resulting from the transformation.
     
     Example:
-        >>> Rev_TransNat1(StirlingCycle, 6)
+        >>> RevTransNat1(StirlingCycle, 6)
         [1, 1, 3, 13, 70, 446]
         A121586
     """
@@ -1557,7 +1562,7 @@ def RevTransSqrs(t: Table, size: int = 28) -> list[int]:
         list[int]: A list of integers resulting from the transformation.
     
     Example:
-        >>> Rev_TransSqrs(Binomial, 6)
+        >>> RevTransSqrs(Binomial, 6)
         [0, 1, 6, 24, 80, 240]
         A001788
     """
@@ -1585,7 +1590,7 @@ TraitsDict: dict[str, TraitInfo] = {
     "Tinv":      (Tinv,      7, r"\(T^{-1}_{n,k}\)"),
     "Trev":      (Trev,      7, r"\(T_{n,n-k}\)"),
     "Tinvrev":   (Tinvrev,   7, r"\((T_{n,n-k})^{-1}\)"),
-    "Trevinv":   (Trevinv,   7, r"\((T_{n,n-k})^{-1}\)"),
+    "Trevinv":   (Trevinv,   7, r"\((T^{-1})_{n,n-k}\)"),
     "Toff11":    (Toff11,    7, r"\(T_{n+1,k+1} \)"),
     "Trev11":    (Trev11,    7, r"\(T_{n+1,n-k+1} \)"),
     "Tinv11":    (Tinv11,    7, r"\(T^{-1}_{n+1,k+1}\)"),
@@ -1631,7 +1636,7 @@ TraitsDict: dict[str, TraitInfo] = {
     "PolyCol3":  (PolyCol3,  28, r"\(\sum_{k=0}^{n}T_{n,k}\ 3^k\)"),
     "PolyDiag":  (PolyDiag,  28, r"\(\sum_{k=0}^{n}T_{n,k}\ n^k\)"),
     "RevToff11": (RevToff11,  7, r"\(T_{n+1,n-k} \)"),
-    "RevTrev11": (RevTrev11,  7, r"\(T_{n+1,n-k} \)"),
+    "RevTrev11": (RevTrev11,  7, r"\(T_{n+1,k} \)"),
     "RevTinv11": (RevTinv11,  7, r"\(T^{-1}_{n+1,n-k}\)"),
     "RevTantidiag": (RevTantidiag, 9, r"\(T_{n-k,n-2k}\ \ (k \le n/2)\)"),
     "RevTacc":   (RevTacc,    7, r"\(\sum_{j=0}^{n-k}T_{n,n-j}\)"),

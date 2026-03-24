@@ -2394,11 +2394,7 @@ TraitsDict: dict[str, TraitInfo] = {
     "TransNat1": (TransNat1, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ (k+1)\)"),
     "TransSqrs": (TransSqrs, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ k^{2}\)"),
     "BinConv": (BinConv, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ \binom{n}{k} \)"),
-    "InvBinConv": (
-        InvBinConv,
-        28,
-        r"\(\sum_{k=0}^{n}T_{n,k}\ (-1)^{n-k}\ \binom{n}{k}\)",
-    ),
+    "InvBinConv": (InvBinConv, 28, r"\(\sum_{k=0}^{n}T_{n,k}\ (-1)^{n-k}\ \binom{n}{k}\)"),
     "PolyRow1": (PolyRow1, 28, r"\(\sum_{k=0}^{1}T_{1,k}\ n^k\)"),
     "PolyRow2": (PolyRow2, 28, r"\(\sum_{k=0}^{2}T_{2,k}\ n^k\)"),
     "PolyRow3": (PolyRow3, 28, r"\(\sum_{k=0}^{3}T_{3,k}\ n^k\)"),
@@ -2429,7 +2425,6 @@ TraitsDict: dict[str, TraitInfo] = {
     "RevPolyCol3": (RevPolyCol3, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ 3^k\)"),
     "RevPolyDiag": (RevPolyDiag, 28, r"\(\sum_{k=0}^{n}T_{n,n-k}\ n^k\)"),
 }
-
 
 def TableTraits(T: Table) -> None:
     """

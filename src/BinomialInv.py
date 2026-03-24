@@ -1,4 +1,3 @@
-from functools import cache
 from _tabltypes import Table
 from Binomial import binomial
 
@@ -17,18 +16,13 @@ from Binomial import binomial
   ...
 """
 
-#$cache
-#def binomialinv(n: int) -> list[int]:
-#    return [(-1)**(n - k) * binomial(n)[k] for k in range(n + 1)]
 
-@cache
+# Using the cache of binomial.
+
+# #@
+
 def binomialinv(n: int) -> list[int]:
-    """Avoids (-1)**(n-k).
-    Reads the cached binomial row once and pairs it with a sign sequence."""
-    sgns = [1] * (n + 1)
-    for k in range(n - 1 , -1, -2):
-        sgns[k] = -1
-    return [sg * v for sg, v in zip(sgns, binomial(n))]
+    return [v if (n - k) % 2 == 0 else -v for k, v in enumerate(binomial(n))]
 
 
 BinomialInv = Table(

@@ -15,10 +15,10 @@ The function 'lcsubstr' is CC BY-SA 4.0 and taken from the Algorithm Implementat
 https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Longest_common_substring
 """
 
-import time
 from typing import TypeAlias
 import requests
-from requests import get
+from requests.adapters import HTTPAdapter
+from urllib3.util.retry import Retry
 from _tabltypes import Table, Trait
 from _tablutils import SeqToString
 
@@ -169,29 +169,73 @@ testdata: dict[str, int | str | list[str] ] = {"number": 367025, "data": "1,4,1,
 # #@
 
 
-def lcsubstr(s: str, t: str) -> tuple[int, int]: 
+
+def format_anum(number: int) -> str:
     """
-    With CC BY-SA 4.0 from: https://en.wikibooks.org/wiki/Algorithm_Implementation/Strings/Longest_common_substring
-    Finds the longest common substring of s and t that is contiguous.
+    Format an integer as a zero-padded OEIS A-number string.
+
+    Replaces the ad-hoc pattern ``f"A{(6 - len(str(n))) * '0' + str(n)}"``
+    found elsewhere in this module with the standard format-spec idiom.
+    Works correctly for numbers with more than 6 digits.
+
     Args:
-      s: The first string.
-      t: The second string.
+        number: The non-negative integer to format.
+
     Returns:
-        (s, l): The matched substring starts at index 's' in the first string and has length 'l'.
+        A string of the form ``"A000001"`` (minimum 6 digits, left-padded with
+        zeros; wider for numbers >= 1_000_000).
+
+    Examples:
+        >>> format_anum(12)
+        'A000012'
+        >>> format_anum(1000000)
+        'A1000000'
     """
-    m = [[0] * (1 + len(t)) for _ in range(1 + len(s))]
+    return f"A{number:06d}"
+
+
+def lcsubstr(s: str, t: str) -> tuple[int, int]:
+    """
+    Finds the longest contiguous common substring of *s* and *t* using
+    O(min(|s|, |t|)) working space instead of the O(|s| × |t|) matrix
+    allocated by the original.  The interface is identical.
+
+    Args:
+        s: The first string.
+        t: The second string.
+
+    Returns:
+        ``(start, length)`` where the matched substring begins at index
+        *start* in *s* and has the given *length*.
+    """
+    # Keep t as the shorter string for minimal memory use.
+    if len(s) < len(t):
+        s, t = t, s
+        swapped = True
+    else:
+        swapped = False
+
+    lt = len(t)
+    prev = [0] * (lt + 1)
     longest, x_longest = 0, 0
-    for i in range(1, 1 + len(s)):
-        for y in range(1, 1 + len(t)):
-            if s[i - 1] == t[y - 1]:
-                m[i][y] = m[i - 1][y - 1] + 1
-                if m[i][y] > longest:
-                    longest = m[i][y]
+
+    for i in range(1, len(s) + 1):
+        curr = [0] * (lt + 1)
+        for j in range(1, lt + 1):
+            if s[i - 1] == t[j - 1]:
+                curr[j] = prev[j - 1] + 1
+                if curr[j] > longest:
+                    longest = curr[j]
                     x_longest = i
-            else:
-                m[i][y] = 0
-    # lcs_str =  s[x_longest - longest : x_longest] 
-    return (x_longest - longest, longest)
+        prev = curr
+
+    start = x_longest - longest
+    if swapped:
+        # start was computed in the (possibly swapped) s; map back to the
+        # original first argument via the matched substring value.
+        orig_start = s[start:start + longest]  # the common substring itself
+        start = t.find(orig_start) if orig_start else 0  # t is original s
+    return (start, longest)
 
 
 def QueryOEIS(
@@ -230,17 +274,24 @@ def QueryOEIS(
       print("You provided:", seqlist)
       return 0
 
-    if 0 == sum(seqlist[0:36]): return 4  # XXXXX dont search for the all zeros sequence
-    off = 0 if 0 == sum(seqlist[3:36]) else 3   # XXXXX dont skip leading terms if the rest is zero
+    if seqlist == [0 for _ in range(minlen)]: return 4  # XXXXX dont search for the all zeros sequence
+    off = 0 if 0 == sum(seqlist[3:minlen]) else 3  # XXXXX dont skip leading terms if the rest is zero
     seqstr = SeqToString(seqlist, 160, 36, ",", off, True)
     url = f"https://oeis.org/search?q={seqstr}&fmt=json"
 
-    for _ in range(4):      
-        time.sleep(0.5)  # give the OEIS server some time to relax
-        # if debug: print(f"connecting: [{repeat}]")
+    _retry = Retry(
+        total=4,
+        backoff_factor=1,           # waits: 0s, 1s, 2s, 4s
+        status_forcelist=[429, 500, 502, 503, 504],
+        allowed_methods=["GET"],
+    )
+    _session = requests.Session()
+    _session.mount("https://", HTTPAdapter(max_retries=_retry))
+
+    for _ in range(4):
+        # if debug: print(f"connecting: [{_}]")
         try:
-            # jdata: None | list[dict[str, int | str | list[str] ]] = get(url, timeout=30).json()
-            jdata = get(url, timeout=30).json()
+            jdata = _session.get(url, timeout=(10, 60)).json()
             if jdata == None:
                 if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]): 
                     seqlist = [k for k in seqlist if k != 0]
@@ -317,12 +368,13 @@ def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
 
 if __name__ == "__main__":
     from Tables import Lehmer, TablesList, TablSum
-    # from Tables import Fubini, PolyDiag
+    from Tables import Fubini, PolyDiag
 
     data1 = [1, 4, 1, 9, 9, 2, 16, 36]
     data2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,17,19,20,21,22,23,24,25,26,27]
     data3 = [36,32,5,25,100,200,125,14,36,225,800,1125,504,42,49,441,2450,6125,6174,2058,132,64,784,6272]
-    data4 =[1,0,1,0,2,0,2,0,4,0,4,0,8,0,10,0,20,0,30,0,56,0,94,0,180,0,316,0,596,0, 1096,0,2068,0,3856,0]
+    data4 = [1,0,1,0,2,0,2,0,4,0,4,0,8,0,10,0,20,0,30,0,56,0,94,0,180,0,316,0,596,0, 1096,0,2068,0,3856,0]
+    data5 = [1,-1,1,0,-2,1,1,1,-3,1,-1,2,3,-4,1,0,-4,2,6,-5,1,1,2,-9,0,10,-6,1]
 
     def test() -> None:
         print(QueryOEIS(data1, 1, True)); print()
@@ -339,4 +391,5 @@ if __name__ == "__main__":
     #test()
     #testQuerySum()
     #LookUp(Fubini, PolyDiag)  # type: ignore
-    LookUp(Lehmer, TablSum)    # type: ignore
+    #LookUp(Lehmer, TablSum)    # type: ignore
+    print(QueryOEIS(data5, 1, True)) # -> A104562 AND A101950

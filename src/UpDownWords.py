@@ -14,21 +14,21 @@ from _tabltypes import Table
 """
 
 @cache
-def upd_row(n: int) -> list[int]:
+def updownwords(n: int) -> list[int]:
     if n == 0:
         return [1]
     row = [1] * (n + 1)
     for k in range(1, n):
         a = (n - k - 1) // 2 + 1
-        prev = upd_row(n - 1)[k - 1]
-        s = sum(upd_row(2 * j + k - 1)[k - 1] * upd_row(n - 1 - 2 * j)[k]
+        prev = updownwords(n - 1)[k - 1]
+        s = sum(updownwords(2 * j + k - 1)[k - 1] * updownwords(n - 1 - 2 * j)[k]
                 for j in range(a))
         row[k] = prev + s
     return row
 
 
 UpDownWords = Table(
-    upd_row, 
+    updownwords, 
     "UpDownWords", 
     ["A050446", "A050447"],
     "A000000", 

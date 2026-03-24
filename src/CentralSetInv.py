@@ -21,8 +21,9 @@ def centralsetinv(n: int) -> list[int]:
         return [0, 1]
 
     row = centralsetinv(n - 1) + [1]
+    nm1sq = (n - 1) * (n - 1)
     for k in range(n - 1, 0, -1):
-        row[k] = (n - 1)**2 * row[k] + row[k - 1]
+        row[k] = nm1sq * row[k] + row[k - 1]
     return row
 
  
@@ -31,7 +32,7 @@ CentralSetInv = Table(
     "CentralSetInv",
     ["A269944", "A204579"],
     "A269945",
-    r"%%",
+    r"T(n,k) = (n-1)^2 \, T(n-1,k) + T(n-1,k-1)",
 )
 
 

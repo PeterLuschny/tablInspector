@@ -38,7 +38,7 @@ BinomialDiffPell = Table(
     "BinomialDiffPell",
     ["A367564"],
     "A000000",
-    r"\frac{1}{2} \binom{n}{k} ((1-\sqrt{2})^{n-k} + (1+\sqrt{2})^{n-k})"
+    r"\frac{1}{2} \binom{n}{k} \left((1-\sqrt{2})^{n-k} + (1+\sqrt{2})^{n-k}\right)"
 )
 
 
