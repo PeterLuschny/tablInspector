@@ -23,7 +23,7 @@ def degsympoly(n:int) -> list[int]:
     return [_S(n, k) for k in range(n + 1)]
 
 
-# simple, but much slower
+# simpler, but much slower
 #from itertools import accumulate
 #def Trow(n: int) -> list[int]:
 #    vec = [0] * (n + 1)
@@ -40,7 +40,7 @@ DegSymPoly = Table(
     "DegSymPoly", 
     ["A394080", "A050446", "A050447"], 
     "", 
-    r"%%"
+    r"T(n, k - 1 ) + \sum_{j = 0}^{\lfloor \frac{n-1}{2} \rfloor} T(2 j, k - 1) T(n - 1 - 2 j, k)"
 )
 
 

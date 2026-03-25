@@ -1,11 +1,9 @@
 from flask import Flask, request, jsonify, send_from_directory
 from flask.wrappers import Response
-from flask_cors import CORS
 from Tables import TablesDict, TraitsDict, QueryOEIS
 import os
 
 app = Flask(__name__, static_folder='.', static_url_path='')
-CORS(app)
 
 
 # OEIS query endpoint (optional, can be stubbed if QueryOEIS is not available)
@@ -73,6 +71,11 @@ def serve_static(filename) -> Response: # type: ignore
 @app.route('/')
 def root() -> Response:
     return send_from_directory(os.path.dirname(__file__), 'TableExplorer.html')
+
+#@app.route('/')
+#def index():
+#    return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(port=3000, debug=True)

@@ -34,7 +34,7 @@ Functions:
         Prints the table traits and optionally searches OEIS for A-numbers of the traits of the table.
 """
 
-from Tables import TablesList
+from deploy.Tables import TablesList
 from _tabltypes import Table
 from _tabloeis import QueryOEIS
 from _tabltraits import TraitsDict, TableTraits

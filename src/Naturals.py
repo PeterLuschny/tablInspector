@@ -1,5 +1,5 @@
 from functools import cache
-from Tables import Table
+from _tabltypes import Table
 
 """
 This is a demo (!) of the most primitive use of the 'Table' module.

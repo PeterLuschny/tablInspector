@@ -31,7 +31,7 @@ BesselInv = Table(
     "BesselInv",  # name of the table
     ["A122848", "A104556", "A096713"],  # similar sequences in OEIS
     "A132062",    # id of inverse sequence
-    r"T(n,k)"     # TeX of defining formula
+    r"k! \binom{n}{k}/((2k-n)!\, 2^{n-k})"  # TeX of defining formula
 )
 
 

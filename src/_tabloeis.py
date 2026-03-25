@@ -367,8 +367,8 @@ def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
 
 
 if __name__ == "__main__":
-    from Tables import Lehmer, TablesList, TablSum
-    from Tables import Fubini, PolyDiag
+    from interactive.Tables import Lehmer, TablesList, TablSum
+    from interactive.Tables import Fubini, PolyDiag
 
     data1 = [1, 4, 1, 9, 9, 2, 16, 36]
     data2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,17,19,20,21,22,23,24,25,26,27]
@@ -390,6 +390,6 @@ if __name__ == "__main__":
 
     #test()
     #testQuerySum()
-    #LookUp(Fubini, PolyDiag)  # type: ignore
-    #LookUp(Lehmer, TablSum)    # type: ignore
+    LookUp(Fubini, PolyDiag)  # type: ignore
+    LookUp(Lehmer, TablSum)    # type: ignore
     print(QueryOEIS(data5, 1, True)) # -> A104562 AND A101950

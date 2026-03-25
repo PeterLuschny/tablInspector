@@ -283,7 +283,7 @@ def Bench(f: Callable[[int], list[int]], name: str = "", len: int = 8) -> None:
 
 
 if __name__ == "__main__":
-    from Tables import TablesList
+    from interactive.Tables import TablesList
     #from Abel import abel
 
     def OrderBench() -> None:

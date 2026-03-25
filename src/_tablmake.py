@@ -21,8 +21,8 @@ tabl_files: list[str] = [
     "_tablutils.py",
     "_tabloeis.py",
     "_tabltraits.py",
-    "_tabldatabase.py",
-    "_tablstats.py",
+   # "_tabldatabase.py",
+   # "_tablstats.py",
     "Abel.py",
     "AbelInv.py",
     "Andre.py",
@@ -154,7 +154,7 @@ tabl_files: list[str] = [
     "NumParts.py",
     "NumRiordan.py",
     "_tablmake.py",
-    "_tablinteractive.py",
+    # "_tablinteractive.py",
 ]
 
 tabl_dict: str = """\
@@ -292,9 +292,9 @@ TablesDict: dict[str, Table] = {
     fractions: Provides support for rational number arithmetic.
     operator: Provides functions for standard operators.
     time: Provides time-related functions.
-    pathlib: Provides an object-oriented interface for filesystem paths.
+    // pathlib: Provides an object-oriented interface for filesystem paths.
     requests: Provides functions for making HTTP requests.
-    json: Provides functions for parsing JSON.
+    // json: Provides functions for parsing JSON.
     sys: Provides access to system-specific parameters and functions.
     typing: Provides support for type hints.
 """
@@ -306,14 +306,16 @@ import_header: list[str] = [
     "from math import sqrt, lcm, gcd\n",
     "from fractions import Fraction\n",
     "import operator\n",
-    "from operator import itemgetter\n",
+    # "from operator import itemgetter\n",
     "import time\n",
-    "from pathlib import Path\n",
+    # "from pathlib import Path\n",
     "import requests\n",
-    "import json\n",
+    # "from requests import get\n",
+    "from requests.adapters import HTTPAdapter\n",
+    "from urllib3.util.retry import Retry\n",
+    # "import json\n",
     "import tracemalloc\n",
-    "from ipywidgets import Dropdown\n",
-    "from requests import get\n",
+    # "from ipywidgets import Dropdown\n",
     "import sys\n",
     "from sys import setrecursionlimit, set_int_max_str_digits\n",
     "from typing import Callable, TypeAlias, Iterator, Dict, Tuple, NamedTuple\n",

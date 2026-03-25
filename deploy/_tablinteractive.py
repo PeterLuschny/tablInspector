@@ -18,7 +18,7 @@ from _tabltypes import Table
 from _tabldatabase import TraitsDict
 from _tabloeis import LookUp
 from _tablutils import is_sage_running, NumToAnum, TidToStdFormat
-from Tables import TablesDict
+from interactive.Tables import TablesDict
 from ipywidgets import Dropdown
 
 

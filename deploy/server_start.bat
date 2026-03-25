@@ -18,5 +18,5 @@ goto wait
 echo.
 echo Server is running at http://localhost:3000
 REM Open the TableExplorer in the browser (adjust filename if needed)
-start http://localhost:3000/TableExplorer.html
+start http://localhost:3000/templates/TableExplorer.html
 pause
