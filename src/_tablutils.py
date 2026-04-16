@@ -21,6 +21,7 @@ Classes:
     StopWatch
 """
 
+from Tables import TablesList
 from _tabltypes import Table
 from typing import Callable
 import tracemalloc
@@ -283,8 +284,8 @@ def Bench(f: Callable[[int], list[int]], name: str = "", len: int = 8) -> None:
 
 
 if __name__ == "__main__":
-    from interactive.Tables import TablesList
-    #from Abel import abel
+    #from interactive.Tables import TablesList
+    from Abel import abel
 
     def OrderBench() -> None:
         for tabl in TablesList:

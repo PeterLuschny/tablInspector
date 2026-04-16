@@ -35,7 +35,7 @@ ChebyshevS = Table(
     "ChebyshevS",
     ["A049310", "A053119", "A112552", "A168561"],
     "A053121",  # this is the Catalan Paths triangle
-    r"\binom{(n+k)/2}{k} text{A369736}(n, k)",
+    r"\binom{(n+k)/2}{k} \text{A369736}(n, k)",
 )
 
 

@@ -1,7 +1,5 @@
 @echo off
 REM Start the Python Flask server for tablInspector
-cd /D "%~dp0src"
-
 REM Start the server in the background
 start /B ..\.venv\Scripts\python.exe _tablserver.py
 

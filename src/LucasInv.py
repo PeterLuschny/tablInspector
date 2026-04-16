@@ -33,7 +33,7 @@ LucasInv = Table(
     "LucasInv", 
     ["A112857"], 
     "A029635", 
-    r"\sum_{j=k^n} \binom{n}{j} \binom{j-1}{k-1}"
+    r"\sum_{j=k}^n \binom{n}{j} \binom{j-1}{k-1}"
 )
 
 
