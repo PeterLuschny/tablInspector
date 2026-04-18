@@ -50,7 +50,7 @@ MotzkinInv = Table(
     "MotzkinInv",
     ["A104562", "A101950", "A344566"],
     "A064189",
-    r"\binom{n}{k} \text{Hyper}([(k-n)/2, (k-n+1)/2], [k+2], 4)",
+    r"\binom{n}{k} \text{Hyper}([(k-n)/2, (k-n+1)/2], [-n], 4)",
 )
 
 

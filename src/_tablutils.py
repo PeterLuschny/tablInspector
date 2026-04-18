@@ -20,7 +20,6 @@ Functions:
 Classes:
     StopWatch
 """
-
 from Tables import TablesList
 from _tabltypes import Table
 from typing import Callable

@@ -31,7 +31,7 @@ EulerianB = Table(
     "EulerianB", 
     ["A060187", "A138076"], 
     "A000000", 
-    r"%%"
+    r"T(n, k) = (2n - 2k + 1) \cdot T(n-1, k-1) + (2k - 1) \cdot T(n-1, k)"
 )
 
 

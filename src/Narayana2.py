@@ -33,7 +33,7 @@ Narayana2 = Table(
     "Narayana2",
     ["A352687"],
     "A000000",
-    r"%%",
+    r"(\binom{n}{k}^2 (k (2 k^2 + (n + 1) (n - 2 k)))) / (n^2 (n - 1) (n - k + 1))",
 )
 
 

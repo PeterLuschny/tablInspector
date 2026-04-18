@@ -32,7 +32,7 @@ Bell = Table(
     "Bell", 
     ["A011971", "A011972", "A123346"], 
     "A000000", # No inverse!
-    r"\sum_{j=0}^{k} \binom{k}{j} Bell(n - k + j)"
+    r"\sum_{j=0}^{k} \binom{k}{j} \text{Bell}(n - k + j)"
 )
 
 

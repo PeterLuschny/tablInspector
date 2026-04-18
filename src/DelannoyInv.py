@@ -36,7 +36,8 @@ def _suffix_sums(row: list[int]) -> list[int]:
     return suffix
 
 """Build the next row from suffix sums of the previous row.
-    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], where s is the suffix-sum row.
+    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], 
+    where s is the suffix-sum row.
 """
 
 @cache
@@ -56,7 +57,7 @@ DelannoyInv = Table(
     "DelannoyInv",
     ["A132372", "A103136", "A033878"],
     "A008288",
-    r"%%",
+    r"T(n, k + 1) + T(n-1, k - 1) + T(n-1, k)",
 )
 
 

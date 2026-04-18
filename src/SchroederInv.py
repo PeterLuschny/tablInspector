@@ -27,7 +27,7 @@ from _tabltypes import Table
 #        row[k] += row[k - 1] + arow[k - 1]
 #    return row
 
-"""Same recurrence as schroederinv, but builds interior terms with zip."""
+"""Same recurrence as above, but builds interior terms with zip."""
 
 @cache
 def schroederinv(n: int) -> list[int]:
@@ -48,7 +48,7 @@ SchroederInv = Table(
     "SchroederInv",
     ["A122542", "A035607", "A113413", "A119800", "A266213"],
     "",
-    r"",
+    r"T(n-1, k-1) + T(n-1, k) + T(n-2, k- 1)",
 )
 
 

@@ -47,7 +47,7 @@ SchroederL = Table(
     "SchroederL", 
     ["A172094"], 
     "A000000", 
-    r"%%"
+    r"T(n-1, 0) + 2T(n-1, 1), T(n, k) = T(n-1, k-1) + 3T(n-1, k) + 2T(n-1, k+1)"
 )
 
 

@@ -441,7 +441,23 @@ class Table:
         """
         return [self.row(n)[k] for n in range(size) for k in range(n + 1)]
 
+    
+    @staticmethod
+    def zeroless (lst: list[int]) -> list[int]:
+        """
+        Args:
+            list of integers
 
+        Returns:
+            list of integers with zeros removed
+
+        Example:
+            >>> Table.zeroless(Abel.row(4))
+            [64, 48, 12, 1]
+        """
+        return [x for x in lst if x != 0]
+        
+        
     def inv(self, size: int) -> tabl:
         """
         Args:
@@ -779,6 +795,7 @@ if __name__ == "__main__":
 
     print()
     print(Abel.val(8, 4) == Abel(8, 4))
+    print(Table.zeroless(Abel.row(4)))
 
 
 """ IGNORE THIS PART

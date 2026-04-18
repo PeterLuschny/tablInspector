@@ -35,7 +35,7 @@ FiboLucasRev = Table(
     "FiboLucasRev", 
     ["A124038"], 
     "A000000", 
-    r"%%"
+    r"T(n - 1, k) + T(n - 2, k - 2)"
 )
 
 

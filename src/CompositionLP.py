@@ -46,7 +46,7 @@ CompositionLP = Table(
     "CompositionLP", 
     ["A048004"], 
     "A000000",  # invertible, not in OEIS
-    r"C_{LP}(n, k)"
+    r"\text{Compositions of n with largest part k.}"
 )
 
 

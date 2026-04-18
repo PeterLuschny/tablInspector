@@ -293,8 +293,10 @@ def QueryOEIS(
         try:
             jdata = _session.get(url, timeout=(10, 60)).json()
             if jdata == None:
-                if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]): 
-                    seqlist = [k for k in seqlist if k != 0]
+                if ((0 == sum(seqlist[::2]) or 
+                  (0 == seqlist[1] and 0 == seqlist[3] and 0 == seqlist[6] 
+                   and 0 == seqlist[10] and 0 == seqlist[15]))): 
+                    seqlist = Table.zeroless(seqlist)
                     seqstr = SeqToString(seqlist, 160, 36, ",", 3, True)
                     if info:
                         print("Searching without zeros:", seqstr)

@@ -28,7 +28,7 @@ PartitionAcc = Table(
     "PartitionAcc", 
     ["A026820", "A058400"], 
     "",
-    r"%%"
+    r"T(n, k-1) + (is(k > n) ? 0 : T(n-k, k))"
 )
 
 

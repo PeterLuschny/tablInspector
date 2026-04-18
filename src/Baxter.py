@@ -53,7 +53,7 @@ Baxter = Table(
     "Baxter", 
     ["A359363", "A056939"],
     "A000000",
-    "x Hyper([-1 - n, -n, 1 - n], [2, 3], -x)"
+    "x \text{Hyper}([-1 - n, -n, 1 - n], [2, 3], -x)"
  )
 
 

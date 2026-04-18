@@ -29,7 +29,7 @@ EulerianZigZag = Table(
     "EulerianZigZag", 
     ["A205497"], 
     "", 
-    r"%%"
+    r"\mid \sum_{j=0..n} \binom{k}{j} \text{Euler}(n - k + j) \mid"
 )
 
 

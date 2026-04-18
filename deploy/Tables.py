@@ -331,6 +331,21 @@ class Table:
             [1, 0, 1, 0, 2, 1, 0, 9, 6, 1, 0, 64, 48, 12, 1]
         """
         return [self.row(n)[k] for n in range(size) for k in range(n + 1)]
+    
+    @staticmethod
+    def zeroless (lst: list[int]) -> list[int]:
+        """
+        Args:
+            list of integers
+        Returns:
+            list of integers with zeros removed
+        Example:
+            >>> Table.zeroless(Abel.row(4))
+            [64, 48, 12, 1]
+        """
+        return [x for x in lst if x != 0]
+        
+        
     def inv(self, size: int) -> tabl:
         """
         Args:
@@ -869,8 +884,10 @@ def QueryOEIS(
         try:
             jdata = _session.get(url, timeout=(10, 60)).json()
             if jdata == None:
-                if 0 == sum(seqlist[::2]) or 0 == sum(seqlist[1::2]): 
-                    seqlist = [k for k in seqlist if k != 0]
+                if ((0 == sum(seqlist[::2]) or 
+                  (0 == seqlist[1] and 0 == seqlist[3] and 0 == seqlist[6] 
+                   and 0 == seqlist[10] and 0 == seqlist[15]))): 
+                    seqlist = Table.zeroless(seqlist)
                     seqstr = SeqToString(seqlist, 160, 36, ",", 3, True)
                     if info:
                         print("Searching without zeros:", seqstr)
@@ -2312,7 +2329,7 @@ Baxter = Table(
     "Baxter", 
     ["A359363", "A056939"],
     "A000000",
-    "x Hyper([-1 - n, -n, 1 - n], [2, 3], -x)"
+    "x \text{Hyper}([-1 - n, -n, 1 - n], [2, 3], -x)"
  )
 @cache
 def bell(n: int) -> list[int]:
@@ -2328,7 +2345,7 @@ Bell = Table(
     "Bell", 
     ["A011971", "A011972", "A123346"], 
     "A000000", # No inverse!
-    r"\sum_{j=0}^{k} \binom{k}{j} Bell(n - k + j)"
+    r"\sum_{j=0}^{k} \binom{k}{j} \text{Bell}(n - k + j)"
 )
 @cache
 def bessel(n: int) -> list[int]:
@@ -2359,7 +2376,7 @@ BesselInv = Table(
     "BesselInv",  # name of the table
     ["A122848", "A104556", "A096713"],  # similar sequences in OEIS
     "A132062",    # id of inverse sequence
-    r"T(n,k)"     # TeX of defining formula
+    r"k! \binom{n}{k}/((2k-n)!\, 2^{n-k})"  # TeX of defining formula
 )
 @cache
 def bessel2(n: int) -> list[int]:
@@ -2669,7 +2686,7 @@ ChebyshevS = Table(
     "ChebyshevS",
     ["A049310", "A053119", "A112552", "A168561"],
     "A053121",  # this is the Catalan Paths triangle
-    r"\binom{(n+k)/2}{k} text{A369736}(n, k)",
+    r"\binom{(n+k)/2}{k} \text{A369736}(n, k)",
 )
 @cache
 def chebyshevt(n: int) -> list[int]:
@@ -2688,7 +2705,7 @@ ChebyshevT = Table(
     "ChebyshevT", 
     ["A053120", "A039991", "A081265"], 
     "",  # not invertible
-    r"%%"
+    r"\left[x^n\right] \sum_{k = 1}^{n} (-1)^{n - k} \frac{n}{2k} \binom{k}{n - k} (2x)^{2k - n} "
 )
 @cache
 def chebyshevu(n: int) -> list[int]:
@@ -2731,7 +2748,7 @@ CompositionLP = Table(
     "CompositionLP", 
     ["A048004"], 
     "A000000",  # invertible, not in OEIS
-    r"C_{LP}(n, k)"
+    r"\text{Compositions of n with largest part k.}"
 )
 @cache
 def compositionacc(n: int) -> list[int]:
@@ -2787,7 +2804,7 @@ DegSymPoly = Table(
     "DegSymPoly", 
     ["A394080", "A050446", "A050447"], 
     "", 
-    r"%%"
+    r"T(n, k - 1 ) + \sum_{j = 0}^{\lfloor \frac{n-1}{2} \rfloor} T(2 j, k - 1) T(n - 1 - 2 j, k)"
 )
 @cache
 def delannoy(n: int) -> list[int]:
@@ -2814,7 +2831,8 @@ def _suffix_sums(row: list[int]) -> list[int]:
         suffix[k] = total
     return suffix
 """Build the next row from suffix sums of the previous row.
-    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], where s is the suffix-sum row.
+    For k >= 1, the recurrence becomes row[k] = s[k - 1] + s[k], 
+    where s is the suffix-sum row.
 """
 @cache
 def delannoyinv(n: int) -> list[int]:
@@ -2829,7 +2847,7 @@ DelannoyInv = Table(
     "DelannoyInv",
     ["A132372", "A103136", "A033878"],
     "A008288",
-    r"%%",
+    r"T(n, k + 1) + T(n-1, k - 1) + T(n-1, k)",
 )
 @cache
 def divisibility(n: int) -> list[int]:
@@ -2922,6 +2940,15 @@ Entringer = Table(
     "",  # not invertible
     r"is(k=0) \ ? \ 0^n : T(n, k-1) + T(n-1, n-k)",
 )
+def entringerseidel(n: int) -> list[int]:
+    return entringer(n) if n % 2 else entringer(n)[::-1]
+EntringerSeidel = Table(
+    entringerseidel, 
+    "EntringerSeidel", 
+    ["A008280", "A108040", "A236935", "A239005"], 
+    "", 
+    r""
+)
 @cache
 def _euclid(n: int, k: int) -> int:
     while k != 0:
@@ -2996,7 +3023,7 @@ Eulerian2 = Table(
     "Eulerian2",
     ["A340556", "A201637", "A008517", "A112007", "A163936"],
     "A000000",
-    r"%%",
+    r"k T(n - 1, k) + (2n - k) T(n - 1, k - 1)",
 )
 @cache
 def eulerianb(n: int) -> list[int]:
@@ -3011,7 +3038,7 @@ EulerianB = Table(
     "EulerianB", 
     ["A060187", "A138076"], 
     "A000000", 
-    r"%%"
+    r"T(n, k) = (2n - 2k + 1) \cdot T(n-1, k-1) + (2k - 1) \cdot T(n-1, k)"
 )
 @cache
 def _s(n: int, k: int) -> int:
@@ -3048,7 +3075,7 @@ EulerianZigZag = Table(
     "EulerianZigZag", 
     ["A205497"], 
     "", 
-    r"%%"
+    r"\mid \sum_{j=0..n} \binom{k}{j} \text{Euler}(n - k + j) \mid"
 )
 @cache
 def eulersec(n: int) -> list[int]:
@@ -3174,7 +3201,7 @@ FiboLucasRev = Table(
     "FiboLucasRev", 
     ["A124038"], 
     "A000000", 
-    r"%%"
+    r"T(n - 1, k) + T(n - 2, k - 2)"
 )
 @cache
 def fibonacci(n: int) -> list[int]:
@@ -3506,7 +3533,7 @@ LucasInv = Table(
     "LucasInv", 
     ["A112857"], 
     "A029635", 
-    r"\sum_{j=k^n} \binom{n}{j} \binom{j-1}{k-1}"
+    r"\sum_{j=k}^n \binom{n}{j} \binom{j-1}{k-1}"
 )
 @cache
 def lucaspoly(n: int) -> list[int]:
@@ -3621,7 +3648,7 @@ MotzkinInv = Table(
     "MotzkinInv",
     ["A104562", "A101950", "A344566"],
     "A064189",
-    r"\binom{n}{k} \text{Hyper}([(k-n)/2, (k-n+1)/2], [k+2], 4)",
+    r"\binom{n}{k} \text{Hyper}([(k-n)/2, (k-n+1)/2], [-n], 4)",
 )
 @cache
 def motzkinpoly(n: int) -> list[int]:
@@ -3672,7 +3699,7 @@ Narayana2 = Table(
     "Narayana2",
     ["A352687"],
     "A000000",
-    r"%%",
+    r"(\binom{n}{k}^2 (k (2 k^2 + (n + 1) (n - 2 k)))) / (n^2 (n - 1) (n - k + 1))",
 )
 @cache
 def naturals(n: int) -> list[int]:
@@ -3800,7 +3827,7 @@ PartitionAcc = Table(
     "PartitionAcc", 
     ["A026820", "A058400"], 
     "",
-    r"%%"
+    r"T(n, k-1) + (is(k > n) ? 0 : T(n-k, k))"
 )
 @cache
 def _partdist(n: int, k: int) -> int:
@@ -3828,8 +3855,8 @@ def _partdistsize(n: int, k: int, r: int) -> int:
         return 1 if k == 0 else 0
     if k == 0 or r == 0:
         return 0
-    if k > n // 2 + 1:
-        return 0
+    #if k > n // 2 + 1:
+    #    return 0
     s = [_partdistsize(n - r * j, k - 1, r - 1) for j in range(1, n // r + 1)]
     return sum(s) + _partdistsize(n, k, r - 1)
 @cache
@@ -3841,7 +3868,7 @@ PartitionDistSize = Table(
     "PartitionDistSize", 
     ["A365676", "A116608", "A060177"], 
     "", 
-    r"%%"
+    r"[t^k][x^n] \prod_{j>=1} (1 + t \cdot x^j / (1 - x^j))"
 )
 @cache
 def pascal(n: int) -> list[int]:
@@ -3969,7 +3996,7 @@ Rencontres = Table(
     "Rencontres",
     ["A008290", "A098825"],
     "A055137",
-    r"\binom{n}{k} derangements(n - k)",
+    r"\binom{n}{k} \text{derangements}(n - k)",
 )
 @cache
 def rencontresinv(n: int) -> list[int]:
@@ -4043,7 +4070,7 @@ SchroederInv = Table(
     "SchroederInv",
     ["A122542", "A035607", "A113413", "A119800", "A266213"],
     "",
-    r"",
+    r"T(n-1, k-1) + T(n-1, k) + T(n-2, k- 1)",
 )
 @cache
 def schroederl(n: int) -> list[int]:
@@ -4060,7 +4087,7 @@ SchroederL = Table(
     "SchroederL", 
     ["A172094"], 
     "A000000", 
-    r"%%"
+    r"T(n-1, 0) + 2T(n-1, 1), T(n, k) = T(n-1, k-1) + 3T(n-1, k) + 2T(n-1, k+1)"
 )
 @cache
 def schroederp(n: int) -> list[int]:
@@ -4077,15 +4104,6 @@ SchroederP = Table(
     ["A104684", "A063007"],
     "A000000",
     r"\binom{n}{k} \binom{2n - k}{n}",
-)
-def seidel(n: int) -> list[int]:
-    return entringer(n) if n % 2 else entringer(n)[::-1]
-Seidel = Table(
-    seidel, 
-    "Seidel", 
-    ["A008280", "A108040", "A236935", "A239005"], 
-    "", 
-    r""
 )
 @cache
 def sierpinski(n: int) -> list[int]:
@@ -4353,6 +4371,7 @@ TablesDict: dict[str, Table] = {
     'DyckPaths': DyckPaths,
     'DyckPathsInv': DyckPathsInv,
     'Entringer': Entringer,
+    'EntringerSeidel': EntringerSeidel,
     'Euclid': Euclid,
     'Euler': Euler,
     'Eulerian': Eulerian,
@@ -4422,7 +4441,6 @@ TablesDict: dict[str, Table] = {
     'SchroederInv': SchroederInv,
     'SchroederL': SchroederL,
     'SchroederP': SchroederP,
-    'Seidel': Seidel,
     'Sierpinski': Sierpinski,
     'StirlingCycle': StirlingCycle,
     'StirlingCycle2': StirlingCycle2,
@@ -4437,4 +4455,4 @@ TablesDict: dict[str, Table] = {
     'Worpitzky': Worpitzky,
 }
 TablesList = list(TablesDict.values())
-#TablesListPreview()
+# TablesListPreview()

@@ -35,7 +35,7 @@ Rencontres = Table(
     "Rencontres",
     ["A008290", "A098825"],
     "A055137",
-    r"\binom{n}{k} derangements(n - k)",
+    r"\binom{n}{k} \text{derangements}(n - k)",
 )
 
 
