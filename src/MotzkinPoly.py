@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     MotzkinPoly_Tinvrev       -> 0 
     MotzkinPoly_Toff11        -> 0 

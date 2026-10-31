@@ -42,9 +42,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     RisingFactorial_Trev          -> 0 
     RisingFactorial_Tinvrev       -> 0 

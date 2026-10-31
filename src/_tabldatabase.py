@@ -155,7 +155,7 @@ def AddAnumsToSrcfile(
         dest.write("\n\n" + r"'''" + " OEIS\n")
         for fullname, anum in d.items():
             if anum != 0:
-                dest.write(f"    {fullname} -> https://oeis.org/A{anum}\n")
+                dest.write(f"    {fullname:<24} -> https://oeis.org/A{anum}\n")
             else:
                 dest.write(f"    {fullname} -> 0 \n")
 
@@ -442,6 +442,7 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
         print("Searching OEIS -- this will take some time!")
         AddTable(T)
         print()
+        AddAnumsToSrcfile(T.id)
 
 
 if __name__ == "__main__":
@@ -455,10 +456,12 @@ if __name__ == "__main__":
     # from SchroederInv import SchroederInv   # type: ignore
     #from MotzkinInv import MotzkinInv      # type: ignore
     #from DoublePochhammer import DoublePochhammer  # type: ignore
-    from Sidi import Sidi  # type: ignore
+    #from Sidi import Sidi  # type: ignore
+    from A401502 import A401502  # type: ignore
     # AddTable(Sidi) # type: ignore
 
-    InspectTable(Sidi)
+    #InspectTable(Sidi)
+    AddAnumsToSrcfile(A401502.id)
 
     #for T in TablesList:
     #    print(T.id, T.tex)

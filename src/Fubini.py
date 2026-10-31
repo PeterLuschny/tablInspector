@@ -45,9 +45,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Fubini_Trev          -> 0 
     Fubini_Tinvrev11     -> 0 

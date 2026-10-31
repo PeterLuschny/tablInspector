@@ -49,9 +49,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     StirlingSet2_Trev          -> 0 
     StirlingSet2_Toff11        -> 0 

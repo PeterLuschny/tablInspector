@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Narayana2_Tinv          -> 0 
     Narayana2_Trevinv       -> 0 

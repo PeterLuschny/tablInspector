@@ -44,6 +44,7 @@ EulerianRevZigZag = Table(
     r"%%"
 )
 
+
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 

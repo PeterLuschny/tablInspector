@@ -37,9 +37,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Ordinals_TablCol0      -> https://oeis.org/A4
     Ordinals_TablCol1      -> https://oeis.org/A12

@@ -49,12 +49,6 @@ if __name__ == "__main__":
     print([eulerT(n) for n in range(30)])
 
 
-# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
-
-
-
-
-
 
 ''' OEIS
     EulerTan_Trev          -> 0 
@@ -125,3 +119,5 @@ if __name__ == "__main__":
 
     EulerTan: Distinct: 18, Hits: 25, Misses: 40
 '''
+
+# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials

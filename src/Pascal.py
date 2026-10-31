@@ -53,9 +53,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Pascal_AltSum        -> https://oeis.org/A7
     Pascal_TablCol0      -> https://oeis.org/A12

@@ -43,12 +43,6 @@ if __name__ == "__main__":
     InspectTable(Eulerian2)
 
 
-# See also http://luschny.de/math/oeis/A340556.html
-
-
-
-
-
 
 ''' OEIS
     Eulerian2_Tinvrev11     -> 0 
@@ -120,3 +114,5 @@ if __name__ == "__main__":
 
     Eulerian2: Distinct: 25, Hits: 32, Misses: 34
 '''
+
+# See also http://luschny.de/math/oeis/A340556.html

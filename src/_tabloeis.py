@@ -21,6 +21,7 @@ from requests.adapters import HTTPAdapter
 from urllib3.util.retry import Retry
 from _tabltypes import Table, Trait
 from _tablutils import SeqToString
+from _tabltraits import TraitsDict
 
 
 oeis_schema = '''{
@@ -269,7 +270,10 @@ def QueryOEIS(
         Exception: If the OEIS server cannot be reached after multiple attempts.
         Currently, the function will return -999999 if the OEIS server cannot be reached.
     """
-    if len(seqlist) < minlen:
+    seqlen = len(seqlist)
+    if 0 == seqlen:
+      return 0
+    if 0 < seqlen < minlen:  
       print(f"Sequence is too short! We require at least {minlen} terms.")
       print("You provided:", seqlist)
       return 0
@@ -326,7 +330,7 @@ def QueryOEIS(
                     # print(f"Info: Starting at index {sl} the next {dl} 
                     # consecutive terms match.\nThe matched substring starts 
                     # at byte {start} and has length {length}.")
-                    print("*** Found:", anumber, name)
+                print("*** Found:", anumber, name, data)
                 if dl > 12:
                     break
 
@@ -365,33 +369,64 @@ def LookUp(t: Table, tr: Trait, info: bool = True) -> int:
         *** Found: A094420 Generalized ordered Bell numbers Bo(n,n).
         Returns the int 94420.
     """
-    return QueryOEIS(tr(t, 24), 1, info)
+    return QueryOEIS(tr(t, 24), 1, False)
 
+  
+def LookUpAll(T: Table) -> list[int]:
+    """
+    Look up all traits of a table in the OEIS database and return a list of A-numbers.
+
+    Args:
+        t (Table): The table to be analyzed.
+
+    Returns:
+        list[int]: A list of A-numbers of traits of the table found in the OEIS.
+    """
+    a_numbers: list[int] = []
+    for tr_id, tr in TraitsDict.items():
+        name = (T.id + '_' + tr_id)
+        anum = LookUp(T, tr[0])
+        if anum > 0:
+          anumstr = f"A{(6 - len(str(anum))) * '0' + str(anum)}"
+          print(name, 'is', anumstr)
+          print()
+          a_numbers.append(anum)
+    print("We found these sequences in the OEIS related to", T.id, ":")
+    print(a_numbers)
+    return a_numbers
+  
 
 if __name__ == "__main__":
     from Tables import Lehmer, TablesList, TablSum
     from Tables import Fubini, PolyDiag
+    from Tables import A259334, A395345, A394824
 
     data1 = [1, 4, 1, 9, 9, 2, 16, 36]
     data2 = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,17,19,20,21,22,23,24,25,26,27]
     data3 = [36,32,5,25,100,200,125,14,36,225,800,1125,504,42,49,441,2450,6125,6174,2058,132,64,784,6272]
     data4 = [1,0,1,0,2,0,2,0,4,0,4,0,8,0,10,0,20,0,30,0,56,0,94,0,180,0,316,0,596,0, 1096,0,2068,0,3856,0]
-    data5 = [1,-1,1,0,-2,1,1,1,-3,1,-1,2,3,-4,1,0,-4,2,6,-5,1,1,2,-9,0,10,-6,1]
+    data5 = [1, 2, 2, 4, 4, 8, 10, 20, 30, 56, 94, 180, 316, 596, 1096, 2068, 3856, 7316, 13798, 26272, 49940, 95420, 182362, 349716, 671092, 1290872, 2485534, 4794088, 9256396, 17896832, 34636834, 67110932]
+    data6 = [1,-1,1,0,-2,1,1,1,-3,1,-1,2,3,-4,1,0,-4,2,6,-5,1,1,2,-9,0,10,-6,1]
 
     def test() -> None:
-        print(QueryOEIS(data1, 1, True)); print()
-        print(QueryOEIS(data2, 1, True)); print()
-        print(QueryOEIS(data3, 1, True)); print()
+        print(QueryOEIS(data1, 3, True)); print()
+        print(QueryOEIS(data2, 3, True)); print()
+        print(QueryOEIS(data3, 3, True)); print()
+        print(QueryOEIS(data4, 3, True)); print()
+        print(QueryOEIS(data5, 3, True)); print()
+        print(QueryOEIS(data6, 3, True)); print()
 
     def testQuerySum() -> None:
         for tabl in TablesList[:5]:
-            print(f"Searching row sums of {tabl.id} {tabl.oeis}.")
+            print(f"### Searching row sums of {tabl.id} {tabl.oeis}.")
             sumlist = [tabl.sum(n) for n in range(30)]
-            anum = QueryOEIS(sumlist)
+            anum = QueryOEIS(sumlist, 3)
             print('A' + str(anum).rjust(6, "0"))
 
     #test()
-    #testQuerySum()
-    LookUp(Fubini, PolyDiag)  # type: ignore
-    LookUp(Lehmer, TablSum)    # type: ignore
-    print(QueryOEIS(data5, 1, True)) # -> A104562 AND A101950
+    testQuerySum()
+    #LookUp(Fubini, PolyDiag)  # type: ignore
+    #LookUp(Lehmer, TablSum)    # type: ignore
+    #print(QueryOEIS(data5, 1, True)) # -> A104562 AND A101950
+    
+    #LookUpAll(A394824) # type: ignore

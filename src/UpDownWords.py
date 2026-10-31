@@ -31,7 +31,7 @@ UpDownWords = Table(
     updownwords, 
     "UpDownWords", 
     ["A050446", "A050447"],
-    "A000000", 
+    "?", 
     r""
 )
 
@@ -40,7 +40,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(UpDownWords)
-
 
 
 

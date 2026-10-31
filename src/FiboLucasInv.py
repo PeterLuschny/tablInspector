@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     FiboLucasInv_Trev          -> 0 
     FiboLucasInv_Toff11        -> 0 

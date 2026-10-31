@@ -45,9 +45,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     StirlingCycleB_Toff11        -> 0 
     StirlingCycleB_Trev11        -> 0 

@@ -887,7 +887,7 @@ def AccRevSum(T: Table, size: int = 28) -> list[int]:
         size (int, optional): The number of periods to calculate the accumulated sums for. Defaults to 28.
 
     Returns:
-        list[int]: A list of accumulated sums of the reversed rows
+        list[int]: A list of accumulated sums of the reversed rows.
     
     Example:
         >>> AccRevSum(StirlingCycle, 6)
@@ -1689,6 +1689,25 @@ def TableTraits(T: Table) -> None:
         print(SeqToString(seq, 60, 20))
 
 
+def bFile(T: Table, trait: str, len: int = 101) -> None:
+    """
+    Writes a sequence generated from a table and a trait.
+
+    Args:
+        t (Table): The input table used to generate the sequence.
+        tr (Trait): The trait function that generates the sequence from the table.
+        len (int, optional): The length of the sequence to be written to the file. Defaults to 101.
+
+    This function generates a sequence by applying the given trait function to the provided table, and writes it after the table's ID and the trait's name.
+    The file is saved in a directory named "bFiles" with a ".txt" extension.
+    """
+    tr = TraitsDict[trait]
+    seq = tr[0](T, len)
+    print('# ' +T.id + '_' + trait)  # tex = tr[2]
+    for c, v in enumerate(seq):
+        print(f"{c} {v}")
+
+
 if __name__ == "__main__":
 
     from Abel import Abel                # type: ignore
@@ -1711,4 +1730,7 @@ if __name__ == "__main__":
         print()
     
     #test(Abel, 10)
-    TableTraits(Abel)
+    #TableTraits(Abel)
+
+    bFile(Abel, "Triangle", 24)
+    bFile(Abel, "TablSum", 101)

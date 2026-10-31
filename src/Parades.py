@@ -51,9 +51,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Parades_Toff11        -> 0 
     Parades_Trev11        -> 0 

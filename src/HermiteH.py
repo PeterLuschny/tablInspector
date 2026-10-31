@@ -41,9 +41,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     HermiteH_Trev          -> 0 
     HermiteH_Toff11        -> 0 

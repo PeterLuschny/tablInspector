@@ -36,7 +36,7 @@ Jacobsthal = Table(
     jacobsthal,
     "Jacobsthal",
     ["A322942"],
-    "A000000",
+    "?",
     r"[x^k]\ ((x+1)\, \mathrm{J}(n-1, x) + 2\, \mathrm{J}(n-2, x))",
 )
 

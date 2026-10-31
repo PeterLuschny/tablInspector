@@ -53,9 +53,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     FiboLucas_Toff11        -> 0 
     FiboLucas_Trev11        -> 0 

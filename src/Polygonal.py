@@ -59,9 +59,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Polygonal_Trev          -> 0 
     Polygonal_Tinvrev11     -> 0 

@@ -43,6 +43,7 @@ if __name__ == "__main__":
     InspectTable(Bessel)
 
 
+
 ''' OEIS
     Bessel_Tantidiag     -> 0 
     Bessel_Tacc          -> 0 

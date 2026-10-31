@@ -34,7 +34,7 @@ Genocchi = Table(
     genocchi, 
     "Genocchi", 
     ["A297703"], 
-    "", 
+    "?", 
     r"%%"
 )
 

@@ -47,9 +47,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     BinomialCatalan_Tinvrev       -> 0 
     BinomialCatalan_Toff11        -> 0 

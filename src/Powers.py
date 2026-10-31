@@ -29,7 +29,7 @@ Powers = Table(
     powers,        # the generating function
     "Powers",      # name of the table
     ["A004248", "A009998", "A051129"], # similar sequences in OEIS
-    "A000000",    # inverse triangle exists, but not in OEIS
+    "?",    # inverse triangle exists, but not in OEIS
     r"k^{n - k}"  # TeX of defining formula
 )
 
@@ -38,9 +38,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Powers)
-
-
-
 
 
 

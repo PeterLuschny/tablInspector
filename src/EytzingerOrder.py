@@ -80,9 +80,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     EytzingerOrder_Trev          -> 0 
     EytzingerOrder_Toff11        -> 0 

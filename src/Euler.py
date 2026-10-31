@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
     InspectTable(Euler)
 
-# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
-
-
 
 
 ''' OEIS
@@ -122,3 +119,5 @@ if __name__ == "__main__":
 
     Euler: Distinct: 27, Hits: 38, Misses: 31
 '''
+
+# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials

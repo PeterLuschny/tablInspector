@@ -39,9 +39,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     PartitionAcc_Trev          -> 0 
     PartitionAcc_Tantidiag     -> 0 

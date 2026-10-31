@@ -34,7 +34,7 @@ Partition = Table(
     partition,
     "Partition",
     ["A072233", "A008284", "A058398"],
-    "A000000",
+    "?",
     r"T_{n - 1, k - 1} + T_{n - k, k}",
 )
 

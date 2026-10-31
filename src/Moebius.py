@@ -42,7 +42,7 @@ Moebius = Table(
     moebius,
     "Moebius",
     ["A363914", "A054525"],
-    "A000000",
+    "?",
     r"M^{-1}(n, k); M(n, k) = [k \le n \ \& \ k | n]",
 )
 

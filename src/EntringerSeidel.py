@@ -34,6 +34,7 @@ if __name__ == "__main__":
 
     InspectTable(EntringerSeidel)
 
+
 ''' OEIS
     EntringerSeidel_Toff11        -> 0 
     EntringerSeidel_Trev11        -> 0 

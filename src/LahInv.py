@@ -38,6 +38,7 @@ if __name__ == "__main__":
     InspectTable(LahInv)
 
 
+
 ''' OEIS
     LahInv_Trev          -> 0
     LahInv_Trevinv       -> 0

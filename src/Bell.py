@@ -42,6 +42,7 @@ if __name__ == "__main__":
     InspectTable(Bell)
 
 
+
 ''' OEIS
     Bell_Trev11        -> 0 
     Bell_Tantidiag     -> 0 

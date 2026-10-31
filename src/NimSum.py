@@ -38,9 +38,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     NimSum_Toff11        -> 0 
     NimSum_Trev11        -> 0 

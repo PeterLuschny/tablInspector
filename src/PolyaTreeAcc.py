@@ -91,9 +91,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     PolyaTreeAcc_Trev          -> 0 
     PolyaTreeAcc_Toff11        -> 0 

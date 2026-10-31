@@ -45,9 +45,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     OrderedCycle_Trev          -> 0 
     OrderedCycle_Tantidiag     -> 0 

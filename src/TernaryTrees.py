@@ -44,6 +44,8 @@ if __name__ == "__main__":
 
     InspectTable(TernaryTrees)
 
+
+
 ''' OEIS
     TernaryTrees_Trev          -> 0 
     TernaryTrees_Toff11        -> 0 

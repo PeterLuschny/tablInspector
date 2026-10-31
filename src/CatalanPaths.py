@@ -45,6 +45,7 @@ if __name__ == "__main__":
     InspectTable(CatalanPaths)
 
 
+
 ''' OEIS
     CatalanPaths_Trev11        -> 0 
     CatalanPaths_Trevinv11     -> 0 

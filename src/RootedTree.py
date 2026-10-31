@@ -40,9 +40,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     RootedTree_Trev          -> 0 
     RootedTree_Trev11        -> 0 

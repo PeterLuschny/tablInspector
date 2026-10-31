@@ -42,9 +42,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Lucas_Tacc          -> 0 
     Lucas_Tder          -> 0 

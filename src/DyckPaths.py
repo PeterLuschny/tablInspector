@@ -44,7 +44,7 @@ DyckPaths = Table(
     dyckpaths,
     "DyckPaths",
     ["A039599", "A050155"],
-    "A000000",
+    "?",
     r"\binom{2n}{n - k} (2k + 1) / (n + k + 1)",
 )
 

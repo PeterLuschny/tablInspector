@@ -32,7 +32,7 @@ Gaussq2 = Table(
     gaussq2,
     "Gaussq2",
     ["A022166"],
-    "A000000",
+    "?",
     r"\prod_{i=k+1}^{n} (2^i - 1) \ / \ \prod_{i=1}^{n-k} (2^i - 1)",
 )
 

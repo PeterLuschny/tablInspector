@@ -87,6 +87,7 @@ if __name__ == "__main__":
     InspectTable(Abel)
 
 
+
 ''' OEIS
     Abel_Trev          -> 0 
     Abel_Tantidiag     -> 0 

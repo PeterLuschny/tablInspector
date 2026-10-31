@@ -7,5 +7,7 @@
     "reportUnknownVariableType": "none",
     "reportUnknownParameterType": "none",
     "reportMissingTypeStubs": "none"
-}
+},
+"editor.unicodeHighlight.nonBasicASCII": true,
+"editor.unicodeHighlight.includeComments": true
 }

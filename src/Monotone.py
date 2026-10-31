@@ -32,7 +32,7 @@ Monotone = Table(
     monotone, 
     "Monotone", 
     ["A059481", "A027555"], 
-    "",  # not integer-invrtible
+    "",  # not integer-invertible
     r"\binom{n+k-1}{k}",
 )
 
@@ -41,10 +41,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Monotone)
-
-
-
-
 
 
 ''' OEIS

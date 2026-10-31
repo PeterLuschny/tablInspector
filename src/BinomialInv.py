@@ -40,6 +40,7 @@ if __name__ == "__main__":
     InspectTable(BinomialInv)
 
 
+
 ''' OEIS
     BinomialInv_Tinvrev       -> 0 
     BinomialInv_RevTinv11     -> 0 

@@ -42,9 +42,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     FussCatalan_Trev          -> 0 
     FussCatalan_Tinvrev11     -> 0 

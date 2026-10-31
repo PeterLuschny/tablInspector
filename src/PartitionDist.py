@@ -54,9 +54,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     PartitionDist_Trev11        -> 0 
     PartitionDist_Tinvrev11     -> 0 

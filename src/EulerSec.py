@@ -49,11 +49,6 @@ if __name__ == "__main__":
     print("Bonus:")
     print([eulerS(n) for n in range(30)])
 
-# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials
-
-
-
-
 
 
 ''' OEIS
@@ -129,3 +124,5 @@ if __name__ == "__main__":
 
     EulerSec: Distinct: 27, Hits: 39, Misses: 30
 '''
+
+# See also: https://oeis.org/wiki/User:Peter_Luschny/SwissKnifePolynomials

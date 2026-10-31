@@ -32,7 +32,7 @@ HyperHarmonic = Table(
     hyperharmonic,
     "HyperHarmonic",
     ["A165675", "A093905", "A105954", "A165674"],
-    "A000000",
+    "?",
     r"(n - k + 1)! \ \text{HyperHarmonic}(k, n - k)",
 )
 

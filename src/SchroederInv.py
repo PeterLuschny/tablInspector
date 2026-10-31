@@ -57,6 +57,8 @@ if __name__ == "__main__":
 
     InspectTable(SchroederInv)
 
+
+
 ''' OEIS
 
 SchroederInv_Tantidiag     -> 0

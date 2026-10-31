@@ -38,9 +38,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     One_Trevinv       -> 0 
     One_Trevinv11     -> 0 

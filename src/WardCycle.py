@@ -45,9 +45,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     WardCycle_Trev          -> 0 
     WardCycle_Tacc          -> 0 

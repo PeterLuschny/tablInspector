@@ -46,9 +46,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Schroeder_Tantidiag     -> 0 
     Schroeder_Tacc          -> 0 

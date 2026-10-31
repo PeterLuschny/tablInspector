@@ -43,7 +43,6 @@ if __name__ == "__main__":
 
 
 
-
 ''' OEIS
     Laguerre_Toff11        -> 0 
     Laguerre_Trev11        -> 0 

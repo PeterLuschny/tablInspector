@@ -39,7 +39,9 @@ Template = Table(
     "Template",  # name of the table
     ["A000004"], # similar sequences in OEIS
     "",          # id of inverse sequence if it exists
-    r"T(n,k)=0"  # TeX form of the defining formula
+                 # if not invertible write ""
+                 # if you don't know write "?"
+    r"T(n,k)=0"  # TeX form of the defining formula T(n, k)
 )
 
 

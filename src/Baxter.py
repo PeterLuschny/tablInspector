@@ -41,7 +41,7 @@ def baxter(n: int) -> list[int]:
     t = 1
     for (a, b, c), (d, e, f) in zip(
         zip(range(n - 1, n - 1 - m, -1), range(n, n - m, -1), range(n + 1, n - m + 1, -1)),
-        zip(range(1, m + 1),              range(2, m + 2),      range(3, m + 3))):
+        zip(range(1, m + 1),             range(2, m + 2),     range(3, m + 3))):
         t = t * a * b * c // (d * e * f)
         half.append(t)
     interior = (half + half[-2::-1]) if n % 2 == 1 else (half + half[::-1])
@@ -61,6 +61,8 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Baxter)
+
+
 
 ''' OEIS
     Baxter_Tinv          -> 0 

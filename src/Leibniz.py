@@ -44,8 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
 ''' OEIS
     Leibniz_Toff11        -> 0 
     Leibniz_Trev11        -> 0 

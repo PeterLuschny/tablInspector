@@ -58,6 +58,7 @@ if __name__ == "__main__":
     InspectTable(Catalan)
 
 
+
 ''' OEIS
     Catalan_Trev          -> 0 
     Catalan_Trevinv       -> 0 

@@ -35,7 +35,7 @@ Fibonacci = Table(
     fibonacci, 
     "Fibonacci", 
     ["A354267", "A105809", "A228074"], 
-    "A000000", 
+    "?", 
     r"T(n-1, k-1) + T(n-1, k)"
 )
 
@@ -44,9 +44,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Fibonacci)
-
-
-
 
 
 

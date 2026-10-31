@@ -41,9 +41,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     RencontresInv_Tinv          -> 0 
     RencontresInv_Trev          -> 0 

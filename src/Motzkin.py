@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Motzkin_Trevinv       -> 0 
     Motzkin_Toff11        -> 0 

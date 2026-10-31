@@ -73,7 +73,7 @@ from itertools import accumulate, islice
 from functools import cache
 import operator
 from more_itertools import difference
-from _tablinverse import InvertMatrix
+from _tablinverse import InvertMatrix, InvertTriangle
 
 # #@
 
@@ -138,9 +138,20 @@ class Table:
         self.gen = gen
         self.id = id
         self.oeis = oeis
-        self.invid = invid
         self.tex = tex
-        self.invQ = invid != ''
+
+        if len(invid) > 2:  # is ivertible and anum is known
+            self.invid = invid
+            self.invQ = True
+        else:
+            if invid == '':  # known to be not ivertible
+               self.invQ = False
+            else:
+                if invid == '?':  # not known if is invertible
+                    M = InvertTriangle(gen, 5)
+                    self.invQ = M != []
+                    if self.invQ:
+                        self.invid = "Exists"
 
 
     def __getitem__(self, n: int) -> trow:

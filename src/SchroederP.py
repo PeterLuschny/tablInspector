@@ -33,7 +33,7 @@ SchroederP = Table(
     schroederp,
     "SchroederP",
     ["A104684", "A063007"],
-    "A000000",
+    "?",
     r"\binom{n}{k} \binom{2n - k}{n}",
 )
 
@@ -42,8 +42,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(SchroederP)
-
-
 
 
 

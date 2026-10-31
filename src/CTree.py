@@ -28,7 +28,7 @@ CTree = Table(
     ctree, 
     "CTree", 
     ["A106465", "A106470"], 
-    "A00000",
+    "?",
     r"is(n \text{ odd})\ ? \ 1 : (k + 1) \text{ mod } 2"
 )
 

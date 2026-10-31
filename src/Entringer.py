@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Entringer_Trev          -> 0 
     Entringer_Tantidiag     -> 0 

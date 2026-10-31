@@ -23,6 +23,10 @@ tabl_files: list[str] = [
     "_tabltraits.py",
    # "_tabldatabase.py",
    # "_tablstats.py",
+    "A259334.py",
+    "A394824.py",
+    "A395345.py",
+    "A401502.py",
     "Abel.py",
     "AbelInv.py",
     "Andre.py",
@@ -146,7 +150,7 @@ tabl_files: list[str] = [
     "Worpitzky.py",
     "NumBell.py",
     "NumBernoulli.py",
-    "NumDivisors",
+    "NumDivisors.py",
     "NumEuler.py",
     "NumEulerPhi.py",
     "NumMotzkin.py",
@@ -159,6 +163,10 @@ tabl_files: list[str] = [
 
 tabl_dict: str = """\
 TablesDict: dict[str, Table] = {
+    'A259334': A259334,
+    'A394824': A394824,
+    'A395345': A395345,
+    'A401502': A401502,
     'Abel': Abel,
     'AbelInv': AbelInv,
     'Andre': Andre,

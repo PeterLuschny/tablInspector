@@ -37,9 +37,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     Sierpinski_Tantidiag     -> 0 
     Sierpinski_AccSum        -> 0 

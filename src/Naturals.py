@@ -30,6 +30,7 @@ if __name__ == "__main__":
     InspectTable(Naturals)  # type: ignore
 
 
+
 ''' OEIS
     Naturals_Trev11        -> 0 
     Naturals_Tacc          -> 0 

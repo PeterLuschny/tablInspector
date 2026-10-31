@@ -44,9 +44,6 @@ if __name__ == "__main__":
 
 
 
-
-
-
 ''' OEIS
     LucasInv_Tinvrev       -> 0 
     LucasInv_Tinv11        -> 0 
