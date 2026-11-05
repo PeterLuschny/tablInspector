@@ -4,14 +4,14 @@ from _tabltypes import Table
 """Eulerian triangle.
 
 0:  1
-1:  0 1
-2:  0 1    1
-3:  0 1    4     1
-4:  0 1   11    11      1
-5:  0 1   26    66     26       1
-6:  0 1   57   302    302      57       1
-7:  0 1  120  1191   2416    1191     120      1
-8:  0 1  247  4293  15619   15619    4293    247     1
+1:  0  1
+2:  0  1    1
+3:  0  1    4     1
+4:  0  1   11    11      1
+5:  0  1   26    66     26       1
+6:  0  1   57   302    302      57       1
+7:  0  1  120  1191   2416    1191     120      1
+8:  0  1  247  4293  15619   15619    4293    247     1
 
 # Knuth's version is row reversed: ======================
 
@@ -63,7 +63,6 @@ if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
     InspectTable(Eulerian)
-
 
 
 

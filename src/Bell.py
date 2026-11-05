@@ -1,7 +1,30 @@
-from functools import cache
-from _tabltypes import Table
+"""
+Functionality and purpose:
+    * This module generates T(n, k), the number of equivalence relations on {0, ..., n} such that k+j is not equivalent to n, for j = 0...n-1.
+    * The triangle is a refinment of the number of Boolean sublattices of the lattice of subsets of {1, ..., n}, A005493.
+    * The borders give the Bell numbers A000110, the number of ways to partition a set of n labeled elements.
+    * The triangle has no integer inverse.
+    * The triangle and some of its variants are OEIS A011971, A011972, and A123346.
 
-"""Bell (Peirce/Aitken) triangle, (see also A182930).
+    Numerical overview: https://peterluschny.github.io/tabl/Bell.html
+
+Functions:
+    bell(n: int) -> list[int]:
+        Computes the n-th row of the Bell triangle.
+
+    Bell(n: int, k: int) -> int:
+        Returns the k-th entry of the n-th row of the Bell triangle.
+
+    The Bell object can access the entries of the Bell triangle directly.
+    However, it is often more efficient to fetch an entire row using the lowercase version.
+ 
+Example:
+    >>> bell(3)
+    [5, 7, 10, 15]
+    >>> Bell(3, 2)
+    10
+
+Bell (Peirce/Aitken) triangle:
 
 [0]     1;
 [1]     1,     2;
@@ -14,6 +37,10 @@ from _tabltypes import Table
 [8]  4140,  5017,  6097,  7432,  9089, 11155, 13744, 17007, 21147;
 [9] 21147, 25287, 30304, 36401, 43833, 52922, 64077, 77821, 94828, 115975;
 """
+
+from functools import cache
+from _tabltypes import Table
+
 
 @cache
 def bell(n: int) -> list[int]:
@@ -30,7 +57,7 @@ def bell(n: int) -> list[int]:
 Bell = Table(
     bell, 
     "Bell", 
-    ["A011971", "A011972", "A123346"], 
+    ["A011971", "A011972", "A123346", "A182930"], 
     "A000000", # No inverse!
     r"\sum_{j=0}^{k} \binom{k}{j} \text{Bell}(n - k + j)"
 )
@@ -39,7 +66,7 @@ Bell = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(Bell)
+    InspectTable(Bell, oeis=False)
 
 
 

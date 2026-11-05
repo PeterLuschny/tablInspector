@@ -1,46 +1,48 @@
 """
-This module provides functions to generate the coefficients of the Abel polynomials 
-and their corresponding triangle. Abel is a `Table` object that provides various
-methods to investigate the Abel triangle.
+Functionality and purpose:
+    * This module generates the coefficients of the Abel polynomials.
+    * T(n, k) is the number of labeled trees on n nodes with maximal node degree k. 
+    * The triangle is a refinment of A000272, the number of trees on n labeled nodes.
+    * The triangle is invertible and the inverse is A059297, the triangle of idempotent numbers.
+    * The triangle and some of its variants are OEIS A061356, A137452, and A139526.
+
+    Numerical overview: https://peterluschny.github.io/tabl/Abel.html
 
 Functions:
     abel(n: int) -> list[int]:
         Computes the coefficients of the n-th Abel polynomial.
 
-    The Abel object can be used to access the coefficients of the Abel polynomials directly.
-    However, it is often more efficient to fetch an entire row using the lowercase version.
- 
     Abel(n: int, k: int) -> int:
         Returns the k-th coefficient of the n-th Abel polynomial.
 
+    The Abel object can access the coefficients of the Abel polynomials directly.
+    However, it is often more efficient to fetch an entire row using the lowercase version.
+ 
 Example:
     >>> abel(3)
     [0, 9, 6, 1]
     >>> Abel(3, 2)
     6
 
-References:
-    Variants of the triangle are https://oeis.org/A137452 , A061356, and A139526.
-    The triangle is invertible and the inverse is A059297, the triangle of idempotent numbers.
-    An overview is given in https://peterluschny.github.io/tabl/Abel.html
+Abel triangle (unsigned case):
+
+    [0] [1]
+    [1] [0,        1]
+    [2] [0,        2,       1]
+    [3] [0,        9,       6,       1]
+    [4] [0,       64,      48,      12,      1]
+    [5] [0,      625,     500,     150,     20,      1]
+    [6] [0,     7776,    6480,    2160,    360,     30,    1]
+    [7] [0,   117649,  100842,   36015,   6860,    735,   42,   1]
+    [8] [0,  2097152, 1835008,  688128, 143360,  17920, 1344,  56, 1]
 """
 
 from functools import cache
 from _tabltypes import Table
 
-"""Abel polynomials (unsigned coefficients).
-[0] [1]
-[1] [0,        1]
-[2] [0,        2,       1]
-[3] [0,        9,       6,       1]
-[4] [0,       64,      48,      12,      1]
-[5] [0,      625,     500,     150,     20,      1]
-[6] [0,     7776,    6480,    2160,    360,     30,    1]
-[7] [0,   117649,  100842,   36015,   6860,    735,   42,   1]
-[8] [0,  2097152, 1835008,  688128, 143360,  17920, 1344,  56, 1]
-"""
 
-# from Binomial import binomial
+# -- Alternative:
+#from Binomial import binomial
 #$cache
 #def abel(n: int) -> list[int]:
 #    if n == 0:
@@ -50,7 +52,7 @@ from _tabltypes import Table
 #    return [b[k - 1] * n ** (n - k) 
 #            if k > 0 else 0 for k in range(n + 1)]
 #
-# -- Alternativ for improved efficiency:
+# -- More efficient with integrated binomial:
 
 
 @cache
@@ -75,7 +77,7 @@ def abel(n: int) -> list[int]:
 Abel = Table(
     abel,      # the generating function
     "Abel",    # name of the table
-    ["A137452", "A061356", "A139526"], # similar sequences in OEIS 
+    ["A061356", "A137452", "A139526"], # similar sequences in OEIS 
     "A059297", # OEIS-id of the inverse sequence
     r"is(k = 0)\ ? \ 0^n : \binom{n-1}{k-1} (-n)^{n - k}" # TeX of the defining formula
 )
@@ -84,7 +86,7 @@ Abel = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(Abel)
+    InspectTable(Abel, oeis=False)
 
 
 

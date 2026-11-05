@@ -420,7 +420,7 @@ if __name__ == "__main__":
         for tabl in TablesList[:5]:
             print(f"### Searching row sums of {tabl.id} {tabl.oeis}.")
             sumlist = [tabl.sum(n) for n in range(30)]
-            anum = QueryOEIS(sumlist, 3)
+            anum = QueryOEIS(sumlist, 3, True)
             print('A' + str(anum).rjust(6, "0"))
 
     #test()

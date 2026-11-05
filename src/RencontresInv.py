@@ -37,7 +37,7 @@ RencontresInv = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(RencontresInv)
+    InspectTable(RencontresInv, oeis=False)
 
 
 

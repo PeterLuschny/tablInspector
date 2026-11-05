@@ -60,8 +60,7 @@ if __name__ == "__main__":
 
 
 ''' OEIS
-
-SchroederInv_Tantidiag     -> 0
+    SchroederInv_Tantidiag     -> 0
     SchroederInv_Tacc          -> 0
     SchroederInv_Tder          -> 0
     SchroederInv_TablLcm       -> 0

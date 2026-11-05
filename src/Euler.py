@@ -1,20 +1,49 @@
-from functools import cache
-from _tabltypes import Table
+"""
+Functionality and purpose:
+    * This module gives the signed enumeration of partial alternating permutations.
+      T(n, k) is the signed number of alternating permutations of n-k elements chosen from an n-element set, with sign (-1)^(n-k).
+    * The first column gives the Euler up/down numbers, signed A346838, unsigned A000111.   
+    * The triangle is a refinment of A000667 and A062162.
+    * The triangle is invertible, and up to signs, self-inverse.
+    * The triangle and some of its variants are OEIS A247453, A363394, A109449.
 
-"""Euler triangle.
+    Numerical overview: https://peterluschny.github.io/tabl/Euler.html
 
-[0]     1
-[1]    -1      1
-[2]     1     -2      1
-[3]    -2      3     -3      1
-[4]     5     -8      6     -4      1
-[5]   -16     25    -20     10     -5     1
-[6]    61    -96     75    -40     15    -6     1
-[7]  -272    427   -336    175    -70    21    -7    1
-[8]  1385  -2176   1708   -896    350  -112    28   -8   1
-[9] -7936  12465  -9792   5124  -2016   630  -168   36  -9   1
+Implementation note:
+    EulerUpDown(n, k) = (-1)^((n-k+1)/2)) * (EulerSec(n, k) + EulerTan(n, k)).
+
+Functions:
+    euler(n: int) -> list[int]:
+        Computes the coefficients of the n-th EulerUpDown polynomial.
+
+    Euler(n: int, k: int) -> int:
+        Returns the k-th coefficient of the n-th EulerUpDown polynomial.
+
+    The Euler object can access the coefficients of the EulerUpDown polynomials directly.
+    However, it is often more efficient to fetch an entire row using the lowercase version.
+ 
+Example:
+    >>> euler(3)
+    [-2, 3, -3, 1]
+    >>> Euler(3, 2)
+    -3
+
+Euler up/down triangle:
+
+    [0]     1
+    [1]    -1      1
+    [2]     1     -2      1
+    [3]    -2      3     -3      1
+    [4]     5     -8      6     -4      1
+    [5]   -16     25    -20     10     -5     1
+    [6]    61    -96     75    -40     15    -6     1
+    [7]  -272    427   -336    175    -70    21    -7    1
+    [8]  1385  -2176   1708   -896    350  -112    28   -8   1
+    [9] -7936  12465  -9792   5124  -2016   630  -168   36  -9   1
 """
 
+from functools import cache
+from _tabltypes import Table
 
 @cache
 def euler(n: int) -> list[int]:
@@ -24,16 +53,38 @@ def euler(n: int) -> list[int]:
     row = euler(n - 1) + [1]
     for k in range(n, 0, -1):
         row[k] = (row[k - 1] * n) // (k)
-    a = sum(row[j] for j in range(n, 0, -4))
-    b = sum(row[j] for j in range(n - 2, 0, -4))
+
+    # a = sum(row[j] for j in range(n, 0, -4))
+    # b = sum(row[j] for j in range(n - 2, 0, -4))
+    # This syntax is faster:
+    a = sum(row[n:0:-4])
+    b = sum(row[n-2:0:-4]) if n >= 3 else 0
+
     row[0] = b - a if (n // 2) % 2 == 0 else a - b
+    return row
+
+# this is a private experimental function:
+@cache
+def eulerrev(n: int) -> list[int]:
+    if n == 0:
+        return [1]
+
+    row = eulerrev(n - 1).copy()
+
+    for k in range(n):
+        row[k] = (row[k] * n) // (n - k)
+
+    a = sum(row[::4])
+    b = sum(row[2::4])
+
+    row.append(b - a if (n // 2) % 2 == 0 else a - b)
     return row
 
 
 Euler = Table(
     euler,
     "Euler",
-    ["A363394", "A247453", "A109449"],
+    ["A247453", "A363394", "A109449"],
     "A000000",
     r"\binom{n}{k} 2^{n-k} \text{Euler}_{n-k}(1/2)",
 )
@@ -42,7 +93,7 @@ Euler = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(Euler)
+    InspectTable(Euler, oeis=False)
 
 
 

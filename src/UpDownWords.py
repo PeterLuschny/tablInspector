@@ -22,7 +22,7 @@ def updownwords(n: int) -> list[int]:
         a = (n - k - 1) // 2 + 1
         prev = updownwords(n - 1)[k - 1]
         s = sum(updownwords(2 * j + k - 1)[k - 1] * updownwords(n - 1 - 2 * j)[k]
-                for j in range(a))
+            for j in range(a))
         row[k] = prev + s
     return row
 
@@ -39,8 +39,7 @@ UpDownWords = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(UpDownWords)
-
+    InspectTable(UpDownWords, oeis=False)
 
 
 ''' OEIS
@@ -117,4 +116,14 @@ if __name__ == "__main__":
     updownwords_CentralE      -> https://oeis.org/A373659
 
     updownwords: Distinct: 16, Hits: 23, Misses: 48
+
+
+PERFORMANCE
+updownwords   X=    5  time=         0 ms  mem=        1 KB
+updownwords   X=   25  time=         4 ms  mem=        7 KB
+updownwords   X=  100  time=       622 ms  mem=      250 KB
+updownwords   X=  200  time=      2401 ms  mem=     1261 KB
+updownwords   X=  300  time=      6862 ms  mem=     3088 KB
+updownwords   X=  400  time=     14894 ms  mem=     5892 KB
+updownwords   X=  600  time=     82248 ms  mem=    24209 KB 
 '''

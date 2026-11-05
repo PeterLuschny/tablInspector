@@ -2,6 +2,8 @@ from functools import cache
 from _tabltypes import Table
 
 """Rencontres triangle.
+   Nnumber of permutations of n elements with k fixed points. 
+   Refinement of the factorial numbers.
 
 [0]       1;
 [1]       0,      1;

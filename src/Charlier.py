@@ -40,7 +40,7 @@ def charlier(n: int) -> list[int]:
     prev2 = [0] + charlier(n - 2)
     sign = -1 if n & 1 else 1
     middle = [a - n * b - (n - 1) * c
-        for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
+             for a, b, c in zip(prev1[1:], prev1[:-1], prev2)]
     return [1] + middle + [sign]
 
 

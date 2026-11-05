@@ -1,7 +1,7 @@
 from functools import cache
 from _tabltypes import Table
 
-"""Powers.
+"""Powers, k^n.
 
 [0]  [1]
 [1]  [0, 1]

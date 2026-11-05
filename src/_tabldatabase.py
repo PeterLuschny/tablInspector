@@ -157,7 +157,7 @@ def AddAnumsToSrcfile(
             if anum != 0:
                 dest.write(f"    {fullname:<24} -> https://oeis.org/A{anum}\n")
             else:
-                dest.write(f"    {fullname} -> 0 \n")
+                dest.write(f"    {fullname:<24} -> 0 \n")
 
         misses = len([v for v in d.values() if v == 0])
         hits = len(d.values()) - misses
@@ -441,8 +441,8 @@ def InspectTable(T: Table, oeis: bool=False) -> None:
     if oeis:
         print("Searching OEIS -- this will take some time!")
         AddTable(T)
-        print()
         AddAnumsToSrcfile(T.id)
+        print()
 
 
 if __name__ == "__main__":

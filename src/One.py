@@ -2,6 +2,7 @@ from functools import cache
 from _tabltypes import Table
 
 """Uno, the all 1's triangle.
+   Refinement of the positive integers.
 
 [0]  1
 [1]  1,  1

@@ -41,7 +41,7 @@ StirlingCycle = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(StirlingCycle)
+    InspectTable(StirlingCycle, oeis=False)
 
 
 

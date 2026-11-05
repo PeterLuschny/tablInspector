@@ -33,7 +33,7 @@ Sierpinski = Table(
 if __name__ == "__main__":
     from _tabldatabase import InspectTable
 
-    InspectTable(Sierpinski)
+    InspectTable(Sierpinski, oeis=False)
 
 
 
